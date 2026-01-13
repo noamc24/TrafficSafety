@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/">המרכז לבטיחות בתנועה</a>
+
+    <!-- Brand (Logo + Text) -->
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="/">
+      <img src="/assets/photos/TSCLogo.png" alt="TSC Logo" class="navbar-logo">
+      <span class="brand-text">המרכז לבטיחות בתנועה</span>
+    </a>
 
     <!-- Mobile toggle (only on < lg) -->
     <button class="navbar-toggler d-lg-none" type="button"
@@ -11,10 +16,11 @@
 
     <!-- Desktop menu (only on lg+) -->
     <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end">
-      <ul class="navbar-nav gap-2">
+      <ul class="navbar-nav gap-2 align-items-lg-center">
         <li class="nav-item"><a class="nav-link" href="/">דף הבית</a></li>
         <li class="nav-item"><a class="nav-link" href="/services">שירותים</a></li>
         <li class="nav-item"><a class="nav-link" href="/projects">פרויקטים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/signs">שילוט ותמרור</a></li>
         <li class="nav-item">
           <a class="btn btn-warning text-dark px-3 fw-bold" href="/contact">צור קשר</a>
         </li>
@@ -25,19 +31,32 @@
     <div class="offcanvas offcanvas-end text-bg-dark d-lg-none"
          tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="mobileMenuLabel">תפריט</h5>
+
+        <!-- Mobile header with logo -->
+        <div class="d-flex align-items-center gap-2">
+          <img src="/assets/photos/TSCLogo.png" alt="TSC Logo" class="offcanvas-logo">
+          <h5 class="offcanvas-title m-0" id="mobileMenuLabel">תפריט</h5>
+        </div>
+
         <button type="button" class="btn-close btn-close-white"
                 data-bs-dismiss="offcanvas" aria-label="סגור"></button>
       </div>
 
       <div class="offcanvas-body">
+        <!-- Optional: centered logo at top of menu -->
+        <div class="text-center mb-3">
+          <img src="/assets/photos/TSCLogo.png" alt="TSC Logo" class="offcanvas-logo-lg">
+        </div>
+
         <div class="d-grid gap-2">
           <a class="btn btn-outline-light" href="/" data-bs-dismiss="offcanvas">דף הבית</a>
           <a class="btn btn-outline-light" href="/services" data-bs-dismiss="offcanvas">שירותים</a>
           <a class="btn btn-outline-light" href="/projects" data-bs-dismiss="offcanvas">פרויקטים</a>
+          <a class="btn btn-outline-light" href="/signs" data-bs-dismiss="offcanvas">שילוט ותמרור</a>
           <a class="btn btn-warning text-dark fw-bold" href="/contact" data-bs-dismiss="offcanvas">צור קשר</a>
         </div>
       </div>
     </div>
+
   </div>
 </nav>

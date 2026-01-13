@@ -1,24 +1,78 @@
+/* ===== Navbar ===== */
+.navbar {
+  padding-top: 1.2vh;
+  padding-bottom: 1.2vh;
+}
+
+/* ===== Logo in navbar ===== */
+.navbar .navbar-logo {
+  height: clamp(4vh, 5.5vh, 7vh);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Brand text alignment */
+.navbar-brand .brand-text {
+  line-height: 1.1;
+}
+
+.offcanvas-logo {
+  height: clamp(3.5vh, 4.5vh, 5.5vh);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.offcanvas-logo-lg {
+  height: clamp(7vh, 9vh, 11vh);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.card {
+  border-radius: 2vh;
+}
+
+.btn,
+.form-control,
+.alert {
+  border-radius: 1.6vh;
+}
+
 .hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);
+  padding-top: 8vh;
+  padding-bottom: 8vh;
 }
 
 .navbar .nav-link.active {
   font-weight: 700;
   text-decoration: underline;
-  text-underline-offset: 6px;
+  text-underline-offset: 0.6vh;
 }
 
-.card {
-  border-radius: 16px;
-}
-
-.btn, .form-control, .alert {
-  border-radius: 14px;
-}
-
-/* קצת אוויר במובייל */
 @media (max-width: 576px) {
   .display-5 {
-    font-size: 2rem;
+    font-size: 4.5vh;
+  }
+}
+/* Signs page hero */
+.page-hero {
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+}
+
+/* Main image on signs page */
+.signs-image {
+  height: clamp(28vh, 40vh, 55vh);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.98;
+}
+
+@media (max-width: 576px) {
+  .signs-image {
+    height: clamp(22vh, 30vh, 38vh);
   }
 }
