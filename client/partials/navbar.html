@@ -1,2 +1,37 @@
-תפריט עליון במחשב
-תפריט צד בפלאפון
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">המרכז לבטיחות בתנועה</a>
+
+    <!-- Mobile button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Desktop menu -->
+    <div class="collapse navbar-collapse d-none d-lg-flex">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><a class="nav-link" href="/">דף הבית</a></li>
+        <li class="nav-item"><a class="nav-link" href="/services">שירותים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects">פרויקטים</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-warning text-dark px-3" href="/contact">צור קשר</a></li>
+      </ul>
+    </div>
+
+    <!-- Offcanvas (Mobile) -->
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mobileMenuLabel">תפריט</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="d-grid gap-2">
+          <a class="btn btn-outline-light" href="/" data-bs-dismiss="offcanvas">דף הבית</a>
+          <a class="btn btn-outline-light" href="/services" data-bs-dismiss="offcanvas">שירותים</a>
+          <a class="btn btn-outline-light" href="/projects" data-bs-dismiss="offcanvas">פרויקטים</a>
+          <a class="btn btn-warning text-dark fw-bold" href="/contact" data-bs-dismiss="offcanvas">צור קשר</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
