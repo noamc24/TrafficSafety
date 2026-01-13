@@ -6,7 +6,7 @@
 
 /* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
-  height: clamp(4vh, 5.5vh, 7vh);
+  height: clamp(8vh, 11vh, 14vh);
   width: auto;
   object-fit: contain;
   display: block;
