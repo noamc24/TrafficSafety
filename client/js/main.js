@@ -1,5 +1,16 @@
 // client/js/main.js
 
+// Development helper: unregister any active service workers so cached SW doesn't serve stale content.
+if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+  try {
+    navigator.serviceWorker.getRegistrations().then(regs => {
+      regs.forEach(r => r.unregister().catch(() => {}));
+    }).catch(() => {});
+  } catch (e) {
+    // ignore in older browsers
+  }
+}
+
 async function mountPartials() {
   const navbarMount = document.getElementById("navbarMount");
   const footerMount = document.getElementById("footerMount");

@@ -8,19 +8,34 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// static client
+// static client (disable caching in development)
 const clientPath = path.join(__dirname, "..", "client");
-app.use(express.static(clientPath));
+app.use(express.static(clientPath, { etag: false, maxAge: 0 }));
 
 // routes
 app.use("/api/contact", require("./routes/contact"));
 
-// pages
-app.get("/", (req, res) => res.sendFile(path.join(clientPath, "pages", "index.html")));
-app.get("/services", (req, res) => res.sendFile(path.join(clientPath, "pages", "services.html")));
-app.get("/projects", (req, res) => res.sendFile(path.join(clientPath, "pages", "projects.html")));
-app.get("/contact", (req, res) => res.sendFile(path.join(clientPath, "pages", "contact.html")));
-app.get("/signs", (req, res) => res.sendFile(path.join(clientPath, "pages", "signs.html")));
+// pages - All routes return main.html (Single Page Application)
+app.get("/", (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(path.join(clientPath, "pages", "main.html"));
+});
+app.get("/services", (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(path.join(clientPath, "pages", "main.html"));
+});
+app.get("/projects", (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(path.join(clientPath, "pages", "main.html"));
+});
+app.get("/contact", (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(path.join(clientPath, "pages", "main.html"));
+});
+app.get("/signs", (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(path.join(clientPath, "pages", "main.html"));
+});
 
 // 404
 app.use((req, res) => {
