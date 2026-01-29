@@ -4,6 +4,11 @@
   padding-bottom: 1.2vh;
 }
 
+/* Smooth scrolling for in-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
   height: clamp(8vh, 11vh, 14vh);
@@ -75,4 +80,24 @@
   .signs-image {
     height: clamp(22vh, 30vh, 38vh);
   }
+}
+.whatsapp-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: #ffffff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0);
 }

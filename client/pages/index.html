@@ -12,7 +12,7 @@
 <body>
   <div id="navbarMount"></div>
 
-  <header class="hero">
+  <header id="home" class="hero">
     <div class="container py-5">
       <div class="row align-items-center g-4">
         <div class="col-12 col-lg-7">
@@ -39,7 +39,15 @@
             </div>
           </div>
           <div class="alert alert-light border mt-3 mb-0">
-            <span class="fw-semibold">זמין גם בווטסאפ</span> – בהמשך נוסיף כפתור מהיר.
+            <span class="fw-semibold">זמין גם בווטסאפ</span> 
+            <a
+              href="https://wa.me/0548778669?text= היי, אשמח לקבל את הצעת מחיר עבור ... " 
+              target="_blank"
+              rel="noopener"
+              class="whatsapp-btn"
+            >
+              שלח לי הודעה ב-WhatsApp
+            </a>
           </div>
         </div>
       </div>
@@ -74,6 +82,144 @@
       </div>
     </div>
   </main>
+
+  <!-- Services section -->
+  <section id="services" class="container my-5">
+    <h1 class="fw-bold mb-3">שירותים</h1>
+    <p class="text-muted">כאן נשים את רשימת השירותים עם פירוט קצר לכל שירות.</p>
+
+    <div class="row g-3 mt-2">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">סימון כבישים</h5>
+            <p class="text-muted mb-0">סימון/חידוש קווי הפרדה, מעברי חציה, חצים ועוד.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">שילוט ותמרור</h5>
+            <p class="text-muted mb-0">התקנה, החלפה ותחזוקה של שילוט ותמרורים.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">הסדרי תנועה זמניים</h5>
+            <p class="text-muted mb-0">תכנון וביצוע ניהול תנועה בזמן עבודות.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <a href="#contact" class="btn btn-warning fw-bold text-dark">קבל הצעת מחיר</a>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="container my-5">
+    <h1 class="fw-bold mb-3">פרויקטים</h1>
+    <p class="text-muted">גלריית פרויקטים ודוגמאות מהשטח.</p>
+    <div class="row g-3 mt-2">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/photos/project1.jpg" alt="פרויקט לדוגמה #1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="fw-bold">פרויקט לדוגמה #1</h5>
+            <p class="text-muted mb-0">תיאור קצר…</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/photos/project2.jpg" alt="פרויקט לדוגמה #2" class="card-img-top">
+          <div class="card-body">
+            <h5 class="fw-bold">פרויקט לדוגמה #2</h5>
+            <p class="text-muted mb-0">תיאור קצר…</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/photos/project3.jpg" alt="פרויקט לדוגמה #3" class="card-img-top">
+          <div class="card-body">
+            <h5 class="fw-bold">פרויקט לדוגמה #3</h5>
+            <p class="text-muted mb-0">תיאור קצר…</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signs section -->
+  <section id="signs" class="page-hero container my-5">
+    <div class="row align-items-center g-4">
+      <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">שילוט ותמרור</h1>
+        <p class="lead text-muted mb-4">
+          התקנה והצבה של תמרורים ושילוט בהתאם לתקנים.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#contact" class="btn btn-warning btn-lg fw-bold text-dark">דבר איתנו</a>
+          <a href="#services" class="btn btn-outline-dark btn-lg">כל השירותים</a>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 text-center">
+        <img src="/assets/photos/TrafficSigns.png" alt="לוח תמרורים" class="signs-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section (last) -->
+  <section id="contact" class="container my-5">
+    <div class="row g-4">
+      <div class="col-12 col-lg-6">
+        <h1 class="fw-bold mb-3">צור קשר</h1>
+        <p class="text-muted">השאר פרטים ונחזור אליך.</p>
+
+        <form id="contactForm" class="card shadow-sm p-3">
+          <div class="mb-3">
+            <label class="form-label">שם מלא *</label>
+            <input name="fullName" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">אימייל *</label>
+            <input name="email" type="email" class="form-control" placeholder="name@example.com" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">טלפון</label>
+            <input name="phone" class="form-control" placeholder="05X-XXXXXXX" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">הודעה *</label>
+            <textarea name="message" rows="4" class="form-control" placeholder="מה צריך לבצע?" required></textarea>
+          </div>
+
+          <button class="btn btn-warning fw-bold text-dark" type="submit">שלח</button>
+          <div id="formAlert" class="mt-3"></div>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="fw-bold">פרטי התקשרות</h5>
+            <p class="text-muted mb-1">טלפון: <span class="fw-semibold">054-8778669</span></p>
+            <p class="text-muted mb-3">אימייל: <span class="fw-semibold">hamerkaz.bt@gmail.com</span></p>
+            <div class="alert alert-light border mb-0">
+             בהמשך נחבר פה גם מפת Google + כפתור וואטסאפ.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div id="footerMount"></div>
 

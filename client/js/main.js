@@ -13,6 +13,8 @@ async function mountPartials() {
       });
       navbarMount.innerHTML = navHtml;
       setActiveNavLink();
+      // ensure scroll-based active updates run after navbar injection
+      updateActiveOnScroll();
     } catch (err) {
       console.error("Failed to load navbar:", err);
       navbarMount.innerHTML = ""; // keep clean
@@ -39,33 +41,99 @@ async function mountPartials() {
 }
 
 function normalizePath(p) {
-  // Normalize trailing slash and default index
+  // Normalize trailing slash and default index; strip .html
   if (!p) return "/";
   let path = p.split("?")[0].split("#")[0];
   if (path !== "/" && path.endsWith("/")) path = path.slice(0, -1);
+  if (path !== "/" && path.toLowerCase().endsWith('.html')) {
+    path = path.slice(0, -5) || "/";
+  }
   return path;
 }
 
 function setActiveNavLink() {
-  const current = normalizePath(window.location.pathname);
+  // Mark link active by pathname or by hash if present
+  const currentPath = normalizePath(window.location.pathname);
+  const currentHash = (window.location.hash || "").replace(/^#/, "");
 
-  // Works for both desktop links (.nav-link) and mobile offcanvas buttons (a.btn)
-  const links = document.querySelectorAll('a[href^="/"]');
+  // links that are internal anchors or root-relative
+  const links = document.querySelectorAll('a[href^="#"], a[href^="/"]');
 
   links.forEach(a => {
-    const href = normalizePath(a.getAttribute("href"));
-    if (!href) return;
+    a.classList.remove('active');
+    a.classList.remove('fw-bold');
+  });
 
-    // Mark exact match
-    if (href === current) {
-      a.classList.add("active");
-      // If it's a button, give it subtle emphasis
-      if (a.classList.contains("btn") && !a.classList.contains("btn-warning")) {
-        a.classList.add("fw-bold");
+  links.forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('#')) {
+      const id = href.slice(1);
+      if (id && id === currentHash) {
+        a.classList.add('active');
+        if (a.classList.contains('btn') && !a.classList.contains('btn-warning')) a.classList.add('fw-bold');
+      }
+    } else if (href.startsWith('/')) {
+      const normalized = normalizePath(href);
+      if (normalized === currentPath) {
+        a.classList.add('active');
+        if (a.classList.contains('btn') && !a.classList.contains('btn-warning')) a.classList.add('fw-bold');
       }
     }
   });
 }
+
+// Update active nav item based on scroll position
+function updateActiveOnScroll() {
+  const ids = ['home', 'services', 'projects', 'signs', 'contact'];
+  let best = null;
+  let bestDist = Infinity;
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const dist = Math.abs(rect.top - 120);
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = id;
+    }
+  });
+
+  if (!best) return;
+
+  // clear previous
+  document.querySelectorAll('a[href^="#"]').forEach(a => { a.classList.remove('active'); a.classList.remove('fw-bold'); });
+  const active = document.querySelector(`a[href="#${best}"]`);
+  if (active) {
+    active.classList.add('active');
+    if (active.classList.contains('btn') && !active.classList.contains('btn-warning')) active.classList.add('fw-bold');
+  }
+}
+
+// throttled scroll handler
+let scrollRaf = null;
+function onScrollThrottled() {
+  if (scrollRaf) return;
+  scrollRaf = requestAnimationFrame(() => {
+    updateActiveOnScroll();
+    scrollRaf = null;
+  });
+}
+
+// click handler for hash links (smooth scroll + update hash)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href === '#') return;
+  const id = href.slice(1);
+  const el = document.getElementById(id);
+  if (!el) return;
+  e.preventDefault();
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  history.replaceState(null, '', `#${id}`);
+  // update active immediately
+  setTimeout(() => { updateActiveOnScroll(); }, 250);
+});
 
 function setupContactForm() {
   const form = document.getElementById("contactForm");
@@ -118,3 +186,5 @@ function setupContactForm() {
 // Run
 mountPartials();
 setupContactForm();
+updateActiveOnScroll();
+window.addEventListener('scroll', onScrollThrottled, { passive: true });
