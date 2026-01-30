@@ -132,6 +132,38 @@ html {
   margin-right: 0.5rem;
 }
 
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#backToTop svg {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+#backToTop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#backToTop.show {
+  display: flex;
+}
+
 /* Project card images */
 .card-img-top {
   height: 250px;
