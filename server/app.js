@@ -15,25 +15,9 @@ app.use(express.static(clientPath, { etag: false, maxAge: 0 }));
 // routes
 app.use("/api/contact", require("./routes/contact"));
 
-// pages - All routes return main.html (Single Page Application)
-app.get("/", (req, res) => {
-  res.setHeader('Cache-Control', 'no-store');
-  res.sendFile(path.join(clientPath, "pages", "main.html"));
-});
-app.get("/services", (req, res) => {
-  res.setHeader('Cache-Control', 'no-store');
-  res.sendFile(path.join(clientPath, "pages", "main.html"));
-});
-app.get("/projects", (req, res) => {
-  res.setHeader('Cache-Control', 'no-store');
-  res.sendFile(path.join(clientPath, "pages", "main.html"));
-});
-app.get("/contact", (req, res) => {
-  res.setHeader('Cache-Control', 'no-store');
-  res.sendFile(path.join(clientPath, "pages", "main.html"));
-});
-app.get("/signs", (req, res) => {
-  res.setHeader('Cache-Control', 'no-store');
+// pages fallback (SPA)
+app.get(["/", "/services", "/projects", "/contact", "/signs"], (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
   res.sendFile(path.join(clientPath, "pages", "main.html"));
 });
 
