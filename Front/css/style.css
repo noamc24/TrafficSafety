@@ -4,6 +4,18 @@
   padding-bottom: 1.2vh;
 }
 
+/* make nav links and buttons more prominent */
+.navbar .nav-link {
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem); /* responsive larger text */
+  padding: 0.6rem 0.9rem;
+}
+
+.navbar .btn {
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  padding: 0.6rem 1.1rem;
+}
+
+
 /* Smooth scrolling for in-page navigation */
 html {
   scroll-behavior: smooth;
@@ -11,15 +23,13 @@ html {
 
 /* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
-  height: clamp(8vh, 11vh, 14vh);
+  height: clamp(16vh, 22vh, 28vh);
   width: auto;
   object-fit: contain;
   display: block;
   transform: scale(2);
   transform-origin: left center;
-}
-
-/* Brand text alignment */
+}/* Brand text alignment */
 .navbar-brand .brand-text {
   line-height: 1.1;
 }
@@ -50,8 +60,8 @@ html {
 
 .hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);
-  padding-top: 8vh;
-  padding-bottom: 8vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 }
 
 .navbar .nav-link.active {
@@ -190,4 +200,14 @@ html {
   width: 160px;
   height: 100px;
   display: block;
+}
+.footer-logo{
+  height:48px;
+  width:auto;
+  opacity:0.85;
+  transition:opacity 0.2s ease;
+}
+
+.footer-logo:hover{
+  opacity:1;
 }
