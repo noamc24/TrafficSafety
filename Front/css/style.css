@@ -13,7 +13,7 @@
 /* ===== Navbar ===== */
 .navbar {
   padding-top: 1.2vh;
-  padding-bottom: 1.2vh;
+  padding-bottom: .2vh;
 }
 
 /* make nav links and buttons more prominent */
@@ -31,16 +31,28 @@
 /* Smooth scrolling for in-page navigation */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
+
+/* Force media to scale inside container */
+img, iframe, video, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
-  height: clamp(16vh, 22vh, 28vh);
+  height: 18rem;
   width: auto;
   object-fit: contain;
   display: block;
-  transform: scale(2);
-  transform-origin: left center;
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar-logo {
+    height: 10rem;
+  }
 }/* Brand text alignment */
 .navbar-brand .brand-text {
   line-height: 1.1;
@@ -54,7 +66,7 @@ html {
 }
 
 .offcanvas-logo-lg {
-  height: clamp(7vh, 9vh, 11vh);
+  height: 11 rem;
   width: auto;
   object-fit: contain;
   opacity: 0.95;
