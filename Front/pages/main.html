@@ -26,7 +26,9 @@
 <body>
   <div id="navbarMount"></div>
 
-  <header id="home" class="hero">
+  <a href="#main-content" class="skip-link">דלג לתוכן</a>
+
+  <header id="home" class="hero reveal">
     <div class="container py-5">
       <div class="row align-items-center g-4">
         <div class="col-12 col-lg-7">
@@ -71,7 +73,7 @@
     </div>
   </header>
 
-  <main class="container my-5">
+  <main class="container my-5 reveal" id="main-content">
     <div class="row g-3">
       <div class="col-12 col-md-4">
         <div class="card h-100 shadow-sm">
@@ -101,7 +103,7 @@
   </main>
 
   <!-- About Section -->
-  <section id="about" class="container my-5 py-4">
+  <section id="about" class="container my-5 py-4 reveal">
     <h2 class="fw-bold mb-4">אודות המרכז</h2>
     <div class="row g-4">
       <div class="col-12 col-lg-8">
@@ -115,10 +117,12 @@
           לקוחותינו כוללים עירויות, חברות בנייה, משרדי הנדסה וגופים ממשלתיים בכל האזורים בישראל.
         </p>
       </div>
-
+        </div> 
+    </div> 
+</section> 
   
   <!-- Services section -->
-  <section id="services" class="container my-5">
+  <section id="services" class="container my-5 reveal">
     <h2 class="fw-bold mb-4">שירותים</h2>
     <p class="text-muted">כאן נשים את רשימת השירותים עם פירוט קצר לכל שירות.</p>
 
@@ -178,7 +182,7 @@
   </section>
 
   <!-- Projects section -->
-  <section id="projects" class="container my-5">
+  <section id="projects" class="container my-5 reveal">
     <h1 class="fw-bold mb-3">פרויקטים</h1>
     <p class="text-muted">גלריית פרויקטים ודוגמאות מהשטח.</p>
     <div class="row g-3 mt-2">
@@ -213,7 +217,7 @@
   </section>
 
   <!-- Signs section -->
-  <section id="signs" class="page-hero container my-5">
+  <section id="signs" class="page-hero container my-5 reveal">
     <div class="row align-items-center g-4">
       <div class="col-12 col-lg-6">
         <h1 class="display-5 fw-bold mb-3">שילוט ותמרור</h1>
@@ -232,7 +236,7 @@
   </section>
 
   <!-- Contact section (last) -->
-  <section id="contact" class="container my-5">
+  <section id="contact" class="container my-5 reveal">
     <div class="row g-4">
       <div class="col-12 col-lg-6">
         <h1 class="fw-bold mb-3">צור קשר</h1>
@@ -301,8 +305,6 @@
     </div>
   </section>
 
-  <div id="footerMount"></div>
-
   <!-- Back to Top Button -->
   <button id="backToTop" class="btn btn-warning btn-lg" title="חזור לראש העמוד">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -310,13 +312,64 @@
     </svg>
   </button>
 
+  <div id="footerMount"></div>
+
+  <!-- Accessibility Button -->
+  <button id="accessibilityBtn" class="btn btn-warning btn-lg" title="כלי נגישות" aria-label="פתח כלי נגישות">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM4.5 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
+    </svg>
+  </button>
+
+  <!-- Accessibility Modal -->
+  <div id="accessibilityModal" class="modal fade" tabindex="-1" aria-labelledby="accessibilityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-warning">
+        <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title fw-bold" id="accessibilityModalLabel">כלי נגישות</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="סגור"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="increaseText">
+            <label class="form-check-label fw-semibold" for="increaseText">
+              הגדלת טקסט
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="highContrast">
+            <label class="form-check-label fw-semibold" for="highContrast">
+              ניגודיות גבוהה
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="disableAnimations">
+            <label class="form-check-label fw-semibold" for="disableAnimations">
+              ביטול אנימציות
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="readableFont">
+            <label class="form-check-label fw-semibold" for="readableFont">
+              פונט קריא
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">סגור</button>
+          <button type="button" class="btn btn-warning fw-bold text-dark" id="applyAccessibility">החל</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/js/main.js?v=20260129v2"></script>
   <script>
     // Back to Top Button
     const backToTopButton = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
+      if (window.scrollY > 300) {
         backToTopButton.classList.add('show');
       } else {
         backToTopButton.classList.remove('show');
@@ -325,6 +378,64 @@
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  </script>
+  <script>
+    // Accessibility Button
+    const accessibilityBtn = document.getElementById('accessibilityBtn');
+    const accessibilityModal = new bootstrap.Modal(document.getElementById('accessibilityModal'));
+    const applyBtn = document.getElementById('applyAccessibility');
+    const increaseText = document.getElementById('increaseText');
+    const highContrast = document.getElementById('highContrast');
+    const disableAnimations = document.getElementById('disableAnimations');
+    const readableFont = document.getElementById('readableFont');
+
+    // Load saved settings
+    const settings = JSON.parse(localStorage.getItem('accessibilitySettings') || '{}');
+    increaseText.checked = settings.increaseText || false;
+    highContrast.checked = settings.highContrast || false;
+    disableAnimations.checked = settings.disableAnimations || false;
+    readableFont.checked = settings.readableFont || false;
+    applySettings();
+
+    accessibilityBtn.addEventListener('click', () => {
+      accessibilityModal.show();
+    });
+
+    applyBtn.addEventListener('click', () => {
+      const newSettings = {
+        increaseText: increaseText.checked,
+        highContrast: highContrast.checked,
+        disableAnimations: disableAnimations.checked,
+        readableFont: readableFont.checked
+      };
+      localStorage.setItem('accessibilitySettings', JSON.stringify(newSettings));
+      applySettings();
+      accessibilityModal.hide();
+    });
+
+    function applySettings() {
+      const body = document.body;
+      if (increaseText.checked) {
+        body.classList.add('increase-text');
+      } else {
+        body.classList.remove('increase-text');
+      }
+      if (highContrast.checked) {
+        body.classList.add('high-contrast');
+      } else {
+        body.classList.remove('high-contrast');
+      }
+      if (disableAnimations.checked) {
+        body.classList.add('disable-animations');
+      } else {
+        body.classList.remove('disable-animations');
+      }
+      if (readableFont.checked) {
+        body.classList.add('readable-font');
+      } else {
+        body.classList.remove('readable-font');
+      }
+    }
   </script>
 </body>
 </html>

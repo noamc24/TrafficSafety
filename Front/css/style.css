@@ -1,3 +1,15 @@
+/* ===== Scroll Reveal Animation ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ===== Navbar ===== */
 .navbar {
   padding-top: 1.2vh;
@@ -172,6 +184,164 @@ html {
 
 #backToTop.show {
   display: flex;
+}
+
+/* Accessibility Button */
+#accessibilityBtn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#accessibilityBtn svg {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+#accessibilityBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Accessibility Styles */
+.increase-text {
+  font-size: 1.2em;
+}
+
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast .card,
+.high-contrast .btn,
+.high-contrast .alert,
+.high-contrast .modal-content,
+.high-contrast .modal-header,
+.high-contrast .modal-body,
+.high-contrast .modal-footer {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-color: #666 !important;
+}
+
+.high-contrast .navbar,
+.high-contrast .hero,
+.high-contrast .page-hero {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast a {
+  color: #ffff00 !important; /* צהוב לlinks */
+}
+
+.high-contrast .btn-warning {
+  background-color: #ff8c00 !important; /* כתום */
+  color: #000 !important;
+  border-color: #ff8c00 !important;
+}
+
+.high-contrast .btn-primary {
+  background-color: #007bff !important;
+  color: #fff !important;
+  border-color: #007bff !important;
+}
+
+.high-contrast .form-control,
+.high-contrast .form-check-input {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-color: #666 !important;
+}
+
+.high-contrast .form-check-label {
+  color: #fff !important;
+}
+
+.high-contrast .text-muted,
+.high-contrast .text-secondary,
+.high-contrast .text-dark,
+.high-contrast .text-light {
+  color: #fff !important;
+}
+
+.high-contrast .bg-light,
+.high-contrast .bg-white {
+  background-color: #333 !important;
+}
+
+.high-contrast .border {
+  border-color: #666 !important;
+}
+
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6 {
+  color: #fff !important;
+}
+
+.high-contrast p,
+.high-contrast span,
+.high-contrast div {
+  color: #fff !important;
+}
+
+.high-contrast .navbar-brand,
+.high-contrast .nav-link {
+  color: #fff !important;
+}
+
+.high-contrast .btn-outline-dark {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-color: #666 !important;
+}
+
+.high-contrast .btn-outline-secondary {
+  background-color: #333 !important;
+  color: #fff !important;
+  border-color: #666 !important;
+}
+
+.disable-animations * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.readable-font {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: 1000;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
 }
 
 /* Project card images */
