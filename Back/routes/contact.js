@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { sendTelegramMessage } = require("../Bot/Sender");
+const { sendTelegramMessage } = require("../bot/Sender");
 
 router.post("/", async (req, res) => {
   try {
