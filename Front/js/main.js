@@ -159,7 +159,6 @@ function setupContactForm() {
 
     const payload = Object.fromEntries(new FormData(form).entries());
 
-    // Quick client-side required check (server still validates)
     if (!payload.fullName || !payload.email || !payload.message) {
       if (alertBox) {
         alertBox.innerHTML = `<div class="alert alert-danger mb-0">נא למלא שם מלא, אימייל והודעה.</div>`;
@@ -193,7 +192,17 @@ function setupContactForm() {
     }
   });
 }
-
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  });
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 // Run
 mountPartials();
 setupContactForm();

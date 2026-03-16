@@ -1,0 +1,268 @@
+/* כפתור צף */
+.accessibility-float-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: #f4c400;
+  color: #1f1f1f;
+  font-size: 1.7rem;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accessibility-float-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.accessibility-float-btn:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 4px;
+}
+
+/* מודאל */
+#accessibilityModal .modal-content {
+  border: 2px solid #f4c400;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+#accessibilityModal .accessibility-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 1.25rem;
+}
+
+#accessibilityModal .accessibility-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#accessibilityModal .accessibility-option:hover {
+  background: #fff8db;
+  border-color: #f4c400;
+}
+
+#accessibilityModal .option-label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #212529;
+}
+
+#accessibilityModal .form-check-input {
+  margin: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: #f4c400;
+}
+
+@media (max-width: 768px) {
+  .accessibility-float-btn {
+    width: 52px;
+    height: 52px;
+    left: 14px;
+    bottom: 14px;
+    font-size: 1.45rem;
+  }
+}
+
+/* ========================= */
+/* מצבי נגישות */
+/* ========================= */
+
+/* הגדלת טקסט */
+
+body.accessibility-text-large p,
+body.accessibility-text-large span,
+body.accessibility-text-large a,
+body.accessibility-text-large li,
+body.accessibility-text-large label,
+body.accessibility-text-large button,
+body.accessibility-text-large input,
+body.accessibility-text-large textarea,
+body.accessibility-text-large select,
+body.accessibility-text-large small,
+body.accessibility-text-large strong,
+body.accessibility-text-large em,
+body.accessibility-text-large .btn,
+body.accessibility-text-large .form-control,
+body.accessibility-text-large .card-text,
+body.accessibility-text-large .text-muted,
+body.accessibility-text-large .option-label {
+  font-size: 150% !important;
+  line-height: 1.6 !important;
+}
+
+
+/* כותרות */
+body.accessibility-text-large h1 { font-size: 3.75rem !important; }
+body.accessibility-text-large h2 { font-size: 3rem !important; }
+body.accessibility-text-large h3 { font-size: 2.6rem !important; }
+body.accessibility-text-large h4 { font-size: 2.25rem !important; }
+body.accessibility-text-large h5 { font-size: 1.9rem !important; }
+body.accessibility-text-large h6 { font-size: 1.6rem !important; }
+
+
+/* ========================= */
+/* ניגודיות גבוהה */
+/* ========================= */
+
+body.accessibility-high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* כל הבלוקים באתר */
+body.accessibility-high-contrast main,
+body.accessibility-high-contrast section,
+body.accessibility-high-contrast div,
+body.accessibility-high-contrast header,
+body.accessibility-high-contrast footer,
+body.accessibility-high-contrast nav,
+body.accessibility-high-contrast article,
+body.accessibility-high-contrast aside,
+body.accessibility-high-contrast .card,
+body.accessibility-high-contrast .card-body,
+body.accessibility-high-contrast .modal-content,
+body.accessibility-high-contrast .modal-header,
+body.accessibility-high-contrast .modal-body,
+body.accessibility-high-contrast .modal-footer,
+body.accessibility-high-contrast .alert,
+body.accessibility-high-contrast .accessibility-option,
+body.accessibility-high-contrast .dropdown-menu,
+body.accessibility-high-contrast .navbar {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+
+/* כל הטקסט */
+body.accessibility-high-contrast h1,
+body.accessibility-high-contrast h2,
+body.accessibility-high-contrast h3,
+body.accessibility-high-contrast h4,
+body.accessibility-high-contrast h5,
+body.accessibility-high-contrast h6,
+body.accessibility-high-contrast p,
+body.accessibility-high-contrast span,
+body.accessibility-high-contrast label,
+body.accessibility-high-contrast li,
+body.accessibility-high-contrast small,
+body.accessibility-high-contrast strong,
+body.accessibility-high-contrast .text-muted,
+body.accessibility-high-contrast .option-label,
+body.accessibility-high-contrast .modal-title {
+  color: #fff !important;
+}
+
+
+/* קישורים */
+body.accessibility-high-contrast a {
+  color: #ffeb3b !important;
+  text-decoration: underline !important;
+}
+
+
+/* כפתורים */
+body.accessibility-high-contrast button,
+body.accessibility-high-contrast .btn {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+
+/* כפתורים בולטים */
+body.accessibility-high-contrast .btn-warning,
+body.accessibility-high-contrast .btn-primary,
+body.accessibility-high-contrast .btn-success {
+  background: #ffeb3b !important;
+  color: #000 !important;
+  border-color: #ffeb3b !important;
+}
+
+
+/* שדות קלט */
+body.accessibility-high-contrast input,
+body.accessibility-high-contrast textarea,
+body.accessibility-high-contrast select,
+body.accessibility-high-contrast .form-control {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+
+/* placeholder */
+body.accessibility-high-contrast ::placeholder {
+  color: #ddd !important;
+  opacity: 1;
+}
+
+
+/* checkbox מסומן */
+body.accessibility-high-contrast .form-check-input:checked {
+  background-color: #ffeb3b !important;
+  border-color: #ffeb3b !important;
+}
+/* תיקון ניגודיות לעמודי מדיניות */
+body.accessibility-high-contrast .tsc-privacy__box,
+body.accessibility-high-contrast .tsc-privacy__section,
+body.accessibility-high-contrast .tsc-privacy__title,
+body.accessibility-high-contrast .tsc-privacy__text {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* הכותרות הקטנות עם הפס הצהוב */
+body.accessibility-high-contrast .tsc-privacy__section {
+  border-color: #ffeb3b !important;
+}
+
+/* קישורים */
+body.accessibility-high-contrast .tsc-privacy__link {
+  color: #ffeb3b !important;
+  text-decoration: underline;
+}
+
+/* ========================= */
+/* ביטול אנימציות */
+/* ========================= */
+
+body.accessibility-no-animations *,
+body.accessibility-no-animations *::before,
+body.accessibility-no-animations *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+
+/* ========================= */
+/* פונט קריא */
+/* ========================= */
+
+body.accessibility-readable-font,
+body.accessibility-readable-font * {
+  font-family: Arial, "Noto Sans Hebrew", "Segoe UI", sans-serif !important;
+}

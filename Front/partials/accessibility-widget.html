@@ -1,0 +1,48 @@
+<button
+  class="accessibility-float-btn"
+  type="button"
+  data-bs-toggle="modal"
+  data-bs-target="#accessibilityModal"
+  aria-label="פתח כלי נגישות"
+  title="נגישות"
+>
+  ♿
+</button>
+
+<div id="accessibilityModal" class="modal fade" tabindex="-1" aria-labelledby="accessibilityModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-warning">
+      <div class="modal-header bg-warning text-dark">
+        <h5 class="modal-title fw-bold" id="accessibilityModalLabel">כלי נגישות</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="סגור"></button>
+      </div>
+
+      <div class="modal-body accessibility-body">
+        <label class="accessibility-option" for="increaseText">
+          <span class="option-label">הגדלת טקסט</span>
+          <input class="form-check-input" type="checkbox" id="increaseText">
+        </label>
+
+        <label class="accessibility-option" for="highContrast">
+          <span class="option-label">ניגודיות גבוהה</span>
+          <input class="form-check-input" type="checkbox" id="highContrast">
+        </label>
+
+        <label class="accessibility-option" for="disableAnimations">
+          <span class="option-label">ביטול אנימציות</span>
+          <input class="form-check-input" type="checkbox" id="disableAnimations">
+        </label>
+
+        <label class="accessibility-option" for="readableFont">
+          <span class="option-label">פונט קריא</span>
+          <input class="form-check-input" type="checkbox" id="readableFont">
+        </label>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">סגור</button>
+        <button type="button" class="btn btn-warning fw-bold text-dark" id="applyAccessibility">החל</button>
+      </div>
+    </div>
+  </div>
+</div>
