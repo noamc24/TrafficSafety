@@ -14,6 +14,8 @@
 .navbar {
   padding-top: 1.2vh;
   padding-bottom: .2vh;
+  background-color: #9e9e9e;
+  /* background-color: #3c3c3c; */
 }
 
 /* make nav links and buttons more prominent */
@@ -43,7 +45,7 @@ img, iframe, video, embed, object {
 
 /* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
-  height: 18rem;
+  height: 15rem;
   width: auto;
   object-fit: contain;
   display: block;
@@ -51,7 +53,7 @@ img, iframe, video, embed, object {
 
 @media (max-width: 768px) {
   .navbar .navbar-logo {
-    height: 10rem;
+    height: 8rem;
   }
 }/* Brand text alignment */
 .navbar-brand .brand-text {
@@ -66,7 +68,7 @@ img, iframe, video, embed, object {
 }
 
 .offcanvas-logo-lg {
-  height: 11 rem;
+  height: 8rem;
   width: auto;
   object-fit: contain;
   opacity: 0.95;
@@ -227,8 +229,8 @@ img, iframe, video, embed, object {
 }
 
 /* Accessibility Styles */
-.increase-text {
-  font-size: 1.2em;
+html.increase-text {
+  font-size: 120%;
 }
 
 .high-contrast {

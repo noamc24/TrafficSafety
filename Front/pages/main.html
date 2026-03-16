@@ -430,11 +430,12 @@
     });
 
     function applySettings() {
+      const root = document.documentElement;
       const body = document.body;
       if (increaseText.checked) {
-        body.classList.add('increase-text');
+        root.classList.add('increase-text');
       } else {
-        body.classList.remove('increase-text');
+        root.classList.remove('increase-text');
       }
       if (highContrast.checked) {
         body.classList.add('high-contrast');
