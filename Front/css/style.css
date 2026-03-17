@@ -98,9 +98,11 @@ img, iframe, video, embed, object {
 
 @media (max-width: 576px) {
   .display-5 {
-    font-size: 4.5vh;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    line-height: 1.2;
   }
 }
+
 /* Signs page hero */
 .page-hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);
