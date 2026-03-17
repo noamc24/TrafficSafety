@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const path = require("path");
 const express = require("express");
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,8 +15,17 @@ app.use(express.urlencoded({ extended: true }));
 const clientPath = path.join(__dirname, "..", "Front");
 app.use(express.static(clientPath, { etag: false, maxAge: 0 }));
 
+// rate limiter for contact form
+const contactLimiter = rateLimit({
+  windowMs: 24 * 24 * 60 * 60 * 1000, // 24 days
+  max: 5, // limit each IP to 5 requests per windowMs
+  message: 'יותר מדי בקשות צור קשר מכתובת IP זו, אנא נסה שוב מאוחר יותר.',
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
 // routes
-app.use("/api/contact", require("./routes/contact"));
+app.use("/api/contact", contactLimiter, require("./routes/contact"));
 
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();

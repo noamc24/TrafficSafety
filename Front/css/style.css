@@ -360,15 +360,9 @@ html.increase-text {
 
 /* Project card images */
 .card-img-top {
-  height: 250px;
+  aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
-}
-
-@media (max-width: 768px) {
-  .card-img-top {
-    height: 200px;
-  }
 }
 
 .whatsapp-btn:active {
