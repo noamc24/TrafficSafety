@@ -192,6 +192,39 @@ function setupContactForm() {
     }
   });
 }
+
+function setupImageLightbox() {
+  const modalEl = document.getElementById('lightboxModal');
+  if (!modalEl || !window.bootstrap) return;
+
+  const modal = new bootstrap.Modal(modalEl, { keyboard: true });
+
+  const showImageModal = (img) => {
+    const headerTitleEl = modalEl.querySelector('#lightboxModalLabel');
+    const bodyTitleEl = modalEl.querySelector('#lightboxModalTitle');
+    const descEl = modalEl.querySelector('#lightboxModalDesc');
+    const imgEl = modalEl.querySelector('#lightboxModalImage');
+
+    const title = (img.closest('.card')?.querySelector('h5')?.textContent || img.alt || '').trim();
+    const desc = (img.closest('.card')?.querySelector('p')?.textContent || '').trim();
+
+    if (headerTitleEl) headerTitleEl.textContent = title;
+    if (bodyTitleEl) bodyTitleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
+    if (imgEl) {
+      imgEl.src = img.dataset.full || img.src;
+      imgEl.alt = title;
+    }
+
+    modal.show();
+  };
+
+  document.querySelectorAll('[data-lightbox="true"]').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => showImageModal(img));
+  });
+}
+
 const backToTopButton = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
@@ -206,6 +239,7 @@ window.addEventListener('scroll', () => {
 // Run
 mountPartials();
 setupContactForm();
+setupImageLightbox();
 updateActiveOnScroll();
 window.addEventListener('scroll', onScrollThrottled, { passive: true });
 
