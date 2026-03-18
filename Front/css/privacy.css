@@ -7,8 +7,8 @@
   --tsc-bg: #f5f6f8;
   --tsc-white: #ffffff;
   --tsc-border: #e7e7e7;
-  --tsc-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-  --tsc-radius: 24px;
+  --tsc-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
+  --tsc-radius: 1.5rem;
 }
 
 * {
@@ -29,46 +29,50 @@ body {
   line-height: 1.8;
 }
 
+/* ===== Layout ===== */
 .legal-page {
-  max-width: 1400px;
+  max-width: 87.5rem; /* 1400px */
   margin: 0 auto;
-  padding: 40px 20px 50px;
+  padding: 2.5rem 1.25rem 3rem;
 }
 
+/* ===== Back Button ===== */
 .tsc-privacy__back-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   text-decoration: none;
   color: var(--tsc-black);
   background: #fff7d1;
-  border: 1px solid #efd86c;
-  padding: 10px 18px;
-  border-radius: 999px;
+  border: 0.0625rem solid #efd86c;
+  padding: 0.625rem 1.125rem;
+  border-radius: 999rem;
   font-weight: 700;
   transition: all 0.2s ease;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .tsc-privacy__back-btn:hover {
   background: var(--tsc-yellow);
   border-color: var(--tsc-yellow-dark);
-  transform: translateY(-1px);
+  transform: translateY(-0.0625rem);
 }
 
+/* ===== Grid ===== */
 .legal-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: 1.75rem;
   align-items: stretch;
 }
 
+/* ===== Box ===== */
 .tsc-privacy__box {
   background: var(--tsc-white);
-  border: 1px solid var(--tsc-border);
+  border: 0.0625rem solid var(--tsc-border);
   border-radius: var(--tsc-radius);
   box-shadow: var(--tsc-shadow);
-  padding: 34px 28px;
+  padding: 2.125rem 1.75rem;
   position: relative;
   overflow: hidden;
   min-height: 100%;
@@ -80,10 +84,11 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  height: 8px;
+  height: 0.5rem;
   background: linear-gradient(90deg, var(--tsc-yellow), #ffd84d, var(--tsc-yellow));
 }
 
+/* ===== Accessibility box ===== */
 #accessibility {
   background:
     linear-gradient(180deg, rgba(255, 248, 214, 0.25), rgba(255, 255, 255, 1)),
@@ -91,47 +96,51 @@ body {
   border-color: #eadb94;
 }
 
+/* ===== Title ===== */
 .tsc-privacy__title {
-  margin: 0 0 22px;
+  margin: 0 0 1.375rem;
   font-size: clamp(1.9rem, 2.5vw, 2.5rem);
   line-height: 1.2;
   color: var(--tsc-black);
   font-weight: 800;
-  padding-bottom: 12px;
+  padding-bottom: 0.75rem;
   position: relative;
 }
 
 .tsc-privacy__title::after {
   content: "";
   display: block;
-  width: 84px;
-  height: 5px;
+  width: 5.25rem;
+  height: 0.3125rem;
   background: var(--tsc-yellow);
-  border-radius: 999px;
-  margin-top: 12px;
+  border-radius: 999rem;
+  margin-top: 0.75rem;
 }
 
 #accessibility .tsc-privacy__title::after {
   background: linear-gradient(90deg, var(--tsc-yellow), #2b2b2b);
 }
 
+/* ===== Section ===== */
 .tsc-privacy__section {
-  margin: 26px 0 10px;
-  padding: 12px 16px;
+  margin: 1.625rem 0 0.625rem;
+  padding: 0.75rem 1rem;
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--tsc-black);
   background: #fffaf0;
-  border-right: 5px solid var(--tsc-yellow);
-  border-radius: 14px;
+  border-right: 0.3125rem solid var(--tsc-yellow);
+  border-radius: 0.875rem;
 }
 
+/* ===== Text ===== */
 .tsc-privacy__text {
-  margin: 0 0 14px;
+  margin: 0 0 0.875rem;
   font-size: 1rem;
   color: var(--tsc-text);
 }
 
+/* ===== Links ===== */
 .tsc-privacy__link {
   color: #0d6efd;
   text-decoration: none;
@@ -143,41 +152,44 @@ body {
   text-decoration: underline;
 }
 
+/* ===== Updated ===== */
 .tsc-privacy__updated {
-  margin-top: 28px;
+  margin-top: 1.75rem;
   display: inline-block;
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem;
   background: #f8f9fa;
-  border: 1px solid var(--tsc-border);
-  border-radius: 12px;
+  border: 0.0625rem solid var(--tsc-border);
+  border-radius: 0.75rem;
   color: var(--tsc-muted);
   font-size: 0.95rem;
   font-weight: 600;
 }
 
+/* ===== Misc ===== */
 strong {
   color: var(--tsc-black);
   font-weight: 800;
 }
 
 a:focus-visible {
-  outline: 3px solid var(--tsc-yellow);
-  outline-offset: 3px;
-  border-radius: 8px;
+  outline: 0.1875rem solid var(--tsc-yellow);
+  outline-offset: 0.1875rem;
+  border-radius: 0.5rem;
 }
 
-@media (max-width: 992px) {
+/* ===== Responsive ===== */
+@media (max-width: 62rem) {
   .legal-grid {
     grid-template-columns: 1fr;
   }
 
   .legal-page {
-    padding: 24px 14px 34px;
+    padding: 1.5rem 0.875rem 2.125rem;
   }
 
   .tsc-privacy__box {
-    padding: 24px 18px;
-    border-radius: 18px;
+    padding: 1.5rem 1.125rem;
+    border-radius: 1.125rem;
   }
 
   .tsc-privacy__title {
@@ -186,7 +198,7 @@ a:focus-visible {
 
   .tsc-privacy__section {
     font-size: 1.05rem;
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem;
   }
 
   .tsc-privacy__back-btn {

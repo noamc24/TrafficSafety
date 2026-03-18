@@ -1,43 +1,43 @@
 /* כפתור צף */
 .accessibility-float-btn {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
-  width: 58px;
-  height: 58px;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  width: 3.625rem;
+  height: 3.625rem;
   border: none;
   border-radius: 50%;
   background: #f4c400;
   color: #1f1f1f;
   font-size: 1.7rem;
   font-weight: 700;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.18);
   cursor: pointer;
   z-index: 9999;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .accessibility-float-btn:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+  transform: translateY(-0.125rem) scale(1.03);
+  box-shadow: 0 0.875rem 1.75rem rgba(0, 0, 0, 0.22);
 }
 
 .accessibility-float-btn:focus-visible {
-  outline: 3px solid #111;
-  outline-offset: 4px;
+  outline: 0.1875rem solid #111;
+  outline-offset: 0.25rem;
 }
 
 /* מודאל */
 #accessibilityModal .modal-content {
-  border: 2px solid #f4c400;
-  border-radius: 18px;
+  border: 0.125rem solid #f4c400;
+  border-radius: 1.125rem;
   overflow: hidden;
 }
 
 #accessibilityModal .accessibility-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   padding: 1.25rem;
 }
 
@@ -45,12 +45,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 0.875rem;
   width: 100%;
   background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 14px;
-  padding: 14px 16px;
+  border: 0.0625rem solid #e9ecef;
+  border-radius: 0.875rem;
+  padding: 0.875rem 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -75,12 +75,12 @@
   accent-color: #f4c400;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .accessibility-float-btn {
-    width: 52px;
-    height: 52px;
-    left: 14px;
-    bottom: 14px;
+    width: 3.25rem;
+    height: 3.25rem;
+    left: 0.875rem;
+    bottom: 0.875rem;
     font-size: 1.45rem;
   }
 }
@@ -90,7 +90,6 @@
 /* ========================= */
 
 /* הגדלת טקסט */
-
 body.accessibility-text-large p,
 body.accessibility-text-large span,
 body.accessibility-text-large a,
@@ -112,7 +111,6 @@ body.accessibility-text-large .option-label {
   line-height: 1.6 !important;
 }
 
-
 /* כותרות */
 body.accessibility-text-large h1 { font-size: 3.75rem !important; }
 body.accessibility-text-large h2 { font-size: 3rem !important; }
@@ -120,7 +118,6 @@ body.accessibility-text-large h3 { font-size: 2.6rem !important; }
 body.accessibility-text-large h4 { font-size: 2.25rem !important; }
 body.accessibility-text-large h5 { font-size: 1.9rem !important; }
 body.accessibility-text-large h6 { font-size: 1.6rem !important; }
-
 
 /* ========================= */
 /* ניגודיות גבוהה */
@@ -155,7 +152,6 @@ body.accessibility-high-contrast .navbar {
   border-color: #fff !important;
 }
 
-
 /* כל הטקסט */
 body.accessibility-high-contrast h1,
 body.accessibility-high-contrast h2,
@@ -175,13 +171,11 @@ body.accessibility-high-contrast .modal-title {
   color: #fff !important;
 }
 
-
 /* קישורים */
 body.accessibility-high-contrast a {
   color: #ffeb3b !important;
   text-decoration: underline !important;
 }
-
 
 /* כפתורים */
 body.accessibility-high-contrast button,
@@ -191,7 +185,6 @@ body.accessibility-high-contrast .btn {
   border-color: #fff !important;
 }
 
-
 /* כפתורים בולטים */
 body.accessibility-high-contrast .btn-warning,
 body.accessibility-high-contrast .btn-primary,
@@ -200,7 +193,6 @@ body.accessibility-high-contrast .btn-success {
   color: #000 !important;
   border-color: #ffeb3b !important;
 }
-
 
 /* שדות קלט */
 body.accessibility-high-contrast input,
@@ -212,19 +204,18 @@ body.accessibility-high-contrast .form-control {
   border-color: #fff !important;
 }
 
-
 /* placeholder */
 body.accessibility-high-contrast ::placeholder {
   color: #ddd !important;
   opacity: 1;
 }
 
-
 /* checkbox מסומן */
 body.accessibility-high-contrast .form-check-input:checked {
   background-color: #ffeb3b !important;
   border-color: #ffeb3b !important;
 }
+
 /* תיקון ניגודיות לעמודי מדיניות */
 body.accessibility-high-contrast .tsc-privacy__box,
 body.accessibility-high-contrast .tsc-privacy__section,
@@ -256,7 +247,6 @@ body.accessibility-no-animations *::after {
   transition: none !important;
   scroll-behavior: auto !important;
 }
-
 
 /* ========================= */
 /* פונט קריא */
