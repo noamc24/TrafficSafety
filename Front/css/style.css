@@ -1,26 +1,57 @@
 /* ===== Scroll Reveal Animation ===== */
 .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Global ===== */
+:root {
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+}
+* {
+  transition: all 0.25s ease;
+}
+body {
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+}
+.container-custom {
+  width: 90%;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+img,
+iframe,
+video,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ===== Navbar ===== */
 .navbar {
   padding-top: 1.2vh;
-  padding-bottom: .2vh;
-  /* background-color: #9e9e9e; */
+  padding-bottom: 0.2vh;
   background-color: #3c3c3c;
 }
 
-/* make nav links and buttons more prominent */
 .navbar .nav-link {
-  font-size: clamp(1.1rem, 1.3vw, 1.4rem); /* responsive larger text */
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   padding: 0.6rem 0.9rem;
 }
 
@@ -29,61 +60,52 @@
   padding: 0.6rem 1.1rem;
 }
 
-
-/* Smooth scrolling for in-page navigation */
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden; /* prevent horizontal scroll */
-}
-
-/* Force media to scale inside container */
-img, iframe, video, embed, object {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* ===== Logo in navbar ===== */
 .navbar .navbar-logo {
-  height: 15rem;
+  height: clamp(6rem, 12vw, 15rem);
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .navbar .navbar-logo {
     height: 8rem;
   }
 }
 
-/* Brand text alignment */
 .navbar-brand .brand-text {
   line-height: 1.1;
 }
 
 .offcanvas-logo {
-  height: clamp(3.5vh, 4.5vh, 5.5vh);
+  height: clamp(2.5rem, 4.5vh, 3.5rem);
   width: auto;
   object-fit: contain;
   display: block;
 }
 
 .offcanvas-logo-lg {
-  height: 8rem;
+  height: clamp(4.5rem, 8vw, 8rem);
   width: auto;
   object-fit: contain;
   opacity: 0.95;
 }
 
+.navbar .nav-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
+/* ===== Common UI ===== */
 .card {
-  border-radius: 2vh;
+  border-radius: 1.25rem;
 }
 
 .btn,
 .form-control,
 .alert {
-  border-radius: 1.6vh;
+  border-radius: 1rem;
 }
 
 .hero {
@@ -92,43 +114,39 @@ img, iframe, video, embed, object {
   padding-bottom: 5vh;
 }
 
-.navbar .nav-link.active {
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 0.6vh;
-}
-
-@media (max-width: 576px) {
+@media (max-width: 36rem) {
   .display-5 {
     font-size: clamp(1.8rem, 6vw, 2.5rem);
     line-height: 1.2;
   }
 }
 
-/* Signs page hero */
+/* ===== Page Hero ===== */
 .page-hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);
 }
 
-/* Main image on signs page */
+/* ===== Signs page image ===== */
 .signs-image {
-  height: clamp(42vh, 60vh, 82vh);
+  height: clamp(26rem, 60vh, 51rem);
   width: auto;
   object-fit: contain;
   opacity: 0.98;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 36rem) {
   .signs-image {
-    height: clamp(30vh, 48vh, 60vh);
+    height: clamp(18rem, 48vh, 37rem);
   }
 }
+
+/* ===== WhatsApp Button ===== */
 .whatsapp-btn {
   display: inline-block;
-  background-color: #25D366;
+  background-color: #25d366;
   color: #ffffff;
-  padding: 12px 18px;
-  border-radius: 8px;
+  padding: 0.75rem 1.125rem;
+  border-radius: 0.5rem;
   text-decoration: none;
   font-weight: bold;
   font-family: Arial, sans-serif;
@@ -137,26 +155,31 @@ img, iframe, video, embed, object {
 
 .whatsapp-btn:hover {
   background-color: #1ebe5d;
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
 }
 
-/* Button enhancements */
-.btn-success, .btn-primary {
+.whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Buttons ===== */
+.btn-success,
+.btn-primary {
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   border: none;
 }
 
 .btn-success:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
   background-color: #1ebe5d;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
 .btn-lg {
@@ -172,20 +195,20 @@ img, iframe, video, embed, object {
   margin-right: 0.5rem;
 }
 
-/* Back to Top Button */
+/* ===== Floating Buttons ===== */
 #backToTop {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
   padding: 0;
   z-index: 999;
   display: none;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -196,28 +219,27 @@ img, iframe, video, embed, object {
 }
 
 #backToTop:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
 #backToTop.show {
   display: flex;
 }
 
-/* Accessibility Button */
 #accessibilityBtn {
   position: fixed;
   bottom: 2rem;
   left: 2rem;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
   padding: 0;
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -228,11 +250,11 @@ img, iframe, video, embed, object {
 }
 
 #accessibilityBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
-/* Accessibility Styles */
+/* ===== Accessibility Styles ===== */
 html.increase-text {
   font-size: 120%;
 }
@@ -279,11 +301,11 @@ html.increase-text {
 }
 
 .high-contrast a {
-  color: #ffff00 !important; /* צהוב לlinks */
+  color: #ffff00 !important;
 }
 
 .high-contrast .btn-warning {
-  background-color: #ff8c00 !important; /* כתום */
+  background-color: #ff8c00 !important;
   color: #000 !important;
   border-color: #ff8c00 !important;
 }
@@ -326,27 +348,16 @@ html.increase-text {
 .high-contrast h3,
 .high-contrast h4,
 .high-contrast h5,
-.high-contrast h6 {
-  color: #fff !important;
-}
-
+.high-contrast h6,
 .high-contrast p,
 .high-contrast span,
-.high-contrast div {
-  color: #fff !important;
-}
-
+.high-contrast div,
 .high-contrast .navbar-brand,
 .high-contrast .nav-link {
   color: #fff !important;
 }
 
-.high-contrast .btn-outline-dark {
-  background-color: #333 !important;
-  color: #fff !important;
-  border-color: #666 !important;
-}
-
+.high-contrast .btn-outline-dark,
 .high-contrast .btn-outline-secondary {
   background-color: #333 !important;
   color: #fff !important;
@@ -362,11 +373,11 @@ html.increase-text {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
-/* Skip Link */
+/* ===== Skip Link ===== */
 .skip-link {
   position: absolute;
-  left: -9999px;
-  top: -9999px;
+  left: -100vw;
+  top: -100vh;
   z-index: 1000;
   background: #000;
   color: #fff;
@@ -379,7 +390,7 @@ html.increase-text {
   top: 1rem;
 }
 
-/* Image Lightbox */
+/* ===== Image Lightbox ===== */
 [data-lightbox="true"] {
   cursor: zoom-in;
 }
@@ -391,7 +402,7 @@ html.increase-text {
 }
 
 #lightboxModal .modal-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
 }
 
 #lightboxModal .modal-body {
@@ -420,22 +431,18 @@ html.increase-text {
   color: rgba(255, 255, 255, 0.85) !important;
 }
 
-
-/* Project card images */
+/* ===== Cards ===== */
 .card-img-top {
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
 }
 
-.whatsapp-btn:active {
-  transform: translateY(0);
-}
-
+/* ===== Map ===== */
 .map-container {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: clamp(18rem, 40vh, 24rem);
   border-radius: 0.375rem;
   overflow: hidden;
 }
@@ -446,6 +453,7 @@ html.increase-text {
   border: 0;
   display: block;
 }
+
 .alert .map-embed {
   flex-shrink: 0;
   width: 100%;
@@ -454,17 +462,19 @@ html.increase-text {
 .alert .map-embed iframe {
   border-radius: 0.5rem;
   width: 100%;
-  height: 400px;
+  height: clamp(20rem, 45vh, 28rem);
   display: block;
 }
 
-.footer-logo{
-  height:48px;
-  width:auto;
-  opacity:0.85;
-  transition:opacity 0.2s ease;
+/* ===== Footer ===== */
+.footer-logo {
+  margin-right: 5%;
+  height: 3rem;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
 }
 
-.footer-logo:hover{
-  opacity:1;
+.footer-logo:hover {
+  opacity: 1;
 }
