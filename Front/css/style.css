@@ -28,7 +28,6 @@ body {
   margin: 0 auto;
 }
 
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -44,6 +43,7 @@ object {
 }
 
 /* ===== Navbar ===== */
+
 .navbar {
   padding-top: 1.2vh;
   padding-bottom: 0.2vh;
@@ -53,6 +53,16 @@ object {
 .navbar .nav-link {
   font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   padding: 0.6rem 0.9rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover {
+  color: #F4A300;
+}
+
+.navbar .nav-link.active {
+  color: #F4A300;
+  font-weight: 700;
 }
 
 .navbar .btn {
@@ -75,6 +85,8 @@ object {
 
 .navbar-brand .brand-text {
   line-height: 1.1;
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .offcanvas-logo {
@@ -108,12 +120,6 @@ object {
   border-radius: 1rem;
 }
 
-.hero {
-  background: linear-gradient(180deg, #f8f9fa, #ffffff);
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-}
-
 @media (max-width: 36rem) {
   .display-5 {
     font-size: clamp(1.8rem, 6vw, 2.5rem);
@@ -121,7 +127,26 @@ object {
   }
 }
 
+/* ===== Cover Image (לפני האתר) ===== */
+.hero-cover {
+  width: 100%;
+  height: 100vh;
+
+  background-image: url("/assets/photos/HighWay.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
 /* ===== Page Hero ===== */
+.hero {
+  background: linear-gradient(180deg, #f8f9fa, #ffffff);
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+/* ===== עמודים פנימיים ===== */
 .page-hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);
 }
@@ -180,6 +205,23 @@ object {
 .btn-primary:hover {
   transform: translateY(-0.125rem);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Bootstrap Warning Override ===== */
+.btn-warning {
+  background-color: #F4A300 !important;
+  border-color: #F4A300 !important;
+  color: #000 !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+  background-color: #F4A300 !important;
+  border-color: #F4A300 !important;
+  color: #000 !important;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-0.125rem);
 }
 
 .btn-lg {
@@ -301,13 +343,13 @@ html.increase-text {
 }
 
 .high-contrast a {
-  color: #ffff00 !important;
+  color: #F4A300 !important;
 }
 
 .high-contrast .btn-warning {
-  background-color: #ff8c00 !important;
+  background-color: #F4A300 !important;
   color: #000 !important;
-  border-color: #ff8c00 !important;
+  border-color: #F4A300 !important;
 }
 
 .high-contrast .btn-primary {
@@ -341,6 +383,11 @@ html.increase-text {
 
 .high-contrast .border {
   border-color: #666 !important;
+}
+
+#aboutHeader {
+  color: #F4A300;
+  font-size: 4rem;
 }
 
 .high-contrast h1,
