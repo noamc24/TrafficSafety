@@ -132,10 +132,12 @@ object {
   width: 100%;
   height: 100vh;
 
-  background-image: url("/assets/photos/Highway.png");
+  background-image: url("/assets/photos/Highway2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  margin-top: 0rem;
 }
 
 
@@ -168,7 +170,7 @@ object {
 /* ===== WhatsApp Button ===== */
 .whatsapp-btn {
   display: inline-block;
-  background-color: #25d366;
+  background-color: #25D366;
   color: #ffffff;
   padding: 0.75rem 1.125rem;
   border-radius: 0.5rem;
@@ -194,17 +196,28 @@ object {
   transition: all 0.3s ease;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   border: none;
+  background-color: #25D366;
 }
 
 .btn-success:hover {
   transform: translateY(-0.125rem);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
-  background-color: #1ebe5d;
+  background-color: #0a8e3f;
 }
 
 .btn-primary:hover {
   transform: translateY(-0.125rem);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+.route-btn {
+  background-color: #004fc5;
+  border: none;
+  color: #fff;
+}
+
+.route-btn:hover {
+  background-color: #003585;
+  color: #fff;
 }
 
 /* ===== Bootstrap Warning Override ===== */
@@ -267,6 +280,56 @@ object {
 
 #backToTop.show {
   display: flex;
+}
+
+/* Fixed Contact Buttons */
+.fixed-contact-wrapper {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 1rem;
+
+  z-index: 999;
+}
+
+.fixed-contact-btn {
+  width: 3.75rem;
+  height: 3.75rem;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  text-decoration: none;
+
+  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
+  transition: all 0.25s ease;
+}
+
+/* האייקון עצמו */
+.fixed-contact-btn i {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* צבעים */
+.whatsapp-btn {
+  background: #25D366;
+}
+
+.phone-btn {
+  background: #25D366;
+}
+
+/* hover */
+.fixed-contact-btn:hover {
+  transform: translateY(-0.2rem) scale(1.05);
+  box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.25);
 }
 
 #accessibilityBtn {
@@ -513,6 +576,7 @@ html.increase-text {
   display: block;
 }
 
+
 /* ===== Footer ===== */
 .footer-logo {
   margin-right: 5%;
@@ -524,4 +588,121 @@ html.increase-text {
 
 .footer-logo:hover {
   opacity: 1;
+}
+
+.top-service-card {
+  position: relative;
+  padding: 1.5rem;
+  
+}
+
+.top-service-content {
+  padding-inline-start: clamp(4rem, 7vw, 6rem);
+}
+
+.top-service-side-image {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  width: clamp(3.5rem, 6vw, 5rem);
+  height: auto;
+}
+
+.card {
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.service-card-icon {
+  order: -1;
+  width: clamp(3rem, 3.75vw, 4.5rem);
+  height: auto;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.service-card-header h5 {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+}
+
+.card-body h6 {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+}
+
+.card-body p {
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.6;
+}
+
+.card:hover .service-card-icon {
+  transform: rotate(-8deg) scale(1.05);
+}
+
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0%;
+}
+
+.about-image {
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+.services-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.services-header h1 {
+  margin: 0;
+}
+.services-header .service-logo {
+  width: clamp(9rem, 15vw, 15rem);
+  height: auto;
+  margin-inline-start: 5%;
+}
+
+.projects-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+.projects-header h1 {
+  margin: 0;
+}
+.projects-header .projects-logo {
+  width: clamp(8rem, 14vw, 16rem);
+  height: auto;
+  margin-inline-start: auto;
+}
+.projects-header p {
+  width: 100%;
+  margin-top: 0.5rem;
 }

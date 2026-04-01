@@ -1,13 +1,9 @@
-// client/js/main.js
-
-// Development helper: unregister any active service workers so cached SW doesn't serve stale content.
 if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
   try {
     navigator.serviceWorker.getRegistrations().then(regs => {
       regs.forEach(r => r.unregister().catch(() => {}));
     }).catch(() => {});
   } catch (e) {
-    // ignore in older browsers
   }
 }
 
@@ -15,7 +11,6 @@ async function mountPartials() {
   const navbarMount = document.getElementById("navbarMount");
   const footerMount = document.getElementById("footerMount");
 
-  // Inject navbar
   if (navbarMount) {
     try {
       const navHtml = await fetch("/partials/navbar.html", { cache: "no-store" }).then(r => {
@@ -24,15 +19,13 @@ async function mountPartials() {
       });
       navbarMount.innerHTML = navHtml;
       setActiveNavLink();
-      // ensure scroll-based active updates run after navbar injection
       updateActiveOnScroll();
     } catch (err) {
       console.error("Failed to load navbar:", err);
-      navbarMount.innerHTML = ""; // keep clean
+      navbarMount.innerHTML = "";
     }
   }
 
-  // Inject footer
   if (footerMount) {
     try {
       const footerHtml = await fetch("/partials/footer.html", { cache: "no-store" }).then(r => {
@@ -41,7 +34,6 @@ async function mountPartials() {
       });
       footerMount.innerHTML = footerHtml;
 
-      // Set year if exists
       const yearEl = document.getElementById("year");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
     } catch (err) {
@@ -52,7 +44,6 @@ async function mountPartials() {
 }
 
 function normalizePath(p) {
-  // Normalize trailing slash and default index; strip .html
   if (!p) return "/";
   let path = p.split("?")[0].split("#")[0];
   if (path !== "/" && path.endsWith("/")) path = path.slice(0, -1);
@@ -63,11 +54,9 @@ function normalizePath(p) {
 }
 
 function setActiveNavLink() {
-  // Mark link active by pathname or by hash if present
   const currentPath = normalizePath(window.location.pathname);
   const currentHash = (window.location.hash || "").replace(/^#/, "");
 
-  // links that are internal anchors or root-relative
   const links = document.querySelectorAll('a[href^="#"], a[href^="/"]');
 
   links.forEach(a => {
@@ -93,7 +82,6 @@ function setActiveNavLink() {
   });
 }
 
-// Update active nav item based on scroll position
 function updateActiveOnScroll() {
   const ids = ['home', 'services', 'projects', 'signs', 'contact'];
   let best = null;
@@ -111,7 +99,6 @@ function updateActiveOnScroll() {
 
   if (!best) return;
 
-  // clear previous
   document.querySelectorAll('a[href^="#"]').forEach(a => { a.classList.remove('active'); a.classList.remove('fw-bold'); });
   const active = document.querySelector(`a[href="#${best}"]`);
   if (active) {
@@ -120,7 +107,6 @@ function updateActiveOnScroll() {
   }
 }
 
-// throttled scroll handler
 let scrollRaf = null;
 function onScrollThrottled() {
   if (scrollRaf) return;
@@ -130,7 +116,6 @@ function onScrollThrottled() {
   });
 }
 
-// click handler for hash links (smooth scroll + update hash)
 document.addEventListener('click', (e) => {
   const a = e.target.closest && e.target.closest('a[href^="#"]');
   if (!a) return;
@@ -142,7 +127,6 @@ document.addEventListener('click', (e) => {
   e.preventDefault();
   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   history.replaceState(null, '', `#${id}`);
-  // update active immediately
   setTimeout(() => { updateActiveOnScroll(); }, 250);
 });
 
@@ -236,7 +220,6 @@ window.addEventListener('scroll', () => {
   backToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-// Run
 mountPartials();
 setupContactForm();
 setupImageLightbox();

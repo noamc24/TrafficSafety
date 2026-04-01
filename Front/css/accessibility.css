@@ -85,11 +85,11 @@
   }
 }
 
+      /* מצבי נגישות */
 /* ========================= */
-/* מצבי נגישות */
+/* הגדלת טקסט */
 /* ========================= */
 
-/* הגדלת טקסט */
 body.accessibility-text-large p,
 body.accessibility-text-large span,
 body.accessibility-text-large a,
@@ -111,13 +111,66 @@ body.accessibility-text-large .option-label {
   line-height: 1.6 !important;
 }
 
-/* כותרות */
-body.accessibility-text-large h1 { font-size: 3.75rem !important; }
-body.accessibility-text-large h2 { font-size: 3rem !important; }
-body.accessibility-text-large h3 { font-size: 2.6rem !important; }
-body.accessibility-text-large h4 { font-size: 2.25rem !important; }
-body.accessibility-text-large h5 { font-size: 1.9rem !important; }
-body.accessibility-text-large h6 { font-size: 1.6rem !important; }
+body.accessibility-text-large .fs-1 { font-size: 150% !important; }
+body.accessibility-text-large .fs-2 { font-size: 150% !important; }
+body.accessibility-text-large .fs-3 { font-size: 150% !important; }
+body.accessibility-text-large .fs-4 { font-size: 150% !important; }
+body.accessibility-text-large .fs-5 { font-size: 150% !important; }
+body.accessibility-text-large .fs-6 { font-size: 150% !important; }
+
+body.accessibility-text-large .display-1 { font-size: 150% !important; }
+body.accessibility-text-large .display-2 { font-size: 150% !important; }
+body.accessibility-text-large .display-3 { font-size: 150% !important; }
+body.accessibility-text-large .display-4 { font-size: 150% !important; }
+body.accessibility-text-large .display-5 { font-size: 150% !important; }
+body.accessibility-text-large .display-6 { font-size: 150% !important; }
+
+body.accessibility-text-large .lead { font-size: 150% !important; }
+
+body.accessibility-text-large .alert { font-size: 150% !important; }
+body.accessibility-text-large .modal-title { font-size: 150% !important; }
+body.accessibility-text-large .form-label { font-size: 150% !important; }
+
+body.accessibility-text-large .card-title { font-size: 150% !important; }
+
+body.accessibility-text-large button,
+body.accessibility-text-large .btn,
+body.accessibility-text-large .btn-primary,
+body.accessibility-text-large .btn-secondary,
+body.accessibility-text-large .btn-success,
+body.accessibility-text-large .btn-danger,
+body.accessibility-text-large .btn-warning,
+body.accessibility-text-large .btn-info,
+body.accessibility-text-large .btn-light,
+body.accessibility-text-large .btn-dark,
+body.accessibility-text-large .btn-link,
+body.accessibility-text-large .btn-outline-primary,
+body.accessibility-text-large .btn-outline-secondary,
+body.accessibility-text-large .btn-outline-success,
+body.accessibility-text-large .btn-outline-danger,
+body.accessibility-text-large .btn-outline-warning,
+body.accessibility-text-large .btn-outline-info,
+body.accessibility-text-large .btn-outline-light,
+body.accessibility-text-large .btn-outline-dark {
+  font-size: 150% !important;
+}
+
+body.accessibility-text-large h1 { font-size: 150% !important; }
+body.accessibility-text-large h2 { font-size: 150% !important; }
+body.accessibility-text-large h3 { font-size: 150% !important; }
+body.accessibility-text-large h4 { font-size: 150% !important; }
+body.accessibility-text-large h5 { font-size: 150% !important; }
+body.accessibility-text-large h6 { font-size: 150% !important; }
+
+body.accessibility-text-large .fw-bold { font-size: 150% !important; }
+body.accessibility-text-large .fw-semibold { font-size: 150% !important; }
+body.accessibility-text-large .fw-normal { font-size: 150% !important; }
+body.accessibility-text-large .fw-light { font-size: 150% !important; }
+body.accessibility-text-large .fw-lighter { font-size: 150% !important; }
+
+body.accessibility-text-large .accessibility-float-btn {
+  font-size: 150% !important;
+}
 
 /* ========================= */
 /* ניגודיות גבוהה */
@@ -127,8 +180,14 @@ body.accessibility-high-contrast {
   background: #000 !important;
   color: #fff !important;
 }
+body.accessibility-high-contrast .hero-cover {
+  background-color: transparent !important;
+  background-image: url("/assets/photos/Highway2.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
 
-/* כל הבלוקים באתר */
 body.accessibility-high-contrast main,
 body.accessibility-high-contrast section,
 body.accessibility-high-contrast div,
@@ -152,7 +211,6 @@ body.accessibility-high-contrast .navbar {
   border-color: #fff !important;
 }
 
-/* כל הטקסט */
 body.accessibility-high-contrast h1,
 body.accessibility-high-contrast h2,
 body.accessibility-high-contrast h3,
@@ -171,13 +229,11 @@ body.accessibility-high-contrast .modal-title {
   color: #fff !important;
 }
 
-/* קישורים */
 body.accessibility-high-contrast a {
   color: #ffeb3b !important;
   text-decoration: underline !important;
 }
 
-/* כפתורים */
 body.accessibility-high-contrast button,
 body.accessibility-high-contrast .btn {
   background: #111 !important;
@@ -185,7 +241,6 @@ body.accessibility-high-contrast .btn {
   border-color: #fff !important;
 }
 
-/* כפתורים בולטים */
 body.accessibility-high-contrast .btn-warning,
 body.accessibility-high-contrast .btn-primary,
 body.accessibility-high-contrast .btn-success {
@@ -194,7 +249,6 @@ body.accessibility-high-contrast .btn-success {
   border-color: #ffeb3b !important;
 }
 
-/* שדות קלט */
 body.accessibility-high-contrast input,
 body.accessibility-high-contrast textarea,
 body.accessibility-high-contrast select,
@@ -204,19 +258,16 @@ body.accessibility-high-contrast .form-control {
   border-color: #fff !important;
 }
 
-/* placeholder */
 body.accessibility-high-contrast ::placeholder {
   color: #ddd !important;
   opacity: 1;
 }
 
-/* checkbox מסומן */
 body.accessibility-high-contrast .form-check-input:checked {
   background-color: #ffeb3b !important;
   border-color: #ffeb3b !important;
 }
 
-/* תיקון ניגודיות לעמודי מדיניות */
 body.accessibility-high-contrast .tsc-privacy__box,
 body.accessibility-high-contrast .tsc-privacy__section,
 body.accessibility-high-contrast .tsc-privacy__title,
@@ -225,12 +276,10 @@ body.accessibility-high-contrast .tsc-privacy__text {
   color: #fff !important;
 }
 
-/* הכותרות הקטנות עם הפס הצהוב */
 body.accessibility-high-contrast .tsc-privacy__section {
   border-color: #ffeb3b !important;
 }
 
-/* קישורים */
 body.accessibility-high-contrast .tsc-privacy__link {
   color: #ffeb3b !important;
   text-decoration: underline;

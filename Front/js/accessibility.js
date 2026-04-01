@@ -9,13 +9,11 @@ window.initAccessibilityTools = function () {
     return;
   }
 
-  // למנוע אתחול כפול
   if (applyButton.dataset.initialized === "true") {
     return;
   }
   applyButton.dataset.initialized = "true";
 
-  // טעינת מצב שמור
   const savedSettings = JSON.parse(localStorage.getItem("accessibilitySettings")) || {};
 
   increaseText.checked = !!savedSettings.increaseText;

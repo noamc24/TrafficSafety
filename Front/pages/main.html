@@ -20,7 +20,8 @@
   <meta name="theme-color" content="#111827" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
   <link rel="stylesheet" href="/css/style.css?v=20260129v2" />
   <link rel="stylesheet" href="/css/accessibility.css">
 
@@ -37,7 +38,7 @@
   <div id="navbarMount"></div>
   
   <section class="hero-cover"></section>
-
+  
   <a href="#main-content" class="skip-link">דלג לתוכן</a>
 
   <header id="home" class="hero reveal">
@@ -54,9 +55,11 @@
             <a href="#signs" class="btn btn-outline-secondary btn-lg">שילוט ותמרור</a>
           </div>
         </div>
-        <div class="col-12 col-lg-5">
-          <div class="card shadow-sm">
-            <div class="card-body">
+        <div class="col-12 col-lg-5 pe-0">
+         <div class="card shadow-sm">
+          <div class="card-body top-service-card">
+            
+            <div class="top-service-content">
               <h5 class="fw-bold mb-2">מה אנחנו עושים?</h5>
               <ul class="mb-0">
                 <li>הסדרי תנועה זמניים וסופיים</li>
@@ -66,7 +69,12 @@
                 <li>השכרת פקחי תנועה ועגלות חץ</li>
               </ul>
             </div>
+            <img 
+              src="/assets/Icons/Cone.png" 
+              alt="קונוס" 
+              class="top-service-side-image">
           </div>
+        </div>
           <div class="alert alert-light border mt-3 mb-0">
             <a
               href="https://wa.me/972548778669?text=היי, אשמח לקבל את הצעת מחיר עבור..." 
@@ -87,7 +95,7 @@
 
   <main class="container my-5 reveal" id="main-content">
     <div class="row g-3">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="fw-bold">אמינות</h5>
@@ -95,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="fw-bold">בטיחות</h5>
@@ -103,7 +111,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
             <h5 class="fw-bold">שירות</h5>
@@ -111,75 +119,58 @@
           </div>
         </div>
       </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="fw-bold">ניסיון</h5>
+            <p class="text-muted mb-0">
+              ניסיון רב שנים בביצוע עבודות בתחום הבטיחות בתנועה, כולל פרויקטים מורכבים בפריסה ארצית תוך עבודה עם גופים ציבוריים ופרטיים.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
   <!-- About Section -->
-  <section id="about" class="container my-5 py-4 reveal">
-    <h2 id="aboutHeader" class="fw-bold mb-4">אודות המרכז לבטיחות בתנועה</h2>
-    <div class="row g-4">
-      <div class="col-12 col-lg-8">
-        <p class="lead text-dark mb-5">
-        המרכז לבטיחות בתנועה הוא גוף מקצועי ומנוסה המתמחה בביצוע עבודות כבישים, ייצור והתקנת שלטים ותמרורים, עבודות צבע, סימון כבישים וחניונים, הקמה ותחזוקה של הסדרי תנועה, ואספקת ציוד בטיחות נלווה. החברה מעניקה שירותים מקצועיים למגוון רחב של לקוחות, בהם עיריות, רשויות מקומיות ואזוריות, יזמים, קבלנים וחברות ביצוע, ופועלת בפריסה ארצית באמצעות צוותים מקצועיים ומיומנים.
+<section id="about" class="container my-5 py-4 reveal">
+  <h2 id="aboutHeader" class="fw-bold mb-4">אודות המרכז לבטיחות בתנועה</h2>
+
+  <div class="about-wrapper">
+    <div class="about-text">
+      <p class="lead text-dark mb-5">
+                המרכז לבטיחות בתנועה הוא גוף מקצועי ומנוסה המתמחה בביצוע עבודות כבישים, ייצור והתקנת שלטים ותמרורים, עבודות צבע, סימון כבישים וחניונים, הקמה ותחזוקה של הסדרי תנועה, ואספקת ציוד בטיחות נלווה. החברה מעניקה שירותים מקצועיים למגוון רחב של לקוחות, בהם עיריות, רשויות מקומיות ואזוריות, יזמים, קבלנים וחברות ביצוע, ופועלת בפריסה ארצית באמצעות צוותים מקצועיים ומיומנים.
         עם ניסיון של שנים בתחום, ידע מקצועי ובקיאות בדרישות, בתקנים ובהנחיות המחייבות, אנו מקפידים על ביצוע מדויק, איכותי ואמין בכל פרויקט. עבודתנו מתבצעת בהתאם לדרישות הלקוח ולתקנים הרלוונטיים, תוך הקפדה על בטיחות, עמידה בלוחות זמנים ומתן מענה מהיר ויעיל בכל רחבי הארץ.
-        לקוחותינו נהנים משירות מקצועי ומקיף, המבוסס על ניסיון מעשי, צוות מיומן, שימוש בחומרים מאושרים ויכולת ביצוע גבוהה החל מעבודות נקודתיות ועד לפרויקטים מורכבים בהיקפים גדולים.</p>
-      </div>
-    </div> 
-  </div> 
+        לקוחותינו נהנים משירות מקצועי ומקיף, המבוסס על ניסיון מעשי, צוות מיומן, שימוש בחומרים מאושרים ויכולת ביצוע גבוהה החל מעבודות נקודתיות ועד לפרויקטים מורכבים בהיקפים גדולים.
+      </p>
+    </div>
+    <div class="about-image-container">
+      <img src="/assets/Icons/Constractor.png" alt="אודות" class="about-image">
+    </div>
+
+  </div>
 </section> 
   
   <!-- Services section -->
   <section id="services" class="container my-5 reveal">
-    <h2 class="fw-bold mb-4">שירותים</h2>
+    <div class="services-header">
+      <h1 class="fw-bold mb-3">שירותים</h1>
+      <img src="/assets/Icons/TSCLogo.png" alt="TSC Logo" class="service-logo">
+    </div>
     <div class="row g-3 mt-2">
 
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="fw-bold">סימון כבישים</h5>
-            <h6 class="text-muted mb-2">
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">סימון כבישים</h5>
+              <img src="/assets/Icons/Cone.png" alt="סימון כבישים" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
               סימון וצביעת כבישים, מעברי חצייה, ועוד
             </h6>
             <p class="text-muted mb-0">
-            ביצוע עבודות סימון וצביעה של כבישים, מעברי חצייה, איי תנועה וכו' באמצעות חומרים עמידים, בהתאם לדרישות הפרויקט והתקנים המחייבים</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="fw-bold">שילוט ותמרור</h5>
-            <h6 class="text-muted mb-2">
-              ייצור, אספקה והתקנה של שילוט ותמרור
-            </h6>
-            <p class="text-muted mb-0">
-            ייצור, אספקה והתקנה של מגוון רחב של שלטים ותמרורים בהתאם לדרישות הלקוח והתקנים הרלוונטיים. בנוסף, אנו מעניקים שירותי דפוס דיגיטלי מתקדמים לייצור שלטים באיכות גבוהה ועמידות לאורך זמן.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="fw-bold">סופגי אנרגיה</h5>
-            <h6 class="text-muted mb-2">
-              מעקות פלדה, סופגי אנרגיה ויחידות קצה
-            </h6>
-            <p class="text-muted mb-0">
-            אספקה והתקנה של סופגי אנרגיה ויחידות קצה להפחתת עוצמת הפגיעה ולשיפור הבטיחות בכבישים, מחלפים ואזורי עבודה.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="fw-bold">הסדרי תנועה</h5>
-            <h6 class="text-muted mb-2">
-              הקמה ותחזוקה של הסדרי תנועה זמניים וסופיים
-            </h6>
-            <p class="text-muted mb-0">
-              הצבה ואספקה של עגלות חץ, פקחי תנועה, תמרורים, שילוט, מעקות בטיחות ואביזרי בטיחות
+              ביצוע עבודות סימון וצביעה של כבישים, מעברי חצייה, איי תנועה וכו' באמצעות חומרים עמידים, בהתאם לדרישות הפרויקט והתקנים המחייבים.
             </p>
           </div>
         </div>
@@ -188,9 +179,63 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="fw-bold">חניונים</h5>
-            <h6 class="text-muted mb-2">
-             תכנון, סימון ואבזור חניונים
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">שילוט ותמרור</h5>
+              <img src="/assets/Icons/Cone.png" alt="שילוט ותמרור" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
+              ייצור, אספקה והתקנה של שילוט ותמרור
+            </h6>
+            <p class="text-muted mb-0">
+              ייצור, אספקה והתקנה של מגוון רחב של שלטים ותמרורים בהתאם לדרישות הלקוח והתקנים הרלוונטיים. בנוסף, אנו מעניקים שירותי דפוס דיגיטלי מתקדמים לייצור שלטים באיכות גבוהה ועמידות לאורך זמן.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">סופגי אנרגיה</h5>
+              <img src="/assets/Icons/Cone.png" alt="סופגי אנרגיה" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
+              מעקות פלדה, סופגי אנרגיה ויחידות קצה
+            </h6>
+            <p class="text-muted mb-0">
+              אספקה והתקנה של סופגי אנרגיה ויחידות קצה להפחתת עוצמת הפגיעה ולשיפור הבטיחות בכבישים, מחלפים ואזורי עבודה.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">הסדרי תנועה</h5>
+              <img src="/assets/Icons/Cone.png" alt="הסדרי תנועה" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
+              הקמה ותחזוקה של הסדרי תנועה זמניים וסופיים
+            </h6>
+            <p class="text-muted mb-0">
+              הצבה ואספקה של עגלות חץ, פקחי תנועה, תמרורים, שילוט, מעקות בטיחות ואביזרי בטיחות.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">חניונים</h5>
+              <img src="/assets/Icons/Cone.png" alt="חניונים" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
+              תכנון, סימון ואבזור חניונים
             </h6>
             <p class="text-muted mb-0">
               ביצוע עבודות סימון וצביעה של חניונים ושטחי חניה, כולל סימון מקומות חניה, נתיבי נסיעה, פיקטוגרמות וצביעת עמודים, לצד אספקה והתקנה של אביזרי בטיחות כגון מעצורי חניה, מראות פנורמיות, עמודי חסימה, מפרידי תנועה ואמצעים נוספים להסדרת התנועה ושיפור הבטיחות.
@@ -198,36 +243,60 @@
           </div>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="fw-bold">אבטחות תנועה</h5>
-            <h6 class="text-muted mb-2">
-            הקמה, הכוונה ותחזוקה של אמצעי בטיחות בתנועה
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">עגלות חץ ופקחים</h5>
+              <img src="/assets/Icons/Cone.png" alt="עגלות חץ ופקחים" class="service-card-icon">
+            </div>
+            <h6 class="text-dark mb-2">
+              הקמה, הכוונה ותחזוקה של אמצעי בטיחות בתנועה
             </h6>
             <p class="text-muted mb-0">
-            ביצוע עבודות אבטחת תנועה באתרי עבודה ובפרויקטים שונים, כולל הצבת אביזרי בטיחות, הכוונת תנועה ותחזוקה שוטפת של הסדרים קיימים.
+              ביצוע עבודות אבטחת תנועה באתרי עבודה ובפרויקטים שונים, כולל הצבת אביזרי בטיחות, הכוונת תנועה ותחזוקה שוטפת של הסדרים קיימים.
             </p>
           </div>
         </div>
       </div>
 
-    <div class="mt-4">
-      <a href="#contact" class="btn btn-warning fw-bold text-dark">קבל הצעת מחיר</a>
-    </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="service-card-header">
+              <h5 class="fw-bold mb-0">אביזרי בטיחות</h5>
+              <img src="/assets/Icons/Cone.png" alt="אביזרי בטיחות" class="service-card-icon">
+                  </div>
+            <h6 class="text-dark mb-2">
+             מגוון אביזרי בטיחות לחניונים וכבישים
+            </h6>
+            <p class="text-muted mb-0">
+            מגוון קונוסים, עמודים גמישים, מראות פנורמיות, מעצורי חניה, שומרי חניה ועוד מגוון אביזרים
+            </p>
+            </div>
+          </div>
+        </div>
+
+      <div class="mt-4">
+        <a href="#contact" class="btn btn-warning btn-lg fw-bold text-dark">קבל הצעת מחיר</a>
+      </div>
+
   </section>
 
   <!-- Projects section -->
   <section id="projects" class="container my-5 reveal">
-    <h1 class="fw-bold mb-3">פרויקטים</h1>
-    <p class="text-muted">גלריית פרויקטים ודוגמאות מהשטח.</p>
+    <div class="projects-header">
+      <h1 class="fw-bold mb-3">פרויקטים</h1>
+      <img src="/assets/Icons/HelmetVest.png" alt="TSC Logo" class="projects-logo">
+      <p class="text-muted fs-5">גלריית פרויקטים ודוגמאות מהשטח.</p>
+    </div>
     <div class="row g-3 mt-2">
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
           <img src="/assets/photos/project1.png" alt="סימון מפעלים" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">סימון מפעלים</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -236,7 +305,6 @@
           <img src="/assets/photos/project2.png" alt="סימון חניות" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">סימון חניות</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -245,7 +313,6 @@
           <img src="/assets/photos/project3.png" alt="ניתוב" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">ניתוב</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -254,7 +321,6 @@
           <img src="/assets/photos/project8.png" alt="סימון מנחת רחפנים" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">סימון מנחת רחפנים</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -263,7 +329,6 @@
           <img src="/assets/photos/project10.png" alt="שילוט" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">שילוט</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -272,16 +337,14 @@
           <img src="/assets/photos/project4.png" alt="סימון צומת T" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">סימון צומת T</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-3">
         <div class="card h-100 shadow-sm">
-          <img src="/assets/photos/project9.png" alt="סימון שביל אופניים" class="card-img-top" data-lightbox="true">
+          <img src="/assets/photos/project13.png" alt="סימון זמני" class="card-img-top" data-lightbox="true">
           <div class="card-body">
-            <h5 class="fw-bold">סימון שביל אופניים</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
+            <h5 class="fw-bold">סימון זמני</h5>
           </div>
         </div>
       </div>
@@ -290,7 +353,6 @@
           <img src="/assets/photos/project5.png" alt="סימון שביל אופניים" class="card-img-top" data-lightbox="true">
           <div class="card-body">
             <h5 class="fw-bold">סימון שביל אופניים</h5>
-            <p class="text-muted mb-0">תיאור קצר…</p>
           </div>
         </div>
       </div>
@@ -321,7 +383,7 @@
     <div class="row g-4">
       <div class="col-12 col-lg-6">
         <h1 class="fw-bold mb-3">צור קשר</h1>
-        <p class="text-muted">השאר פרטים ונחזור אליך</p>
+        <p class="text-muted fs-5">השאר פרטים ונחזור אליך</p>
 
         <form id="contactForm" class="card shadow-sm p-3">
           <div class="mb-3">
@@ -348,24 +410,30 @@
           <div id="formAlert" class="mt-3"></div>
         </form>
       </div>
-
       <div class="col-12 col-lg-6">
         <div class="card shadow-sm h-100">
           <div class="card-body">
-            <h5 class="fw-bold">פרטי התקשרות</h5>
-            <p class="text-muted mb-1">טלפון: <span class="fw-semibold">054-8778669</span></p>
-            <p class="text-muted mb-3">אימייל: <span class="fw-semibold">hamerkaz.bt@gmail.com</span></p>
+            <h5 class="fw-bold fs-4">פרטי התקשרות</h5>
+            <p class="text-muted mb-1 fs-5">טלפון: <span class="fw-semibold">054-8778669</span></p>
+            <p class="text-muted mb-3 fs-5">אימייל: <span class="fw-semibold">hamerkaz.bt@gmail.com</span></p>
+
             <div class="d-grid gap-2 mb-3">
-              <a href="https://wa.me/972548778669?text=היי, אשמח לקבל את הצעת מחיר עבור..." target="_blank" rel="noopener" class="btn btn-success btn-lg fw-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.348.1-.116.133-.197.198-.33.065-.134.034-.248-.015-.348-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.327 1.125.42.475.15.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.05-.084-.182-.133-.38-.232z"/>
-                </svg>
-             דברו איתנו ב-WhatsApp
+
+              <!-- WhatsApp -->
+              <a href="https://wa.me/972548778669?text=היי, אשמח לקבל את הצעת מחיר עבור..."
+                target="_blank"
+                rel="noopener"
+                class="btn btn-success btn-lg fw-bold">
+                <i class="bi bi-whatsapp"></i>
+                דברו איתנו ב-WhatsApp
               </a>
-              <a href="https://www.google.com/maps/dir/?api=1&destination=31.750444,35.147583" target="_blank" rel="noopener" class="btn btn-primary btn-lg fw-bold">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                  <path d="M15.854.146a.5.5 0 0 0-.54-.11L.64 6.036a.5.5 0 0 0 .02.94l6.066 2.023 2.023 6.066a.5.5 0 0 0 .94.02L15.964.686a.5.5 0 0 0-.11-.54z"/>
-                </svg>
+
+              <!-- Route -->
+              <a href="https://www.google.com/maps/dir/?api=1&destination=31.750444,35.147583"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-lg fw-bold route-btn">
+                <i class="bi bi-geo-alt"></i>
                 קבל מסלול
               </a>
             </div>
@@ -385,6 +453,22 @@
       </div>
     </div>
   </section>
+  
+  <!-- Fixed Contact Buttons -->
+  <div class="fixed-contact-wrapper">
+    <a href="https://wa.me/972548778669?text=היי, אשמח לקבל את הצעת מחיר עבור..."
+      target="_blank"
+      rel="noopener"
+      class="fixed-contact-btn whatsapp-btn"
+      title="WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="tel:0548778669"
+      class="fixed-contact-btn phone-btn"
+      title="Phone">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+  </div>
 
   <!-- Back to Top Button -->
   <button id="backToTop" class="btn btn-warning btn-lg" title="חזור לראש העמוד">
