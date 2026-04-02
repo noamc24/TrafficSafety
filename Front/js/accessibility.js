@@ -36,15 +36,21 @@ window.initAccessibilityTools = function () {
 
     const modalElement = document.getElementById("accessibilityModal");
     if (modalElement && window.bootstrap) {
-      const modalInstance = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+      const modalInstance =
+        bootstrap.Modal.getInstance(modalElement) ||
+        new bootstrap.Modal(modalElement);
       modalInstance.hide();
     }
   });
 };
 
 function applyAccessibilitySettings(settings) {
-  document.body.classList.toggle("accessibility-text-large", !!settings.increaseText);
-  document.body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
-  document.body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
-  document.body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
+  const root = document.documentElement;
+  const body = document.body;
+
+  root.classList.toggle("accessibility-text-large", !!settings.increaseText);
+
+  body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
+  body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
+  body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
 }

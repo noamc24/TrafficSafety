@@ -1,4 +1,7 @@
+/* ========================= */
 /* כפתור צף */
+/* ========================= */
+
 .accessibility-float-btn {
   position: fixed;
   left: 1.25rem;
@@ -14,7 +17,11 @@
   box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.18);
   cursor: pointer;
   z-index: 9999;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .accessibility-float-btn:hover {
@@ -27,11 +34,19 @@
   outline-offset: 0.25rem;
 }
 
+/* ========================= */
 /* מודאל */
+/* ========================= */
+
 #accessibilityModal .modal-content {
   border: 0.125rem solid #f4c400;
   border-radius: 1.125rem;
   overflow: hidden;
+}
+
+#accessibilityModal .modal-header,
+#accessibilityModal .modal-footer {
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 #accessibilityModal .accessibility-body {
@@ -52,7 +67,7 @@
   border-radius: 0.875rem;
   padding: 0.875rem 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 #accessibilityModal .accessibility-option:hover {
@@ -60,10 +75,16 @@
   border-color: #f4c400;
 }
 
+#accessibilityModal .accessibility-option:focus-within {
+  border-color: #f4c400;
+  box-shadow: 0 0 0 0.2rem rgba(244, 196, 0, 0.2);
+}
+
 #accessibilityModal .option-label {
   font-weight: 600;
   font-size: 1.05rem;
   color: #212529;
+  margin: 0;
 }
 
 #accessibilityModal .form-check-input {
@@ -83,93 +104,107 @@
     bottom: 0.875rem;
     font-size: 1.45rem;
   }
+
+  #accessibilityModal .accessibility-body {
+    padding: 1rem;
+  }
+
+  #accessibilityModal .accessibility-option {
+    padding: 0.75rem 0.875rem;
+  }
+
+  #accessibilityModal .option-label {
+    font-size: 1rem;
+  }
 }
 
-      /* מצבי נגישות */
+/* ========================= */
+/* מצבי נגישות */
+/* ========================= */
+
+/* ========================= */
+/* הגדלת טקסט */
+/* ========================= */
 /* ========================= */
 /* הגדלת טקסט */
 /* ========================= */
 
-body.accessibility-text-large p,
-body.accessibility-text-large span,
-body.accessibility-text-large a,
-body.accessibility-text-large li,
-body.accessibility-text-large label,
-body.accessibility-text-large button,
-body.accessibility-text-large input,
-body.accessibility-text-large textarea,
-body.accessibility-text-large select,
-body.accessibility-text-large small,
-body.accessibility-text-large strong,
-body.accessibility-text-large em,
-body.accessibility-text-large .btn,
-body.accessibility-text-large .form-control,
-body.accessibility-text-large .card-text,
-body.accessibility-text-large .text-muted,
-body.accessibility-text-large .option-label {
-  font-size: 150% !important;
+html.accessibility-text-large {
+  font-size: 135%;
+}
+
+html.accessibility-text-large body {
+  line-height: 1.6;
+}
+
+html.accessibility-text-large p,
+html.accessibility-text-large span,
+html.accessibility-text-large a,
+html.accessibility-text-large li,
+html.accessibility-text-large label,
+html.accessibility-text-large input,
+html.accessibility-text-large textarea,
+html.accessibility-text-large select,
+html.accessibility-text-large small,
+html.accessibility-text-large strong,
+html.accessibility-text-large em,
+html.accessibility-text-large button,
+html.accessibility-text-large .btn,
+html.accessibility-text-large .form-control,
+html.accessibility-text-large .form-select,
+html.accessibility-text-large .form-label,
+html.accessibility-text-large .nav-link,
+html.accessibility-text-large .navbar-brand,
+html.accessibility-text-large .card-text,
+html.accessibility-text-large .card-title,
+html.accessibility-text-large .text-muted,
+html.accessibility-text-large .option-label,
+html.accessibility-text-large .modal-title,
+html.accessibility-text-large .modal-body,
+html.accessibility-text-large .modal-footer,
+html.accessibility-text-large .alert,
+html.accessibility-text-large .lead,
+html.accessibility-text-large .dropdown-item,
+html.accessibility-text-large .accordion-button,
+html.accessibility-text-large .accordion-body,
+html.accessibility-text-large .table,
+html.accessibility-text-large td,
+html.accessibility-text-large th {
   line-height: 1.6 !important;
 }
 
-body.accessibility-text-large .fs-1 { font-size: 150% !important; }
-body.accessibility-text-large .fs-2 { font-size: 150% !important; }
-body.accessibility-text-large .fs-3 { font-size: 150% !important; }
-body.accessibility-text-large .fs-4 { font-size: 150% !important; }
-body.accessibility-text-large .fs-5 { font-size: 150% !important; }
-body.accessibility-text-large .fs-6 { font-size: 150% !important; }
-
-body.accessibility-text-large .display-1 { font-size: 150% !important; }
-body.accessibility-text-large .display-2 { font-size: 150% !important; }
-body.accessibility-text-large .display-3 { font-size: 150% !important; }
-body.accessibility-text-large .display-4 { font-size: 150% !important; }
-body.accessibility-text-large .display-5 { font-size: 150% !important; }
-body.accessibility-text-large .display-6 { font-size: 150% !important; }
-
-body.accessibility-text-large .lead { font-size: 150% !important; }
-
-body.accessibility-text-large .alert { font-size: 150% !important; }
-body.accessibility-text-large .modal-title { font-size: 150% !important; }
-body.accessibility-text-large .form-label { font-size: 150% !important; }
-
-body.accessibility-text-large .card-title { font-size: 150% !important; }
-
-body.accessibility-text-large button,
-body.accessibility-text-large .btn,
-body.accessibility-text-large .btn-primary,
-body.accessibility-text-large .btn-secondary,
-body.accessibility-text-large .btn-success,
-body.accessibility-text-large .btn-danger,
-body.accessibility-text-large .btn-warning,
-body.accessibility-text-large .btn-info,
-body.accessibility-text-large .btn-light,
-body.accessibility-text-large .btn-dark,
-body.accessibility-text-large .btn-link,
-body.accessibility-text-large .btn-outline-primary,
-body.accessibility-text-large .btn-outline-secondary,
-body.accessibility-text-large .btn-outline-success,
-body.accessibility-text-large .btn-outline-danger,
-body.accessibility-text-large .btn-outline-warning,
-body.accessibility-text-large .btn-outline-info,
-body.accessibility-text-large .btn-outline-light,
-body.accessibility-text-large .btn-outline-dark {
-  font-size: 150% !important;
+html.accessibility-text-large h1,
+html.accessibility-text-large h2,
+html.accessibility-text-large h3,
+html.accessibility-text-large h4,
+html.accessibility-text-large h5,
+html.accessibility-text-large h6 {
+  line-height: 1.4 !important;
 }
 
-body.accessibility-text-large h1 { font-size: 150% !important; }
-body.accessibility-text-large h2 { font-size: 150% !important; }
-body.accessibility-text-large h3 { font-size: 150% !important; }
-body.accessibility-text-large h4 { font-size: 150% !important; }
-body.accessibility-text-large h5 { font-size: 150% !important; }
-body.accessibility-text-large h6 { font-size: 150% !important; }
+html.accessibility-text-large .fs-1,
+html.accessibility-text-large .fs-2,
+html.accessibility-text-large .fs-3,
+html.accessibility-text-large .fs-4,
+html.accessibility-text-large .fs-5,
+html.accessibility-text-large .fs-6,
+html.accessibility-text-large .display-1,
+html.accessibility-text-large .display-2,
+html.accessibility-text-large .display-3,
+html.accessibility-text-large .display-4,
+html.accessibility-text-large .display-5,
+html.accessibility-text-large .display-6 {
+  line-height: 1.4 !important;
+}
 
-body.accessibility-text-large .fw-bold { font-size: 150% !important; }
-body.accessibility-text-large .fw-semibold { font-size: 150% !important; }
-body.accessibility-text-large .fw-normal { font-size: 150% !important; }
-body.accessibility-text-large .fw-light { font-size: 150% !important; }
-body.accessibility-text-large .fw-lighter { font-size: 150% !important; }
+html.accessibility-text-large .accessibility-float-btn {
+  font-size: 1.8rem !important;
+}
 
-body.accessibility-text-large .accessibility-float-btn {
-  font-size: 150% !important;
+@media (max-width: 48rem) {
+  html.accessibility-text-large {
+    font-size: 118%;
+  }
 }
 
 /* ========================= */
@@ -179,13 +214,6 @@ body.accessibility-text-large .accessibility-float-btn {
 body.accessibility-high-contrast {
   background: #000 !important;
   color: #fff !important;
-}
-body.accessibility-high-contrast .hero-cover {
-  background-color: transparent !important;
-  background-image: url("/assets/photos/Highway2.png") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
 }
 
 body.accessibility-high-contrast main,
@@ -209,6 +237,12 @@ body.accessibility-high-contrast .navbar {
   background: #000 !important;
   color: #fff !important;
   border-color: #fff !important;
+}
+
+/* אם יש לך hero-cover, שלא יחזיר תמונה שנמחקה */
+body.accessibility-high-contrast .hero-cover {
+  background: #000 !important;
+  color: #fff !important;
 }
 
 body.accessibility-high-contrast h1,
@@ -263,9 +297,18 @@ body.accessibility-high-contrast ::placeholder {
   opacity: 1;
 }
 
+body.accessibility-high-contrast .form-check-input {
+  background-color: #111 !important;
+  border-color: #fff !important;
+}
+
 body.accessibility-high-contrast .form-check-input:checked {
   background-color: #ffeb3b !important;
   border-color: #ffeb3b !important;
+}
+
+body.accessibility-high-contrast .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 235, 59, 0.35) !important;
 }
 
 body.accessibility-high-contrast .tsc-privacy__box,
@@ -282,7 +325,7 @@ body.accessibility-high-contrast .tsc-privacy__section {
 
 body.accessibility-high-contrast .tsc-privacy__link {
   color: #ffeb3b !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 /* ========================= */
