@@ -85,7 +85,7 @@
     width: 3.2rem;
     height: 3.2rem;
     left: 0.8rem;
-    bottom: 0.8rem;
+    bottom: 0.4rem;
     font-size: 1.4rem;
   }
 }
@@ -141,7 +141,7 @@ html.accessibility-text-large th {
   line-height: 1.7 !important;
 }
 
-/* כותרות רגילות */
+/* כותרות */
 html.accessibility-text-large h1,
 html.accessibility-text-large h2,
 html.accessibility-text-large h3,
@@ -149,9 +149,11 @@ html.accessibility-text-large h4,
 html.accessibility-text-large h5,
 html.accessibility-text-large h6 {
   line-height: 1.4 !important;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-/* כותרות מותאמות לאתר שלך */
+/* דסקטופ / כללי */
 html.accessibility-text-large h1,
 html.accessibility-text-large .display-5 {
   font-size: clamp(2.1rem, 4.2vw, 3.2rem) !important;
@@ -166,7 +168,7 @@ html.accessibility-text-large h3 {
 }
 
 html.accessibility-text-large h4 {
-  font-size: clamp(1.35rem, 2.7vw, 1.7rem) !important;
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem) !important;
 }
 
 html.accessibility-text-large h5,
@@ -176,12 +178,11 @@ html.accessibility-text-large .fs-4 {
 
 html.accessibility-text-large h6,
 html.accessibility-text-large .fs-5 {
-  font-size: clamp(1.08rem, 2vw, 1.3rem) !important;
+  font-size: clamp(1.05rem, 2vw, 1.3rem) !important;
 }
 
-/* מחלקות Bootstrap שבאמת מופיעות אצלך */
 html.accessibility-text-large .lead {
-  font-size: clamp(1.1rem, 2vw, 1.35rem) !important;
+  font-size: clamp(1.08rem, 2vw, 1.35rem) !important;
   line-height: 1.8 !important;
 }
 
@@ -197,27 +198,43 @@ html.accessibility-text-large select {
   font-size: 1rem !important;
 }
 
-html.accessibility-text-large .top-service-card h5,
-html.accessibility-text-large .service-card-header h5,
-html.accessibility-text-large #projects h1,
-html.accessibility-text-large #services h1,
-html.accessibility-text-large #contact h1,
-html.accessibility-text-large #signs h1,
-html.accessibility-text-large #about h2 {
-  line-height: 1.35 !important;
-}
-
 html.accessibility-text-large .accessibility-float-btn {
   font-size: 1.8rem !important;
 }
 
+html.accessibility-text-large img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ========================= */
-/* מובייל */
+/* מובייל - פה התיקון האמיתי */
 /* ========================= */
 
 @media (max-width: 48rem) {
   html.accessibility-text-large {
-    font-size: 118%;
+    font-size: 125% !important;
+  }
+
+  html.accessibility-text-large body,
+  html.accessibility-text-large p,
+  html.accessibility-text-large span,
+  html.accessibility-text-large a,
+  html.accessibility-text-large li,
+  html.accessibility-text-large label,
+  html.accessibility-text-large small,
+  html.accessibility-text-large strong,
+  html.accessibility-text-large em,
+  html.accessibility-text-large .text-muted,
+  html.accessibility-text-large .card-body,
+  html.accessibility-text-large .form-label,
+  html.accessibility-text-large .modal-body,
+  html.accessibility-text-large .modal-footer,
+  html.accessibility-text-large .alert,
+  html.accessibility-text-large td,
+  html.accessibility-text-large th {
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
   }
 
   html.accessibility-text-large h1,
@@ -226,32 +243,48 @@ html.accessibility-text-large .accessibility-float-btn {
   html.accessibility-text-large #services h1,
   html.accessibility-text-large #contact h1,
   html.accessibility-text-large #signs h1 {
-    font-size: clamp(1.8rem, 7vw, 2.3rem) !important;
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
     line-height: 1.3 !important;
   }
 
   html.accessibility-text-large h2,
   html.accessibility-text-large #about h2 {
-    font-size: clamp(1.55rem, 6vw, 1.95rem) !important;
+    font-size: clamp(1.7rem, 6.8vw, 2.1rem) !important;
     line-height: 1.3 !important;
   }
 
+  html.accessibility-text-large h3 {
+    font-size: clamp(1.45rem, 5.8vw, 1.8rem) !important;
+  }
+
+  html.accessibility-text-large h4 {
+    font-size: clamp(1.25rem, 5vw, 1.55rem) !important;
+  }
+
   html.accessibility-text-large h5,
-  html.accessibility-text-large .fs-4 {
-    font-size: clamp(1.15rem, 4.8vw, 1.35rem) !important;
+  html.accessibility-text-large .fs-4,
+  html.accessibility-text-large .service-card-header h5,
+  html.accessibility-text-large .top-service-card h5 {
+    font-size: clamp(1.22rem, 4.8vw, 1.45rem) !important;
+    line-height: 1.45 !important;
   }
 
   html.accessibility-text-large h6,
-  html.accessibility-text-large .fs-5,
+  html.accessibility-text-large .fs-5 {
+    font-size: clamp(1.08rem, 4.3vw, 1.22rem) !important;
+    line-height: 1.6 !important;
+  }
+
   html.accessibility-text-large .lead {
-    font-size: clamp(1rem, 4.3vw, 1.2rem) !important;
-    line-height: 1.7 !important;
+    font-size: clamp(1.08rem, 4.5vw, 1.22rem) !important;
+    line-height: 1.75 !important;
   }
 
   html.accessibility-text-large .btn,
   html.accessibility-text-large .btn-lg {
-    font-size: 1rem !important;
+    font-size: 1.05rem !important;
     line-height: 1.5 !important;
+    padding: 0.9rem 1rem !important;
   }
 
   html.accessibility-text-large .form-control,
@@ -259,10 +292,15 @@ html.accessibility-text-large .accessibility-float-btn {
   html.accessibility-text-large input,
   html.accessibility-text-large select {
     font-size: 1rem !important;
+    line-height: 1.5 !important;
   }
 
-  html.accessibility-text-large .card-body {
-    line-height: 1.7 !important;
+  html.accessibility-text-large .navbar-brand,
+  html.accessibility-text-large .nav-link,
+  html.accessibility-text-large .dropdown-item,
+  html.accessibility-text-large .accordion-button,
+  html.accessibility-text-large .option-label {
+    font-size: 1.05rem !important;
   }
 }
 
