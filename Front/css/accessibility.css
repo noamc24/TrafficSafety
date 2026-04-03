@@ -6,32 +6,30 @@
   position: fixed;
   left: 1.25rem;
   bottom: 1.25rem;
-  width: 3.625rem;
-  height: 3.625rem;
+  width: 3.6rem;
+  height: 3.6rem;
   border: none;
   border-radius: 50%;
   background: #f4c400;
   color: #1f1f1f;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  box-shadow: 0 0.625rem 1.5rem rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0.6rem 1.4rem rgba(0,0,0,0.2);
   cursor: pointer;
   z-index: 9999;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  line-height: 1;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: 0.2s;
 }
 
 .accessibility-float-btn:hover {
-  transform: translateY(-0.125rem) scale(1.03);
-  box-shadow: 0 0.875rem 1.75rem rgba(0, 0, 0, 0.22);
+  transform: translateY(-0.1rem) scale(1.05);
 }
 
 .accessibility-float-btn:focus-visible {
-  outline: 0.1875rem solid #111;
-  outline-offset: 0.25rem;
+  outline: 0.18rem solid #000;
+  outline-offset: 0.2rem;
 }
 
 /* ========================= */
@@ -39,35 +37,27 @@
 /* ========================= */
 
 #accessibilityModal .modal-content {
-  border: 0.125rem solid #f4c400;
-  border-radius: 1.125rem;
-  overflow: hidden;
-}
-
-#accessibilityModal .modal-header,
-#accessibilityModal .modal-footer {
-  border-color: rgba(0, 0, 0, 0.08);
+  border: 0.12rem solid #f4c400;
+  border-radius: 1rem;
 }
 
 #accessibilityModal .accessibility-body {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.25rem;
+  gap: 0.7rem;
+  padding: 1.2rem;
 }
 
 #accessibilityModal .accessibility-option {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 0.875rem;
-  width: 100%;
+  align-items: center;
   background: #f8f9fa;
-  border: 0.0625rem solid #e9ecef;
-  border-radius: 0.875rem;
-  padding: 0.875rem 1rem;
+  border: 0.06rem solid #e9ecef;
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  transition: 0.2s;
 }
 
 #accessibilityModal .accessibility-option:hover {
@@ -75,56 +65,35 @@
   border-color: #f4c400;
 }
 
-#accessibilityModal .accessibility-option:focus-within {
-  border-color: #f4c400;
-  box-shadow: 0 0 0 0.2rem rgba(244, 196, 0, 0.2);
-}
-
-#accessibilityModal .option-label {
+.option-label {
   font-weight: 600;
-  font-size: 1.05rem;
   color: #212529;
-  margin: 0;
 }
 
-#accessibilityModal .form-check-input {
-  margin: 0;
-  width: 1.35rem;
-  height: 1.35rem;
-  cursor: pointer;
-  flex-shrink: 0;
+.form-check-input {
+  width: 1.3rem;
+  height: 1.3rem;
   accent-color: #f4c400;
 }
 
+/* ========================= */
+/* מובייל */
+/* ========================= */
+
 @media (max-width: 48rem) {
   .accessibility-float-btn {
-    width: 3.25rem;
-    height: 3.25rem;
-    left: 0.875rem;
-    bottom: 0.875rem;
-    font-size: 1.45rem;
-  }
-
-  #accessibilityModal .accessibility-body {
-    padding: 1rem;
-  }
-
-  #accessibilityModal .accessibility-option {
-    padding: 0.75rem 0.875rem;
-  }
-
-  #accessibilityModal .option-label {
-    font-size: 1rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    left: 0.8rem;
+    bottom: 0.8rem;
+    font-size: 1.4rem;
   }
 }
-
-/* ========================= */
-/* מצבי נגישות */
-/* ========================= */
 
 /* ========================= */
 /* הגדלת טקסט */
 /* ========================= */
+
 /* ========================= */
 /* הגדלת טקסט */
 /* ========================= */
@@ -134,7 +103,7 @@ html.accessibility-text-large {
 }
 
 html.accessibility-text-large body {
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 html.accessibility-text-large p,
@@ -156,7 +125,6 @@ html.accessibility-text-large .form-label,
 html.accessibility-text-large .nav-link,
 html.accessibility-text-large .navbar-brand,
 html.accessibility-text-large .card-text,
-html.accessibility-text-large .card-title,
 html.accessibility-text-large .text-muted,
 html.accessibility-text-large .option-label,
 html.accessibility-text-large .modal-title,
@@ -170,40 +138,143 @@ html.accessibility-text-large .accordion-body,
 html.accessibility-text-large .table,
 html.accessibility-text-large td,
 html.accessibility-text-large th {
-  line-height: 1.6 !important;
+  line-height: 1.7 !important;
 }
 
-html.accessibility-text-large h1,
-html.accessibility-text-large h2,
-html.accessibility-text-large h3,
-html.accessibility-text-large h4,
-html.accessibility-text-large h5,
+/* כותרות רגילות */
+html.accessibility-text-large h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+  line-height: 1.3 !important;
+}
+
+html.accessibility-text-large h2 {
+  font-size: clamp(1.75rem, 4.5vw, 2.6rem) !important;
+  line-height: 1.3 !important;
+}
+
+html.accessibility-text-large h3 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+  line-height: 1.35 !important;
+}
+
+html.accessibility-text-large h4 {
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem) !important;
+  line-height: 1.35 !important;
+}
+
+html.accessibility-text-large h5 {
+  font-size: clamp(1.15rem, 3vw, 1.6rem) !important;
+  line-height: 1.4 !important;
+}
+
 html.accessibility-text-large h6 {
+  font-size: clamp(1rem, 2.6vw, 1.3rem) !important;
   line-height: 1.4 !important;
 }
 
-html.accessibility-text-large .fs-1,
-html.accessibility-text-large .fs-2,
-html.accessibility-text-large .fs-3,
-html.accessibility-text-large .fs-4,
-html.accessibility-text-large .fs-5,
-html.accessibility-text-large .fs-6,
-html.accessibility-text-large .display-1,
-html.accessibility-text-large .display-2,
-html.accessibility-text-large .display-3,
-html.accessibility-text-large .display-4,
-html.accessibility-text-large .display-5,
+/* Bootstrap font-size classes */
+html.accessibility-text-large .fs-1 {
+  font-size: clamp(2rem, 5vw, 3.2rem) !important;
+}
+
+html.accessibility-text-large .fs-2 {
+  font-size: clamp(1.75rem, 4.5vw, 2.6rem) !important;
+}
+
+html.accessibility-text-large .fs-3 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
+}
+
+html.accessibility-text-large .fs-4 {
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem) !important;
+}
+
+html.accessibility-text-large .fs-5 {
+  font-size: clamp(1.15rem, 3vw, 1.6rem) !important;
+}
+
+html.accessibility-text-large .fs-6 {
+  font-size: clamp(1rem, 2.6vw, 1.3rem) !important;
+}
+
+/* Bootstrap display classes */
+html.accessibility-text-large .display-1 {
+  font-size: clamp(2.4rem, 7vw, 4.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+html.accessibility-text-large .display-2 {
+  font-size: clamp(2.2rem, 6.5vw, 4rem) !important;
+  line-height: 1.2 !important;
+}
+
+html.accessibility-text-large .display-3 {
+  font-size: clamp(2rem, 6vw, 3.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+html.accessibility-text-large .display-4 {
+  font-size: clamp(1.8rem, 5.5vw, 3rem) !important;
+  line-height: 1.25 !important;
+}
+
+html.accessibility-text-large .display-5 {
+  font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
+  line-height: 1.25 !important;
+}
+
 html.accessibility-text-large .display-6 {
-  line-height: 1.4 !important;
+  font-size: clamp(1.4rem, 4.5vw, 2rem) !important;
+  line-height: 1.3 !important;
 }
 
 html.accessibility-text-large .accessibility-float-btn {
   font-size: 1.8rem !important;
 }
 
+/* ========================= */
+/* מובייל */
+/* ========================= */
+
 @media (max-width: 48rem) {
   html.accessibility-text-large {
     font-size: 118%;
+  }
+
+  html.accessibility-text-large h1,
+  html.accessibility-text-large .fs-1,
+  html.accessibility-text-large .display-1 {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+  }
+
+  html.accessibility-text-large h2,
+  html.accessibility-text-large .fs-2,
+  html.accessibility-text-large .display-2 {
+    font-size: clamp(1.75rem, 7vw, 2.2rem) !important;
+  }
+
+  html.accessibility-text-large h3,
+  html.accessibility-text-large .fs-3,
+  html.accessibility-text-large .display-3 {
+    font-size: clamp(1.5rem, 6vw, 1.9rem) !important;
+  }
+
+  html.accessibility-text-large h4,
+  html.accessibility-text-large .fs-4,
+  html.accessibility-text-large .display-4 {
+    font-size: clamp(1.3rem, 5.2vw, 1.7rem) !important;
+  }
+
+  html.accessibility-text-large h5,
+  html.accessibility-text-large .fs-5,
+  html.accessibility-text-large .display-5 {
+    font-size: clamp(1.15rem, 4.6vw, 1.5rem) !important;
+  }
+
+  html.accessibility-text-large h6,
+  html.accessibility-text-large .fs-6,
+  html.accessibility-text-large .display-6 {
+    font-size: clamp(1rem, 4vw, 1.25rem) !important;
   }
 }
 
@@ -212,120 +283,40 @@ html.accessibility-text-large .accessibility-float-btn {
 /* ========================= */
 
 body.accessibility-high-contrast {
-  background: #000 !important;
-  color: #fff !important;
+  background: #000;
+  color: #fff;
 }
 
-body.accessibility-high-contrast main,
-body.accessibility-high-contrast section,
-body.accessibility-high-contrast div,
-body.accessibility-high-contrast header,
-body.accessibility-high-contrast footer,
-body.accessibility-high-contrast nav,
-body.accessibility-high-contrast article,
-body.accessibility-high-contrast aside,
-body.accessibility-high-contrast .card,
-body.accessibility-high-contrast .card-body,
-body.accessibility-high-contrast .modal-content,
-body.accessibility-high-contrast .modal-header,
-body.accessibility-high-contrast .modal-body,
-body.accessibility-high-contrast .modal-footer,
-body.accessibility-high-contrast .alert,
-body.accessibility-high-contrast .accessibility-option,
-body.accessibility-high-contrast .dropdown-menu,
-body.accessibility-high-contrast .navbar {
-  background: #000 !important;
-  color: #fff !important;
-  border-color: #fff !important;
-}
-
-/* אם יש לך hero-cover, שלא יחזיר תמונה שנמחקה */
-body.accessibility-high-contrast .hero-cover {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-body.accessibility-high-contrast h1,
-body.accessibility-high-contrast h2,
-body.accessibility-high-contrast h3,
-body.accessibility-high-contrast h4,
-body.accessibility-high-contrast h5,
-body.accessibility-high-contrast h6,
-body.accessibility-high-contrast p,
-body.accessibility-high-contrast span,
-body.accessibility-high-contrast label,
-body.accessibility-high-contrast li,
-body.accessibility-high-contrast small,
-body.accessibility-high-contrast strong,
-body.accessibility-high-contrast .text-muted,
-body.accessibility-high-contrast .option-label,
-body.accessibility-high-contrast .modal-title {
-  color: #fff !important;
+body.accessibility-high-contrast * {
+  background-color: transparent;
+  color: inherit;
+  border-color: #fff;
 }
 
 body.accessibility-high-contrast a {
-  color: #ffeb3b !important;
-  text-decoration: underline !important;
+  color: #ffeb3b;
+  text-decoration: underline;
 }
 
-body.accessibility-high-contrast button,
 body.accessibility-high-contrast .btn {
-  background: #111 !important;
-  color: #fff !important;
-  border-color: #fff !important;
+  background: #111;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 body.accessibility-high-contrast .btn-warning,
 body.accessibility-high-contrast .btn-primary,
 body.accessibility-high-contrast .btn-success {
-  background: #ffeb3b !important;
-  color: #000 !important;
-  border-color: #ffeb3b !important;
+  background: #ffeb3b;
+  color: #000;
 }
 
 body.accessibility-high-contrast input,
 body.accessibility-high-contrast textarea,
-body.accessibility-high-contrast select,
-body.accessibility-high-contrast .form-control {
-  background: #111 !important;
-  color: #fff !important;
-  border-color: #fff !important;
-}
-
-body.accessibility-high-contrast ::placeholder {
-  color: #ddd !important;
-  opacity: 1;
-}
-
-body.accessibility-high-contrast .form-check-input {
-  background-color: #111 !important;
-  border-color: #fff !important;
-}
-
-body.accessibility-high-contrast .form-check-input:checked {
-  background-color: #ffeb3b !important;
-  border-color: #ffeb3b !important;
-}
-
-body.accessibility-high-contrast .form-check-input:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 235, 59, 0.35) !important;
-}
-
-body.accessibility-high-contrast .tsc-privacy__box,
-body.accessibility-high-contrast .tsc-privacy__section,
-body.accessibility-high-contrast .tsc-privacy__title,
-body.accessibility-high-contrast .tsc-privacy__text {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-body.accessibility-high-contrast .tsc-privacy__section {
-  border-color: #ffeb3b !important;
-}
-
-body.accessibility-high-contrast .tsc-privacy__link {
-  color: #ffeb3b !important;
-  text-decoration: underline !important;
+body.accessibility-high-contrast select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 /* ========================= */
@@ -337,7 +328,6 @@ body.accessibility-no-animations *::before,
 body.accessibility-no-animations *::after {
   animation: none !important;
   transition: none !important;
-  scroll-behavior: auto !important;
 }
 
 /* ========================= */
