@@ -227,21 +227,21 @@ updateActiveOnScroll();
 window.addEventListener('scroll', onScrollThrottled, { passive: true });
 
 document.addEventListener("DOMContentLoaded", function () {
+  const reveals = document.querySelectorAll(".reveal");
 
-    const reveals = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-            }
-        });
-    }, {
-        threshold: 0.15
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        obs.unobserve(entry.target);
+      }
     });
+  }, {
+    threshold: 0.01,
+    rootMargin: "0px 0px -10% 0px"
+  });
 
-    reveals.forEach(reveal => {
-        observer.observe(reveal);
-    });
-
+  reveals.forEach(reveal => {
+    observer.observe(reveal);
+  });
 });

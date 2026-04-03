@@ -1,6 +1,6 @@
 :root {
-  --tsc-yellow: #f4c400;
-  --tsc-yellow-dark: #d6ab00;
+  --tsc-accent: #f4a300;
+  --tsc-accent-dark: #cf8900;
   --tsc-black: #1f1f1f;
   --tsc-text: #2d2d2d;
   --tsc-muted: #6c757d;
@@ -23,7 +23,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background:
-    linear-gradient(135deg, rgba(244, 196, 0, 0.08), rgba(255, 255, 255, 0.95)),
+    linear-gradient(135deg, rgba(244, 163, 0, 0.08), rgba(255, 255, 255, 0.95)),
     var(--tsc-bg);
   color: var(--tsc-text);
   line-height: 1.8;
@@ -31,7 +31,7 @@ body {
 
 /* ===== Layout ===== */
 .legal-page {
-  max-width: 87.5rem; /* 1400px */
+  max-width: 87.5rem;
   margin: 0 auto;
   padding: 2.5rem 1.25rem 3rem;
 }
@@ -43,8 +43,8 @@ body {
   gap: 0.5rem;
   text-decoration: none;
   color: var(--tsc-black);
-  background: #fff7d1;
-  border: 0.0625rem solid #efd86c;
+  background: #fff4d6;
+  border: 0.0625rem solid #f1cb74;
   padding: 0.625rem 1.125rem;
   border-radius: 999rem;
   font-weight: 700;
@@ -53,8 +53,8 @@ body {
 }
 
 .tsc-privacy__back-btn:hover {
-  background: var(--tsc-yellow);
-  border-color: var(--tsc-yellow-dark);
+  background: var(--tsc-accent);
+  border-color: var(--tsc-accent-dark);
   transform: translateY(-0.0625rem);
 }
 
@@ -64,6 +64,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 1.75rem;
   align-items: stretch;
+}
+
+/* אם יש 3 קופסאות, האחרונה תשתרע על כל הרוחב */
+.legal-grid > .tsc-privacy__box:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }
 
 /* ===== Box ===== */
@@ -85,15 +90,22 @@ body {
   right: 0;
   left: 0;
   height: 0.5rem;
-  background: linear-gradient(90deg, var(--tsc-yellow), #ffd84d, var(--tsc-yellow));
+  background: linear-gradient(90deg, var(--tsc-accent), #ffc14d, var(--tsc-accent));
 }
 
 /* ===== Accessibility box ===== */
 #accessibility {
   background:
-    linear-gradient(180deg, rgba(255, 248, 214, 0.25), rgba(255, 255, 255, 1)),
+    linear-gradient(180deg, rgba(255, 244, 214, 0.3), rgba(255, 255, 255, 1)),
     var(--tsc-white);
-  border-color: #eadb94;
+  border-color: #ecd394;
+}
+
+/* ===== Terms box ===== */
+#terms {
+  background:
+    linear-gradient(180deg, rgba(248, 249, 250, 0.95), rgba(255, 255, 255, 1)),
+    var(--tsc-white);
 }
 
 /* ===== Title ===== */
@@ -112,13 +124,17 @@ body {
   display: block;
   width: 5.25rem;
   height: 0.3125rem;
-  background: var(--tsc-yellow);
+  background: var(--tsc-accent);
   border-radius: 999rem;
   margin-top: 0.75rem;
 }
 
 #accessibility .tsc-privacy__title::after {
-  background: linear-gradient(90deg, var(--tsc-yellow), #2b2b2b);
+  background: linear-gradient(90deg, var(--tsc-accent), #2b2b2b);
+}
+
+#terms .tsc-privacy__title::after {
+  background: linear-gradient(90deg, var(--tsc-accent), #8c8c8c);
 }
 
 /* ===== Section ===== */
@@ -128,8 +144,8 @@ body {
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--tsc-black);
-  background: #fffaf0;
-  border-right: 0.3125rem solid var(--tsc-yellow);
+  background: #fff8ee;
+  border-right: 0.3125rem solid var(--tsc-accent);
   border-radius: 0.875rem;
 }
 
@@ -138,6 +154,21 @@ body {
   margin: 0 0 0.875rem;
   font-size: 1rem;
   color: var(--tsc-text);
+}
+
+/* ===== Lists ===== */
+.tsc-privacy__list {
+  margin: 0 0 1rem;
+  padding-right: 1.25rem;
+  color: var(--tsc-text);
+}
+
+.tsc-privacy__list li {
+  margin-bottom: 0.55rem;
+}
+
+.tsc-privacy__list li::marker {
+  color: var(--tsc-accent-dark);
 }
 
 /* ===== Links ===== */
@@ -165,6 +196,16 @@ body {
   font-weight: 600;
 }
 
+/* ===== Notice box ===== */
+.tsc-privacy__notice {
+  margin-top: 1.5rem;
+  padding: 1rem 1rem;
+  background: #fffaf2;
+  border: 0.0625rem solid rgba(244, 163, 0, 0.28);
+  border-radius: 0.9rem;
+  color: var(--tsc-text);
+}
+
 /* ===== Misc ===== */
 strong {
   color: var(--tsc-black);
@@ -172,7 +213,7 @@ strong {
 }
 
 a:focus-visible {
-  outline: 0.1875rem solid var(--tsc-yellow);
+  outline: 0.1875rem solid var(--tsc-accent);
   outline-offset: 0.1875rem;
   border-radius: 0.5rem;
 }
@@ -204,5 +245,35 @@ a:focus-visible {
   .tsc-privacy__back-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 36rem) {
+  .legal-page {
+    padding: 1.2rem 0.75rem 1.75rem;
+  }
+
+  .tsc-privacy__box {
+    padding: 1.25rem 0.95rem;
+    border-radius: 1rem;
+  }
+
+  .tsc-privacy__title {
+    font-size: 1.6rem;
+  }
+
+  .tsc-privacy__title::after {
+    width: 4.25rem;
+    height: 0.26rem;
+  }
+
+  .tsc-privacy__section {
+    margin-top: 1.25rem;
+    font-size: 0.98rem;
+  }
+
+  .tsc-privacy__text,
+  .tsc-privacy__list {
+    font-size: 0.96rem;
   }
 }
