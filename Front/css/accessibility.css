@@ -94,10 +94,6 @@
 /* הגדלת טקסט */
 /* ========================= */
 
-/* ========================= */
-/* הגדלת טקסט */
-/* ========================= */
-
 html.accessibility-text-large {
   font-size: 135%;
 }
@@ -106,6 +102,7 @@ html.accessibility-text-large body {
   line-height: 1.7;
 }
 
+/* טקסטים כלליים */
 html.accessibility-text-large p,
 html.accessibility-text-large span,
 html.accessibility-text-large a,
@@ -119,12 +116,15 @@ html.accessibility-text-large strong,
 html.accessibility-text-large em,
 html.accessibility-text-large button,
 html.accessibility-text-large .btn,
+html.accessibility-text-large .btn-lg,
 html.accessibility-text-large .form-control,
 html.accessibility-text-large .form-select,
 html.accessibility-text-large .form-label,
 html.accessibility-text-large .nav-link,
 html.accessibility-text-large .navbar-brand,
 html.accessibility-text-large .card-text,
+html.accessibility-text-large .card-title,
+html.accessibility-text-large .card-body,
 html.accessibility-text-large .text-muted,
 html.accessibility-text-large .option-label,
 html.accessibility-text-large .modal-title,
@@ -142,90 +142,69 @@ html.accessibility-text-large th {
 }
 
 /* כותרות רגילות */
-html.accessibility-text-large h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem) !important;
-  line-height: 1.3 !important;
+html.accessibility-text-large h1,
+html.accessibility-text-large h2,
+html.accessibility-text-large h3,
+html.accessibility-text-large h4,
+html.accessibility-text-large h5,
+html.accessibility-text-large h6 {
+  line-height: 1.4 !important;
+}
+
+/* כותרות מותאמות לאתר שלך */
+html.accessibility-text-large h1,
+html.accessibility-text-large .display-5 {
+  font-size: clamp(2.1rem, 4.2vw, 3.2rem) !important;
 }
 
 html.accessibility-text-large h2 {
-  font-size: clamp(1.75rem, 4.5vw, 2.6rem) !important;
-  line-height: 1.3 !important;
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem) !important;
 }
 
 html.accessibility-text-large h3 {
-  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
-  line-height: 1.35 !important;
+  font-size: clamp(1.5rem, 3vw, 2rem) !important;
 }
 
 html.accessibility-text-large h4 {
-  font-size: clamp(1.3rem, 3.5vw, 1.9rem) !important;
-  line-height: 1.35 !important;
+  font-size: clamp(1.35rem, 2.7vw, 1.7rem) !important;
 }
 
-html.accessibility-text-large h5 {
-  font-size: clamp(1.15rem, 3vw, 1.6rem) !important;
-  line-height: 1.4 !important;
-}
-
-html.accessibility-text-large h6 {
-  font-size: clamp(1rem, 2.6vw, 1.3rem) !important;
-  line-height: 1.4 !important;
-}
-
-/* Bootstrap font-size classes */
-html.accessibility-text-large .fs-1 {
-  font-size: clamp(2rem, 5vw, 3.2rem) !important;
-}
-
-html.accessibility-text-large .fs-2 {
-  font-size: clamp(1.75rem, 4.5vw, 2.6rem) !important;
-}
-
-html.accessibility-text-large .fs-3 {
-  font-size: clamp(1.5rem, 4vw, 2.2rem) !important;
-}
-
+html.accessibility-text-large h5,
 html.accessibility-text-large .fs-4 {
-  font-size: clamp(1.3rem, 3.5vw, 1.9rem) !important;
+  font-size: clamp(1.2rem, 2.3vw, 1.5rem) !important;
 }
 
+html.accessibility-text-large h6,
 html.accessibility-text-large .fs-5 {
-  font-size: clamp(1.15rem, 3vw, 1.6rem) !important;
+  font-size: clamp(1.08rem, 2vw, 1.3rem) !important;
 }
 
-html.accessibility-text-large .fs-6 {
-  font-size: clamp(1rem, 2.6vw, 1.3rem) !important;
+/* מחלקות Bootstrap שבאמת מופיעות אצלך */
+html.accessibility-text-large .lead {
+  font-size: clamp(1.1rem, 2vw, 1.35rem) !important;
+  line-height: 1.8 !important;
 }
 
-/* Bootstrap display classes */
-html.accessibility-text-large .display-1 {
-  font-size: clamp(2.4rem, 7vw, 4.5rem) !important;
-  line-height: 1.2 !important;
+html.accessibility-text-large .btn-lg {
+  font-size: 1.08rem !important;
+  padding: 0.9rem 1.2rem !important;
 }
 
-html.accessibility-text-large .display-2 {
-  font-size: clamp(2.2rem, 6.5vw, 4rem) !important;
-  line-height: 1.2 !important;
+html.accessibility-text-large .form-control,
+html.accessibility-text-large textarea,
+html.accessibility-text-large input,
+html.accessibility-text-large select {
+  font-size: 1rem !important;
 }
 
-html.accessibility-text-large .display-3 {
-  font-size: clamp(2rem, 6vw, 3.5rem) !important;
-  line-height: 1.2 !important;
-}
-
-html.accessibility-text-large .display-4 {
-  font-size: clamp(1.8rem, 5.5vw, 3rem) !important;
-  line-height: 1.25 !important;
-}
-
-html.accessibility-text-large .display-5 {
-  font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
-  line-height: 1.25 !important;
-}
-
-html.accessibility-text-large .display-6 {
-  font-size: clamp(1.4rem, 4.5vw, 2rem) !important;
-  line-height: 1.3 !important;
+html.accessibility-text-large .top-service-card h5,
+html.accessibility-text-large .service-card-header h5,
+html.accessibility-text-large #projects h1,
+html.accessibility-text-large #services h1,
+html.accessibility-text-large #contact h1,
+html.accessibility-text-large #signs h1,
+html.accessibility-text-large #about h2 {
+  line-height: 1.35 !important;
 }
 
 html.accessibility-text-large .accessibility-float-btn {
@@ -242,39 +221,48 @@ html.accessibility-text-large .accessibility-float-btn {
   }
 
   html.accessibility-text-large h1,
-  html.accessibility-text-large .fs-1,
-  html.accessibility-text-large .display-1 {
-    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+  html.accessibility-text-large .display-5,
+  html.accessibility-text-large #projects h1,
+  html.accessibility-text-large #services h1,
+  html.accessibility-text-large #contact h1,
+  html.accessibility-text-large #signs h1 {
+    font-size: clamp(1.8rem, 7vw, 2.3rem) !important;
+    line-height: 1.3 !important;
   }
 
   html.accessibility-text-large h2,
-  html.accessibility-text-large .fs-2,
-  html.accessibility-text-large .display-2 {
-    font-size: clamp(1.75rem, 7vw, 2.2rem) !important;
-  }
-
-  html.accessibility-text-large h3,
-  html.accessibility-text-large .fs-3,
-  html.accessibility-text-large .display-3 {
-    font-size: clamp(1.5rem, 6vw, 1.9rem) !important;
-  }
-
-  html.accessibility-text-large h4,
-  html.accessibility-text-large .fs-4,
-  html.accessibility-text-large .display-4 {
-    font-size: clamp(1.3rem, 5.2vw, 1.7rem) !important;
+  html.accessibility-text-large #about h2 {
+    font-size: clamp(1.55rem, 6vw, 1.95rem) !important;
+    line-height: 1.3 !important;
   }
 
   html.accessibility-text-large h5,
-  html.accessibility-text-large .fs-5,
-  html.accessibility-text-large .display-5 {
-    font-size: clamp(1.15rem, 4.6vw, 1.5rem) !important;
+  html.accessibility-text-large .fs-4 {
+    font-size: clamp(1.15rem, 4.8vw, 1.35rem) !important;
   }
 
   html.accessibility-text-large h6,
-  html.accessibility-text-large .fs-6,
-  html.accessibility-text-large .display-6 {
-    font-size: clamp(1rem, 4vw, 1.25rem) !important;
+  html.accessibility-text-large .fs-5,
+  html.accessibility-text-large .lead {
+    font-size: clamp(1rem, 4.3vw, 1.2rem) !important;
+    line-height: 1.7 !important;
+  }
+
+  html.accessibility-text-large .btn,
+  html.accessibility-text-large .btn-lg {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  html.accessibility-text-large .form-control,
+  html.accessibility-text-large textarea,
+  html.accessibility-text-large input,
+  html.accessibility-text-large select {
+    font-size: 1rem !important;
+  }
+
+  html.accessibility-text-large .card-body {
+    line-height: 1.7 !important;
   }
 }
 
@@ -283,40 +271,119 @@ html.accessibility-text-large .accessibility-float-btn {
 /* ========================= */
 
 body.accessibility-high-contrast {
-  background: #000;
-  color: #fff;
+  background: #000 !important;
+  color: #fff !important;
 }
 
-body.accessibility-high-contrast * {
-  background-color: transparent;
-  color: inherit;
-  border-color: #fff;
+body.accessibility-high-contrast main,
+body.accessibility-high-contrast section,
+body.accessibility-high-contrast div,
+body.accessibility-high-contrast header,
+body.accessibility-high-contrast footer,
+body.accessibility-high-contrast nav,
+body.accessibility-high-contrast article,
+body.accessibility-high-contrast aside,
+body.accessibility-high-contrast .card,
+body.accessibility-high-contrast .card-body,
+body.accessibility-high-contrast .modal-content,
+body.accessibility-high-contrast .modal-header,
+body.accessibility-high-contrast .modal-body,
+body.accessibility-high-contrast .modal-footer,
+body.accessibility-high-contrast .alert,
+body.accessibility-high-contrast .accessibility-option,
+body.accessibility-high-contrast .dropdown-menu,
+body.accessibility-high-contrast .navbar {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+body.accessibility-high-contrast .hero-cover {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.accessibility-high-contrast h1,
+body.accessibility-high-contrast h2,
+body.accessibility-high-contrast h3,
+body.accessibility-high-contrast h4,
+body.accessibility-high-contrast h5,
+body.accessibility-high-contrast h6,
+body.accessibility-high-contrast p,
+body.accessibility-high-contrast span,
+body.accessibility-high-contrast label,
+body.accessibility-high-contrast li,
+body.accessibility-high-contrast small,
+body.accessibility-high-contrast strong,
+body.accessibility-high-contrast .text-muted,
+body.accessibility-high-contrast .option-label,
+body.accessibility-high-contrast .modal-title {
+  color: #fff !important;
 }
 
 body.accessibility-high-contrast a {
-  color: #ffeb3b;
-  text-decoration: underline;
+  color: #ffeb3b !important;
+  text-decoration: underline !important;
 }
 
+body.accessibility-high-contrast button,
 body.accessibility-high-contrast .btn {
-  background: #111;
-  color: #fff;
-  border: 1px solid #fff;
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #fff !important;
 }
 
 body.accessibility-high-contrast .btn-warning,
 body.accessibility-high-contrast .btn-primary,
 body.accessibility-high-contrast .btn-success {
-  background: #ffeb3b;
-  color: #000;
+  background: #ffeb3b !important;
+  color: #000 !important;
+  border-color: #ffeb3b !important;
 }
 
 body.accessibility-high-contrast input,
 body.accessibility-high-contrast textarea,
-body.accessibility-high-contrast select {
-  background: #111;
-  color: #fff;
-  border: 1px solid #fff;
+body.accessibility-high-contrast select,
+body.accessibility-high-contrast .form-control {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+body.accessibility-high-contrast ::placeholder {
+  color: #ddd !important;
+  opacity: 1;
+}
+
+body.accessibility-high-contrast .form-check-input {
+  background-color: #111 !important;
+  border-color: #fff !important;
+}
+
+body.accessibility-high-contrast .form-check-input:checked {
+  background-color: #ffeb3b !important;
+  border-color: #ffeb3b !important;
+}
+
+body.accessibility-high-contrast .form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 235, 59, 0.35) !important;
+}
+
+body.accessibility-high-contrast .tsc-privacy__box,
+body.accessibility-high-contrast .tsc-privacy__section,
+body.accessibility-high-contrast .tsc-privacy__title,
+body.accessibility-high-contrast .tsc-privacy__text {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+body.accessibility-high-contrast .tsc-privacy__section {
+  border-color: #ffeb3b !important;
+}
+
+body.accessibility-high-contrast .tsc-privacy__link {
+  color: #ffeb3b !important;
+  text-decoration: underline !important;
 }
 
 /* ========================= */
