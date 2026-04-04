@@ -398,6 +398,19 @@ body.accessibility-high-contrast .form-check-input {
   border-color: #fff !important;
 }
 
+/* Back button in high contrast mode */
+body.accessibility-high-contrast .tsc-privacy__back-btn {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+body.accessibility-high-contrast .tsc-privacy__back-btn:hover {
+  background: #ffeb3b !important;
+  color: #000 !important;
+  border-color: #ffeb3b !important;
+}
+
 body.accessibility-high-contrast .form-check-input:checked {
   background-color: #ffeb3b !important;
   border-color: #ffeb3b !important;

@@ -83,7 +83,7 @@ function setActiveNavLink() {
 }
 
 function updateActiveOnScroll() {
-  const ids = ['home', 'services', 'projects', 'signs', 'contact'];
+  const ids = ['home', 'about', 'services', 'projects', 'signs', 'contact'];
   let best = null;
   let bestDist = Infinity;
   ids.forEach(id => {
