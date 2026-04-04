@@ -124,10 +124,31 @@ document.addEventListener('click', (e) => {
   const id = href.slice(1);
   const el = document.getElementById(id);
   if (!el) return;
-  e.preventDefault();
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  history.replaceState(null, '', `#${id}`);
-  setTimeout(() => { updateActiveOnScroll(); }, 250);
+
+  // Check if this link is in the mobile offcanvas menu
+  const isInOffcanvas = a.closest('#mobileMenu');
+
+  if (isInOffcanvas) {
+    // For mobile menu links, let Bootstrap handle the dismiss, then scroll
+    e.preventDefault();
+    // Close the offcanvas menu
+    const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('mobileMenu'));
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+    // Small delay to allow offcanvas to close before scrolling
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${id}`);
+      setTimeout(() => { updateActiveOnScroll(); }, 250);
+    }, 300);
+  } else {
+    // For regular anchor links, prevent default and scroll
+    e.preventDefault();
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', `#${id}`);
+    setTimeout(() => { updateActiveOnScroll(); }, 250);
+  }
 });
 
 function setupContactForm() {
