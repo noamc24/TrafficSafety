@@ -21,7 +21,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: 'Open Sans', Arial, sans-serif;
   background:
     linear-gradient(135deg, rgba(244, 163, 0, 0.08), rgba(255, 255, 255, 0.95)),
     var(--tsc-bg);
