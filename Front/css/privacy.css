@@ -276,4 +276,16 @@ a:focus-visible {
   .tsc-privacy__list {
     font-size: 0.96rem;
   }
+
+  /* Responsive for navigation buttons */
+  .legal-page > div.d-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .legal-page > div.d-flex .btn {
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
 }

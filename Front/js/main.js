@@ -164,9 +164,9 @@ function setupContactForm() {
 
     const payload = Object.fromEntries(new FormData(form).entries());
 
-    if (!payload.fullName || !payload.email || !payload.message) {
+    if (!payload.fullName || !payload.message || (!payload.email && !payload.phone)) {
       if (alertBox) {
-        alertBox.innerHTML = `<div class="alert alert-danger mb-0">נא למלא שם מלא, אימייל והודעה.</div>`;
+        alertBox.innerHTML = `<div class="alert alert-danger mb-0">נא למלא שם מלא והודעה, וכן אימייל או טלפון.</div>`;
       }
       return;
     }
