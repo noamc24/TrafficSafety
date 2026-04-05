@@ -584,7 +584,7 @@ html.increase-text {
 
 /* ===== Footer ===== */
 .footer-logo {
-  margin-right: 5%;
+  margin-right: 15%;
   height: 3rem;
   width: auto;
   opacity: 0.85;
@@ -703,6 +703,10 @@ html.increase-text {
 
 /* ===== Mobile ===== */
 @media (max-width: 48rem) {
+  body {
+    padding-bottom: 5rem;
+  }
+
   .navbar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -814,7 +818,7 @@ html.increase-text {
   }
 
   #backToTop {
-    bottom: 6.5rem;
+    bottom: 1rem;
     right: 1rem;
     width: 3.25rem;
     height: 3.25rem;
@@ -822,7 +826,7 @@ html.increase-text {
 
   .accessibility-float-btn,
   #accessibilityBtn {
-    bottom: 6.5rem;
+    bottom: 1rem;
     left: 1rem;
   }
 
@@ -864,6 +868,10 @@ html.increase-text {
 
 /* ===== Extra Small Mobile ===== */
 @media (max-width: 36rem) {
+  body {
+    padding-bottom: 5rem;
+  }
+
   .fixed-contact-wrapper {
     gap: 0.6rem;
   }
@@ -875,6 +883,19 @@ html.increase-text {
 
   .fixed-contact-btn i {
     font-size: 1.35rem;
+  }
+
+  #backToTop {
+    bottom: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .accessibility-float-btn,
+  #accessibilityBtn {
+    bottom: 1rem;
+    left: 1rem;
   }
 
   .about-image {
