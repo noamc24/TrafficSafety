@@ -187,7 +187,7 @@ function setupContactForm() {
 
       form.reset();
       if (alertBox) {
-        alertBox.innerHTML = `<div class="alert alert-success mb-0">${data.message || "נשלח בהצלחה 🙌"}</div>`;
+        alertBox.innerHTML = `<div class="alert alert-success mb-0">${data.message || "נשלח בהצלחה"}</div>`;
       }
     } catch (err) {
       if (alertBox) {
