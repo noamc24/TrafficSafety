@@ -27,6 +27,10 @@ const contactLimiter = rateLimit({
 // routes
 app.use("/api/contact", contactLimiter, require("./routes/contact"));
 
+app.get("/sitemap.xml", (req, res) => {
+  res.sendFile(path.join(clientPath, "sitemap.xml"));
+});
+
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();
   res.setHeader("Cache-Control", "no-store");
