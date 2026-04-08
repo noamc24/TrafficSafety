@@ -58,15 +58,14 @@ object {
 
 /* ===== Navbar ===== */
 .navbar {
-  padding-top: 0.8vh;
-  padding-bottom: 0.5vh;
+  padding-top: 1.2vh;
+  padding-bottom: 0.2vh;
   background-color: var(--tsc-dark);
-  min-height: auto;
 }
 
 .navbar .nav-link {
-  font-size: clamp(1rem, 1.2vw, 1.4rem);
-  padding: 0.5rem 0.7rem;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  padding: 0.6rem 0.9rem;
   color: #ffffff;
   transition: color 0.3s ease;
 }
@@ -83,13 +82,12 @@ object {
 }
 
 .navbar .btn {
-  font-size: clamp(0.95rem, 1.2vw, 1.3rem);
-  padding: 0.5rem 0.9rem;
-  white-space: nowrap;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  padding: 0.6rem 1.1rem;
 }
 
 .navbar .navbar-logo {
-  height: clamp(5rem, 10vw, 12rem);
+  height: clamp(6rem, 12vw, 15rem);
   width: auto;
   object-fit: contain;
   display: block;
@@ -97,12 +95,11 @@ object {
 
 .navbar-brand {
   min-width: 0;
-  flex-shrink: 0;
 }
 
 .navbar-brand .brand-text {
-  line-height: 1;
-  font-size: clamp(0.95rem, 1.8vw, 1.6rem);
+  line-height: 1.1;
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
   font-weight: 700;
 }
 
@@ -118,6 +115,10 @@ object {
   width: auto;
   object-fit: contain;
   opacity: 0.95;
+}
+
+.navbar-mobile-spacer {
+  display: none;
 }
 
 /* ===== Common UI ===== */
@@ -693,47 +694,36 @@ html.increase-text {
   margin-top: 0.5rem;
 }
 
-/* ===== Large Desktop ===== */
-@media (min-width: 90rem) {
-  .navbar .navbar-logo {
-    height: clamp(10rem, 12vw, 15rem);
-  }
-}
-
-/* ===== Medium Desktop / Large Tablet ===== */
-@media (max-width: 75rem) {
-  .navbar .navbar-logo {
-    height: clamp(6rem, 9vw, 9rem);
-  }
-
-  .navbar-brand .brand-text {
-    font-size: clamp(1rem, 1.6vw, 1.3rem);
-  }
-}
-
-/* ===== Small Desktop / Tablet (iPad Pro) ===== */
+/* ===== Small Desktop / Tablet ===== */
 @media (max-width: 62rem) {
-  .navbar {
-    padding-top: 0.6vh;
-    padding-bottom: 0.4vh;
+  .navbar > .container-fluid {
+    gap: 0.5rem;
+    padding-inline: 1rem !important;
+  }
+
+  .navbar-toggler {
+    flex-shrink: 0;
+  }
+
+  .navbar-mobile-spacer {
+    display: block;
+    width: 2.75rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
   }
 
   .navbar .navbar-logo {
-    height: clamp(4.5rem, 8vw, 7rem);
+    height: clamp(4.5rem, 10vw, 8rem);
   }
 
   .navbar-brand .brand-text {
-    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
-  }
-
-  .navbar .nav-link {
-    font-size: clamp(0.9rem, 1vw, 1.15rem);
-    padding: 0.4rem 0.6rem;
-  }
-
-  .navbar .btn {
-    font-size: clamp(0.85rem, 1vw, 1.1rem);
-    padding: 0.4rem 0.75rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -748,29 +738,12 @@ html.increase-text {
     padding-bottom: 0.5rem;
   }
 
-  .navbar > .container-fluid {
-    gap: 0.5rem;
-  }
-
-  .navbar-toggler {
-    flex-shrink: 0;
-  }
-
-  .navbar-brand {
-    flex: 1;
-    justify-content: center;
-  }
-
   .navbar .navbar-logo {
     height: 3.5rem;
-    flex-shrink: 0;
-    margin-right: 1rem;
   }
 
   .navbar-brand .brand-text {
     font-size: 1rem;
-    white-space: nowrap;
-    flex-shrink: 0;
   }
 
   .display-5 {
