@@ -31,7 +31,6 @@
     <section class="store-hero">
       <div class="container">
         <div class="store-hero__content">
-          <span class="store-hero__badge">Store</span>
           <h1 class="store-hero__title">חנות בטיחות ותמרור</h1>
           <p class="store-hero__text">
             מגוון פתרונות מקצועיים עבור עבודות כביש, אתרי עבודה, בטיחות בשטח,
@@ -40,6 +39,7 @@
 
           <div class="store-hero__actions">
             <a href="#storeFilters" class="store-btn store-btn--primary">לצפייה במוצרים</a>
+            <a href="/pages/cart.html" class="store-btn store-btn--primary">לצפייה בעגלה</a>
             <a
               href="https://wa.me/972548778669?text=היי, אשמח לקבל מידע על מוצרים מהחנות"
               target="_blank"
@@ -81,7 +81,7 @@
     <section class="store-products-section">
       <div class="container">
         <div class="row g-4" id="productsGrid">
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="signs">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="signs" data-product-id="stop-sign">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/sign1.jpg" alt="תמרור עצור" class="product-card__image" />
@@ -100,7 +100,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="signs">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="signs" data-product-id="slow-sign">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/sign2.jpg" alt="תמרור האט" class="product-card__image" />
@@ -119,7 +119,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="boards">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="boards" data-product-id="direction-board">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/board1.jpg" alt="שלט הכוונה" class="product-card__image" />
@@ -138,7 +138,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="boards">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="boards" data-product-id="private-parking-board">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/board2.jpg" alt="שלט חניה פרטית" class="product-card__image" />
@@ -157,7 +157,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="worksite">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="worksite" data-product-id="active-worksite-sign">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/worksite1.jpg" alt="שלט אתר עבודה" class="product-card__image" />
@@ -176,7 +176,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="worksite">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="worksite" data-product-id="roadwork-warning-sign">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/worksite2.jpg" alt="שלט זהירות עבודות בכביש" class="product-card__image" />
@@ -195,7 +195,7 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="safety-cone">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
                 <img src="/assets/photos/safety1.jpg" alt="קונוס בטיחות" class="product-card__image" />
@@ -214,19 +214,171 @@
             </article>
           </div>
 
-          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety">
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="panoramic-mirror">
             <article class="product-card h-100">
               <div class="product-card__image-wrap">
-                <img src="/assets/photos/safety2.jpg" alt="עמוד גמיש" class="product-card__image" />
+                <img src="/assets/photos/safety2.jpg" alt="מראות פנורמיות" class="product-card__image" />
                 <span class="product-card__tag">אביזרי בטיחות</span>
               </div>
               <div class="product-card__body">
-                <h3 class="product-card__title">עמוד גמיש בטיחותי</h3>
+                <h3 class="product-card__title">מראות פנורמיות</h3>
+                <p class="product-card__text">
+                  זמין ב-2 סוגים (פנימית / חיצונית), וכל סוג מגיע ב-2 גדלים שונים.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי דגם וגודל</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="flexible-post">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety1.jpg" alt="עמודים גמישים" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">עמודים גמישים</h3>
                 <p class="product-card__text">
                   פתרון איכותי להפרדה, סימון והכוונה בסביבה אורבנית ותפעולית.
                 </p>
                 <div class="product-card__footer">
-                  <span class="product-card__price">החל מ־₪69</span>
+                  <span class="product-card__price">לפי דגם</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="parking-stop">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety2.jpg" alt="מעצורי חנייה" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">מעצורי חנייה</h3>
+                <p class="product-card__text">
+                  לעצירה מדויקת ובטוחה בחניונים, מתחמים פרטיים ואזורי תפעול.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי מידה</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="parking-guard">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety1.jpg" alt="שומרי חנייה" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">שומרי חנייה</h3>
+                <p class="product-card__text">
+                  פתרונות הגנה וניהול חניה למתחמים פרטיים, עסקים ובנייני מגורים.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי דגם</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="speed-bump">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety2.jpg" alt="פסי האטה" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">פסי האטה</h3>
+                <p class="product-card__text">
+                  להאטת תנועה ושיפור בטיחות הולכי רגל ורכבים באזורים רגישים.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי אורך וסוג</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="spike-barrier">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety1.jpg" alt="מחסומי דוקרנים" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">מחסומי דוקרנים</h3>
+                <p class="product-card__text">
+                  פתרון בקרה למניעת כניסה בכיוון אסור וניהול זרימת תנועה.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי מפרט</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="lane-divider">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety2.jpg" alt="מפרידי נתיבים" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">מפרידי נתיבים</h3>
+                <p class="product-card__text">
+                  להכוונת תנועה, הפרדה ברורה בין נתיבים ושיפור בטיחות שוטפת.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי סוג</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="solar-lamp">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety1.jpg" alt="פנסים סולריים" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">פנסים סולריים</h3>
+                <p class="product-card__text">
+                  תאורה בטיחותית חסכונית לאתרי עבודה, מחסומים ושבילי גישה.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי עוצמה</span>
+                  <a href="#" class="product-card__btn">לפרטים</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-sm-6 col-xl-3 product-item" data-category="safety" data-product-id="other-safety">
+            <article class="product-card h-100">
+              <div class="product-card__image-wrap">
+                <img src="/assets/photos/safety2.jpg" alt="אביזרי בטיחות נוספים" class="product-card__image" />
+                <span class="product-card__tag">אביזרי בטיחות</span>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__title">אביזרי בטיחות נוספים</h3>
+                <p class="product-card__text">
+                  מגוון רחב של פתרונות משלימים לפי דרישת הפרויקט והשטח.
+                </p>
+                <div class="product-card__footer">
+                  <span class="product-card__price">לפי צורך</span>
                   <a href="#" class="product-card__btn">לפרטים</a>
                 </div>
               </div>
