@@ -26,6 +26,25 @@
   gap: 0.75rem;
 }
 
+.cart-item__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.cart-item__image {
+  width: 4.25rem;
+  height: 4.25rem;
+  object-fit: contain;
+  object-position: center;
+  border: 0.0625rem solid #e9ecef;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.25rem;
+  flex-shrink: 0;
+}
+
 .cart-item__title {
   margin: 0;
   font-size: 1.05rem;
@@ -93,5 +112,10 @@
 
   .cart-summary__actions .btn {
     width: 100%;
+  }
+
+  .cart-item__image {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }

@@ -36,6 +36,16 @@ app.get("/store", (req, res) => {
   return res.sendFile(path.join(clientPath, "pages", "store.html"));
 });
 
+app.get("/product", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "product.html"));
+});
+
+app.get("/cart", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "cart.html"));
+});
+
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();
   res.setHeader("Cache-Control", "no-store");

@@ -20,6 +20,7 @@ async function mountPartials() {
       navbarMount.innerHTML = navHtml;
       setActiveNavLink();
       updateActiveOnScroll();
+      updateCartIndicators();
     } catch (err) {
       console.error("Failed to load navbar:", err);
       navbarMount.innerHTML = "";
@@ -243,11 +244,33 @@ if (backToTopButton) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+const CART_STORAGE_KEY = "tsc_cart";
+
+function getCartItemCount() {
+  try {
+    const cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+    return cart.reduce((sum, item) => sum + (Number(item.quantity) || 1), 0);
+  } catch {
+    return 0;
+  }
+}
+
+function updateCartIndicators() {
+  const count = getCartItemCount();
+  document.querySelectorAll("[data-cart-count-badge]").forEach((el) => {
+    el.textContent = String(count);
+  });
+}
 mountPartials();
 setupContactForm();
 setupImageLightbox();
 updateActiveOnScroll();
 window.addEventListener('scroll', onScrollThrottled, { passive: true });
+window.addEventListener("storage", (event) => {
+  if (event.key === CART_STORAGE_KEY) updateCartIndicators();
+});
+window.addEventListener("tsc-cart-updated", updateCartIndicators);
 
 document.addEventListener("DOMContentLoaded", function () {
   const reveals = document.querySelectorAll(".reveal");

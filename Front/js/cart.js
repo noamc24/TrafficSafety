@@ -1,26 +1,31 @@
-const CART_STORAGE_KEY = "tsc_cart";
+﻿const CART_PAGE_STORAGE_KEY = "tsc_cart";
 const WHATSAPP_NUMBER = "972548778669";
 
 function readCart() {
-  return JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+  return JSON.parse(localStorage.getItem(CART_PAGE_STORAGE_KEY) || "[]");
 }
 
 function saveCart(cart) {
-  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  localStorage.setItem(CART_PAGE_STORAGE_KEY, JSON.stringify(cart));
+  window.dispatchEvent(new Event("tsc-cart-updated"));
 }
 
 function optionText(options = []) {
-  if (!options.length) return "ללא אפשרויות נוספות";
+  if (!options.length) return "׳׳׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳ ׳•׳¡׳₪׳•׳×";
   return options.map((opt) => `${opt.name}: ${opt.value}`).join(" | ");
 }
 
 function buildCartItemHtml(item, index) {
+  const imageSrc = item.image || "/assets/Icons/TSCLogoSquared.png";
   return `
     <article class="cart-item" data-index="${index}">
       <div class="cart-item__top">
-        <div>
-          <h3 class="cart-item__title">${item.title || "מוצר"}</h3>
-          <p class="cart-item__category">${item.category || ""}</p>
+        <div class="cart-item__head">
+          <img src="${imageSrc}" alt="${item.title || "מוצר"}" class="cart-item__image" />
+          <div>
+            <h3 class="cart-item__title">${item.title || "מוצר"}</h3>
+            <p class="cart-item__category">${item.category || ""}</p>
+          </div>
         </div>
         <button type="button" class="btn btn-sm btn-outline-danger cart-remove-btn">הסר</button>
       </div>
@@ -39,12 +44,11 @@ function buildCartItemHtml(item, index) {
     </article>
   `;
 }
-
 function buildWhatsappMessage(cart) {
-  const lines = ["שלום, אשמח לקבל הצעת מחיר עבור הפריטים הבאים מהחנות:"];
+  const lines = ["׳©׳׳•׳, ׳׳©׳׳— ׳׳§׳‘׳ ׳”׳¦׳¢׳× ׳׳—׳™׳¨ ׳¢׳‘׳•׳¨ ׳”׳₪׳¨׳™׳˜׳™׳ ׳”׳‘׳׳™׳ ׳׳”׳—׳ ׳•׳×:"];
   cart.forEach((item, idx) => {
     lines.push(
-      `${idx + 1}. ${item.title || "מוצר"} | כמות: ${item.quantity || 1} | ${optionText(item.options)}`
+      `${idx + 1}. ${item.title || "׳׳•׳¦׳¨"} | ׳›׳׳•׳×: ${item.quantity || 1} | ${optionText(item.options)}`
     );
   });
   return lines.join("\n");
@@ -112,7 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (clearCartBtn) {
     clearCartBtn.addEventListener("click", () => {
-      localStorage.removeItem(CART_STORAGE_KEY);
+      localStorage.removeItem(CART_PAGE_STORAGE_KEY);
+      window.dispatchEvent(new Event("tsc-cart-updated"));
       renderCart();
     });
   }
@@ -126,3 +131,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
