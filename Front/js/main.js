@@ -231,7 +231,8 @@ function setupImageLightbox() {
 }
 
 const backToTopButton = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
+if (backToTopButton) {
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTopButton.classList.add('show');
     } else {
@@ -241,6 +242,7 @@ window.addEventListener('scroll', () => {
   backToTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+}
 mountPartials();
 setupContactForm();
 setupImageLightbox();

@@ -416,11 +416,13 @@ button:focus-visible {
   }
 
   .store-filters {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .store-filter-btn {
-    width: 100%;
+    flex: 0 0 calc(50% - 0.375rem);
+    max-width: calc(50% - 0.375rem);
   }
 
   .product-card__footer {
