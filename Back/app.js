@@ -31,6 +31,11 @@ app.get("/sitemap.xml", (req, res) => {
   res.sendFile(path.join(clientPath, "sitemap.xml"));
 });
 
+app.get("/store", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "store.html"));
+});
+
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();
   res.setHeader("Cache-Control", "no-store");

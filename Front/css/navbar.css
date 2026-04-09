@@ -1,0 +1,128 @@
+/* ===== Navbar ===== */
+.navbar {
+  padding-top: 1.2vh;
+  padding-bottom: 0.2vh;
+  background-color: var(--tsc-dark);
+}
+
+.navbar .nav-link {
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  padding: 0.6rem 0.9rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ff7a00;
+}
+
+.navbar .nav-link.active {
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+  text-underline-offset: 0;
+}
+
+.navbar .nav-link.active:hover {
+  color: #ff7a00;
+}
+
+.navbar .nav-link[href="/store"].active {
+  color: #ff7a00;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
+.navbar .nav-link[href="/#home"].active {
+  color: #ff7a00;
+}
+
+.navbar .btn {
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  padding: 0.6rem 1.1rem;
+}
+
+.navbar .navbar-logo {
+  height: clamp(6rem, 12vw, 15rem);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand {
+  min-width: 0;
+}
+
+.navbar-brand .brand-text {
+  line-height: 1.1;
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  font-weight: 700;
+}
+
+.offcanvas-logo {
+  height: clamp(2.5rem, 4.5vh, 3.5rem);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.offcanvas-logo-lg {
+  height: clamp(4.5rem, 8vw, 8rem);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.navbar-mobile-spacer {
+  display: none;
+}
+
+/* ===== Small Desktop / Tablet ===== */
+@media (max-width: 62rem) {
+  .navbar > .container-fluid {
+    gap: 0.5rem;
+    padding-inline: 1rem !important;
+  }
+
+  .navbar-toggler {
+    flex-shrink: 0;
+  }
+
+  .navbar-mobile-spacer {
+    display: block;
+    width: 2.75rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .navbar .navbar-logo {
+    height: clamp(4.5rem, 10vw, 8rem);
+  }
+
+  .navbar-brand .brand-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 48rem) {
+  .navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar .navbar-logo {
+    height: 3.5rem;
+  }
+
+  .navbar-brand .brand-text {
+    font-size: 1rem;
+  }
+}
