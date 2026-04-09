@@ -5,6 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!filterButtons.length || !productItems.length || !emptyState) return;
 
+  productItems.forEach((item) => {
+    const productId = item.dataset.productId;
+    const detailsLink = item.querySelector(".product-card__btn");
+    if (productId && detailsLink) {
+      detailsLink.setAttribute("href", `/pages/product.html?id=${encodeURIComponent(productId)}`);
+    }
+  });
+
   function filterProducts(selectedFilter) {
     let visibleCount = 0;
 

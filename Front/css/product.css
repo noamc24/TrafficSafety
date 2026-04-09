@@ -1,0 +1,125 @@
+.product-page {
+  min-height: 60vh;
+}
+
+.product-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 700;
+  background-color: #f4a300;
+  border: 0.125rem solid #f4a300;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.product-back-link:hover,
+.product-back-link:focus-visible {
+  color: #000;
+  background-color: #d88e00;
+  border-color: #d88e00;
+  transform: translateY(-0.0625rem);
+}
+
+.product-layout {
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+}
+
+.product-gallery__main {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1rem;
+  background: #f8f9fa;
+}
+
+.product-gallery__thumbs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.product-gallery__thumb {
+  width: 4.5rem;
+  height: 4.5rem;
+  border: 0.125rem solid transparent;
+  border-radius: 0.75rem;
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.product-gallery__thumb.active {
+  border-color: #f4a300;
+}
+
+.product-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.product-chip {
+  display: inline-block;
+  width: fit-content;
+  background: #fff4df;
+  color: #7a5a00;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.product-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+.product-short-desc,
+.product-long-desc {
+  margin: 0;
+  color: #5a5a5a;
+}
+
+.product-options {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.product-option label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.product-feedback {
+  font-weight: 600;
+  color: #0a8e3f;
+}
+
+@media (max-width: 48rem) {
+  .product-layout {
+    padding: 1rem;
+  }
+}
