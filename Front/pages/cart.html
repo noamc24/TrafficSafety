@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/css/style.css?v=20260409" />
   <link rel="stylesheet" href="/css/navbar.css?v=20260409" />
   <link rel="stylesheet" href="/css/accessibility.css" />
-  <link rel="stylesheet" href="/css/cart.css?v=20260409" />
+  <link rel="stylesheet" href="/css/cart.css?v=20260410v1" />
 </head>
 <body>
   <div id="navbarMount"></div>
@@ -25,7 +25,9 @@
         <a href="/store" class="btn btn-outline-dark">חזרה לחנות</a>
       </div>
 
-      <p class="text-muted mb-4">כאן מרוכזים כל המוצרים שבחרת. ניתן לעדכן כמות, להסיר פריטים או לשלוח בקשת הזמנה.</p>
+      <p class="text-muted mb-4">
+        כאן מרוכזים כל המוצרים שבחרת. ניתן לעדכן כמות, להסיר פריטים, ולשלוח בקשת הצעת מחיר ישירות אלינו.
+      </p>
 
       <div id="cartEmpty" class="alert alert-light border d-none">
         העגלה ריקה כרגע. אפשר להוסיף מוצרים מעמוד החנות.
@@ -38,14 +40,78 @@
           <span>סה״כ פריטים בעגלה:</span>
           <strong id="cartItemsCount">0</strong>
         </div>
+
         <div class="cart-summary__actions">
           <button id="clearCartBtn" type="button" class="btn btn-outline-danger">ריקון עגלה</button>
           <button id="sendWhatsappBtn" type="button" class="btn btn-success fw-bold">
             <i class="bi bi-whatsapp"></i>
-            שליחת בקשה בוואטסאפ
+            שליחה בוואטסאפ
           </button>
         </div>
       </div>
+
+      <section id="quoteSection" class="quote-request mt-4 d-none">
+        <div class="quote-request__head">
+          <h2 class="quote-request__title">שליחת בקשת הצעת מחיר</h2>
+          <p class="quote-request__text mb-0">
+            מלאו את הפרטים ונשלח אלינו את רשימת המוצרים שבחרתם. נחזור אליכם בהקדם להמשך טיפול.
+          </p>
+        </div>
+
+        <form id="quoteForm" class="row g-3 mt-1" novalidate>
+          <div class="col-12 col-md-6">
+            <label for="fullName" class="form-label fw-bold">שם מלא *</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" required />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="phone" class="form-label fw-bold">טלפון *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="email" class="form-label fw-bold">אימייל</label>
+            <input type="email" id="email" name="email" class="form-control" />
+          </div>
+
+          <div class="col-12 col-md-6">
+            <label for="company" class="form-label fw-bold">שם חברה</label>
+            <input type="text" id="company" name="company" class="form-control" />
+          </div>
+
+          <div class="col-12">
+            <label for="notes" class="form-label fw-bold">הערות להזמנה</label>
+            <textarea
+              id="notes"
+              name="notes"
+              class="form-control"
+              rows="4"
+              placeholder="אפשר לציין כאן כמות גדולה, יעד, סוג פרויקט, בקשה מיוחדת ועוד"
+            ></textarea>
+          </div>
+
+          <div class="col-12">
+            <div id="quoteFeedback" class="quote-feedback" aria-live="polite"></div>
+          </div>
+
+          <div class="col-12 d-flex flex-wrap gap-2">
+            <button id="submitQuoteBtn" type="submit" class="btn btn-warning fw-bold text-dark">
+              <i class="bi bi-send"></i>
+              שליחת בקשת הצעת מחיר
+            </button>
+
+            <button id="clearFormBtn" type="button" class="btn btn-outline-secondary">
+              ניקוי טופס
+            </button>
+          </div>
+
+          <div class="col-12">
+            <p class="quote-request__note mb-0">
+              לאחר שליחת הבקשה ניצור קשר לאישור הפרטים, זמינות המלאי והמשך הטיפול בהזמנה.
+            </p>
+          </div>
+        </form>
+      </section>
     </section>
   </main>
 
@@ -55,6 +121,6 @@
   <script src="/js/accessibility.js"></script>
   <script src="/js/accessibility-loader.js"></script>
   <script src="/js/main.js?v=20260129v2"></script>
-  <script src="/js/cart.js?v=20260409v3"></script>
+  <script src="/js/cart.js?v=20260410v1"></script>
 </body>
 </html>

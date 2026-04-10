@@ -101,6 +101,44 @@
   flex-wrap: wrap;
 }
 
+/* חדש */
+.quote-request {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid #e9ecef;
+}
+
+.quote-request__head {
+  margin-bottom: 1rem;
+}
+
+.quote-request__title {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.quote-request__text {
+  color: #666;
+}
+
+.quote-request__note {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.quote-feedback {
+  min-height: 1.5rem;
+  font-weight: 700;
+}
+
+.quote-feedback--success {
+  color: #0a8e3f;
+}
+
+.quote-feedback--error {
+  color: #c62828;
+}
+
 @media (max-width: 48rem) {
   .cart-layout {
     padding: 1rem;
