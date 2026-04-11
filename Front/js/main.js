@@ -152,6 +152,39 @@ document.addEventListener('click', (e) => {
   }
 });
 
+document.addEventListener("click", (e) => {
+  const link = e.target.closest && e.target.closest("#mobileMenu a[href]");
+  if (!link) return;
+
+  const rawHref = link.getAttribute("href");
+  if (!rawHref) return;
+
+  const targetUrl = new URL(rawHref, window.location.origin);
+  const targetPath = normalizePath(targetUrl.pathname);
+  const currentPath = normalizePath(window.location.pathname);
+  const targetHash = (targetUrl.hash || "").replace(/^#/, "");
+
+  const offcanvasEl = document.getElementById("mobileMenu");
+  const offcanvas = (offcanvasEl && window.bootstrap)
+    ? bootstrap.Offcanvas.getOrCreateInstance(offcanvasEl)
+    : null;
+
+  if (targetHash && targetPath === currentPath) {
+    e.preventDefault();
+    offcanvas?.hide();
+    setTimeout(() => {
+      const el = document.getElementById(targetHash);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${targetHash}`);
+      setTimeout(() => { updateActiveOnScroll(); }, 250);
+    }, 250);
+    return;
+  }
+
+  offcanvas?.hide();
+});
+
 function setupContactForm() {
   const form = document.getElementById("contactForm");
   if (!form) return;

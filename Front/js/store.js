@@ -19,6 +19,32 @@
     window.dispatchEvent(new Event("tsc-cart-updated"));
   }
 
+  function buildImageVariants(src) {
+    if (!src || typeof src !== "string") {
+      return {
+        thumb: "/assets/Icons/TSCLogoSquared.png",
+        full: "/assets/Icons/TSCLogoSquared.png",
+        fallback: "/assets/Icons/TSCLogoSquared.png"
+      };
+    }
+
+    const qIdx = src.indexOf("?");
+    const cleanSrc = qIdx >= 0 ? src.slice(0, qIdx) : src;
+    const dotIdx = cleanSrc.lastIndexOf(".");
+    if (dotIdx <= cleanSrc.lastIndexOf("/")) {
+      return { thumb: cleanSrc, full: cleanSrc, fallback: cleanSrc };
+    }
+
+    // Convention: "<name>-thumb.webp" for cards, "<name>.webp" for product details.
+    const stem = cleanSrc.slice(0, dotIdx);
+    const normalizedStem = stem.endsWith("-thumb") ? stem.slice(0, -6) : stem;
+    return {
+      thumb: `${normalizedStem}-thumb.webp`,
+      full: `${normalizedStem}.webp`,
+      fallback: cleanSrc
+    };
+  }
+
   function sameOptions(a = [], b = []) {
     if (a.length !== b.length) return false;
     return a.every((opt, idx) => opt.name === b[idx]?.name && opt.value === b[idx]?.value);
@@ -46,11 +72,31 @@
     const detailsLink = item.querySelector(".product-card__btn");
     const title = item.querySelector(".product-card__title")?.textContent?.trim() || "\u05de\u05d5\u05e6\u05e8";
     const category = item.querySelector(".product-card__tag")?.textContent?.trim() || "";
-    const image = item.querySelector(".product-card__image")?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.png";
+    const cardImage = item.querySelector(".product-card__image");
+    const sourceImage = cardImage?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.png";
+    const imageVariants = buildImageVariants(sourceImage);
+    const image = imageVariants.fallback;
     const footer = item.querySelector(".product-card__footer");
 
+    if (cardImage) {
+      cardImage.setAttribute("loading", "lazy");
+      cardImage.setAttribute("decoding", "async");
+      cardImage.setAttribute("fetchpriority", "low");
+      if (!cardImage.hasAttribute("width")) cardImage.setAttribute("width", "500");
+      if (!cardImage.hasAttribute("height")) cardImage.setAttribute("height", "500");
+
+      cardImage.src = imageVariants.thumb;
+      cardImage.addEventListener(
+        "error",
+        () => {
+          cardImage.src = imageVariants.fallback;
+        },
+        { once: true }
+      );
+    }
+
     if (productId && detailsLink) {
-      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}`;
+      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.full)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}`;
       detailsLink.setAttribute("href", productHref);
       detailsLink.addEventListener("click", () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);

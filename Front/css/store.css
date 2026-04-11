@@ -65,6 +65,24 @@ body {
   gap: 0.75rem;
 }
 
+/* Hero side card in store: keep icon decorative without covering content */
+.store-hero-side-card .top-service-content {
+  padding: 0;
+}
+
+.store-hero-side-card {
+  padding: 1.5rem;
+}
+
+.store-hero-side-image {
+  left: auto;
+  right: 1rem;
+  top: 1rem;
+  width: clamp(2.75rem, 4vw, 3.5rem);
+  opacity: 0.28;
+  pointer-events: none;
+}
+
 /* ===== Store Buttons ===== */
 .store-btn {
   border-radius: 1rem;
@@ -111,8 +129,8 @@ body {
 .store-filters-section,
 .store-products-section,
 .store-cta {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .store-section-heading {

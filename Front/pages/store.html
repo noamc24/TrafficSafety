@@ -30,24 +30,68 @@
   <main id="main-content" class="store-page">
     <section class="store-hero">
       <div class="container">
-        <div class="store-hero__content">
-          <h1 class="store-hero__title">חנות בטיחות ותמרור</h1>
-          <p class="store-hero__text">
-            מגוון פתרונות מקצועיים עבור עבודות כביש, אתרי עבודה, בטיחות בשטח,
-            שילוט ותמרור – באיכות גבוהה ובמראה שממשיך את הסטנדרט של המרכז לבטיחות בתנועה.
-          </p>
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-7">
+            <div class="store-hero__content">
+              <h1 class="store-hero__title">חנות בטיחות ותמרור</h1>
+              <p class="store-hero__text">
+                מגוון פתרונות מקצועיים עבור עבודות כביש, אתרי עבודה, בטיחות בשטח,
+                שילוט ותמרור – באיכות גבוהה ובמראה שממשיך את הסטנדרט של המרכז לבטיחות בתנועה.
+              </p>
 
-          <div class="store-hero__actions">
-            <a href="#storeFilters" class="store-btn store-btn--primary">לצפייה במוצרים</a>
-            <a id="heroCartLink" href="/pages/cart.html" class="store-btn store-btn--primary">לצפייה בעגלה</a>
-            <a
-              href="https://wa.me/972548778669?text=היי, אשמח לקבל ייעוץ בנוגע ל"
-              target="_blank"
-              rel="noopener"
-              class="store-btn store-btn--secondary"
-            >
-              התייעצות בוואטסאפ
-            </a>
+              <div class="store-hero__actions">
+                <a href="#storeFilters" class="store-btn store-btn--primary">לצפייה במוצרים</a>
+                <a id="heroCartLink" href="/pages/cart.html" class="store-btn store-btn--primary">לצפייה בעגלה</a>
+                <a
+                  href="https://wa.me/972548778669?text=היי, אשמח לקבל ייעוץ בנוגע ל"
+                  target="_blank"
+                  rel="noopener"
+                  class="store-btn store-btn--secondary"
+                >
+                  התייעצות בוואטסאפ
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="card shadow-sm">
+              <div class="card-body top-service-card store-hero-side-card">
+                <div class="top-service-content">
+                  <h5 class="fw-bold mb-2">פתרון אישי</h5>
+                  <p class="mb-2">
+                    נשמח להתאים לכם פתרון מקצועי לפי צורך, סוג הפרויקט,
+                    תנאי השטח והתקציב.
+                  </p>
+                  <p class="mb-3 text-muted">
+                    צוות המרכז לבטיחות בתנועה זמין לייעוץ מהיר ולבניית הצעה מותאמת אישית.
+                  </p>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a
+                      href="https://wa.me/972548778669?text=היי, אשמח לקבל פתרון מותאם אישית לחנות"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn btn-success fw-bold"
+                    >
+                      <i class="bi bi-whatsapp"></i>
+                      וואטסאפ
+                    </a>
+                    <a href="tel:0548778669" class="btn btn-warning fw-bold text-dark">
+                      <i class="bi bi-telephone-fill"></i>
+                      פלאפון
+                    </a>
+                  </div>
+                </div>
+                <img
+                  src="/assets/Icons/Cone.png"
+                  alt="פתרון אישי"
+                  class="top-service-side-image store-hero-side-image"
+                  loading="lazy"
+                  decoding="async"
+                  width="80"
+                  height="80"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +101,6 @@
       <div class="container">
         <div class="store-section-heading">
           <div>
-            <p class="store-section-heading__eyebrow">קטגוריות</p>
             <h2 class="store-section-heading__title">בחר קטגוריה</h2>
           </div>
 
@@ -3355,6 +3398,12 @@
     </section>
   </main>
 
+  <button id="backToTop" class="btn btn-warning btn-lg" title="חזור לראש העמוד">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+    </svg>
+  </button>
+
   <div id="footerMount"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
@@ -3364,5 +3413,3 @@
   <script src="/js/store.js"></script>
 </body>
 </html>
-
-

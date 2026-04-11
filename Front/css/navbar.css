@@ -37,8 +37,10 @@
 /* ✅ HOME בלבד */
 .navbar .nav-link[href="/"].active,
 .navbar .nav-link[href="/#home"].active,
+.navbar .nav-link[href="/pages/main.html#home"].active,
 .navbar .nav-link[href="/"][aria-current="page"],
-.navbar .nav-link[href="/#home"][aria-current="page"] {
+.navbar .nav-link[href="/#home"][aria-current="page"],
+.navbar .nav-link[href="/pages/main.html#home"][aria-current="page"] {
   color: var(--tsc-yellow);
   font-weight: 700;
   text-decoration: underline;

@@ -374,6 +374,8 @@ Object.keys(PRODUCT_CATALOG).forEach((productId) => {
       return { name: optionName, values: optionValues };
     });
   }
+
+  product.images = normalizeProductImages(product.images);
 });
 
 function getProductIdFromUrl() {
@@ -392,10 +394,60 @@ function getQueryParam(name) {
   return params.get(name);
 }
 
+function buildImageVariants(src) {
+  const safeSrc = typeof src === "string" && src.trim()
+    ? src.trim()
+    : "/assets/Icons/TSCLogoSquared.png";
+  const qIdx = safeSrc.indexOf("?");
+  const cleanSrc = qIdx >= 0 ? safeSrc.slice(0, qIdx) : safeSrc;
+  const dotIdx = cleanSrc.lastIndexOf(".");
+  if (dotIdx <= cleanSrc.lastIndexOf("/")) {
+    return { full: cleanSrc, thumb: cleanSrc, fallback: cleanSrc };
+  }
+
+  // Convention: "<name>-thumb.webp" for thumbnails, "<name>.webp" for larger detail images.
+  const stem = cleanSrc.slice(0, dotIdx);
+  const normalizedStem = stem.endsWith("-thumb") ? stem.slice(0, -6) : stem;
+  return {
+    full: `${normalizedStem}.webp`,
+    thumb: `${normalizedStem}-thumb.webp`,
+    fallback: cleanSrc
+  };
+}
+
+function normalizeProductImages(images = []) {
+  if (!Array.isArray(images) || !images.length) {
+    const fallback = "/assets/Icons/TSCLogoSquared.png";
+    return [{ full: fallback, thumb: fallback, fallback }];
+  }
+
+  return images.map((entry) => {
+    if (typeof entry === "string") {
+      return buildImageVariants(entry);
+    }
+
+    if (entry && typeof entry === "object") {
+      const full = entry.full || entry.src || entry.image || entry.thumb || entry.fallback || "/assets/Icons/TSCLogoSquared.png";
+      const variants = buildImageVariants(full);
+      return {
+        full: entry.full || variants.full,
+        thumb: entry.thumb || variants.thumb,
+        fallback: entry.fallback || variants.fallback
+      };
+    }
+
+    const fallback = "/assets/Icons/TSCLogoSquared.png";
+    return { full: fallback, thumb: fallback, fallback };
+  });
+}
+
 function buildDynamicProduct(productId) {
   if (!productId) return null;
   const signName = getQueryParam("name");
   const categoryFromQuery = getQueryParam("category");
+  const imageFromQuery = getQueryParam("image");
+  const imageFallbackFromQuery = getQueryParam("image_fallback");
+  const thumbFromQuery = getQueryParam("thumb");
   const isSign = /^sign-\d+$/.test(productId || "");
   const code = isSign ? String(productId).replace("sign-", "") : "";
   const title = signName && signName.trim()
@@ -409,7 +461,11 @@ function buildDynamicProduct(productId) {
     title,
     category,
     description: isSign ? `תמרור ${title}` : title,
-    images: ["/assets/Icons/TSCLogoSquared.png"],
+    images: [{
+      full: imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
+      thumb: thumbFromQuery || imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
+      fallback: imageFallbackFromQuery || "/assets/Icons/TSCLogoSquared.png"
+    }],
     options: [
       { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] },
       { name: "גודל", values: ["קטן", "בינוני", "גדול"] }
@@ -422,19 +478,40 @@ function renderGallery(images, title) {
   const thumbsContainer = document.getElementById("productThumbs");
   if (!mainImage || !thumbsContainer) return;
 
-  const safeImages = Array.isArray(images) && images.length ? images : ["/assets/Icons/TSCLogoSquared.png"];
+  const safeImages = normalizeProductImages(images);
+  const firstImage = safeImages[0];
 
-  mainImage.src = safeImages[0];
+  const setMainImage = (image) => {
+    mainImage.onerror = () => {
+      mainImage.src = image.fallback;
+    };
+    mainImage.src = image.full;
+  };
+
+  setMainImage(firstImage);
+  mainImage.loading = "eager";
+  mainImage.decoding = "async";
+  mainImage.fetchPriority = "high";
   mainImage.alt = title;
   thumbsContainer.innerHTML = "";
 
-  safeImages.forEach((src, index) => {
+  safeImages.forEach((image, index) => {
     const thumbBtn = document.createElement("button");
     thumbBtn.type = "button";
     thumbBtn.className = `product-gallery__thumb${index === 0 ? " active" : ""}`;
-    thumbBtn.innerHTML = `<img src="${src}" alt="${title} - \u05ea\u05de\u05d5\u05e0\u05d4 ${index + 1}" />`;
+    thumbBtn.innerHTML = `<img src="${image.thumb}" alt="${title} - \u05ea\u05de\u05d5\u05e0\u05d4 ${index + 1}" loading="lazy" decoding="async" width="160" height="160" />`;
+    const thumbImg = thumbBtn.querySelector("img");
+    if (thumbImg) {
+      thumbImg.addEventListener(
+        "error",
+        () => {
+          thumbImg.src = image.fallback;
+        },
+        { once: true }
+      );
+    }
     thumbBtn.addEventListener("click", () => {
-      mainImage.src = src;
+      setMainImage(image);
       thumbsContainer.querySelectorAll(".product-gallery__thumb").forEach((thumb) => thumb.classList.remove("active"));
       thumbBtn.classList.add("active");
     });
@@ -559,7 +636,9 @@ function setupAddToCart(productId, product, optionFields) {
       productId,
       title: product.title,
       category: product.category,
-      image: (product.images && product.images[0]) ? product.images[0] : "/assets/Icons/TSCLogoSquared.png",
+      image: (product.images && product.images[0] && product.images[0].thumb)
+        ? product.images[0].thumb
+        : "/assets/Icons/TSCLogoSquared.png",
       quantity,
       options: selectedOptions,
       addedAt: new Date().toISOString()
