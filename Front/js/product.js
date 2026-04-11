@@ -1,21 +1,21 @@
 ﻿const PRODUCT_CATALOG = {
-  "stop-sign": {
+  "triangleS": {
     title: "׳×׳׳¨׳•׳¨ ׳¢׳¦׳•׳¨",
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳×׳׳¨׳•׳¨ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳©׳™׳׳•׳© ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™ ׳×׳ ׳•׳¢׳”.",
     longDescription: "׳×׳׳¨׳•׳¨ ׳׳™׳›׳•׳×׳™ ׳׳׳׳•׳׳™׳ ׳™׳•׳ ׳¢׳ ׳¦׳™׳₪׳•׳™ ׳׳—׳–׳™׳¨ ׳׳•׳¨, ׳׳×׳׳™׳ ׳׳”׳×׳§׳ ׳” ׳‘׳¢׳׳•׳“׳™ ׳×׳׳¨׳•׳¨ ׳•׳‘׳›׳ ׳™׳¡׳•׳× ׳׳׳×׳—׳׳™׳.",
-    images: ["/assets/photos/TrafficSigns.png", "/assets/photos/project4.png", "/assets/photos/project14.png"],
+    images: ["/assets/products/triangleS.png", "/assets/products/triangleS.png", "/assets/products/triangleS.png"],
     options: [
       { name: "׳’׳•׳“׳", values: ["׳¡׳˜׳ ׳“׳¨׳˜׳™", "׳’׳“׳•׳"] },
       { name: "׳¡׳•׳’ ׳׳—׳–׳™׳¨ ׳׳•׳¨", values: ["׳¨׳’׳™׳", "׳׳—׳–׳™׳¨ ׳׳•׳¨ ׳׳©׳•׳₪׳¨"] }
     ]
   },
-  "slow-sign": {
+  "slowSign": {
     title: "׳×׳׳¨׳•׳¨ ׳”׳׳˜",
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳©׳™׳׳•׳‘ ׳ ׳¨׳׳•׳× ׳’׳‘׳•׳”׳” ׳•׳¢׳׳™׳“׳•׳× ׳׳×׳ ׳׳™ ׳—׳•׳¥.",
     longDescription: "׳׳×׳׳™׳ ׳׳¨׳—׳•׳‘׳•׳× ׳₪׳ ׳™׳׳™׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳—׳ ׳™׳•׳ ׳™׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳©׳•׳ ׳•׳× ׳׳₪׳™ ׳“׳¨׳™׳©׳•׳× ׳”׳׳×׳¨.",
-    images: ["/assets/photos/project6.png", "/assets/photos/project3.png", "/assets/photos/project21.png"],
+    images: ["/assets/products/slowS.png", "/assets/products/slowS.png", "/assets/products/slowS.png"],
     options: [{ name: "׳’׳•׳“׳", values: ["׳§׳˜׳", "׳‘׳™׳ ׳•׳ ׳™", "׳’׳“׳•׳"] }]
   },
   "direction-board": {
@@ -168,15 +168,35 @@ function normalizeObjectStringsInPlace(value) {
 normalizeObjectStringsInPlace(PRODUCT_CATALOG);
 
 const CLEAN_PRODUCT_TEXT = {
+  "triangleS": {
+    title: "תמרור משולש",
+    category: "תמרורים",
+    shortDescription: "תמרור משולש בולט וברור לסימון והכוונה, עם עמידות גבוהה לתנאי חוץ."
+  },
   "stop-sign": {
     title: "תמרור עצור",
     category: "תמרורים",
-    shortDescription: "תמרור איכותי לעמידות גבוהה בתנאי חוץ, מתאים לפרויקטים עירוניים ואתרי תנועה."
+    shortDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים."
   },
-  "slow-sign": {
+  "slowSign": {
     title: "תמרור האט",
     category: "תמרורים",
-    shortDescription: "פתרון בולט וברור לשטח, עם נראות גבוהה ועמידות לאורך זמן."
+    shortDescription: "תמרור האט ברור לעין עם נראות גבוהה ועמידות לאורך זמן."
+  },
+  "square-board": {
+    title: "תמרור מרובע",
+    category: "תמרורים",
+    shortDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח."
+  },
+  "circle-board": {
+    title: "תמרור עיגול",
+    category: "תמרורים",
+    shortDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה."
+  },
+  "custom-design-board": {
+    title: "שלט בעיצוב אישי",
+    category: "שלטים",
+    shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה."
   },
   "direction-board": {
     title: "שלט הכוונה",
@@ -250,6 +270,54 @@ const CLEAN_PRODUCT_TEXT = {
   }
 };
 
+PRODUCT_CATALOG["stop-sign"] = {
+  title: "תמרור עצור",
+  category: "תמרורים",
+  shortDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
+  longDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
+  images: ["/assets/products/stopS.png", "/assets/products/stopS.png", "/assets/products/stopS.png"],
+  options: [
+    { name: "גודל", values: ["קטן", "בינוני", "גדול"] },
+    { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] }
+  ]
+};
+
+PRODUCT_CATALOG["square-board"] = {
+  title: "תמרור מרובע",
+  category: "תמרורים",
+  shortDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
+  longDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
+  images: ["/assets/products/squareS.png", "/assets/products/squareS.png", "/assets/products/squareS.png"],
+  options: [
+    { name: "גודל", values: ["30x30 ס\"מ", "40x40 ס\"מ", "60x60 ס\"מ"] },
+    { name: "שיטת התקנה", values: ["על קיר", "על עמוד"] }
+  ]
+};
+
+PRODUCT_CATALOG["circle-board"] = {
+  title: "תמרור עיגול",
+  category: "תמרורים",
+  shortDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
+  longDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
+  images: ["/assets/products/circleS.png", "/assets/products/bluecircleS.png", "/assets/products/circleS.png"],
+  options: [
+    { name: "קוטר", values: ["30 ס\"מ", "50 ס\"מ", "70 ס\"מ"] },
+    { name: "מחזיר אור", values: ["רגיל", "משופר"] }
+  ]
+};
+
+PRODUCT_CATALOG["custom-design-board"] = {
+  title: "שלט בעיצוב אישי",
+  category: "שלטים",
+  shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
+  longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
+  images: ["/assets/photos/project7.png", "/assets/photos/project11.jpg", "/assets/photos/project16.png"],
+  options: [
+    { name: "צורה", values: ["מרובע", "עיגול", "משולש", "אחר"] },
+    { name: "נוסח", values: ["סטנדרטי", "מותאם אישית"] }
+  ]
+};
+
 function hasGibberish(text) {
   return typeof text === "string" && /׳|�/.test(text);
 }
@@ -260,9 +328,15 @@ Object.keys(PRODUCT_CATALOG).forEach((productId) => {
   if (clean) {
     product.title = clean.title;
     product.category = clean.category;
-    product.shortDescription = clean.shortDescription;
-    product.longDescription = clean.shortDescription;
+    product.description = clean.shortDescription;
   }
+
+  if (!product.description) {
+    product.description = product.shortDescription || product.longDescription || "";
+  }
+
+  delete product.shortDescription;
+  delete product.longDescription;
 
   if (Array.isArray(product.options)) {
     product.options = product.options.map((opt, optIndex) => {
@@ -458,20 +532,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const categoryEl = document.getElementById("productCategory");
   const titleEl = document.getElementById("productTitle");
-  const shortDescEl = document.getElementById("productShortDesc");
-  const longDescEl = document.getElementById("productLongDesc");
+  const descriptionEl = document.getElementById("productDescription");
 
-  if (!categoryEl || !titleEl || !shortDescEl || !longDescEl) return;
+  if (!categoryEl || !titleEl || !descriptionEl) return;
 
   document.title = `${product.title} | \u05d4\u05de\u05e8\u05db\u05d6 \u05dc\u05d1\u05d8\u05d9\u05d7\u05d5\u05ea \u05d1\u05ea\u05e0\u05d5\u05e2\u05d4`;
   categoryEl.textContent = product.category;
   titleEl.textContent = product.title;
-  shortDescEl.textContent = product.shortDescription;
-  longDescEl.textContent = product.longDescription;
+  descriptionEl.textContent = product.description || "";
 
   renderGallery(product.images, product.title);
   const optionFields = renderOptions(product.options || []);
   setupAddToCart(productId, product, optionFields);
 });
-
-
