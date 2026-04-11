@@ -1,4 +1,4 @@
-/* ===== Scroll Reveal Animation ===== */
+﻿/* ===== Scroll Reveal Animation ===== */
 .reveal {
   opacity: 0;
   transform: translateY(2.5rem);
@@ -82,7 +82,7 @@ object {
 .hero-cover {
   width: 100%;
   height: 100vh;
-  background-image: url("/assets/photos/Highway2.png");
+  background-image: url("/assets/Photos/Highway2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -817,3 +817,4 @@ html.increase-text {
     max-width: 65%;
   }
 }
+

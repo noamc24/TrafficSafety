@@ -4,7 +4,7 @@
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳×׳׳¨׳•׳¨ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳©׳™׳׳•׳© ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™ ׳×׳ ׳•׳¢׳”.",
     longDescription: "׳×׳׳¨׳•׳¨ ׳׳™׳›׳•׳×׳™ ׳׳׳׳•׳׳™׳ ׳™׳•׳ ׳¢׳ ׳¦׳™׳₪׳•׳™ ׳׳—׳–׳™׳¨ ׳׳•׳¨, ׳׳×׳׳™׳ ׳׳”׳×׳§׳ ׳” ׳‘׳¢׳׳•׳“׳™ ׳×׳׳¨׳•׳¨ ׳•׳‘׳›׳ ׳™׳¡׳•׳× ׳׳׳×׳—׳׳™׳.",
-    images: ["/assets/products/triangleS.png", "/assets/products/triangleS.png", "/assets/products/triangleS.png"],
+    images: ["/assets/SafetyEquipment/triangleS.png", "/assets/SafetyEquipment/triangleS.png", "/assets/SafetyEquipment/triangleS.png"],
     options: [
       { name: "׳’׳•׳“׳", values: ["׳¡׳˜׳ ׳“׳¨׳˜׳™", "׳’׳“׳•׳"] },
       { name: "׳¡׳•׳’ ׳׳—׳–׳™׳¨ ׳׳•׳¨", values: ["׳¨׳’׳™׳", "׳׳—׳–׳™׳¨ ׳׳•׳¨ ׳׳©׳•׳₪׳¨"] }
@@ -15,7 +15,7 @@
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳©׳™׳׳•׳‘ ׳ ׳¨׳׳•׳× ׳’׳‘׳•׳”׳” ׳•׳¢׳׳™׳“׳•׳× ׳׳×׳ ׳׳™ ׳—׳•׳¥.",
     longDescription: "׳׳×׳׳™׳ ׳׳¨׳—׳•׳‘׳•׳× ׳₪׳ ׳™׳׳™׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳—׳ ׳™׳•׳ ׳™׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳©׳•׳ ׳•׳× ׳׳₪׳™ ׳“׳¨׳™׳©׳•׳× ׳”׳׳×׳¨.",
-    images: ["/assets/products/slowS.png", "/assets/products/slowS.png", "/assets/products/slowS.png"],
+    images: ["/assets/SafetyEquipment/slowS.png", "/assets/SafetyEquipment/slowS.png", "/assets/SafetyEquipment/slowS.png"],
     options: [{ name: "׳’׳•׳“׳", values: ["׳§׳˜׳", "׳‘׳™׳ ׳•׳ ׳™", "׳’׳“׳•׳"] }]
   },
   "direction-board": {
@@ -23,7 +23,7 @@
     category: "׳©׳׳˜׳™׳",
     shortDescription: "׳©׳™׳׳•׳˜ ׳‘׳¨׳•׳¨ ׳׳׳×׳—׳׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳©׳˜׳—׳™ ׳×׳₪׳¢׳•׳.",
     longDescription: "׳©׳׳˜ ׳”׳›׳•׳•׳ ׳” ׳‘׳”׳×׳׳׳” ׳׳₪׳¨׳•׳™׳§׳˜, ׳›׳•׳׳ ׳˜׳§׳¡׳˜/׳—׳™׳¦׳™׳, ׳¦׳‘׳¢׳™׳ ׳•׳₪׳×׳¨׳•׳ ׳•׳× ׳×׳׳™׳™׳” ׳׳• ׳¢׳׳•׳“.",
-    images: ["/assets/photos/project10.png", "/assets/photos/project18.png", "/assets/photos/project2.png"],
+    images: ["/assets/Photos/project10.png", "/assets/Photos/project18.png", "/assets/Photos/project2.png"],
     options: [{ name: "׳©׳™׳˜׳× ׳”׳×׳§׳ ׳”", values: ["׳¢׳ ׳§׳™׳¨", "׳¢׳ ׳¢׳׳•׳“"] }]
   },
   "private-parking-board": {
@@ -31,7 +31,7 @@
     category: "׳©׳׳˜׳™׳",
     shortDescription: "׳©׳׳˜ ׳׳§׳¦׳•׳¢׳™ ׳׳׳×׳—׳׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¢׳¡׳§׳™׳™׳.",
     longDescription: "׳¢׳׳™׳“ ׳׳×׳ ׳׳™ ׳©׳׳© ׳•׳’׳©׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳”׳×׳׳׳× ׳ ׳•׳¡׳— ׳•׳¡׳™׳׳•׳ ׳׳₪׳™ ׳“׳¨׳™׳©׳× ׳”׳׳§׳•׳—.",
-    images: ["/assets/photos/project17.png", "/assets/photos/project20.png", "/assets/photos/project19.png"],
+    images: ["/assets/Photos/project17.png", "/assets/Photos/project20.png", "/assets/Photos/project19.png"],
     options: [{ name: "׳ ׳•׳¡׳—", values: ["׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳×", "׳—׳ ׳™׳” ׳׳“׳™׳™׳¨׳™׳ ׳‘׳׳‘׳“", "׳׳•׳×׳׳ ׳׳™׳©׳™׳×"] }]
   },
   "active-worksite-sign": {
@@ -39,7 +39,7 @@
     category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
     shortDescription: "׳׳¡׳™׳׳•׳ ׳‘׳¨׳•׳¨ ׳©׳ ׳׳–׳•׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳×׳©׳×׳™׳×.",
     longDescription: "׳©׳׳˜׳™ ׳׳×׳¨ ׳¢׳‘׳•׳“׳” ׳׳§׳¨׳™׳׳•׳× ׳’׳‘׳•׳”׳” ׳‘׳™׳•׳ ׳•׳‘׳׳™׳׳”, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳©׳™׳ ׳•׳™ ׳ ׳•׳¡׳— ׳‘׳”׳×׳׳ ׳׳¡׳•׳’ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/photos/project13.png", "/assets/photos/project14.png", "/assets/photos/project15.png"],
+    images: ["/assets/Photos/project13.png", "/assets/Photos/project14.png", "/assets/Photos/project15.png"],
     options: [{ name: "׳—׳•׳׳¨", values: ["׳₪׳—", "PVC ׳§׳©׳™׳—"] }]
   },
   "roadwork-warning-sign": {
@@ -47,7 +47,7 @@
     category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
     shortDescription: "׳׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳”׳ ׳”׳’׳™׳ ׳•׳”׳¢׳•׳‘׳“׳™׳ ׳‘׳©׳˜׳—.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳ ׳₪׳•׳¥ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳›׳•׳׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳”׳×׳§׳ ׳” ׳ ׳™׳™׳“׳•׳× ׳•׳§׳‘׳•׳¢׳•׳×.",
-    images: ["/assets/photos/project15.png", "/assets/photos/project16.png", "/assets/photos/project12.png"],
+    images: ["/assets/Photos/project15.png", "/assets/Photos/project16.png", "/assets/Photos/project12.png"],
     options: [{ name: "׳¡׳•׳’", values: ["׳ ׳™׳™׳“", "׳§׳‘׳•׳¢"] }]
   },
   "safety-cone": {
@@ -55,7 +55,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳§׳•׳ ׳•׳¡ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳¢׳‘׳•׳“׳•׳× ׳©׳˜׳— ׳•׳—׳ ׳™׳•׳ ׳™׳.",
     longDescription: "׳׳×׳׳™׳ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳¡׳™׳׳•׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳׳–׳•׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/products/cone1.png", "/assets/products/cone2.png", "/assets/products/cone3.png"],
+    images: ["/assets/SafetyEquipment/cone1.png", "/assets/SafetyEquipment/cone2.png", "/assets/SafetyEquipment/cone3.png"],
     options: [{ name: "׳’׳•׳‘׳”", values: ['45 ׳¡"׳', '70 ׳¡"׳'] }]
   },
   "panoramic-mirror": {
@@ -63,7 +63,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳¨׳׳•׳× ׳׳©׳™׳₪׳•׳¨ ׳©׳“׳” ׳”׳¨׳׳™׳™׳” ׳‘׳¦׳׳×׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳™׳¦׳™׳׳•׳×.",
     longDescription: "׳”׳׳•׳¦׳¨ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳¡׳•׳’׳™׳, ׳•׳›׳ ׳¡׳•׳’ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳’׳“׳׳™׳ ׳׳‘׳—׳™׳¨׳” ׳׳₪׳™ ׳×׳ ׳׳™ ׳”׳©׳˜׳—.",
-    images: ["/assets/products/panoramicmirror1.png", "/assets/products/panoramicmirror2.png", "/assets/products/panoramicmirror3.png"],
+    images: ["/assets/SafetyEquipment/panoramicmirror1.png", "/assets/SafetyEquipment/panoramicmirror2.png", "/assets/SafetyEquipment/panoramicmirror3.png"],
     options: [
       { name: "׳¡׳•׳’ ׳׳¨׳׳”", values: ["׳₪׳ ׳™׳׳™׳×", "׳—׳™׳¦׳•׳ ׳™׳×"] },
       { name: "׳’׳•׳“׳", values: ['60 ׳¡"׳', '80 ׳¡"׳'] }
@@ -74,7 +74,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳”׳₪׳¨׳“׳”, ׳”׳›׳•׳•׳ ׳” ׳•׳¡׳™׳׳•׳ ׳׳¡׳׳•׳׳™׳.",
     longDescription: "׳¢׳׳•׳“׳™׳ ׳’׳׳™׳©׳™׳ ׳¢׳׳™׳“׳™׳ ׳׳₪׳’׳™׳¢׳•׳× ׳—׳•׳–׳¨׳•׳×, ׳׳×׳׳™׳׳™׳ ׳׳׳¨׳—׳‘ ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/products/flexiblepost1.png", "/assets/products/flexiblepost2.png", "/assets/products/flexiblepost3.png"],
+    images: ["/assets/SafetyEquipment/flexiblepost1.png", "/assets/SafetyEquipment/flexiblepost2.png", "/assets/SafetyEquipment/flexiblepost3.png"],
     options: [{ name: "׳¦׳‘׳¢", values: ["׳›׳×׳•׳", "׳׳‘׳", "׳׳“׳•׳-׳׳‘׳"] }]
   },
   "parking-stop": {
@@ -82,7 +82,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳¢׳¦׳™׳¨׳” ׳׳“׳•׳™׳§׳× ׳•׳‘׳˜׳•׳—׳” ׳©׳ ׳¨׳›׳‘׳™׳ ׳‘׳—׳ ׳™׳”.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳׳×׳׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¦׳™׳‘׳•׳¨׳™׳™׳, ׳¢׳ ׳׳’׳•׳•׳ ׳׳•׳¨׳›׳™׳ ׳•׳—׳•׳׳¨׳™ ׳™׳™׳¦׳•׳¨.",
-    images: ["/assets/products/parkingstopper1.png", "/assets/products/parkingstopper2.png", "/assets/products/parkingstopper3.png", "/assets/products/parkingstopper4.png"],
+    images: ["/assets/SafetyEquipment/parkingstopper1.png", "/assets/SafetyEquipment/parkingstopper2.png", "/assets/SafetyEquipment/parkingstopper3.png", "/assets/SafetyEquipment/parkingstopper4.png"],
     options: [{ name: "׳׳•׳¨׳", values: ['90 ׳¡"׳', '120 ׳¡"׳', '180 ׳¡"׳'] }]
   },
   "parking-guard": {
@@ -90,7 +90,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳ ׳™׳”׳•׳ ׳•׳”׳’׳ ׳” ׳¢׳ ׳׳§׳•׳׳•׳× ׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳™׳.",
     longDescription: "׳©׳•׳׳¨׳™ ׳—׳ ׳™׳” ׳™׳“׳ ׳™׳™׳/׳ ׳ ׳¢׳׳™׳ ׳‘׳”׳×׳׳׳” ׳׳“׳¨׳™׳©׳•׳× ׳©׳™׳׳•׳© ׳™׳•׳׳™׳•׳׳™.",
-    images: ["/assets/products/parkingkeeper1.png", "/assets/products/parkingkeeper2.png", "/assets/products/parkingkeeper3.png", "/assets/products/parkingkeeper4.png"],
+    images: ["/assets/SafetyEquipment/parkingkeeper1.png", "/assets/SafetyEquipment/parkingkeeper2.png", "/assets/SafetyEquipment/parkingkeeper3.png", "/assets/SafetyEquipment/parkingkeeper4.png"],
     options: [{ name: "׳׳ ׳’׳ ׳•׳", values: ["׳™׳“׳ ׳™", "׳ ׳¢׳™׳׳” ׳¢׳ ׳׳₪׳×׳—"] }]
   },
   "speed-bump": {
@@ -98,7 +98,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳”׳׳˜׳× ׳׳”׳™׳¨׳•׳× ׳•׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳‘׳׳–׳•׳¨׳™׳ ׳¨׳’׳™׳©׳™׳.",
     longDescription: "׳₪׳¡׳™ ׳”׳׳˜׳” ׳׳•׳“׳•׳׳¨׳™׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳“׳¨׳›׳™׳ ׳₪׳ ׳™׳׳™׳•׳×.",
-    images: ["/assets/photos/project11.jpg", "/assets/photos/project4.png", "/assets/photos/project8.png"],
+    images: ["/assets/Photos/project11.jpg", "/assets/Photos/project4.png", "/assets/Photos/project8.png"],
     options: [{ name: "׳’׳•׳‘׳” ׳₪׳¡", values: ["׳ ׳׳•׳", "׳‘׳™׳ ׳•׳ ׳™"] }]
   },
   "spike-barrier": {
@@ -106,7 +106,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳‘׳§׳¨׳× ׳׳¢׳‘׳¨ ׳׳¨׳›׳‘׳™׳ ׳‘׳›׳™׳•׳•׳ ׳׳•׳¨׳©׳” ׳‘׳׳‘׳“.",
     longDescription: "׳׳×׳׳™׳ ׳׳›׳ ׳™׳¡׳•׳× ׳׳‘׳•׳§׳¨׳•׳×, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳׳×׳—׳׳™׳ ׳׳•׳’׳™׳¡׳˜׳™׳™׳ ׳¢׳ ׳“׳¨׳™׳©׳•׳× ׳׳‘׳˜׳—׳”.",
-    images: ["/assets/photos/project12.png", "/assets/photos/project14.png", "/assets/photos/project15.png"],
+    images: ["/assets/Photos/project12.png", "/assets/Photos/project14.png", "/assets/Photos/project15.png"],
     options: [{ name: "׳›׳™׳•׳•׳ ׳׳¢׳‘׳¨", values: ["׳—׳“-׳›׳™׳•׳•׳ ׳™", "׳“׳•-׳›׳™׳•׳•׳ ׳™"] }]
   },
   "lane-divider": {
@@ -114,7 +114,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳”׳₪׳¨׳“׳” ׳‘׳¨׳•׳¨׳” ׳‘׳™׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳”׳›׳•׳•׳ ׳× ׳×׳ ׳•׳¢׳”.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳¢׳׳™׳“ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳ ׳׳• ׳§׳‘׳•׳¢׳™׳ ׳׳₪׳™ ׳׳•׳₪׳™ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/products/laneseparators1.png", "/assets/products/laneseparators2.png"],
+    images: ["/assets/SafetyEquipment/laneseparators1.png", "/assets/SafetyEquipment/laneseparators2.png"],
     options: [{ name: "׳¡׳•׳’ ׳׳₪׳¨׳™׳“", values: ["׳׳•׳“׳•׳׳¨׳™", "׳§׳©׳™׳—"] }]
   },
   "solar-lamp": {
@@ -122,7 +122,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳×׳׳•׳¨׳” ׳¢׳¦׳׳׳™׳× ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳׳•׳§׳“׳™ ׳¡׳™׳›׳•׳.",
     longDescription: "׳₪׳ ׳¡׳™׳ ׳¡׳•׳׳¨׳™׳™׳ ׳׳©׳™׳₪׳•׳¨ ׳ ׳¨׳׳•׳× ׳•׳”׳×׳¨׳׳”, ׳׳׳ ׳×׳׳•׳× ׳‘׳×׳©׳×׳™׳× ׳—׳©׳׳ ׳‘׳׳×׳¨.",
-    images: ["/assets/photos/project16.png", "/assets/photos/project10.png", "/assets/photos/project11.jpg"],
+    images: ["/assets/Photos/project16.png", "/assets/Photos/project10.png", "/assets/Photos/project11.jpg"],
     options: [{ name: "׳¢׳•׳¦׳׳× ׳×׳׳•׳¨׳”", values: ["׳‘׳¡׳™׳¡׳™׳×", "׳—׳–׳§׳”"] }]
   },
   "other-safety": {
@@ -130,7 +130,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳•׳¦׳¨׳™׳ ׳׳©׳׳™׳׳™׳ ׳׳₪׳™ ׳¦׳•׳¨׳ ׳”׳₪׳¨׳•׳™׳§׳˜.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳•׳× ׳ ׳•׳¡׳₪׳™׳ ׳׳”׳×׳׳׳” ׳׳™׳©׳™׳× ׳‘׳׳×׳¨: ׳©׳™׳׳•׳‘ ׳׳‘׳™׳–׳¨׳™׳, ׳¡׳™׳׳•׳, ׳׳–׳”׳¨׳” ׳•׳‘׳˜׳™׳—׳•׳×.",
-    images: ["/assets/photos/project7.png", "/assets/photos/project17.png", "/assets/photos/project19.png"],
+    images: ["/assets/Photos/project7.png", "/assets/Photos/project17.png", "/assets/Photos/project19.png"],
     options: [{ name: "׳¡׳•׳’ ׳׳•׳¦׳¨", values: ["׳׳•׳×׳׳ ׳׳₪׳¨׳•׳™׳§׳˜", "׳׳׳׳™ ׳§׳™׳™׳"] }]
   }
 };
@@ -275,7 +275,7 @@ PRODUCT_CATALOG["stop-sign"] = {
   category: "תמרורים",
   shortDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
   longDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
-  images: ["/assets/products/stopS.png", "/assets/products/stopS.png", "/assets/products/stopS.png"],
+  images: ["/assets/SafetyEquipment/stopS.png", "/assets/SafetyEquipment/stopS.png", "/assets/SafetyEquipment/stopS.png"],
   options: [
     { name: "גודל", values: ["קטן", "בינוני", "גדול"] },
     { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] }
@@ -287,7 +287,7 @@ PRODUCT_CATALOG["square-board"] = {
   category: "תמרורים",
   shortDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
   longDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
-  images: ["/assets/products/squareS.png", "/assets/products/squareS.png", "/assets/products/squareS.png"],
+  images: ["/assets/SafetyEquipment/squareS.png", "/assets/SafetyEquipment/squareS.png", "/assets/SafetyEquipment/squareS.png"],
   options: [
     { name: "גודל", values: ["30x30 ס\"מ", "40x40 ס\"מ", "60x60 ס\"מ"] },
     { name: "שיטת התקנה", values: ["על קיר", "על עמוד"] }
@@ -299,7 +299,7 @@ PRODUCT_CATALOG["circle-board"] = {
   category: "תמרורים",
   shortDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
   longDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
-  images: ["/assets/products/circleS.png", "/assets/products/bluecircleS.png", "/assets/products/circleS.png"],
+  images: ["/assets/SafetyEquipment/circleS.png", "/assets/SafetyEquipment/bluecircleS.png", "/assets/SafetyEquipment/circleS.png"],
   options: [
     { name: "קוטר", values: ["30 ס\"מ", "50 ס\"מ", "70 ס\"מ"] },
     { name: "מחזיר אור", values: ["רגיל", "משופר"] }
@@ -311,7 +311,7 @@ PRODUCT_CATALOG["custom-design-board"] = {
   category: "שלטים",
   shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
   longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
-  images: ["/assets/photos/project7.png", "/assets/photos/project11.jpg", "/assets/photos/project16.png"],
+  images: ["/assets/Photos/project7.png", "/assets/Photos/project11.jpg", "/assets/Photos/project16.png"],
   options: [
     { name: "צורה", values: ["מרובע", "עיגול", "משולש", "אחר"] },
     { name: "נוסח", values: ["סטנדרטי", "מותאם אישית"] }
@@ -623,3 +623,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const optionFields = renderOptions(product.options || [], productId);
   setupAddToCart(productId, product, optionFields);
 });
+
+
