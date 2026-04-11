@@ -266,3 +266,35 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(reveal);
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projectsSection = document.querySelector(".projects-collapsible");
+  const projectsToggle = document.querySelector(".projects-toggle");
+
+  if (!projectsSection || !projectsToggle) return;
+
+  const isMobile = () => window.innerWidth <= 767.98;
+
+  function toggleProjects() {
+    if (!isMobile()) return;
+
+    const collapsed = projectsSection.classList.toggle("is-collapsed");
+    projectsToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  }
+
+  projectsToggle.addEventListener("click", toggleProjects);
+
+  projectsToggle.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleProjects();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (!isMobile()) {
+      projectsSection.classList.remove("is-collapsed");
+      projectsToggle.setAttribute("aria-expanded", "true");
+    }
+  });
+});

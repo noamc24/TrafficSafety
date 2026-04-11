@@ -655,43 +655,96 @@ html.increase-text {
   object-fit: contain;
 }
 
-/* ===== Section Headers ===== */
+/* ===== Projects Section ===== */
 .services-header {
   display: flex;
   align-items: center;
   width: 100%;
 }
-
 .services-header h1 {
   margin: 0;
 }
-
 .services-header .service-logo {
   width: clamp(9rem, 15vw, 15rem);
   height: auto;
   margin-inline-start: 5%;
 }
-
 .projects-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
 }
-
 .projects-header h1 {
   margin: 0;
 }
-
 .projects-header .projects-logo {
   width: clamp(8rem, 14vw, 16rem);
   height: auto;
   margin-inline-start: auto;
 }
-
 .projects-header p {
   width: 100%;
   margin-top: 0.5rem;
+}
+.projects-toggle {
+  cursor: default;
+}
+.projects-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.projects-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.projects-chevron {
+  display: none;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+@media (max-width: 767.98px) {
+  .projects-toggle {
+    cursor: pointer;
+    user-select: none;
+  }
+  .projects-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .projects-collapsible.is-collapsed .projects-content {
+    display: none;
+  }
+ .projects-collapsible.is-collapsed .projects-chevron {
+    transform: rotate(-90deg);
+  }
+}
+.projects-chevron {
+  display: none;
+}
+.projects-chevron i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+@media (max-width: 767.98px) {
+  .projects-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .projects-collapsible.is-collapsed .projects-chevron i {
+    transform: rotate(-90deg);
+  }
+}
+.projects-toggle:hover .projects-chevron i {
+  transform: scale(1.15);
 }
 
 /* ===== Small Desktop / Tablet ===== */
