@@ -1,7 +1,9 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   const CART_STORAGE_KEY = "tsc_cart";
   const LAST_PRODUCT_KEY = "tsc_last_product_id";
-  const filterButtons = document.querySelectorAll(".store-filter-btn");
+  const filterButtons = document.querySelectorAll(".store-filters .store-filter-btn");
+  const signSubFilterButtons = document.querySelectorAll(".store-sign-subfilter-btn");
+  const signsSubFilters = document.getElementById("signsSubFilters");
   const productItems = document.querySelectorAll(".product-item");
   const emptyState = document.getElementById("emptyState");
   const heroCartLink = document.getElementById("heroCartLink");
@@ -48,7 +50,7 @@
     const footer = item.querySelector(".product-card__footer");
 
     if (productId && detailsLink) {
-      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}`;
+      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}`;
       detailsLink.setAttribute("href", productHref);
       detailsLink.addEventListener("click", () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);
@@ -97,13 +99,26 @@
   });
   window.addEventListener("tsc-cart-updated", updateHeroCartText);
 
+  function getSelectedSignSubFilter() {
+    const activeBtn = document.querySelector(".store-sign-subfilter-btn.active");
+    return activeBtn?.dataset.signFilter || "all";
+  }
+
   function filterProducts(selectedFilter) {
     let visibleCount = 0;
+    const selectedSignFilter = getSelectedSignSubFilter();
 
     productItems.forEach((item) => {
       const itemCategory = item.dataset.category;
+      const signSubCategory = item.dataset.signSubcategory || "all";
+      const categoryMatch = selectedFilter === "all" || itemCategory === selectedFilter;
+      let subCategoryMatch = true;
 
-      if (selectedFilter === "all" || itemCategory === selectedFilter) {
+      if (selectedFilter === "signs") {
+        subCategoryMatch = selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
+      }
+
+      if (categoryMatch && subCategoryMatch) {
         item.classList.remove("d-none");
         visibleCount++;
       } else {
@@ -122,10 +137,31 @@
     button.addEventListener("click", () => {
       const selectedFilter = button.dataset.filter;
 
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      filterButtons.forEach((btn) => {
+        if (!btn.classList.contains("store-sign-subfilter-btn")) {
+          btn.classList.remove("active");
+        }
+      });
       button.classList.add("active");
 
+      if (selectedFilter === "signs") {
+        signsSubFilters?.classList.remove("d-none");
+      } else {
+        signsSubFilters?.classList.add("d-none");
+      }
+
       filterProducts(selectedFilter);
+    });
+  });
+
+  signSubFilterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      signSubFilterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const activeMainFilter = document.querySelector(".store-filter-btn.active:not(.store-sign-subfilter-btn)");
+      const selectedMainFilter = activeMainFilter?.dataset.filter || "all";
+      filterProducts(selectedMainFilter);
     });
   });
 });

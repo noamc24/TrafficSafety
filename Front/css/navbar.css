@@ -9,40 +9,56 @@
   font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   padding: 0.6rem 0.9rem;
   color: #ffffff;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
 .navbar .nav-link:hover {
-  color: #ff7a00;
+  color: var(--tsc-yellow);
 }
 
-.navbar .nav-link.active {
+/* ❌ מבטל active כללי */
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
   color: #ffffff;
   font-weight: 400;
   text-decoration: none;
-  text-underline-offset: 0;
 }
 
-.navbar .nav-link.active:hover {
-  color: #ff7a00;
-}
-
-.navbar .nav-link[href="/store"].active {
-  color: #ff7a00;
+/* ✅ כל עמוד אמיתי (כולל עגלה, store וכו') */
+.navbar .nav-link.active:not([href*="#"]),
+.navbar .nav-link[aria-current="page"]:not([href*="#"]) {
+  color: var(--tsc-yellow);
   font-weight: 700;
   text-decoration: underline;
+  text-decoration-thickness: 0.12rem;
   text-underline-offset: 0.35rem;
 }
 
-.navbar .nav-link[href="/#home"].active {
-  color: #ff7a00;
+/* ✅ HOME בלבד */
+.navbar .nav-link[href="/"].active,
+.navbar .nav-link[href="/#home"].active,
+.navbar .nav-link[href="/"][aria-current="page"],
+.navbar .nav-link[href="/#home"][aria-current="page"] {
+  color: var(--tsc-yellow);
+  font-weight: 700;
+  text-decoration: underline;
 }
 
+/* ❌ מבטל anchors (#services וכו') */
+.navbar .nav-link[href*="#"]:not([href="/#home"]).active,
+.navbar .nav-link[href*="#"]:not([href="/#home"])[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* ===== Buttons ===== */
 .navbar .btn {
   font-size: clamp(1.1rem, 1.3vw, 1.4rem);
   padding: 0.6rem 1.1rem;
 }
 
+/* ===== Logo ===== */
 .navbar .navbar-logo {
   height: clamp(6rem, 12vw, 15rem);
   width: auto;
@@ -60,6 +76,7 @@
   font-weight: 700;
 }
 
+/* ===== Offcanvas ===== */
 .offcanvas-logo {
   height: clamp(2.5rem, 4.5vh, 3.5rem);
   width: auto;

@@ -210,12 +210,12 @@ const CLEAN_PRODUCT_TEXT = {
   },
   "active-worksite-sign": {
     title: "שלט אתר עבודה פעיל",
-    category: "שלטים לאתרי עבודה",
+    category: "שלטי בטיחות לאתרי בנייה",
     shortDescription: "מתאים לאתרי תשתית, שיפוץ ובנייה, עם נוכחות וקריאות גבוהה."
   },
   "roadwork-warning-sign": {
     title: "שלט זהירות עבודות בכביש",
-    category: "שלטים לאתרי עבודה",
+    category: "שלטי בטיחות לאתרי בנייה",
     shortDescription: "שלט בולט לשמירה על בטיחות משתמשי הדרך ועובדי השטח."
   },
   "safety-cone": {
@@ -318,6 +318,30 @@ PRODUCT_CATALOG["custom-design-board"] = {
   ]
 };
 
+PRODUCT_CATALOG["panoramic-mirror"] = {
+  title: "מראה פנורמית",
+  category: "אביזרי בטיחות",
+  shortDescription: "מראה פנורמית עם בחירת חומר וגודל.",
+  longDescription: "מראה פנורמית עם בחירת חומר וגודל.",
+  images: ["/assets/Icons/TSCLogoSquared.png"],
+  options: [
+    { name: "חומר", values: ["פוליקרבונט", "אקרילי"] },
+    { name: "גודל", values: ["קוטר 60", "קוטר 80"] }
+  ]
+};
+
+PRODUCT_CATALOG["safety-cones"] = {
+  title: "קונוס",
+  category: "אביזרי בטיחות",
+  shortDescription: "קונוס עם בחירת צבע וגובה לפי דגם.",
+  longDescription: "קונוס עם בחירת צבע וגובה לפי דגם.",
+  images: ["/assets/Icons/TSCLogoSquared.png"],
+  options: [
+    { name: "צבע", values: ["כתום שחור", "כתום לבן"] },
+    { name: "גובה", values: ["50", "75"] }
+  ]
+};
+
 function hasGibberish(text) {
   return typeof text === "string" && /׳|�/.test(text);
 }
@@ -363,16 +387,48 @@ function getProductIdFromUrl() {
   return sessionStorage.getItem(LAST_PRODUCT_KEY);
 }
 
+function getQueryParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+function buildDynamicProduct(productId) {
+  if (!productId) return null;
+  const signName = getQueryParam("name");
+  const categoryFromQuery = getQueryParam("category");
+  const isSign = /^sign-\d+$/.test(productId || "");
+  const code = isSign ? String(productId).replace("sign-", "") : "";
+  const title = signName && signName.trim()
+    ? signName.trim()
+    : isSign
+      ? `${code} - תמרור`
+      : "מוצר";
+  const category = categoryFromQuery || (isSign ? "תמרורים" : "");
+
+  return {
+    title,
+    category,
+    description: isSign ? `תמרור ${title}` : title,
+    images: ["/assets/Icons/TSCLogoSquared.png"],
+    options: [
+      { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] },
+      { name: "גודל", values: ["קטן", "בינוני", "גדול"] }
+    ]
+  };
+}
+
 function renderGallery(images, title) {
   const mainImage = document.getElementById("mainProductImage");
   const thumbsContainer = document.getElementById("productThumbs");
   if (!mainImage || !thumbsContainer) return;
 
-  mainImage.src = images[0];
+  const safeImages = Array.isArray(images) && images.length ? images : ["/assets/Icons/TSCLogoSquared.png"];
+
+  mainImage.src = safeImages[0];
   mainImage.alt = title;
   thumbsContainer.innerHTML = "";
 
-  images.forEach((src, index) => {
+  safeImages.forEach((src, index) => {
     const thumbBtn = document.createElement("button");
     thumbBtn.type = "button";
     thumbBtn.className = `product-gallery__thumb${index === 0 ? " active" : ""}`;
@@ -386,7 +442,7 @@ function renderGallery(images, title) {
   });
 }
 
-function renderOptions(options) {
+function renderOptions(options, productId = "") {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
 
@@ -414,6 +470,28 @@ function renderOptions(options) {
     fields.push({ label: option.name, element: select });
     optionsContainer.appendChild(wrapper);
   });
+
+  if (productId === "safety-cones") {
+    const colorField = fields.find((field) => field.label === "צבע");
+    const heightField = fields.find((field) => field.label === "גובה");
+
+    if (colorField && heightField) {
+      const updateConeHeightOptions = () => {
+        const color = colorField.element.value;
+        const values = color === "כתום שחור" ? ["75"] : ["50", "75"];
+        heightField.element.innerHTML = "";
+        values.forEach((value) => {
+          const opt = document.createElement("option");
+          opt.value = value;
+          opt.textContent = value;
+          heightField.element.appendChild(opt);
+        });
+      };
+
+      colorField.element.addEventListener("change", updateConeHeightOptions);
+      updateConeHeightOptions();
+    }
+  }
 
   // Conditional custom text input for personalized wording
   const textOptionField = fields.find((field) => field.label === "\u05e0\u05d5\u05e1\u05d7");
@@ -522,7 +600,7 @@ function renderNotFound() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const productId = getProductIdFromUrl();
-  const product = PRODUCT_CATALOG[productId];
+  const product = PRODUCT_CATALOG[productId] || buildDynamicProduct(productId);
   if (!productId || !product) {
     renderNotFound();
     return;
@@ -542,6 +620,6 @@ document.addEventListener("DOMContentLoaded", () => {
   descriptionEl.textContent = product.description || "";
 
   renderGallery(product.images, product.title);
-  const optionFields = renderOptions(product.options || []);
+  const optionFields = renderOptions(product.options || [], productId);
   setupAddToCart(productId, product, optionFields);
 });

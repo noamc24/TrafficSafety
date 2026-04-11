@@ -150,6 +150,13 @@ body {
   gap: 0.75rem;
 }
 
+.store-subfilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
 .store-filter-btn {
   border: none;
   border-radius: 1rem;
