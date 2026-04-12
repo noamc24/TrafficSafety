@@ -45,6 +45,44 @@
     };
   }
 
+  function resolveTrafficSignImage(productId) {
+    if (!productId || !productId.startsWith("sign-")) return null;
+
+    const code = productId.slice(5);
+    if (!/^\d+$/.test(code)) return null;
+
+    const specialImageByCode = {
+      "439": "/assets/TrafficSigns/400/439-1.png",
+      "632": "/assets/TrafficSigns/600/632-1.png",
+      "914": "/assets/TrafficSigns/900/914-1.png"
+    };
+
+    if (specialImageByCode[code]) return specialImageByCode[code];
+
+    const numericCode = Number(code);
+    const series = Math.floor(numericCode / 100) * 100;
+    return `/assets/TrafficSigns/${series}/${numericCode}.png`;
+  }
+
+  function resolveSafetyProductImage(productId) {
+    const safetyImageByProductId = {
+      "safety-cones": "/assets/SafetyEquipment/cone1.png",
+      "panoramic-mirror": "/assets/SafetyEquipment/panoramicmirror1.png",
+      "lane-dividers": "/assets/SafetyEquipment/laneseparators1.png",
+      "parking-stop": "/assets/SafetyEquipment/parkingstopper1.png",
+      "parking-guard": "/assets/SafetyEquipment/parkingkeeper1.png",
+      "bumper": "/assets/SafetyEquipment/laneseparators2.png",
+      "flexible-post-45-75-100": "/assets/SafetyEquipment/flexiblepost1.png",
+      "barrier-post": "/assets/SafetyEquipment/flexiblepost2.png",
+      "sign-post": "/assets/SafetyEquipment/flexiblepost3.png",
+      "connector-units-3-6-inch": "/assets/SafetyEquipment/parkingstopper2.png",
+      "flag-connector-unit": "/assets/SafetyEquipment/parkingstopper3.png",
+      "solar-lamp": "/assets/SafetyEquipment/panoramicmirror2.png"
+    };
+
+    return safetyImageByProductId[productId] || null;
+  }
+
   function sameOptions(a = [], b = []) {
     if (a.length !== b.length) return false;
     return a.every((opt, idx) => opt.name === b[idx]?.name && opt.value === b[idx]?.value);
@@ -69,10 +107,38 @@
 
   productItems.forEach((item) => {
     const productId = item.dataset.productId;
+    const isSignProduct = Boolean(productId && productId.startsWith("sign-"));
     const detailsLink = item.querySelector(".product-card__btn");
     const title = item.querySelector(".product-card__title")?.textContent?.trim() || "\u05de\u05d5\u05e6\u05e8";
     const category = item.querySelector(".product-card__tag")?.textContent?.trim() || "";
-    const cardImage = item.querySelector(".product-card__image");
+    const imageWrap = item.querySelector(".product-card__image-wrap");
+    let cardImage = item.querySelector(".product-card__image");
+
+    if (!cardImage && imageWrap) {
+      const signImageSrc = resolveTrafficSignImage(productId);
+      const safetyImageSrc = resolveSafetyProductImage(productId);
+      const mappedImageSrc = signImageSrc || safetyImageSrc;
+
+      if (mappedImageSrc) {
+        cardImage = document.createElement("img");
+        cardImage.className = "product-card__image";
+        cardImage.src = mappedImageSrc;
+        cardImage.alt = title;
+        imageWrap.prepend(cardImage);
+      } else {
+        if (isSignProduct) {
+          item.remove();
+          return;
+        }
+
+        cardImage = document.createElement("img");
+        cardImage.className = "product-card__image";
+        cardImage.src = "/assets/Icons/TSCLogoSquared.png";
+        cardImage.alt = title;
+        imageWrap.prepend(cardImage);
+      }
+    }
+
     const sourceImage = cardImage?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.png";
     const imageVariants = buildImageVariants(sourceImage);
     const image = imageVariants.fallback;
@@ -86,13 +152,20 @@
       if (!cardImage.hasAttribute("height")) cardImage.setAttribute("height", "500");
 
       cardImage.src = imageVariants.thumb;
-      cardImage.addEventListener(
-        "error",
-        () => {
+      cardImage.addEventListener("error", () => {
+        const currentSrc = cardImage.getAttribute("src") || "";
+        if (currentSrc !== imageVariants.fallback) {
           cardImage.src = imageVariants.fallback;
-        },
-        { once: true }
-      );
+          return;
+        }
+
+        if (isSignProduct) {
+          item.remove();
+          return;
+        }
+
+        cardImage.src = "/assets/Icons/TSCLogoSquared.png";
+      });
     }
 
     if (productId && detailsLink) {
