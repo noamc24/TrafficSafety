@@ -1,14 +1,15 @@
-const express = require("express");
+﻿const express = require("express");
 const router = express.Router();
 const { sendTelegramMessage, sendTelegramPhoto } = require("../bot/Sender");
 
 router.post("/", async (req, res) => {
   try {
-    const { fullName, email, phone, message, cart } = req.body;
+    const { fullName, name, email, phone, message, cart } = req.body;
+    const senderName = fullName || name || "-";
 
     const text =
       `📩 <b>פנייה חדשה</b>\n` +
-      `👤 <b>שם:</b> ${fullName || "-"}\n` +
+      `👤 <b>שם:</b> ${senderName}\n` +
       `📧 <b>אימייל:</b> ${email || "-"}\n` +
       `📞 <b>טלפון:</b> ${phone || "-"}\n\n` +
       `📝 <b>הודעה:</b>\n${message || "-"}`;
@@ -32,7 +33,11 @@ router.post("/", async (req, res) => {
     return res.json({ ok: true });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ ok: false, error: "Telegram send failed" });
+    return res.status(500).json({
+      ok: false,
+      error: "Telegram send failed",
+      details: err?.message || String(err),
+    });
   }
 });
 

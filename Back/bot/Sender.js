@@ -1,4 +1,4 @@
-async function sendTelegramMessage(text) {
+﻿async function sendTelegramMessage(text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatIdsRaw = process.env.TELEGRAM_CHAT_IDS;
 
@@ -16,28 +16,39 @@ async function sendTelegramMessage(text) {
   }
 
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
-
   const results = [];
+  const errors = [];
 
   for (const chatId of chatIds) {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text,
-        parse_mode: "HTML",
-        disable_web_page_preview: true,
-      }),
-    });
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text,
+          parse_mode: "HTML",
+          disable_web_page_preview: true,
+        }),
+      });
 
-    const data = await res.json();
-
-    if (!data.ok) {
-      throw new Error(`Telegram error for chat_id ${chatId}: ${JSON.stringify(data)}`);
+      const data = await res.json();
+      if (!data.ok) {
+        errors.push(`chat_id ${chatId}: ${JSON.stringify(data)}`);
+        continue;
+      }
+      results.push(data);
+    } catch (err) {
+      errors.push(`chat_id ${chatId}: ${err.message || String(err)}`);
     }
+  }
 
-    results.push(data);
+  if (!results.length) {
+    throw new Error(`Telegram sendMessage failed for all chat IDs. ${errors.join(" | ")}`);
+  }
+
+  if (errors.length) {
+    console.warn("Telegram sendMessage partial failures:", errors.join(" | "));
   }
 
   return results;
@@ -75,26 +86,39 @@ async function sendTelegramPhoto(dataUrl, caption = "") {
 
   const url = `https://api.telegram.org/bot${token}/sendPhoto`;
   const results = [];
+  const errors = [];
 
   for (const chatId of chatIds) {
-    const form = new FormData();
-    form.append("chat_id", chatId);
-    form.append("caption", caption || "הדמיית עיצוב מותאם");
-    form.append("parse_mode", "HTML");
-    form.append("photo", blob, "custom-design-preview.jpg");
+    try {
+      const form = new FormData();
+      form.append("chat_id", chatId);
+      form.append("caption", caption || "הדמיית עיצוב מותאם");
+      form.append("parse_mode", "HTML");
+      form.append("photo", blob, "custom-design-preview.jpg");
 
-    const res = await fetch(url, {
-      method: "POST",
-      body: form,
-    });
+      const res = await fetch(url, {
+        method: "POST",
+        body: form,
+      });
 
-    const data = await res.json();
+      const data = await res.json();
+      if (!data.ok) {
+        errors.push(`chat_id ${chatId}: ${JSON.stringify(data)}`);
+        continue;
+      }
 
-    if (!data.ok) {
-      throw new Error(`Telegram photo error for chat_id ${chatId}: ${JSON.stringify(data)}`);
+      results.push(data);
+    } catch (err) {
+      errors.push(`chat_id ${chatId}: ${err.message || String(err)}`);
     }
+  }
 
-    results.push(data);
+  if (!results.length) {
+    throw new Error(`Telegram sendPhoto failed for all chat IDs. ${errors.join(" | ")}`);
+  }
+
+  if (errors.length) {
+    console.warn("Telegram sendPhoto partial failures:", errors.join(" | "));
   }
 
   return results;
