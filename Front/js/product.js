@@ -23,7 +23,7 @@
     category: "׳©׳׳˜׳™׳",
     shortDescription: "׳©׳™׳׳•׳˜ ׳‘׳¨׳•׳¨ ׳׳׳×׳—׳׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳©׳˜׳—׳™ ׳×׳₪׳¢׳•׳.",
     longDescription: "׳©׳׳˜ ׳”׳›׳•׳•׳ ׳” ׳‘׳”׳×׳׳׳” ׳׳₪׳¨׳•׳™׳§׳˜, ׳›׳•׳׳ ׳˜׳§׳¡׳˜/׳—׳™׳¦׳™׳, ׳¦׳‘׳¢׳™׳ ׳•׳₪׳×׳¨׳•׳ ׳•׳× ׳×׳׳™׳™׳” ׳׳• ׳¢׳׳•׳“.",
-    images: ["/assets/Photos/project10.png", "/assets/Photos/project18.png", "/assets/Photos/project2.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳©׳™׳˜׳× ׳”׳×׳§׳ ׳”", values: ["׳¢׳ ׳§׳™׳¨", "׳¢׳ ׳¢׳׳•׳“"] }]
   },
   "private-parking-board": {
@@ -31,7 +31,7 @@
     category: "׳©׳׳˜׳™׳",
     shortDescription: "׳©׳׳˜ ׳׳§׳¦׳•׳¢׳™ ׳׳׳×׳—׳׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¢׳¡׳§׳™׳™׳.",
     longDescription: "׳¢׳׳™׳“ ׳׳×׳ ׳׳™ ׳©׳׳© ׳•׳’׳©׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳”׳×׳׳׳× ׳ ׳•׳¡׳— ׳•׳¡׳™׳׳•׳ ׳׳₪׳™ ׳“׳¨׳™׳©׳× ׳”׳׳§׳•׳—.",
-    images: ["/assets/Photos/project17.png", "/assets/Photos/project20.png", "/assets/Photos/project19.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳ ׳•׳¡׳—", values: ["׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳×", "׳—׳ ׳™׳” ׳׳“׳™׳™׳¨׳™׳ ׳‘׳׳‘׳“", "׳׳•׳×׳׳ ׳׳™׳©׳™׳×"] }]
   },
   "active-worksite-sign": {
@@ -39,7 +39,7 @@
     category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
     shortDescription: "׳׳¡׳™׳׳•׳ ׳‘׳¨׳•׳¨ ׳©׳ ׳׳–׳•׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳×׳©׳×׳™׳×.",
     longDescription: "׳©׳׳˜׳™ ׳׳×׳¨ ׳¢׳‘׳•׳“׳” ׳׳§׳¨׳™׳׳•׳× ׳’׳‘׳•׳”׳” ׳‘׳™׳•׳ ׳•׳‘׳׳™׳׳”, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳©׳™׳ ׳•׳™ ׳ ׳•׳¡׳— ׳‘׳”׳×׳׳ ׳׳¡׳•׳’ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/Photos/project13.png", "/assets/Photos/project14.png", "/assets/Photos/project15.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳—׳•׳׳¨", values: ["׳₪׳—", "PVC ׳§׳©׳™׳—"] }]
   },
   "roadwork-warning-sign": {
@@ -47,7 +47,7 @@
     category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
     shortDescription: "׳׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳”׳ ׳”׳’׳™׳ ׳•׳”׳¢׳•׳‘׳“׳™׳ ׳‘׳©׳˜׳—.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳ ׳₪׳•׳¥ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳›׳•׳׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳”׳×׳§׳ ׳” ׳ ׳™׳™׳“׳•׳× ׳•׳§׳‘׳•׳¢׳•׳×.",
-    images: ["/assets/Photos/project15.png", "/assets/Photos/project16.png", "/assets/Photos/project12.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳¡׳•׳’", values: ["׳ ׳™׳™׳“", "׳§׳‘׳•׳¢"] }]
   },
   "safety-cone": {
@@ -98,7 +98,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳”׳׳˜׳× ׳׳”׳™׳¨׳•׳× ׳•׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳‘׳׳–׳•׳¨׳™׳ ׳¨׳’׳™׳©׳™׳.",
     longDescription: "׳₪׳¡׳™ ׳”׳׳˜׳” ׳׳•׳“׳•׳׳¨׳™׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳“׳¨׳›׳™׳ ׳₪׳ ׳™׳׳™׳•׳×.",
-    images: ["/assets/Photos/project11.jpg", "/assets/Photos/project4.png", "/assets/Photos/project8.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳’׳•׳‘׳” ׳₪׳¡", values: ["׳ ׳׳•׳", "׳‘׳™׳ ׳•׳ ׳™"] }]
   },
   "spike-barrier": {
@@ -106,7 +106,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳‘׳§׳¨׳× ׳׳¢׳‘׳¨ ׳׳¨׳›׳‘׳™׳ ׳‘׳›׳™׳•׳•׳ ׳׳•׳¨׳©׳” ׳‘׳׳‘׳“.",
     longDescription: "׳׳×׳׳™׳ ׳׳›׳ ׳™׳¡׳•׳× ׳׳‘׳•׳§׳¨׳•׳×, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳׳×׳—׳׳™׳ ׳׳•׳’׳™׳¡׳˜׳™׳™׳ ׳¢׳ ׳“׳¨׳™׳©׳•׳× ׳׳‘׳˜׳—׳”.",
-    images: ["/assets/Photos/project12.png", "/assets/Photos/project14.png", "/assets/Photos/project15.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳›׳™׳•׳•׳ ׳׳¢׳‘׳¨", values: ["׳—׳“-׳›׳™׳•׳•׳ ׳™", "׳“׳•-׳›׳™׳•׳•׳ ׳™"] }]
   },
   "lane-divider": {
@@ -122,7 +122,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳×׳׳•׳¨׳” ׳¢׳¦׳׳׳™׳× ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳׳•׳§׳“׳™ ׳¡׳™׳›׳•׳.",
     longDescription: "׳₪׳ ׳¡׳™׳ ׳¡׳•׳׳¨׳™׳™׳ ׳׳©׳™׳₪׳•׳¨ ׳ ׳¨׳׳•׳× ׳•׳”׳×׳¨׳׳”, ׳׳׳ ׳×׳׳•׳× ׳‘׳×׳©׳×׳™׳× ׳—׳©׳׳ ׳‘׳׳×׳¨.",
-    images: ["/assets/Photos/project16.png", "/assets/Photos/project10.png", "/assets/Photos/project11.jpg"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳¢׳•׳¦׳׳× ׳×׳׳•׳¨׳”", values: ["׳‘׳¡׳™׳¡׳™׳×", "׳—׳–׳§׳”"] }]
   },
   "other-safety": {
@@ -130,7 +130,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳•׳¦׳¨׳™׳ ׳׳©׳׳™׳׳™׳ ׳׳₪׳™ ׳¦׳•׳¨׳ ׳”׳₪׳¨׳•׳™׳§׳˜.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳•׳× ׳ ׳•׳¡׳₪׳™׳ ׳׳”׳×׳׳׳” ׳׳™׳©׳™׳× ׳‘׳׳×׳¨: ׳©׳™׳׳•׳‘ ׳׳‘׳™׳–׳¨׳™׳, ׳¡׳™׳׳•׳, ׳׳–׳”׳¨׳” ׳•׳‘׳˜׳™׳—׳•׳×.",
-    images: ["/assets/Photos/project7.png", "/assets/Photos/project17.png", "/assets/Photos/project19.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳¡׳•׳’ ׳׳•׳¦׳¨", values: ["׳׳•׳×׳׳ ׳׳₪׳¨׳•׳™׳§׳˜", "׳׳׳׳™ ׳§׳™׳™׳"] }]
   }
 };
@@ -263,7 +263,7 @@ PRODUCT_CATALOG["custom-design-board"] = {
   category: "שלטים",
   shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
   longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
-  images: ["/assets/Photos/project7.png", "/assets/Photos/project11.jpg", "/assets/Photos/project16.png"],
+  images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
   options: [
     { name: "צורה", values: ["עיגול", "משולש", "משולש הפוך", "ריבוע", "מרובע", "מתומן"] },
     { name: "גודל", values: ["לבחירה לפי צורה"] },
@@ -1412,5 +1412,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   setupAddToCart(productId, product, optionFields);
 });
+
+
 
 
