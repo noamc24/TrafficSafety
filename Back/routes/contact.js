@@ -3,8 +3,6 @@ const router = express.Router();
 const { sendTelegramMessage, sendTelegramPhoto } = require("../bot/Sender");
 
 router.post("/", async (req, res) => {
-    console.log("contact payload keys:", Object.keys(req.body || {}));
-    console.log("cart items:", Array.isArray(req.body?.cart) ? req.body.cart.length : 0);
   try {
     const { fullName, name, email, phone, message, cart } = req.body;
     const senderName = fullName || name || "-";
