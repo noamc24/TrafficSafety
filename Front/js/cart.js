@@ -226,26 +226,36 @@ function validateQuoteForm(data) {
 async function submitQuoteRequest(customer, cart) {
   const message = buildTelegramQuoteMessage(customer, cart);
 
+  const sanitizedCart = cart.map((item) => ({
+    title: item.title || "",
+    quantity: item.quantity || 1,
+    category: item.category || "",
+    options: Array.isArray(item.options) ? item.options : [],
+    customDesignPreview: item.customDesignPreview || ""
+  }));
+
   const response = await fetch("/api/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      name: customer.fullName,
+      fullName: customer.fullName,
       phone: customer.phone,
       email: customer.email,
       company: customer.company,
       message,
-      cart
+      cart: sanitizedCart
     })
   });
 
+  const data = await response.json().catch(() => ({}));
+
   if (!response.ok) {
-    throw new Error("שליחת הבקשה נכשלה");
+    throw new Error(data?.details || data?.error || "שליחת הבקשה נכשלה");
   }
 
-  return response.json().catch(() => ({}));
+  return data;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

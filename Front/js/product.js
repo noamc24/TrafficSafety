@@ -834,6 +834,15 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       previewNote.style.display = "block";
     }
 
+    if (imageControlsWrapper) {
+      imageControlsWrapper.classList.add("custom-image-controls-below-preview");
+      if (previewNote?.parentElement) {
+        previewNote.insertAdjacentElement("afterend", imageControlsWrapper);
+      } else if (previewCanvas?.parentElement) {
+        previewCanvas.insertAdjacentElement("afterend", imageControlsWrapper);
+      }
+    }
+
     const blankImageByShape = {
       "עיגול": "/assets/signs/circle.png",
       "משולש": "/assets/signs/triangle.png",

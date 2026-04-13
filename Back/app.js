@@ -9,8 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // body parsing
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
 function resolveClientPath() {
   const candidates = [
@@ -38,8 +38,8 @@ const contactLimiter = rateLimit({
   windowMs: 24 * 24 * 60 * 60 * 1000, // 24 days
   max: 5, // limit each IP to 5 requests per windowMs
   message: 'יותר מדי בקשות צור קשר מכתובת IP זו, אנא נסה שוב מאוחר יותר.',
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 
 // routes

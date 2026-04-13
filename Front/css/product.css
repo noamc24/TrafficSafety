@@ -133,6 +133,10 @@
   width: 100%;
 }
 
+#customImageControlsWrapper.custom-image-controls-below-preview {
+  margin-top: 0.75rem;
+}
+
 @media (max-width: 48rem) {
   .product-layout {
     padding: 1rem;
