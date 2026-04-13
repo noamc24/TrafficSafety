@@ -168,31 +168,6 @@ function normalizeObjectStringsInPlace(value) {
 normalizeObjectStringsInPlace(PRODUCT_CATALOG);
 
 const CLEAN_PRODUCT_TEXT = {
-  "triangleS": {
-    title: "תמרור משולש",
-    category: "תמרורים",
-    shortDescription: "תמרור משולש בולט וברור לסימון והכוונה, עם עמידות גבוהה לתנאי חוץ."
-  },
-  "stop-sign": {
-    title: "תמרור עצור",
-    category: "תמרורים",
-    shortDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים."
-  },
-  "slowSign": {
-    title: "תמרור האט",
-    category: "תמרורים",
-    shortDescription: "תמרור האט ברור לעין עם נראות גבוהה ועמידות לאורך זמן."
-  },
-  "square-board": {
-    title: "תמרור מרובע",
-    category: "תמרורים",
-    shortDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח."
-  },
-  "circle-board": {
-    title: "תמרור עיגול",
-    category: "תמרורים",
-    shortDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה."
-  },
   "custom-design-board": {
     title: "שלט בעיצוב אישי",
     category: "שלטים",
@@ -270,41 +245,17 @@ const CLEAN_PRODUCT_TEXT = {
   }
 };
 
-PRODUCT_CATALOG["stop-sign"] = {
-  title: "תמרור עצור",
-  category: "תמרורים",
-  shortDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
-  longDescription: "תמרור עצור איכותי ובולט, מתאים להצבה במתחמים פרטיים וציבוריים.",
-  images: ["/assets/SafetyEquipment/stopS.png", "/assets/SafetyEquipment/stopS.png", "/assets/SafetyEquipment/stopS.png"],
-  options: [
-    { name: "גודל", values: ["קטן", "בינוני", "גדול"] },
-    { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] }
-  ]
-};
+const LEGACY_SIGN_PRODUCT_IDS = [
+  "triangleS",
+  "slowSign",
+  "stop-sign",
+  "square-board",
+  "circle-board"
+];
 
-PRODUCT_CATALOG["square-board"] = {
-  title: "תמרור מרובע",
-  category: "תמרורים",
-  shortDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
-  longDescription: "תמרור מרובע רב-שימושי לסימון, הנחיה ומידע בשטח.",
-  images: ["/assets/SafetyEquipment/squareS.png", "/assets/SafetyEquipment/squareS.png", "/assets/SafetyEquipment/squareS.png"],
-  options: [
-    { name: "גודל", values: ["30x30 ס\"מ", "40x40 ס\"מ", "60x60 ס\"מ"] },
-    { name: "שיטת התקנה", values: ["על קיר", "על עמוד"] }
-  ]
-};
-
-PRODUCT_CATALOG["circle-board"] = {
-  title: "תמרור עיגול",
-  category: "תמרורים",
-  shortDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
-  longDescription: "תמרור עגול מקצועי להכוונה וסימון עם קריאות גבוהה ביום ובלילה.",
-  images: ["/assets/SafetyEquipment/circleS.png", "/assets/SafetyEquipment/bluecircleS.png", "/assets/SafetyEquipment/circleS.png"],
-  options: [
-    { name: "קוטר", values: ["30 ס\"מ", "50 ס\"מ", "70 ס\"מ"] },
-    { name: "מחזיר אור", values: ["רגיל", "משופר"] }
-  ]
-};
+LEGACY_SIGN_PRODUCT_IDS.forEach((productId) => {
+  delete PRODUCT_CATALOG[productId];
+});
 
 PRODUCT_CATALOG["custom-design-board"] = {
   title: "שלט בעיצוב אישי",
@@ -313,8 +264,10 @@ PRODUCT_CATALOG["custom-design-board"] = {
   longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
   images: ["/assets/Photos/project7.png", "/assets/Photos/project11.jpg", "/assets/Photos/project16.png"],
   options: [
-    { name: "צורה", values: ["מרובע", "עיגול", "משולש", "אחר"] },
-    { name: "נוסח", values: ["סטנדרטי", "מותאם אישית"] }
+    { name: "צורה", values: ["עיגול", "משולש", "מרובע", "מתומן"] },
+    { name: "גודל", values: ["לבחירה לפי צורה"] },
+    { name: "כיתוב", values: ["לא", "כן"] },
+    { name: "תמונה", values: ["לא", "כן"] }
   ]
 };
 
@@ -448,6 +401,7 @@ function buildDynamicProduct(productId) {
   const imageFromQuery = getQueryParam("image");
   const imageFallbackFromQuery = getQueryParam("image_fallback");
   const thumbFromQuery = getQueryParam("thumb");
+  const imagesFromQuery = getQueryParam("images");
   const isSign = /^sign-\d+$/.test(productId || "");
   const code = isSign ? String(productId).replace("sign-", "") : "";
   const title = signName && signName.trim()
@@ -457,15 +411,38 @@ function buildDynamicProduct(productId) {
       : "מוצר";
   const category = categoryFromQuery || (isSign ? "תמרורים" : "");
 
+  let galleryImages = [];
+  if (imagesFromQuery) {
+    try {
+      const parsed = JSON.parse(imagesFromQuery);
+      if (Array.isArray(parsed)) {
+        galleryImages = parsed.filter((entry) => typeof entry === "string" && entry.trim());
+      }
+    } catch {
+      galleryImages = [];
+    }
+  }
+
+  const normalizedGallery = galleryImages.length
+    ? galleryImages.map((src) => {
+        const variants = buildImageVariants(src);
+        return {
+          full: variants.full,
+          thumb: variants.thumb,
+          fallback: variants.fallback
+        };
+      })
+    : [{
+        full: imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
+        thumb: thumbFromQuery || imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
+        fallback: imageFallbackFromQuery || "/assets/Icons/TSCLogoSquared.png"
+      }];
+
   return {
     title,
     category,
     description: isSign ? `תמרור ${title}` : title,
-    images: [{
-      full: imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
-      thumb: thumbFromQuery || imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
-      fallback: imageFallbackFromQuery || "/assets/Icons/TSCLogoSquared.png"
-    }],
+    images: normalizedGallery,
     options: [
       { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] },
       { name: "גודל", values: ["קטן", "בינוני", "גדול"] }
@@ -523,6 +500,17 @@ function renderOptions(options, productId = "") {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
 
+  const setSelectValues = (select, values) => {
+    if (!select) return;
+    select.innerHTML = "";
+    values.forEach((value) => {
+      const opt = document.createElement("option");
+      opt.value = value;
+      opt.textContent = value;
+      select.appendChild(opt);
+    });
+  };
+
   const fields = [];
   optionsContainer.innerHTML = "";
 
@@ -570,26 +558,89 @@ function renderOptions(options, productId = "") {
     }
   }
 
-  // Conditional custom text input for personalized wording
-  const textOptionField = fields.find((field) => field.label === "\u05e0\u05d5\u05e1\u05d7");
-  if (textOptionField) {
-    const customWrapper = document.createElement("div");
-    customWrapper.className = "product-option";
-    customWrapper.id = "customTextOptionWrapper";
-    customWrapper.style.display = "none";
-    customWrapper.innerHTML = `
-      <label for="customTextOptionInput">\u05d4\u05e7\u05dc\u05d3 \u05e0\u05d5\u05e1\u05d7 \u05de\u05d5\u05ea\u05d0\u05dd</label>
-      <input id="customTextOptionInput" type="text" class="form-control" placeholder="\u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05d4\u05e0\u05d5\u05e1\u05d7 \u05d4\u05e8\u05e6\u05d5\u05d9" />
-    `;
-    optionsContainer.appendChild(customWrapper);
+  if (productId === "custom-design-board") {
+    const shapeField = fields.find((field) => field.label === "צורה");
+    const sizeField = fields.find((field) => field.label === "גודל");
+    const textField = fields.find((field) => field.label === "כיתוב");
+    const imageField = fields.find((field) => field.label === "תמונה");
 
-    const toggleCustomTextInput = () => {
-      customWrapper.style.display =
-        textOptionField.element.value === "\u05de\u05d5\u05ea\u05d0\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea" ? "block" : "none";
-    };
+    if (shapeField && sizeField) {
+      const updateSizeOptionsByShape = () => {
+        const shape = shapeField.element.value;
+        if (shape === "מרובע") {
+          setSelectValues(sizeField.element, ["50X50", "60X60", "10X100"]);
+          return;
+        }
+        if (shape === "משולש") {
+          setSelectValues(sizeField.element, ["אורך צלע 65", "אורך צלע 80", "אורך צלע 120"]);
+          return;
+        }
+        setSelectValues(sizeField.element, ["קוטר 50", "קוטר 75", "קוטר 100"]);
+      };
 
-    textOptionField.element.addEventListener("change", toggleCustomTextInput);
-    toggleCustomTextInput();
+      shapeField.element.addEventListener("change", updateSizeOptionsByShape);
+      updateSizeOptionsByShape();
+    }
+
+    if (textField) {
+      const customTextWrapper = document.createElement("div");
+      customTextWrapper.className = "product-option";
+      customTextWrapper.id = "customTextOptionWrapper";
+      customTextWrapper.style.display = "none";
+      customTextWrapper.innerHTML = `
+        <label for="customTextOptionInput">הכנס כיתוב</label>
+        <textarea id="customTextOptionInput" class="form-control" rows="3" placeholder="הכנס טקסט חופשי לשלט"></textarea>
+      `;
+      optionsContainer.appendChild(customTextWrapper);
+
+      const toggleCustomTextInput = () => {
+        customTextWrapper.style.display = textField.element.value === "כן" ? "block" : "none";
+      };
+
+      textField.element.addEventListener("change", toggleCustomTextInput);
+      toggleCustomTextInput();
+    }
+
+    if (imageField) {
+      const customImageWrapper = document.createElement("div");
+      customImageWrapper.className = "product-option";
+      customImageWrapper.id = "customImageOptionWrapper";
+      customImageWrapper.style.display = "none";
+      customImageWrapper.innerHTML = `
+        <label for="customImageOptionInput">צרף תמונה</label>
+        <input id="customImageOptionInput" type="file" class="form-control" accept="image/*" />
+      `;
+      optionsContainer.appendChild(customImageWrapper);
+
+      const toggleCustomImageInput = () => {
+        customImageWrapper.style.display = imageField.element.value === "כן" ? "block" : "none";
+      };
+
+      imageField.element.addEventListener("change", toggleCustomImageInput);
+      toggleCustomImageInput();
+    }
+  } else {
+    // Conditional custom text input for personalized wording
+    const textOptionField = fields.find((field) => field.label === "\u05e0\u05d5\u05e1\u05d7");
+    if (textOptionField) {
+      const customWrapper = document.createElement("div");
+      customWrapper.className = "product-option";
+      customWrapper.id = "customTextOptionWrapper";
+      customWrapper.style.display = "none";
+      customWrapper.innerHTML = `
+        <label for="customTextOptionInput">\u05d4\u05e7\u05dc\u05d3 \u05e0\u05d5\u05e1\u05d7 \u05de\u05d5\u05ea\u05d0\u05dd</label>
+        <input id="customTextOptionInput" type="text" class="form-control" placeholder="\u05d4\u05db\u05e0\u05e1 \u05d0\u05ea \u05d4\u05e0\u05d5\u05e1\u05d7 \u05d4\u05e8\u05e6\u05d5\u05d9" />
+      `;
+      optionsContainer.appendChild(customWrapper);
+
+      const toggleCustomTextInput = () => {
+        customWrapper.style.display =
+          textOptionField.element.value === "\u05de\u05d5\u05ea\u05d0\u05dd \u05d0\u05d9\u05e9\u05d9\u05ea" ? "block" : "none";
+      };
+
+      textOptionField.element.addEventListener("change", toggleCustomTextInput);
+      toggleCustomTextInput();
+    }
   }
 
   const quantityWrapper = document.createElement("div");
@@ -627,6 +678,15 @@ function setupAddToCart(productId, product, optionFields) {
       selectedOptions.push({
         name: "\u05e0\u05d5\u05e1\u05d7 \u05de\u05d5\u05ea\u05d0\u05dd",
         value: customTextValue
+      });
+    }
+
+    const customImageInput = document.getElementById("customImageOptionInput");
+    const selectedImageFile = customImageInput?.files?.[0];
+    if (selectedImageFile) {
+      selectedOptions.push({
+        name: "תמונה מצורפת",
+        value: selectedImageFile.name
       });
     }
 

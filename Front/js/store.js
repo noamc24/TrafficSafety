@@ -45,23 +45,33 @@
     };
   }
 
-  function resolveTrafficSignImage(productId) {
+  function resolveTrafficSignImages(productId) {
     if (!productId || !productId.startsWith("sign-")) return null;
 
     const code = productId.slice(5);
     if (!/^\d+$/.test(code)) return null;
 
-    const specialImageByCode = {
-      "439": "/assets/TrafficSigns/400/439-1.png",
-      "632": "/assets/TrafficSigns/600/632-1.png",
-      "914": "/assets/TrafficSigns/900/914-1.png"
+    const specialImagesByCode = {
+      "439": [
+        "/assets/TrafficSigns/400/439-1.png",
+        "/assets/TrafficSigns/400/439-2.png",
+        "/assets/TrafficSigns/400/439-3.png"
+      ],
+      "632": [
+        "/assets/TrafficSigns/600/632-1.png",
+        "/assets/TrafficSigns/600/632-2.png"
+      ],
+      "914": [
+        "/assets/TrafficSigns/900/914-1.png",
+        "/assets/TrafficSigns/900/914-2.png"
+      ]
     };
 
-    if (specialImageByCode[code]) return specialImageByCode[code];
+    if (specialImagesByCode[code]) return specialImagesByCode[code];
 
     const numericCode = Number(code);
     const series = Math.floor(numericCode / 100) * 100;
-    return `/assets/TrafficSigns/${series}/${numericCode}.png`;
+    return [`/assets/TrafficSigns/${series}/${numericCode}.png`];
   }
 
   function resolveSafetyProductImage(productId) {
@@ -115,7 +125,8 @@
     let cardImage = item.querySelector(".product-card__image");
 
     if (!cardImage && imageWrap) {
-      const signImageSrc = resolveTrafficSignImage(productId);
+      const signImageSources = resolveTrafficSignImages(productId);
+      const signImageSrc = Array.isArray(signImageSources) ? signImageSources[0] : null;
       const safetyImageSrc = resolveSafetyProductImage(productId);
       const mappedImageSrc = signImageSrc || safetyImageSrc;
 
@@ -169,7 +180,11 @@
     }
 
     if (productId && detailsLink) {
-      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.full)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}`;
+      const signImageSources = resolveTrafficSignImages(productId);
+      const imageListFromSign = Array.isArray(signImageSources) ? signImageSources : [];
+      const imageList = imageListFromSign.length ? imageListFromSign : [imageVariants.full];
+      const imagesPayload = encodeURIComponent(JSON.stringify(imageList));
+      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.full)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
       detailsLink.setAttribute("href", productHref);
       detailsLink.addEventListener("click", () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);

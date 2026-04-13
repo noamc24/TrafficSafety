@@ -68,17 +68,21 @@ body {
 /* Hero side card in store: keep icon decorative without covering content */
 .store-hero-side-card .top-service-content {
   padding: 0;
+  padding-inline-end: clamp(5rem, 12vw, 8rem);
 }
 
 .store-hero-side-card {
   padding: 1.5rem;
 }
 
-.store-hero-side-image {
-  left: auto;
-  right: 1rem;
+.store-hero .top-service-side-image.store-hero-side-image {
+  left: 1rem;
+  right: auto;
   top: 1rem;
-  width: clamp(2.75rem, 4vw, 3.5rem);
+  transform: none !important;
+  width: clamp(7.5rem, 14vw, 11.5rem) !important;
+  height: auto !important;
+  max-width: none !important;
   opacity: 0.28;
   pointer-events: none;
 }
@@ -463,6 +467,21 @@ button:focus-visible {
   .store-section-heading__logo {
     margin-inline-start: 0;
     width: clamp(6rem, 30vw, 9rem);
+  }
+
+  .store-hero .top-service-side-image.store-hero-side-image {
+    left: 0.6rem;
+    right: auto;
+    top: 0.6rem;
+    transform: none !important;
+    width: clamp(4.5rem, 20vw, 6.5rem) !important;
+    max-width: 35% !important;
+  }
+
+  .store-hero-side-card .top-service-content {
+    padding-top: 0;
+    padding-inline-end: clamp(4rem, 18vw, 5.5rem);
+    text-align: initial;
   }
 
   .store-filters {
