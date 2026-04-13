@@ -73,11 +73,14 @@ body {
 
 /* Hero side card in store: keep icon decorative without covering content */
 .store-hero-side-card .top-service-content {
+  position: relative;
+  z-index: 2;
   padding: 0;
-  padding-inline-end: clamp(5rem, 12vw, 8rem);
 }
 
 .store-hero-side-card {
+  position: relative;
+  overflow: hidden;
   padding: 1.5rem;
   min-height: 22rem;
   display: flex;
@@ -94,15 +97,17 @@ body {
 }
 
 .store-hero .top-service-side-image.store-hero-side-image {
-  left: 1rem;
+  left: 50%;
   right: auto;
-  top: 1rem;
-  transform: none !important;
-  width: clamp(7.5rem, 14vw, 11.5rem) !important;
+  top: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: auto !important;
   height: auto !important;
-  max-width: none !important;
-  opacity: 0.28;
+  max-width: 92% !important;
+  max-height: 92% !important;
+  opacity: 0.075;
   pointer-events: none;
+  z-index: 1;
 }
 
 /* ===== Store Buttons ===== */
@@ -498,17 +503,17 @@ button:focus-visible {
   }
 
   .store-hero .top-service-side-image.store-hero-side-image {
-    left: 0.6rem;
+    left: 50%;
     right: auto;
-    top: 0.6rem;
-    transform: none !important;
-    width: clamp(4.5rem, 20vw, 6.5rem) !important;
-    max-width: 35% !important;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: auto !important;
+    max-width: 90% !important;
+    max-height: 90% !important;
   }
 
   .store-hero-side-card .top-service-content {
     padding-top: 0;
-    padding-inline-end: clamp(4rem, 18vw, 5.5rem);
     text-align: initial;
   }
 

@@ -264,6 +264,22 @@ function setupImageLightbox() {
   });
 }
 
+function setupProjectImageFallback() {
+  const projectImages = document.querySelectorAll("#projects .card-img-top");
+  if (!projectImages.length) return;
+
+  projectImages.forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        img.src = "/assets/Icons/TSCLogoSquared.png";
+        img.alt = "תמונת פרויקט";
+      },
+      { once: true }
+    );
+  });
+}
+
 const backToTopButton = document.getElementById('backToTop');
 if (backToTopButton) {
   window.addEventListener('scroll', () => {
@@ -298,6 +314,7 @@ function updateCartIndicators() {
 mountPartials();
 setupContactForm();
 setupImageLightbox();
+setupProjectImageFallback();
 updateActiveOnScroll();
 window.addEventListener('scroll', onScrollThrottled, { passive: true });
 window.addEventListener("storage", (event) => {
