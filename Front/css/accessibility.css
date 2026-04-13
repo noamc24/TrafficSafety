@@ -16,7 +16,7 @@
   font-weight: 700;
   box-shadow: 0 0.6rem 1.4rem rgba(0,0,0,0.2);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,10 +70,15 @@
   color: #212529;
 }
 
-.form-check-input {
+#accessibilityModal .form-check-input {
   width: 1.3rem;
   height: 1.3rem;
   accent-color: #f4c400;
+}
+
+#accessibilityModal .modal-body {
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
 }
 
 /* ========================= */
@@ -85,9 +90,10 @@
     width: 3.2rem;
     height: 3.2rem;
     left: 0.8rem;
-    bottom: 0.4rem;
+    bottom: calc(env(safe-area-inset-bottom, 0rem) + 0.8rem);
     font-size: 1.4rem;
   }
+
 }
 
 /* ========================= */

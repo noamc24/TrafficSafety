@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    if (document.getElementById("accessibility-widget-container")) {
+      if (typeof window.initAccessibilityTools === "function") {
+        window.initAccessibilityTools();
+      }
+      return;
+    }
+
     const response = await fetch("/partials/accessibility-widget.html");
     if (!response.ok) {
       throw new Error(`Failed to load accessibility widget: ${response.status}`);

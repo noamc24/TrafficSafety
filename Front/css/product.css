@@ -1,5 +1,6 @@
 .product-page {
   min-height: 60vh;
+  overflow-x: hidden;
 }
 
 .product-back-link {
@@ -46,6 +47,7 @@
   gap: 0.5rem;
   margin-top: 0.75rem;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .product-gallery__thumb {
@@ -114,6 +116,7 @@
   display: block;
   font-weight: 700;
   margin-bottom: 0.35rem;
+  overflow-wrap: anywhere;
 }
 
 .product-actions {
@@ -127,6 +130,7 @@
 .product-feedback {
   font-weight: 600;
   color: #0a8e3f;
+  width: 100%;
 }
 
 @media (max-width: 48rem) {
@@ -142,5 +146,19 @@
   .product-gallery__thumb {
     width: 4rem;
     height: 4rem;
+  }
+
+  .product-actions .btn {
+    width: 100%;
+  }
+
+  .product-gallery__thumbs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.35rem;
+  }
+
+  .product-gallery__thumb {
+    flex: 0 0 4rem;
   }
 }

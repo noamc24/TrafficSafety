@@ -10,6 +10,7 @@
   padding: 0.6rem 0.9rem;
   color: #ffffff;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  overflow-wrap: anywhere;
 }
 
 .navbar .nav-link:hover {
@@ -143,5 +144,9 @@
 
   .navbar-brand .brand-text {
     font-size: 1rem;
+  }
+
+  .offcanvas .nav-link {
+    padding-block: 0.75rem;
   }
 }
