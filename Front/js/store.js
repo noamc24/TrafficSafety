@@ -192,12 +192,17 @@
         "/assets/TrafficSigns/900/908-2.png",
         "/assets/TrafficSigns/900/908-3.png"
       ],
-      "930": [
-        "/assets/TrafficSigns/900/930-1.png",
-        "/assets/TrafficSigns/900/930-2.png",
-        "/assets/TrafficSigns/900/930-3.png"
-      ]
-    };
+        "930": [
+          "/assets/TrafficSigns/900/930-1.png",
+          "/assets/TrafficSigns/900/930-2.png",
+          "/assets/TrafficSigns/900/930-3.png"
+        ],
+        "230": ["/assets/Icons/TSCLogoSquared.png"],
+        "231": ["/assets/Icons/TSCLogoSquared.png"],
+        "501": ["/assets/Icons/TSCLogoSquared.png"],
+        "502": ["/assets/Icons/TSCLogoSquared.png"],
+        "506": ["/assets/Icons/TSCLogoSquared.png"]
+      };
 
     if (specialImagesByCode[code]) return specialImagesByCode[code];
 

@@ -4,7 +4,7 @@
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳×׳׳¨׳•׳¨ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳©׳™׳׳•׳© ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™ ׳×׳ ׳•׳¢׳”.",
     longDescription: "׳×׳׳¨׳•׳¨ ׳׳™׳›׳•׳×׳™ ׳׳׳׳•׳׳™׳ ׳™׳•׳ ׳¢׳ ׳¦׳™׳₪׳•׳™ ׳׳—׳–׳™׳¨ ׳׳•׳¨, ׳׳×׳׳™׳ ׳׳”׳×׳§׳ ׳” ׳‘׳¢׳׳•׳“׳™ ׳×׳׳¨׳•׳¨ ׳•׳‘׳›׳ ׳™׳¡׳•׳× ׳׳׳×׳—׳׳™׳.",
-    images: ["/assets/SafetyEquipment/triangleS.png", "/assets/SafetyEquipment/triangleS.png", "/assets/SafetyEquipment/triangleS.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [
       { name: "׳’׳•׳“׳", values: ["׳¡׳˜׳ ׳“׳¨׳˜׳™", "׳’׳“׳•׳"] },
       { name: "׳¡׳•׳’ ׳׳—׳–׳™׳¨ ׳׳•׳¨", values: ["׳¨׳’׳™׳", "׳׳—׳–׳™׳¨ ׳׳•׳¨ ׳׳©׳•׳₪׳¨"] }
@@ -15,7 +15,7 @@
     category: "׳×׳׳¨׳•׳¨׳™׳",
     shortDescription: "׳©׳™׳׳•׳‘ ׳ ׳¨׳׳•׳× ׳’׳‘׳•׳”׳” ׳•׳¢׳׳™׳“׳•׳× ׳׳×׳ ׳׳™ ׳—׳•׳¥.",
     longDescription: "׳׳×׳׳™׳ ׳׳¨׳—׳•׳‘׳•׳× ׳₪׳ ׳™׳׳™׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳—׳ ׳™׳•׳ ׳™׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳©׳•׳ ׳•׳× ׳׳₪׳™ ׳“׳¨׳™׳©׳•׳× ׳”׳׳×׳¨.",
-    images: ["/assets/SafetyEquipment/slowS.png", "/assets/SafetyEquipment/slowS.png", "/assets/SafetyEquipment/slowS.png"],
+    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
     options: [{ name: "׳’׳•׳“׳", values: ["׳§׳˜׳", "׳‘׳™׳ ׳•׳ ׳™", "׳’׳“׳•׳"] }]
   },
   "direction-board": {

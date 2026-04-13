@@ -3,6 +3,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const rateLimit = require('express-rate-limit');
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,8 +12,25 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+function resolveClientPath() {
+  const candidates = [
+    path.resolve(__dirname, "..", "Front"),
+    path.resolve(process.cwd(), "Front"),
+    path.resolve(process.cwd(), "..", "Front"),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate) && fs.existsSync(path.join(candidate, "pages", "main.html"))) {
+      return candidate;
+    }
+  }
+
+  throw new Error(`Front directory not found. Checked: ${candidates.join(", ")}`);
+}
+
 // static client (disable caching in development)
-const clientPath = path.join(__dirname, "..", "Front");
+const clientPath = resolveClientPath();
+console.log(`[static] serving Front from: ${clientPath}`);
 app.use(express.static(clientPath, { etag: false, maxAge: 0 }));
 
 // rate limiter for contact form
@@ -48,6 +66,7 @@ app.get("/cart", (req, res) => {
 
 app.get("*", (req, res, next) => {
   if (req.path.startsWith("/api")) return next();
+  if (path.extname(req.path)) return next();
   res.setHeader("Cache-Control", "no-store");
   return res.sendFile(path.join(clientPath, "pages", "main.html"));
 });
