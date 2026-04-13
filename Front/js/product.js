@@ -295,6 +295,17 @@ PRODUCT_CATALOG["safety-cones"] = {
   ]
 };
 
+PRODUCT_CATALOG["connector-units-3-6-inch"] = {
+  title: "יחידת חיבור",
+  category: "אביזרי בטיחות",
+  shortDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
+  longDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
+  images: ["/assets/SafetyEquipment/signConnector.png"],
+  options: [
+    { name: "סוג יחידה", values: ["3 צול", "6 צול"] }
+  ]
+};
+
 function hasGibberish(text) {
   return typeof text === "string" && /׳|�/.test(text);
 }
@@ -445,12 +456,94 @@ function buildDynamicProduct(productId) {
     images: normalizedGallery,
     options: [
       { name: "חומר", values: ["פח מגולוון", "PVC קשיח"] },
-      { name: "גודל", values: ["קטן", "בינוני", "גדול"] }
+      { name: "גודל", values: ["50X50", "60X60", "100X100"] }
     ]
   };
 }
 
-function renderGallery(images, title) {
+function getSizeOptionsByShape(shape) {
+  const sizeMap = {
+    "ריבוע": ["20X20", "50X50", "60X60", "100X100"],
+    "עיגול": ["קוטר 60", "קוטר 80", "קוטר 100", "קוטר 120"],
+    "משולש": ["קוטר 60", "קוטר 80", "קוטר 100", "קוטר 120"],
+    "מתומן": ["50X50", "60X60", "80X80"],
+    "מרובע": ["20X20", "20X50", "20X60", "20X100", "50X50", "50X60", "50X100", "60X60", "60X100", "100X100"]
+  };
+
+  return sizeMap[shape] || ["לבחירה לפי צורה"];
+}
+
+function inferShapeByProduct(productId = "", productTitle = "", productCategory = "") {
+  const title = String(productTitle || "");
+  const category = String(productCategory || "");
+
+  const signMatch = String(productId || "").match(/^sign-(\d+)$/);
+  if (signMatch) {
+    const code = Number(signMatch[1]);
+
+    const inRange = (from, to) => code >= from && code <= to;
+
+    // משולשים: 101-106, 109-111, 114-117, 119-150, 301, 901
+    if (
+      inRange(101, 106) ||
+      inRange(109, 111) ||
+      inRange(114, 117) ||
+      inRange(119, 150) ||
+      code === 301 ||
+      code === 901
+    ) {
+      return "משולש";
+    }
+
+    // ריבועים: 220-225, 306, 308, 504-505, 618-626, 628, 633-638, 902, 905-907, 910-914, 935
+    if (
+      inRange(220, 225) ||
+      code === 306 ||
+      code === 308 ||
+      inRange(504, 505) ||
+      inRange(618, 626) ||
+      code === 628 ||
+      inRange(633, 638) ||
+      code === 902 ||
+      inRange(905, 907) ||
+      inRange(910, 914) ||
+      code === 935
+    ) {
+      return "ריבוע";
+    }
+
+    // עיגולים: 201-215, 218-219, 226-229, 303-304, 307, 401-438, 440-441
+    if (
+      inRange(201, 215) ||
+      inRange(218, 219) ||
+      inRange(226, 229) ||
+      inRange(303, 304) ||
+      code === 307 ||
+      inRange(401, 438) ||
+      inRange(440, 441)
+    ) {
+      return "עיגול";
+    }
+
+    // מתומן: 302 בלבד
+    if (code === 302) {
+      return "מתומן";
+    }
+
+    // כל השאר: מרובעים
+    return "מרובע";
+  }
+
+  if (title.includes("מתומן")) return "מתומן";
+  if (title.includes("משולש")) return "משולש";
+  if (title.includes("עיגול") || title.includes("קוטר")) return "עיגול";
+  if (title.includes("ריבוע")) return "ריבוע";
+  if (category.includes("שלט")) return "מרובע";
+  if (category.includes("תמרור")) return "מרובע";
+  return null;
+}
+
+function renderGallery(images, title, altBase = title) {
   const mainImage = document.getElementById("mainProductImage");
   const thumbsContainer = document.getElementById("productThumbs");
   if (!mainImage || !thumbsContainer) return;
@@ -469,14 +562,14 @@ function renderGallery(images, title) {
   mainImage.loading = "eager";
   mainImage.decoding = "async";
   mainImage.fetchPriority = "high";
-  mainImage.alt = title;
+  mainImage.alt = altBase;
   thumbsContainer.innerHTML = "";
 
   safeImages.forEach((image, index) => {
     const thumbBtn = document.createElement("button");
     thumbBtn.type = "button";
     thumbBtn.className = `product-gallery__thumb${index === 0 ? " active" : ""}`;
-    thumbBtn.innerHTML = `<img src="${image.thumb}" alt="${title} - \u05ea\u05de\u05d5\u05e0\u05d4 ${index + 1}" loading="lazy" decoding="async" width="160" height="160" />`;
+    thumbBtn.innerHTML = `<img src="${image.thumb}" alt="${altBase} - \u05ea\u05de\u05d5\u05e0\u05d4 ${index + 1}" loading="lazy" decoding="async" width="160" height="160" />`;
     const thumbImg = thumbBtn.querySelector("img");
     if (thumbImg) {
       thumbImg.addEventListener(
@@ -496,7 +589,21 @@ function renderGallery(images, title) {
   });
 }
 
-function renderOptions(options, productId = "") {
+function shouldApplyMountingOptions(productId = "", category = "") {
+  if (/^sign-\d+$/.test(productId || "")) return true;
+  const normalizedCategory = String(category || "");
+  return normalizedCategory.includes("שלט") || normalizedCategory.includes("תמרור");
+}
+
+function getMountingSubject(productId = "", category = "") {
+  if (/^sign-\d+$/.test(productId || "")) return "תמרור";
+  const normalizedCategory = String(category || "");
+  if (normalizedCategory.includes("שלט")) return "שלט";
+  if (normalizedCategory.includes("תמרור")) return "תמרור";
+  return "מוצר";
+}
+
+function renderOptions(options, productId = "", productCategory = "", productTitle = "") {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
 
@@ -536,6 +643,50 @@ function renderOptions(options, productId = "") {
     optionsContainer.appendChild(wrapper);
   });
 
+  if (shouldApplyMountingOptions(productId, productCategory)) {
+    const mountingSubject = getMountingSubject(productId, productCategory);
+    const mountingQuestionLabel = `על מה יישב ה${mountingSubject}?`;
+    const hasInstallationField = fields.some((field) =>
+      /התקנה|שיטת התקנה/.test(field.label || "")
+    );
+
+    if (!hasInstallationField) {
+      const mountWrapper = document.createElement("div");
+      mountWrapper.className = "product-option";
+      mountWrapper.innerHTML = `
+        <label for="productMountBase">${mountingQuestionLabel}</label>
+        <select id="productMountBase" class="form-select">
+          <option value="קיר">קיר</option>
+          <option value="עמוד">עמוד</option>
+        </select>
+      `;
+      optionsContainer.appendChild(mountWrapper);
+      const mountSelect = mountWrapper.querySelector("select");
+      fields.push({ label: mountingQuestionLabel, element: mountSelect });
+
+      const connectorWrapper = document.createElement("div");
+      connectorWrapper.className = "product-option";
+      connectorWrapper.style.display = "none";
+      connectorWrapper.innerHTML = `
+        <label for="productConnectorUnit">יחידת חיבור</label>
+        <select id="productConnectorUnit" class="form-select">
+          <option value="ללא">ללא</option>
+          <option value="3 צול">3 צול</option>
+          <option value="6 צול">6 צול</option>
+        </select>
+      `;
+      optionsContainer.appendChild(connectorWrapper);
+      const connectorSelect = connectorWrapper.querySelector("select");
+      fields.push({ label: "יחידת חיבור", element: connectorSelect });
+
+      const toggleConnectorUnit = () => {
+        connectorWrapper.style.display = mountSelect.value === "עמוד" ? "block" : "none";
+      };
+      mountSelect.addEventListener("change", toggleConnectorUnit);
+      toggleConnectorUnit();
+    }
+  }
+
   if (productId === "safety-cones") {
     const colorField = fields.find((field) => field.label === "צבע");
     const heightField = fields.find((field) => field.label === "גובה");
@@ -566,18 +717,8 @@ function renderOptions(options, productId = "") {
 
     if (shapeField && sizeField) {
       const updateSizeOptionsByShape = () => {
-        const shape = shapeField.element.value;
-        if (shape === "מרובע") {
-          setSelectValues(sizeField.element, ["50X50", "60X60", "10X100"]);
-          return;
-        }
-        if (shape === "משולש") {
-          setSelectValues(sizeField.element, ["אורך צלע 65", "אורך צלע 80", "אורך צלע 120"]);
-          return;
-        }
-        setSelectValues(sizeField.element, ["קוטר 50", "קוטר 75", "קוטר 100"]);
+        setSelectValues(sizeField.element, getSizeOptionsByShape(shapeField.element.value));
       };
-
       shapeField.element.addEventListener("change", updateSizeOptionsByShape);
       updateSizeOptionsByShape();
     }
@@ -620,6 +761,24 @@ function renderOptions(options, productId = "") {
       toggleCustomImageInput();
     }
   } else {
+    const sizeField = fields.find((field) => field.label === "גודל");
+    if (sizeField) {
+      const inferredShape = inferShapeByProduct(productId, productTitle, productCategory);
+      if (inferredShape) {
+        setSelectValues(sizeField.element, getSizeOptionsByShape(inferredShape));
+      }
+
+      const sizeNote = document.createElement("div");
+      sizeNote.className = "product-option";
+      sizeNote.innerHTML = `<small class="text-muted">למידות שונות אנא צרו קשר</small>`;
+      const sizeWrapper = sizeField.element.closest(".product-option");
+      if (sizeWrapper && sizeWrapper.parentNode === optionsContainer) {
+        sizeWrapper.insertAdjacentElement("afterend", sizeNote);
+      } else {
+        optionsContainer.appendChild(sizeNote);
+      }
+    }
+
     // Conditional custom text input for personalized wording
     const textOptionField = fields.find((field) => field.label === "\u05e0\u05d5\u05e1\u05d7");
     if (textOptionField) {
@@ -666,11 +825,22 @@ function setupAddToCart(productId, product, optionFields) {
   const qtyField = document.getElementById("productQty");
   if (!btn || !feedback || !qtyField) return;
 
+  const getCartImage = (images) => {
+    const first = Array.isArray(images) ? images[0] : null;
+    if (!first) return "/assets/Icons/TSCLogoSquared.png";
+    return first.fallback || first.full || first.thumb || "/assets/Icons/TSCLogoSquared.png";
+  };
+
   btn.addEventListener("click", () => {
-    const selectedOptions = optionFields.map((field) => ({
-      name: field.label,
-      value: field.element.value
-    }));
+    const selectedOptions = optionFields
+      .filter((field) => {
+        const wrapper = field.element?.closest(".product-option");
+        return wrapper ? wrapper.style.display !== "none" : true;
+      })
+      .map((field) => ({
+        name: field.label,
+        value: field.element.value
+      }));
 
     const customTextInput = document.getElementById("customTextOptionInput");
     const customTextValue = customTextInput ? customTextInput.value.trim() : "";
@@ -696,9 +866,7 @@ function setupAddToCart(productId, product, optionFields) {
       productId,
       title: product.title,
       category: product.category,
-      image: (product.images && product.images[0] && product.images[0].thumb)
-        ? product.images[0].thumb
-        : "/assets/Icons/TSCLogoSquared.png",
+      image: getCartImage(product.images),
       quantity,
       options: selectedOptions,
       addedAt: new Date().toISOString()
@@ -715,6 +883,36 @@ function setupAddToCart(productId, product, optionFields) {
       existing.quantity = (Number(existing.quantity) || 1) + nextItem.quantity;
     } else {
       cart.push(nextItem);
+    }
+
+    const connectorOption = selectedOptions.find((opt) => opt.name === "יחידת חיבור");
+    const connectorType = connectorOption?.value;
+    const shouldAddConnectorProduct = connectorType === "3 צול" || connectorType === "6 צול";
+    if (shouldAddConnectorProduct) {
+      const connectorProduct = PRODUCT_CATALOG["connector-units-3-6-inch"] || {};
+      const connectorItem = {
+        productId: "connector-units-3-6-inch",
+        title: connectorProduct.title || "יחידת חיבור",
+        category: connectorProduct.category || "אביזרי בטיחות",
+        image: getCartImage(connectorProduct.images),
+        quantity,
+        options: [{ name: "סוג יחידה", value: connectorType }],
+        addedAt: new Date().toISOString()
+      };
+
+      const existingConnector = cart.find((item) => {
+        if (item.productId !== connectorItem.productId) return false;
+        const a = item.options || [];
+        const b = connectorItem.options || [];
+        if (a.length !== b.length) return false;
+        return a.every((opt, idx) => opt.name === b[idx]?.name && opt.value === b[idx]?.value);
+      });
+
+      if (existingConnector) {
+        existingConnector.quantity = (Number(existingConnector.quantity) || 1) + connectorItem.quantity;
+      } else {
+        cart.push(connectorItem);
+      }
     }
 
     localStorage.setItem(PRODUCT_CART_STORAGE_KEY, JSON.stringify(cart));
@@ -758,8 +956,8 @@ document.addEventListener("DOMContentLoaded", () => {
   titleEl.textContent = product.title;
   descriptionEl.textContent = product.description || "";
 
-  renderGallery(product.images, product.title);
-  const optionFields = renderOptions(product.options || [], productId);
+  renderGallery(product.images, product.title, product.description || product.title);
+  const optionFields = renderOptions(product.options || [], productId, product.category || "", product.title || "");
   setupAddToCart(productId, product, optionFields);
 });
 

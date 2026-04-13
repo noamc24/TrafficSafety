@@ -4,11 +4,112 @@
   const filterButtons = document.querySelectorAll(".store-filters .store-filter-btn");
   const signSubFilterButtons = document.querySelectorAll(".store-sign-subfilter-btn");
   const signsSubFilters = document.getElementById("signsSubFilters");
-  const productItems = document.querySelectorAll(".product-item");
+  const productsGrid = document.getElementById("productsGrid");
+  let productItems = Array.from(document.querySelectorAll(".product-item"));
   const emptyState = document.getElementById("emptyState");
   const heroCartLink = document.getElementById("heroCartLink");
 
-  if (!filterButtons.length || !productItems.length || !emptyState) return;
+  if (!filterButtons.length || !productsGrid || !emptyState) return;
+
+  function fixMojibake(value) {
+    if (typeof value !== "string") return value;
+    if (!value.includes("׳")) return value;
+    try {
+      return decodeURIComponent(escape(value));
+    } catch {
+      return value;
+    }
+  }
+
+  function extractCatalogFromExistingCards() {
+    const existingItems = Array.from(productsGrid.querySelectorAll(".product-item"));
+    return existingItems.map((item) => {
+      const productId = item.dataset.productId || "";
+      const category = item.dataset.category || "all";
+      const signSubcategory = item.dataset.signSubcategory || "";
+      const title = item.querySelector(".product-card__title")?.textContent?.trim() || "מוצר";
+      const text = item.querySelector(".product-card__text")?.textContent?.trim() || title;
+      const tag = item.querySelector(".product-card__tag")?.textContent?.trim() || "";
+      const price = item.querySelector(".product-card__price")?.textContent?.trim() || "לפי מפרט";
+      const detailsHref = item.querySelector(".product-card__btn")?.getAttribute("href") || "";
+      const existingImage = item.querySelector(".product-card__image")?.getAttribute("src") || "";
+
+      return {
+        productId,
+        category,
+        signSubcategory,
+        title,
+        text,
+        tag,
+        price,
+        detailsHref,
+        existingImage
+      };
+    });
+  }
+
+  function renderCatalogCards(catalog) {
+    const fragment = document.createDocumentFragment();
+
+    catalog.forEach((product) => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-sm-6 col-xl-3 product-item";
+      col.dataset.category = product.category;
+      col.dataset.productId = product.productId;
+      if (product.signSubcategory) {
+        col.dataset.signSubcategory = product.signSubcategory;
+      }
+
+      col.innerHTML = `
+        <article class="product-card h-100">
+          <div class="product-card__image-wrap">
+            <span class="product-card__tag">${product.tag}</span>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__title">${product.title}</h3>
+            <p class="product-card__text">${product.text}</p>
+            <div class="product-card__footer">
+              <span class="product-card__price">${product.price}</span>
+              <a href="${product.detailsHref || `/pages/product.html?id=${encodeURIComponent(product.productId)}`}" class="product-card__btn">לפרטים</a>
+            </div>
+          </div>
+        </article>
+      `;
+
+      if (product.existingImage) {
+        const imageWrap = col.querySelector(".product-card__image-wrap");
+        if (imageWrap) {
+          const img = document.createElement("img");
+          img.className = "product-card__image";
+          img.src = product.existingImage;
+          img.alt = product.title;
+          imageWrap.prepend(img);
+        }
+      }
+
+      fragment.appendChild(col);
+    });
+
+    productsGrid.innerHTML = "";
+    productsGrid.appendChild(fragment);
+  }
+
+  const productsCatalog = (Array.isArray(window.STORE_PRODUCTS_CATALOG) && window.STORE_PRODUCTS_CATALOG.length
+    ? window.STORE_PRODUCTS_CATALOG
+    : extractCatalogFromExistingCards())
+    .map((item) => ({
+      ...item,
+      title: fixMojibake(item.title),
+      text: fixMojibake(item.text),
+      tag: fixMojibake(item.tag),
+      price: fixMojibake(item.price)
+    }));
+  if (productsCatalog.length) {
+    renderCatalogCards(productsCatalog);
+    productItems = Array.from(productsGrid.querySelectorAll(".product-item"));
+  }
+
+  if (!productItems.length) return;
 
   function readCart() {
     return JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
@@ -52,6 +153,22 @@
     if (!/^\d+$/.test(code)) return null;
 
     const specialImagesByCode = {
+      "107": [
+        "/assets/TrafficSigns/100/107-1.png",
+        "/assets/TrafficSigns/100/107-2.png",
+        "/assets/TrafficSigns/100/107-3.png"
+      ],
+      "108": [
+        "/assets/TrafficSigns/100/108-1.png",
+        "/assets/TrafficSigns/100/108-2.png",
+        "/assets/TrafficSigns/100/108-3.png"
+      ],
+      "112": [
+        "/assets/TrafficSigns/100/112-1.png",
+        "/assets/TrafficSigns/100/112-2.png",
+        "/assets/TrafficSigns/100/112-3.png",
+        "/assets/TrafficSigns/100/112-4.png"
+      ],
       "439": [
         "/assets/TrafficSigns/400/439-1.png",
         "/assets/TrafficSigns/400/439-2.png",
@@ -64,6 +181,21 @@
       "914": [
         "/assets/TrafficSigns/900/914-1.png",
         "/assets/TrafficSigns/900/914-2.png"
+      ],
+      "903": [
+        "/assets/TrafficSigns/900/903-1.png",
+        "/assets/TrafficSigns/900/903-2.png",
+        "/assets/TrafficSigns/900/903-3.png"
+      ],
+      "908": [
+        "/assets/TrafficSigns/900/908-1.png",
+        "/assets/TrafficSigns/900/908-2.png",
+        "/assets/TrafficSigns/900/908-3.png"
+      ],
+      "930": [
+        "/assets/TrafficSigns/900/930-1.png",
+        "/assets/TrafficSigns/900/930-2.png",
+        "/assets/TrafficSigns/900/930-3.png"
       ]
     };
 
@@ -85,7 +217,7 @@
       "flexible-post-45-75-100": "/assets/SafetyEquipment/flexiblepost1.png",
       "barrier-post": "/assets/SafetyEquipment/flexiblepost2.png",
       "sign-post": "/assets/SafetyEquipment/flexiblepost3.png",
-      "connector-units-3-6-inch": "/assets/SafetyEquipment/parkingstopper2.png",
+      "connector-units-3-6-inch": "/assets/SafetyEquipment/signConnector.png",
       "flag-connector-unit": "/assets/SafetyEquipment/parkingstopper3.png",
       "solar-lamp": "/assets/SafetyEquipment/panoramicmirror2.png"
     };
@@ -120,6 +252,7 @@
     const isSignProduct = Boolean(productId && productId.startsWith("sign-"));
     const detailsLink = item.querySelector(".product-card__btn");
     const title = item.querySelector(".product-card__title")?.textContent?.trim() || "\u05de\u05d5\u05e6\u05e8";
+    const text = item.querySelector(".product-card__text")?.textContent?.trim() || title;
     const category = item.querySelector(".product-card__tag")?.textContent?.trim() || "";
     const imageWrap = item.querySelector(".product-card__image-wrap");
     let cardImage = item.querySelector(".product-card__image");
@@ -134,7 +267,7 @@
         cardImage = document.createElement("img");
         cardImage.className = "product-card__image";
         cardImage.src = mappedImageSrc;
-        cardImage.alt = title;
+        cardImage.alt = text;
         imageWrap.prepend(cardImage);
       } else {
         if (isSignProduct) {
@@ -145,7 +278,7 @@
         cardImage = document.createElement("img");
         cardImage.className = "product-card__image";
         cardImage.src = "/assets/Icons/TSCLogoSquared.png";
-        cardImage.alt = title;
+        cardImage.alt = text;
         imageWrap.prepend(cardImage);
       }
     }
@@ -182,9 +315,9 @@
     if (productId && detailsLink) {
       const signImageSources = resolveTrafficSignImages(productId);
       const imageListFromSign = Array.isArray(signImageSources) ? signImageSources : [];
-      const imageList = imageListFromSign.length ? imageListFromSign : [imageVariants.full];
+      const imageList = imageListFromSign.length ? imageListFromSign : [imageVariants.fallback];
       const imagesPayload = encodeURIComponent(JSON.stringify(imageList));
-      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.full)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
+      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.fallback)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
       detailsLink.setAttribute("href", productHref);
       detailsLink.addEventListener("click", () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);
