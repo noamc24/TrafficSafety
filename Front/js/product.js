@@ -136,6 +136,7 @@
 };
 const PRODUCT_CART_STORAGE_KEY = "tsc_cart";
 const LAST_PRODUCT_KEY = "tsc_last_product_id";
+const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
 
 function fixMojibake(value) {
   if (typeof value !== "string") return value;
@@ -264,7 +265,7 @@ PRODUCT_CATALOG["custom-design-board"] = {
   longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
   images: ["/assets/Photos/project7.png", "/assets/Photos/project11.jpg", "/assets/Photos/project16.png"],
   options: [
-    { name: "צורה", values: ["עיגול", "משולש", "מרובע", "מתומן"] },
+    { name: "צורה", values: ["עיגול", "משולש", "משולש הפוך", "ריבוע", "מרובע", "מתומן"] },
     { name: "גודל", values: ["לבחירה לפי צורה"] },
     { name: "כיתוב", values: ["לא", "כן"] },
     { name: "תמונה", values: ["לא", "כן"] }
@@ -465,7 +466,8 @@ function getSizeOptionsByShape(shape) {
   const sizeMap = {
     "ריבוע": ["20X20", "50X50", "60X60", "100X100"],
     "עיגול": ["קוטר 60", "קוטר 80", "קוטר 100", "קוטר 120"],
-    "משולש": ["קוטר 60", "קוטר 80", "קוטר 100", "קוטר 120"],
+    "משולש": ["60", "80", "100", "120"],
+    "משולש הפוך": ["60", "80", "100", "120"],
     "מתומן": ["50X50", "60X60", "80X80"],
     "מרובע": ["20X20", "20X50", "20X60", "20X100", "50X50", "50X60", "50X100", "60X60", "60X100", "100X100"]
   };
@@ -603,7 +605,7 @@ function getMountingSubject(productId = "", category = "") {
   return "מוצר";
 }
 
-function renderOptions(options, productId = "", productCategory = "", productTitle = "") {
+function renderOptions(options, productId = "", productCategory = "", productTitle = "", restorePayload = null) {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
 
@@ -760,6 +762,413 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       imageField.element.addEventListener("change", toggleCustomImageInput);
       toggleCustomImageInput();
     }
+
+    const customNotesWrapper = document.createElement("div");
+    customNotesWrapper.className = "product-option";
+    customNotesWrapper.id = "customNotesOptionWrapper";
+    customNotesWrapper.innerHTML = `
+      <label for="customNotesOptionInput">הערות</label>
+      <textarea id="customNotesOptionInput" class="form-control" rows="3" placeholder="הערות נוספות להזמנה (אופציונלי)"></textarea>
+    `;
+    optionsContainer.appendChild(customNotesWrapper);
+
+    const imageTransform = { offsetX: 0, offsetY: 0, scale: 1 };
+
+    let imageControlsWrapper = document.getElementById("customImageControlsWrapper");
+    if (!imageControlsWrapper) {
+      imageControlsWrapper = document.createElement("div");
+      imageControlsWrapper.className = "product-option";
+      imageControlsWrapper.id = "customImageControlsWrapper";
+      imageControlsWrapper.style.display = "none";
+      imageControlsWrapper.innerHTML = `
+        <label>שליטה על התמונה</label>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="up">למעלה</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="down">למטה</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="left">שמאלה</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="right">ימינה</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-scale="up">הגדל</button>
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-scale="down">הקטן</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" data-img-reset="true">איפוס</button>
+        </div>
+      `;
+      const imageInputWrapper = document.getElementById("customImageOptionWrapper");
+      if (imageInputWrapper && imageInputWrapper.parentNode === optionsContainer) {
+        imageInputWrapper.insertAdjacentElement("afterend", imageControlsWrapper);
+      } else {
+        optionsContainer.appendChild(imageControlsWrapper);
+      }
+    }
+
+    const mainImage = document.getElementById("mainProductImage");
+    const thumbsContainer = document.getElementById("productThumbs");
+    let previewCanvas = document.getElementById("customBoardPreviewCanvas");
+    if (!previewCanvas && mainImage?.parentElement) {
+      previewCanvas = document.createElement("canvas");
+      previewCanvas.id = "customBoardPreviewCanvas";
+      previewCanvas.width = 1000;
+      previewCanvas.height = 750;
+      previewCanvas.className = "product-gallery__main";
+      previewCanvas.setAttribute("aria-label", "תצוגה מקדימה של השלט המעוצב");
+      previewCanvas.style.display = "none";
+      mainImage.insertAdjacentElement("afterend", previewCanvas);
+    }
+    const previewCtx = previewCanvas?.getContext("2d");
+
+    if (mainImage) mainImage.style.display = "none";
+    if (previewCanvas) previewCanvas.style.display = "block";
+    if (thumbsContainer) thumbsContainer.style.display = "none";
+
+    let previewNote = document.getElementById("customBoardPreviewNote");
+    if (!previewNote && previewCanvas?.parentElement) {
+      previewNote = document.createElement("div");
+      previewNote.id = "customBoardPreviewNote";
+      previewNote.className = "text-muted mt-2";
+      previewNote.style.fontSize = "0.9rem";
+      previewNote.innerHTML = `
+        <div>ניתן לבצע התאמות צבעים, שינויים והחלפות בהתאם לצורך.</div>
+        <div>הדוגמה להמחשה בלבד.</div>
+      `;
+      previewCanvas.insertAdjacentElement("afterend", previewNote);
+    } else if (previewNote) {
+      previewNote.style.display = "block";
+    }
+
+    const blankImageByShape = {
+      "עיגול": "/assets/signs/circle.png",
+      "משולש": "/assets/signs/triangle.png",
+      "משולש הפוך": "/assets/signs/upsideDtriangle.png",
+      "ריבוע": "/assets/signs/square.png",
+      "מרובע": "/assets/signs/rectangle.png",
+      "מתומן": "/assets/signs/octagon.png"
+    };
+
+    function drawShapePath(shape) {
+      if (!previewCtx || !previewCanvas) return;
+      const ctx = previewCtx;
+      const w = previewCanvas.width;
+      const h = previewCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const min = Math.min(w, h);
+
+      if (shape === "עיגול") {
+        const r = min * 0.34;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        return;
+      }
+      if (shape === "משולש") {
+        const size = min * 0.62;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - size / 2);
+        ctx.lineTo(cx + size / 2, cy + size / 2);
+        ctx.lineTo(cx - size / 2, cy + size / 2);
+        ctx.closePath();
+        return;
+      }
+      if (shape === "משולש הפוך") {
+        const size = min * 0.62;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy + size / 2);
+        ctx.lineTo(cx + size / 2, cy - size / 2);
+        ctx.lineTo(cx - size / 2, cy - size / 2);
+        ctx.closePath();
+        return;
+      }
+      if (shape === "מתומן") {
+        const r = min * 0.34;
+        ctx.beginPath();
+        for (let i = 0; i < 8; i += 1) {
+          const a = ((Math.PI * 2) / 8) * i - Math.PI / 8;
+          const x = cx + Math.cos(a) * r;
+          const y = cy + Math.sin(a) * r;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        return;
+      }
+      if (shape === "ריבוע") {
+        const size = min * 0.66;
+        ctx.beginPath();
+        ctx.rect(cx - size / 2, cy - size / 2, size, size);
+        return;
+      }
+
+      const rw = w * 0.72;
+      const rh = h * 0.48;
+      ctx.beginPath();
+      ctx.rect(cx - rw / 2, cy - rh / 2, rw, rh);
+    }
+
+    function getShapeContentBounds(shape) {
+      if (!previewCanvas) return { x: 120, y: 120, w: 760, h: 510 };
+      const w = previewCanvas.width;
+      const h = previewCanvas.height;
+
+      if (shape === "עיגול") return { x: w * 0.24, y: h * 0.20, w: w * 0.52, h: h * 0.60 };
+      if (shape === "משולש" || shape === "משולש הפוך") return { x: w * 0.28, y: h * 0.24, w: w * 0.44, h: h * 0.52 };
+      if (shape === "מתומן") return { x: w * 0.24, y: h * 0.20, w: w * 0.52, h: h * 0.60 };
+      if (shape === "ריבוע") return { x: w * 0.24, y: h * 0.18, w: w * 0.52, h: h * 0.64 };
+      return { x: w * 0.14, y: h * 0.26, w: w * 0.72, h: h * 0.48 };
+    }
+
+    function drawFallbackBoard(shape) {
+      if (!previewCtx || !previewCanvas) return;
+      const ctx = previewCtx;
+      const { width, height } = previewCanvas;
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.save();
+      ctx.fillStyle = "#ffffff";
+      ctx.strokeStyle = "#111827";
+      ctx.lineWidth = 8;
+      drawShapePath(shape);
+      ctx.fill();
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawTextOnBoard(textValue, shape) {
+      if (!previewCtx || !previewCanvas || !textValue) return;
+      const ctx = previewCtx;
+      const bounds = getShapeContentBounds(shape);
+      const maxWidth = bounds.w * 0.92;
+      const words = textValue.split(/\s+/).filter(Boolean);
+      const lines = [];
+      let line = "";
+      const fontSize = Math.max(24, Math.min(46, Math.floor(bounds.h / 3.2)));
+      ctx.font = `700 ${fontSize}px Arial`;
+      words.forEach((word) => {
+        const test = line ? `${line} ${word}` : word;
+        if (ctx.measureText(test).width > maxWidth && line) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = test;
+        }
+      });
+      if (line) lines.push(line);
+
+      ctx.save();
+      drawShapePath(shape);
+      ctx.clip();
+      ctx.fillStyle = "#111827";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      const lineHeight = Math.floor(fontSize * 1.2);
+      const centerY = bounds.y + bounds.h * 0.33;
+      let startY = centerY - ((lines.length - 1) * lineHeight) / 2;
+      const minY = bounds.y + lineHeight * 0.8;
+      if (startY < minY) startY = minY;
+      lines.forEach((l, i) => {
+        ctx.fillText(l, previewCanvas.width / 2, startY + i * lineHeight, maxWidth);
+      });
+      ctx.restore();
+    }
+
+    function drawUserImageOnBoard(file, shape) {
+      return new Promise((resolve) => {
+        if (!previewCtx || !previewCanvas || !file) {
+          resolve();
+          return;
+        }
+        const img = new Image();
+        img.onload = () => {
+          const bounds = getShapeContentBounds(shape);
+          const maxW = bounds.w * 0.85;
+          const maxH = bounds.h * 0.5;
+          const baseScale = Math.min(maxW / img.width, maxH / img.height, 1);
+          const finalScale = baseScale * imageTransform.scale;
+          const w = img.width * finalScale;
+          const h = img.height * finalScale;
+          const x = bounds.x + (bounds.w - w) / 2 + imageTransform.offsetX;
+          const y = bounds.y + bounds.h * 0.62 - h / 2 + imageTransform.offsetY;
+          previewCtx.save();
+          drawShapePath(shape);
+          previewCtx.clip();
+          previewCtx.drawImage(img, x, y, w, h);
+          previewCtx.restore();
+          URL.revokeObjectURL(img.src);
+          resolve();
+        };
+        img.onerror = () => resolve();
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    function drawBaseImage(shape) {
+      return new Promise((resolve) => {
+        if (!previewCtx || !previewCanvas) {
+          resolve();
+          return;
+        }
+        const src = blankImageByShape[shape];
+        if (!src) {
+          drawFallbackBoard(shape);
+          resolve();
+          return;
+        }
+        const img = new Image();
+        img.onload = () => {
+          previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+          previewCtx.fillStyle = "#ffffff";
+          previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+          const scale = Math.min(previewCanvas.width / img.width, previewCanvas.height / img.height);
+          const w = img.width * scale;
+          const h = img.height * scale;
+          const x = (previewCanvas.width - w) / 2;
+          const y = (previewCanvas.height - h) / 2;
+          previewCtx.drawImage(img, x, y, w, h);
+          resolve();
+        };
+        img.onerror = () => {
+          drawFallbackBoard(shape);
+          resolve();
+        };
+        img.src = src;
+      });
+    }
+
+    function drawStoredPreview(dataUrl) {
+      return new Promise((resolve) => {
+        if (!previewCtx || !previewCanvas || !dataUrl) {
+          resolve();
+          return;
+        }
+        const img = new Image();
+        img.onload = () => {
+          previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+          previewCtx.fillStyle = "#ffffff";
+          previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
+          const scale = Math.min(previewCanvas.width / img.width, previewCanvas.height / img.height);
+          const w = img.width * scale;
+          const h = img.height * scale;
+          const x = (previewCanvas.width - w) / 2;
+          const y = (previewCanvas.height - h) / 2;
+          previewCtx.drawImage(img, x, y, w, h);
+          resolve();
+        };
+        img.onerror = () => resolve();
+        img.src = dataUrl;
+      });
+    }
+
+    let hasCustomEdits = false;
+
+    async function updateCustomBoardPreview() {
+      const shape = shapeField?.element?.value || "מרובע";
+      const textEnabled = textField?.element?.value === "כן";
+      const imageEnabled = imageField?.element?.value === "כן";
+      const textInput = document.getElementById("customTextOptionInput");
+      const imageInput = document.getElementById("customImageOptionInput");
+      const hasImageFile = Boolean(imageInput?.files?.[0]);
+
+      if (imageControlsWrapper) {
+        imageControlsWrapper.style.display = imageEnabled ? "block" : "none";
+      }
+
+      if (!hasCustomEdits && restorePayload?.customDesignPreview) {
+        await drawStoredPreview(restorePayload.customDesignPreview);
+        return;
+      }
+
+      await drawBaseImage(shape);
+      if (imageEnabled && hasImageFile) {
+        const file = imageInput.files[0];
+        await drawUserImageOnBoard(file, shape);
+      }
+      if (textEnabled) {
+        const textValue = textInput?.value?.trim() || "";
+        drawTextOnBoard(textValue, shape);
+      }
+    }
+
+    shapeField?.element?.addEventListener("change", () => {
+      hasCustomEdits = true;
+      updateCustomBoardPreview();
+    });
+    textField?.element?.addEventListener("change", () => {
+      hasCustomEdits = true;
+      updateCustomBoardPreview();
+    });
+    imageField?.element?.addEventListener("change", () => {
+      hasCustomEdits = true;
+      updateCustomBoardPreview();
+    });
+    document.addEventListener("input", (event) => {
+      if (event.target && event.target.id === "customTextOptionInput") {
+        hasCustomEdits = true;
+        updateCustomBoardPreview();
+      }
+    });
+    document.addEventListener("change", (event) => {
+      if (event.target && event.target.id === "customImageOptionInput") {
+        hasCustomEdits = true;
+        imageTransform.offsetX = 0;
+        imageTransform.offsetY = 0;
+        imageTransform.scale = 1;
+        updateCustomBoardPreview();
+      }
+    });
+
+    imageControlsWrapper?.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+
+      const move = target.getAttribute("data-img-move");
+      const scale = target.getAttribute("data-img-scale");
+      const reset = target.getAttribute("data-img-reset");
+      const moveStep = 16;
+
+      if (move === "up") imageTransform.offsetY -= moveStep;
+      if (move === "down") imageTransform.offsetY += moveStep;
+      if (move === "left") imageTransform.offsetX -= moveStep;
+      if (move === "right") imageTransform.offsetX += moveStep;
+      if (scale === "up") imageTransform.scale = Math.min(2.5, imageTransform.scale + 0.1);
+      if (scale === "down") imageTransform.scale = Math.max(0.35, imageTransform.scale - 0.1);
+      if (reset === "true") {
+        imageTransform.offsetX = 0;
+        imageTransform.offsetY = 0;
+        imageTransform.scale = 1;
+      }
+
+      hasCustomEdits = true;
+      updateCustomBoardPreview();
+    });
+
+    if (restorePayload) {
+      const applyFieldValue = (label, value) => {
+        if (!value) return;
+        const field = fields.find((f) => f.label === label);
+        if (!field?.element) return;
+        const option = Array.from(field.element.options).find((opt) => opt.value === value);
+        if (option) {
+          field.element.value = value;
+          field.element.dispatchEvent(new Event("change"));
+        }
+      };
+
+      hasCustomEdits = false;
+      applyFieldValue("צורה", restorePayload.shape);
+      applyFieldValue("גודל", restorePayload.size);
+      applyFieldValue("כיתוב", restorePayload.textEnabled);
+      applyFieldValue("תמונה", restorePayload.imageEnabled);
+
+      const customTextInput = document.getElementById("customTextOptionInput");
+      if (customTextInput && restorePayload.textValue) {
+        customTextInput.value = restorePayload.textValue;
+      }
+      const customNotesInput = document.getElementById("customNotesOptionInput");
+      if (customNotesInput && restorePayload.notes) {
+        customNotesInput.value = restorePayload.notes;
+      }
+      hasCustomEdits = false;
+    }
+    updateCustomBoardPreview();
   } else {
     const sizeField = fields.find((field) => field.label === "גודל");
     if (sizeField) {
@@ -860,6 +1269,15 @@ function setupAddToCart(productId, product, optionFields) {
       });
     }
 
+    const customNotesInput = document.getElementById("customNotesOptionInput");
+    const customNotesValue = customNotesInput ? customNotesInput.value.trim() : "";
+    if (customNotesValue) {
+      selectedOptions.push({
+        name: "הערות",
+        value: customNotesValue
+      });
+    }
+
     const quantity = Number(qtyField.value || 1);
     const cart = JSON.parse(localStorage.getItem(PRODUCT_CART_STORAGE_KEY) || "[]");
     const nextItem = {
@@ -871,6 +1289,23 @@ function setupAddToCart(productId, product, optionFields) {
       options: selectedOptions,
       addedAt: new Date().toISOString()
     };
+
+    if (productId === "custom-design-board") {
+      const previewCanvas = document.getElementById("customBoardPreviewCanvas");
+      if (previewCanvas instanceof HTMLCanvasElement) {
+        try {
+          const previewDataUrl = previewCanvas.toDataURL("image/jpeg", 0.86);
+          nextItem.customDesignPreview = previewDataUrl;
+          nextItem.image = previewDataUrl;
+          selectedOptions.push({
+            name: "תצוגת עיצוב",
+            value: "מצורפת להזמנה"
+          });
+        } catch {
+          // Ignore canvas export failures and continue with regular item payload.
+        }
+      }
+    }
     const existing = cart.find((item) => {
       if (item.productId !== nextItem.productId) return false;
       const a = item.options || [];
@@ -938,6 +1373,17 @@ function renderNotFound() {
 document.addEventListener("DOMContentLoaded", () => {
   const productId = getProductIdFromUrl();
   const product = PRODUCT_CATALOG[productId] || buildDynamicProduct(productId);
+  let customDesignRestore = null;
+  if (productId === "custom-design-board") {
+    try {
+      const parsed = JSON.parse(sessionStorage.getItem(CUSTOM_DESIGN_RESTORE_KEY) || "null");
+      if (parsed && parsed.productId === "custom-design-board") {
+        customDesignRestore = parsed;
+      }
+    } catch {
+      customDesignRestore = null;
+    }
+  }
   if (!productId || !product) {
     renderNotFound();
     return;
@@ -957,7 +1403,13 @@ document.addEventListener("DOMContentLoaded", () => {
   descriptionEl.textContent = product.description || "";
 
   renderGallery(product.images, product.title, product.description || product.title);
-  const optionFields = renderOptions(product.options || [], productId, product.category || "", product.title || "");
+  const optionFields = renderOptions(
+    product.options || [],
+    productId,
+    product.category || "",
+    product.title || "",
+    customDesignRestore
+  );
   setupAddToCart(productId, product, optionFields);
 });
 

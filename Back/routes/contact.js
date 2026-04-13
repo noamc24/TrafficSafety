@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { sendTelegramMessage } = require("../bot/Sender");
+const { sendTelegramMessage, sendTelegramPhoto } = require("../bot/Sender");
 
 router.post("/", async (req, res) => {
   try {
-    const { fullName, email, phone, message } = req.body;
+    const { fullName, email, phone, message, cart } = req.body;
 
     const text =
       `📩 <b>פנייה חדשה</b>\n` +
@@ -14,6 +14,20 @@ router.post("/", async (req, res) => {
       `📝 <b>הודעה:</b>\n${message || "-"}`;
 
     await sendTelegramMessage(text);
+
+    if (Array.isArray(cart) && cart.length) {
+      for (const item of cart) {
+        const preview = item?.customDesignPreview;
+        if (!preview) continue;
+
+        const caption =
+          `<b>הדמיית עיצוב מותאם</b>\n` +
+          `מוצר: ${item?.title || "-"}\n` +
+          `כמות: ${item?.quantity || 1}`;
+
+        await sendTelegramPhoto(preview, caption);
+      }
+    }
 
     return res.json({ ok: true });
   } catch (err) {

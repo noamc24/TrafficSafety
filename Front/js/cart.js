@@ -1,4 +1,6 @@
 ﻿const CART_PAGE_STORAGE_KEY = "tsc_cart";
+const LAST_PRODUCT_KEY = "tsc_last_product_id";
+const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
 const WHATSAPP_NUMBER = "972548778669";
 
 function readCart() {
@@ -27,17 +29,21 @@ function buildCartItemHtml(item, index) {
   const imageSrc = item.image || "/assets/Icons/TSCLogoSquared.png";
   const title = item.title || "מוצר";
   const category = item.category || "";
+  const isLargeInlineImage = typeof imageSrc === "string" && imageSrc.startsWith("data:image/");
+  const productHref = isLargeInlineImage
+    ? `/pages/product.html?id=${encodeURIComponent(item.productId || "")}`
+    : `/pages/product.html?id=${encodeURIComponent(item.productId || "")}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category)}&image=${encodeURIComponent(imageSrc)}&image_fallback=${encodeURIComponent(imageSrc)}&thumb=${encodeURIComponent(imageSrc)}`;
 
   return `
     <article class="cart-item" data-index="${index}">
       <div class="cart-item__top">
-        <div class="cart-item__head">
+        <a class="cart-item__head text-decoration-none text-reset" href="${escapeHtml(productHref)}" data-product-link="true" data-index="${index}">
           <img src="${escapeHtml(imageSrc)}" alt="${escapeHtml(title)}" class="cart-item__image" />
           <div>
             <h3 class="cart-item__title">${escapeHtml(title)}</h3>
             <p class="cart-item__category">${escapeHtml(category)}</p>
           </div>
-        </div>
+        </a>
         <button type="button" class="btn btn-sm btn-outline-danger cart-remove-btn">הסר</button>
       </div>
 
@@ -70,8 +76,9 @@ function buildCartItemHtml(item, index) {
 function buildWhatsappMessage(cart) {
   const lines = ["שלום, אשמח לקבל הצעת מחיר עבור הפריטים הבאים:"];
   cart.forEach((item, idx) => {
+    const hasCustomPreview = Boolean(item.customDesignPreview);
     lines.push(
-      `${idx + 1}. ${item.title || "מוצר"} | כמות: ${item.quantity || 1} | ${optionText(item.options)}`
+      `${idx + 1}. ${item.title || "מוצר"} | כמות: ${item.quantity || 1} | ${optionText(item.options)}${hasCustomPreview ? " | הדמיית עיצוב: מצורפת להזמנה" : ""}`
     );
   });
   return lines.join("\n");
@@ -90,11 +97,13 @@ function buildTelegramQuoteMessage(customer, cart) {
   ];
 
   cart.forEach((item, idx) => {
+    const hasCustomPreview = Boolean(item.customDesignPreview);
     lines.push(
       `${idx + 1}. <b>${escapeHtml(item.title || "מוצר")}</b>`,
       `כמות: ${escapeHtml(item.quantity || 1)}`,
       `קטגוריה: ${escapeHtml(item.category || "ללא")}`,
       `אפשרויות: ${escapeHtml(optionText(item.options))}`,
+      `הדמיית עיצוב: ${hasCustomPreview ? "מצורפת" : "ללא"}`,
       ""
     );
   });
@@ -102,6 +111,26 @@ function buildTelegramQuoteMessage(customer, cart) {
   lines.push(`📝 <b>הערות:</b> ${escapeHtml(customer.notes || "ללא הערות")}`);
 
   return lines.join("\n");
+}
+
+function getOptionValue(item, optionName) {
+  const options = Array.isArray(item?.options) ? item.options : [];
+  const found = options.find((opt) => opt?.name === optionName);
+  return found?.value || "";
+}
+
+function buildCustomDesignRestorePayload(item) {
+  return {
+    productId: item.productId,
+    shape: getOptionValue(item, "צורה"),
+    size: getOptionValue(item, "גודל"),
+    textEnabled: getOptionValue(item, "כיתוב"),
+    textValue: getOptionValue(item, "נוסח מותאם"),
+    imageEnabled: getOptionValue(item, "תמונה"),
+    notes: getOptionValue(item, "הערות"),
+    customDesignPreview: item.customDesignPreview || "",
+    savedAt: new Date().toISOString()
+  };
 }
 
 function renderCart() {
@@ -164,6 +193,22 @@ function renderCart() {
       renderCart();
     });
   });
+
+  cartItemsEl.querySelectorAll("[data-product-link='true']").forEach((linkEl) => {
+    linkEl.addEventListener("click", (event) => {
+      const idx = Number(event.currentTarget.dataset.index);
+      const item = readCart()[idx];
+      if (!item?.productId) return;
+
+      sessionStorage.setItem(LAST_PRODUCT_KEY, item.productId);
+      if (item.productId === "custom-design-board") {
+        const payload = buildCustomDesignRestorePayload(item);
+        sessionStorage.setItem(CUSTOM_DESIGN_RESTORE_KEY, JSON.stringify(payload));
+      } else {
+        sessionStorage.removeItem(CUSTOM_DESIGN_RESTORE_KEY);
+      }
+    });
+  });
 }
 
 function validateQuoteForm(data) {
@@ -191,7 +236,8 @@ async function submitQuoteRequest(customer, cart) {
       phone: customer.phone,
       email: customer.email,
       company: customer.company,
-      message
+      message,
+      cart
     })
   });
 

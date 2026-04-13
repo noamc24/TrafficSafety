@@ -319,9 +319,28 @@
       const imagesPayload = encodeURIComponent(JSON.stringify(imageList));
       const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.fallback)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
       detailsLink.setAttribute("href", productHref);
-      detailsLink.addEventListener("click", () => {
+      const navigateToProduct = () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);
+        window.location.href = productHref;
+      };
+
+      detailsLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        navigateToProduct();
       });
+
+      if (imageWrap) {
+        imageWrap.style.cursor = "pointer";
+        imageWrap.addEventListener("click", navigateToProduct);
+      }
+
+      if (cardImage) {
+        cardImage.style.cursor = "pointer";
+        cardImage.addEventListener("click", (event) => {
+          event.stopPropagation();
+          navigateToProduct();
+        });
+      }
     }
 
     if (footer && productId) {
