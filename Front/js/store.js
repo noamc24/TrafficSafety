@@ -53,7 +53,7 @@
 
     catalog.forEach((product) => {
       const col = document.createElement("div");
-      col.className = "col-6 col-sm-6 col-xl-3 product-item";
+      col.className = "col-6 col-md-4 col-xl-3 product-item";
       col.dataset.category = product.category;
       col.dataset.productId = product.productId;
       if (product.signSubcategory) {

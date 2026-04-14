@@ -46,12 +46,6 @@ object {
   height: auto;
 }
 
-.container-custom {
-  width: 100%;
-  max-width: 90rem;
-  margin: 0 auto;
-}
-
 
 /* לא על כל האתר */
 .btn,
@@ -84,17 +78,6 @@ object {
 .form-control,
 .alert {
   border-radius: 1rem;
-}
-
-/* ===== Cover Image (לפני האתר) ===== */
-.hero-cover {
-  width: 100%;
-  height: 100vh;
-  background-image: url("/assets/photos/collage1.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: 0;
 }
 
 /* ===== Hero ===== */
@@ -291,153 +274,6 @@ object {
   box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.25);
 }
 
-/* ===== Legacy Accessibility Button Hook ===== */
-#accessibilityBtn {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 50%;
-  padding: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-#accessibilityBtn svg {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-#accessibilityBtn:hover {
-  transform: translateY(-0.125rem);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
-}
-
-/* ===== Accessibility Styles ===== */
-html.increase-text {
-  font-size: 120%;
-}
-
-.high-contrast {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-
-.high-contrast .card,
-.high-contrast .btn,
-.high-contrast .alert,
-.high-contrast .modal-content,
-.high-contrast .modal-header,
-.high-contrast .modal-body,
-.high-contrast .modal-footer {
-  background-color: #333 !important;
-  color: #fff !important;
-  border-color: #666 !important;
-}
-
-.high-contrast .modal .btn-close {
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z' fill='%23fff'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  border-radius: 50%;
-  width: 2.4rem;
-  height: 2.4rem;
-  border: none !important;
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-.high-contrast .modal .btn-close:hover {
-  background-color: rgba(255, 255, 255, 0.25) !important;
-}
-
-.high-contrast .navbar,
-.high-contrast .hero,
-.high-contrast .page-hero {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-.high-contrast a {
-  color: var(--tsc-yellow) !important;
-}
-
-.high-contrast .btn-warning {
-  background-color: var(--tsc-yellow) !important;
-  color: #000 !important;
-  border-color: var(--tsc-yellow) !important;
-}
-
-.high-contrast .btn-primary {
-  background-color: #007bff !important;
-  color: #fff !important;
-  border-color: #007bff !important;
-}
-
-.high-contrast .form-control,
-.high-contrast .form-check-input {
-  background-color: #333 !important;
-  color: #fff !important;
-  border-color: #666 !important;
-}
-
-.high-contrast .form-check-label {
-  color: #fff !important;
-}
-
-.high-contrast .text-muted,
-.high-contrast .text-secondary,
-.high-contrast .text-dark,
-.high-contrast .text-light {
-  color: #fff !important;
-}
-
-.high-contrast .bg-light,
-.high-contrast .bg-white {
-  background-color: #333 !important;
-}
-
-.high-contrast .border {
-  border-color: #666 !important;
-}
-
-.high-contrast h1,
-.high-contrast h2,
-.high-contrast h3,
-.high-contrast h4,
-.high-contrast h5,
-.high-contrast h6,
-.high-contrast p,
-.high-contrast span,
-.high-contrast div,
-.high-contrast .navbar-brand,
-.high-contrast .nav-link {
-  color: #fff !important;
-}
-
-.high-contrast .btn-outline-dark,
-.high-contrast .btn-outline-secondary {
-  background-color: #333 !important;
-  color: #fff !important;
-  border-color: #666 !important;
-}
-
-.disable-animations * {
-  transition: none !important;
-  animation: none !important;
-}
-
-.readable-font {
-  font-family: Arial, Helvetica, sans-serif !important;
-}
-
 /* ===== Skip Link ===== */
 .skip-link {
   position: absolute;
@@ -541,6 +377,35 @@ html.increase-text {
 
 .footer-logo:hover {
   opacity: 1;
+}
+
+footer .container.small.text-muted.d-flex.flex-column.flex-md-row.align-items-center {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center !important;
+  gap: 0.75rem 1rem;
+}
+
+footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start {
+  flex: 1 1 auto;
+  min-width: max-content;
+  flex-wrap: nowrap;
+  justify-content: flex-start !important;
+}
+
+footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start > span {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+footer .d-flex.gap-3.flex-grow-1.justify-content-end {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  justify-content: flex-end !important;
+  overflow-x: auto;
 }
 
 /* ===== Service Cards ===== */
@@ -753,25 +618,9 @@ html.increase-text {
     width: 3.25rem;
     height: 3.25rem;
   }
-
-  .accessibility-float-btn,
-  #accessibilityBtn {
+  .accessibility-float-btn {
     bottom: 1rem;
     left: 1rem;
-  }
-
-  footer .container {
-    gap: 1rem;
-    text-align: center;
-  }
-
-  footer .d-flex {
-    width: 100%;
-  }
-
-  footer .justify-content-start,
-  footer .justify-content-end {
-    justify-content: center !important;
   }
 
   .footer-logo {
@@ -828,9 +677,7 @@ html.increase-text {
     width: 3rem;
     height: 3rem;
   }
-
-  .accessibility-float-btn,
-  #accessibilityBtn {
+  .accessibility-float-btn {
     bottom: 1rem;
     left: 1rem;
   }
@@ -839,5 +686,4 @@ html.increase-text {
     max-width: 65%;
   }
 }
-
 

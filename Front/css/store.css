@@ -407,47 +407,6 @@ button:focus-visible {
   outline-offset: 0.18rem;
 }
 
-.high-contrast .store-hero,
-.high-contrast .store-cta__box,
-.high-contrast .store-filters-section,
-.high-contrast .store-products-section,
-.high-contrast .store-cta {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-.high-contrast .store-hero__title,
-.high-contrast .store-section-heading__title,
-.high-contrast .store-cta__title,
-.high-contrast .product-card__title,
-.high-contrast .product-card__price,
-.high-contrast .store-hero__text,
-.high-contrast .store-cta__text,
-.high-contrast .store-section-heading__eyebrow,
-.high-contrast .store-cta__eyebrow,
-.high-contrast .product-card__text,
-.high-contrast .store-empty-state {
-  color: #fff !important;
-}
-
-.high-contrast .product-card,
-.high-contrast .store-filter-btn {
-  background-color: #333 !important;
-  color: #fff !important;
-  border-color: #666 !important;
-}
-
-.high-contrast .product-card__btn,
-.high-contrast .store-btn--primary {
-  background-color: var(--tsc-yellow) !important;
-  color: #000 !important;
-}
-
-.high-contrast .store-btn--secondary {
-  background-color: #0a8e3f !important;
-  color: #fff !important;
-}
-
 /* ===== Tablet ===== */
 @media (max-width: 62rem) {
   .store-section-heading__logo {
