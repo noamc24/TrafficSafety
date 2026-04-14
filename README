@@ -50,7 +50,7 @@ The system includes:
 - Custom image optimization pipeline (WebP conversion, thumbnails)
 
 👉 Image optimization script:
-See: :contentReference[oaicite:0]{index=0}
+Front/scripts/optimize-images.js
 
 ### 📩 Contact System
 - Contact form sends messages directly to Telegram
@@ -73,5 +73,6 @@ See: :contentReference[oaicite:0]{index=0}
 ## 🚀 Setup & Installation
 
 ```bash
+from root directory: Back
 npm install
 npm run dev
