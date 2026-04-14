@@ -35,14 +35,31 @@ app.use(express.static(clientPath, { etag: false, maxAge: 0 }));
 
 // rate limiter for contact form
 const contactLimiter = rateLimit({
-  windowMs: 24 * 24 * 60 * 60 * 1000, // 24 days
-  max: 5, // limit each IP to 5 requests per windowMs
-  message: 'יותר מדי בקשות צור קשר מכתובת IP זו, אנא נסה שוב מאוחר יותר.',
+  windowMs: 24 * 60 * 60 * 1000, // 24 hours
+  max: Number(process.env.CONTACT_RATE_LIMIT_MAX || 12),
+  message: 'התקבלו יותר מדי פניות מכתובת IP זו. נסו שוב מאוחר יותר או צרו קשר טלפוני.',
   standardHeaders: true,
   legacyHeaders: false,
 });
 
 // routes
+
+const pageRouteRedirects = {
+  '/pages/main.html': '/',
+  '/pages/store.html': '/store',
+  '/pages/product.html': '/product',
+  '/pages/cart.html': '/cart',
+  '/pages/privacy.html': '/privacy',
+  '/pages/terms.html': '/terms',
+  '/pages/accessibility.html': '/accessibility',
+};
+
+app.get(Object.keys(pageRouteRedirects), (req, res) => {
+  const destination = pageRouteRedirects[req.path] || '/';
+  const query = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
+  return res.redirect(301, `${destination}${query}`);
+});
+
 app.use("/api/contact", contactLimiter, require("./routes/contact"));
 
 app.get("/sitemap.xml", (req, res) => {
@@ -62,6 +79,21 @@ app.get("/product", (req, res) => {
 app.get("/cart", (req, res) => {
   res.setHeader("Cache-Control", "no-store");
   return res.sendFile(path.join(clientPath, "pages", "cart.html"));
+});
+
+app.get("/privacy", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "privacy.html"));
+});
+
+app.get("/terms", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "terms.html"));
+});
+
+app.get("/accessibility", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "accessibility.html"));
 });
 
 app.get("*", (req, res, next) => {

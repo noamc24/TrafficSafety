@@ -182,3 +182,59 @@
     height: 3.5rem;
   }
 }
+
+
+.order-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.order-step {
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.order-step span {
+  display: inline-flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #212529;
+  color: #fff;
+  margin-left: 0.4rem;
+  font-size: 0.78rem;
+}
+
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.trust-badge {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 62rem) {
+  .order-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .order-steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -74,8 +74,16 @@ function setActiveNavLink() {
         if (a.classList.contains('btn') && !a.classList.contains('btn-warning')) a.classList.add('fw-bold');
       }
     } else if (href.startsWith('/')) {
-      const normalized = normalizePath(href);
-      if (normalized === currentPath) {
+      const targetUrl = new URL(href, window.location.origin);
+      const normalized = normalizePath(targetUrl.pathname);
+      const targetHash = (targetUrl.hash || "").replace(/^#/, "");
+
+      if (targetHash && normalized === currentPath) {
+        if (targetHash === currentHash) {
+          a.classList.add('active');
+          if (a.classList.contains('btn') && !a.classList.contains('btn-warning')) a.classList.add('fw-bold');
+        }
+      } else if (normalized === currentPath) {
         a.classList.add('active');
         if (a.classList.contains('btn') && !a.classList.contains('btn-warning')) a.classList.add('fw-bold');
       }

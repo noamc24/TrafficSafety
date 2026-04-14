@@ -168,84 +168,6 @@ function normalizeObjectStringsInPlace(value) {
 
 normalizeObjectStringsInPlace(PRODUCT_CATALOG);
 
-const CLEAN_PRODUCT_TEXT = {
-  "custom-design-board": {
-    title: "שלט בעיצוב אישי",
-    category: "שלטים",
-    shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה."
-  },
-  "direction-board": {
-    title: "שלט הכוונה",
-    category: "שלטים",
-    shortDescription: "שלט ברור ואסתטי למרחבים ציבוריים, חניונים, מוסדות ושטחי תפעול."
-  },
-  "private-parking-board": {
-    title: "שלט חניה פרטית",
-    category: "שלטים",
-    shortDescription: "שלט מקצועי למתחמים פרטיים, בניינים, עסקים וחניונים."
-  },
-  "active-worksite-sign": {
-    title: "שלט אתר עבודה פעיל",
-    category: "שלטי בטיחות לאתרי בנייה",
-    shortDescription: "מתאים לאתרי תשתית, שיפוץ ובנייה, עם נוכחות וקריאות גבוהה."
-  },
-  "roadwork-warning-sign": {
-    title: "שלט זהירות עבודות בכביש",
-    category: "שלטי בטיחות לאתרי בנייה",
-    shortDescription: "שלט בולט לשמירה על בטיחות משתמשי הדרך ועובדי השטח."
-  },
-  "safety-cone": {
-    title: "קונוס בטיחות",
-    category: "אביזרי בטיחות",
-    shortDescription: "קונוס בולט ועמיד לשימוש יומיומי בעבודות שטח, חניונים והסדרי תנועה."
-  },
-  "panoramic-mirror": {
-    title: "מראות פנורמיות",
-    category: "אביזרי בטיחות",
-    shortDescription: "זמין ב-2 סוגים (פנימית / חיצונית), וכל סוג מגיע ב-2 גדלים שונים."
-  },
-  "flexible-post": {
-    title: "עמודים גמישים",
-    category: "אביזרי בטיחות",
-    shortDescription: "פתרון איכותי להפרדה, סימון והכוונה בסביבה אורבנית ותפעולית."
-  },
-  "parking-stop": {
-    title: "מעצורי חנייה",
-    category: "אביזרי בטיחות",
-    shortDescription: "לעצירה מדויקת ובטוחה בחניונים, מתחמים פרטיים ואזורי תפעול."
-  },
-  "parking-guard": {
-    title: "שומרי חנייה",
-    category: "אביזרי בטיחות",
-    shortDescription: "פתרונות הגנה וניהול חניה למתחמים פרטיים, עסקים ובנייני מגורים."
-  },
-  "speed-bump": {
-    title: "פסי האטה",
-    category: "אביזרי בטיחות",
-    shortDescription: "להאטת תנועה ושיפור בטיחות הולכי רגל ורכבים באזורים רגישים."
-  },
-  "spike-barrier": {
-    title: "מחסומי דוקרנים",
-    category: "אביזרי בטיחות",
-    shortDescription: "פתרון בקרה למניעת כניסה בכיוון אסור וניהול זרימת תנועה."
-  },
-  "lane-divider": {
-    title: "מפרידי נתיבים",
-    category: "אביזרי בטיחות",
-    shortDescription: "להכוונת תנועה, הפרדה ברורה בין נתיבים ושיפור בטיחות שוטפת."
-  },
-  "solar-lamp": {
-    title: "פנסים סולריים",
-    category: "אביזרי בטיחות",
-    shortDescription: "תאורה בטיחותית חסכונית לאתרי עבודה, מחסומים ושבילי גישה."
-  },
-  "other-safety": {
-    title: "אביזרי בטיחות נוספים",
-    category: "אביזרי בטיחות",
-    shortDescription: "מגוון רחב של פתרונות משלימים לפי דרישת הפרויקט והשטח."
-  }
-};
-
 const LEGACY_SIGN_PRODUCT_IDS = [
   "triangleS",
   "slowSign",
@@ -313,13 +235,6 @@ function hasGibberish(text) {
 
 Object.keys(PRODUCT_CATALOG).forEach((productId) => {
   const product = PRODUCT_CATALOG[productId];
-  const clean = CLEAN_PRODUCT_TEXT[productId];
-  if (clean) {
-    product.title = clean.title;
-    product.category = clean.category;
-    product.description = clean.shortDescription;
-  }
-
   if (!product.description) {
     product.description = product.shortDescription || product.longDescription || "";
   }

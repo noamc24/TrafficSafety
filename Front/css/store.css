@@ -527,3 +527,14 @@ button:focus-visible {
     padding: 1rem;
   }
 }
+
+
+.store-search {
+  min-width: min(100%, 22rem);
+}
+
+@media (max-width: 48rem) {
+  .store-search {
+    width: 100%;
+  }
+}

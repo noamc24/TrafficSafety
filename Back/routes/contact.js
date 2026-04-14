@@ -2,17 +2,29 @@
 const router = express.Router();
 const { sendTelegramMessage, sendTelegramPhoto } = require("../bot/Sender");
 
+function escapeTelegramHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 router.post("/", async (req, res) => {
   try {
     const { fullName, name, email, phone, message, cart } = req.body;
-    const senderName = fullName || name || "-";
+    const senderName = escapeTelegramHtml(fullName || name || "-");
+    const senderEmail = escapeTelegramHtml(email || "-");
+    const senderPhone = escapeTelegramHtml(phone || "-");
+    const senderMessage = escapeTelegramHtml(message || "-");
 
     const text =
       `📩 <b>פנייה חדשה</b>\n` +
       `👤 <b>שם:</b> ${senderName}\n` +
-      `📧 <b>אימייל:</b> ${email || "-"}\n` +
-      `📞 <b>טלפון:</b> ${phone || "-"}\n\n` +
-      `📝 <b>הודעה:</b>\n${message || "-"}`;
+      `📧 <b>אימייל:</b> ${senderEmail}\n` +
+      `📞 <b>טלפון:</b> ${senderPhone}\n\n` +
+      `📝 <b>הודעה:</b>\n${senderMessage}`;
 
     await sendTelegramMessage(text);
 
@@ -23,8 +35,8 @@ router.post("/", async (req, res) => {
 
         const caption =
           `<b>הדמיית עיצוב מותאם</b>\n` +
-          `מוצר: ${item?.title || "-"}\n` +
-          `כמות: ${item?.quantity || 1}`;
+          `מוצר: ${escapeTelegramHtml(item?.title || "-")}\n` +
+          `כמות: ${escapeTelegramHtml(item?.quantity || 1)}`;
 
         await sendTelegramPhoto(preview, caption);
       }

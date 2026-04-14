@@ -8,6 +8,7 @@
   let productItems = Array.from(document.querySelectorAll(".product-item"));
   const emptyState = document.getElementById("emptyState");
   const heroCartLink = document.getElementById("heroCartLink");
+  const storeSearchInput = document.getElementById("storeSearchInput");
 
   if (!filterButtons.length || !productsGrid || !emptyState) return;
 
@@ -70,7 +71,7 @@
             <p class="product-card__text">${product.text}</p>
             <div class="product-card__footer">
               <span class="product-card__price">${product.price}</span>
-              <a href="${product.detailsHref || `/pages/product.html?id=${encodeURIComponent(product.productId)}`}" class="product-card__btn">לפרטים</a>
+              <a href="${product.detailsHref || `/product?id=${encodeURIComponent(product.productId)}`}" class="product-card__btn">לפרטים</a>
             </div>
           </div>
         </article>
@@ -322,7 +323,7 @@
       const imageListFromSign = Array.isArray(signImageSources) ? signImageSources : [];
       const imageList = imageListFromSign.length ? imageListFromSign : [imageVariants.fallback];
       const imagesPayload = encodeURIComponent(JSON.stringify(imageList));
-      const productHref = `/pages/product.html?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.fallback)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
+      const productHref = `/product?id=${encodeURIComponent(productId)}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category || "")}&image=${encodeURIComponent(imageVariants.fallback)}&image_fallback=${encodeURIComponent(imageVariants.fallback)}&thumb=${encodeURIComponent(imageVariants.thumb)}&images=${imagesPayload}`;
       detailsLink.setAttribute("href", productHref);
       const navigateToProduct = () => {
         sessionStorage.setItem(LAST_PRODUCT_KEY, productId);
@@ -380,8 +381,8 @@
     const count = readCart().reduce((sum, row) => sum + (Number(row.quantity) || 1), 0);
     heroCartLink.textContent =
       count > 0
-        ? `\u05dc\u05e6\u05e4\u05d9\u05d9\u05d4 \u05d1\u05e2\u05d2\u05dc\u05d4 (${count})`
-        : "\u05dc\u05e6\u05e4\u05d9\u05d9\u05d4 \u05d1\u05e2\u05d2\u05dc\u05d4";
+        ? `מעבר לתהליך הזמנה (${count})`
+        : "מעבר לתהליך הזמנה";
   }
 
   updateHeroCartText();
@@ -395,9 +396,20 @@
     return activeBtn?.dataset.signFilter || "all";
   }
 
+  function matchesSearchTerm(item, searchTerm) {
+    if (!searchTerm) return true;
+    const haystack = [
+      item.dataset.productId || "",
+      item.querySelector(".product-card__title")?.textContent || "",
+      item.querySelector(".product-card__text")?.textContent || ""
+    ].join(" ").toLowerCase();
+    return haystack.includes(searchTerm);
+  }
+
   function filterProducts(selectedFilter) {
     let visibleCount = 0;
     const selectedSignFilter = getSelectedSignSubFilter();
+    const searchTerm = (storeSearchInput?.value || "").trim().toLowerCase();
 
     productItems.forEach((item) => {
       const itemCategory = item.dataset.category;
@@ -409,7 +421,7 @@
         subCategoryMatch = selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
       }
 
-      if (categoryMatch && subCategoryMatch) {
+      if (categoryMatch && subCategoryMatch && matchesSearchTerm(item, searchTerm)) {
         item.classList.remove("d-none");
         visibleCount++;
       } else {
@@ -424,10 +436,16 @@
     }
   }
 
+  if (storeSearchInput) {
+    storeSearchInput.addEventListener("input", () => {
+      const activeMainFilter = document.querySelector(".store-filter-btn.active:not(.store-sign-subfilter-btn)");
+      filterProducts(activeMainFilter?.dataset.filter || "all");
+    });
+  }
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const selectedFilter = button.dataset.filter;
-
       filterButtons.forEach((btn) => {
         if (!btn.classList.contains("store-sign-subfilter-btn")) {
           btn.classList.remove("active");
@@ -456,5 +474,3 @@
     });
   });
 });
-
-

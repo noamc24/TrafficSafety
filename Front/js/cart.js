@@ -31,8 +31,8 @@ function buildCartItemHtml(item, index) {
   const category = item.category || "";
   const isLargeInlineImage = typeof imageSrc === "string" && imageSrc.startsWith("data:image/");
   const productHref = isLargeInlineImage
-    ? `/pages/product.html?id=${encodeURIComponent(item.productId || "")}`
-    : `/pages/product.html?id=${encodeURIComponent(item.productId || "")}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category)}&image=${encodeURIComponent(imageSrc)}&image_fallback=${encodeURIComponent(imageSrc)}&thumb=${encodeURIComponent(imageSrc)}`;
+    ? `/product?id=${encodeURIComponent(item.productId || "")}`
+    : `/product?id=${encodeURIComponent(item.productId || "")}&name=${encodeURIComponent(title)}&category=${encodeURIComponent(category)}&image=${encodeURIComponent(imageSrc)}&image_fallback=${encodeURIComponent(imageSrc)}&thumb=${encodeURIComponent(imageSrc)}`;
 
   return `
     <article class="cart-item" data-index="${index}">

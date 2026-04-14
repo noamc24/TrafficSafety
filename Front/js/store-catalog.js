@@ -7,7 +7,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש משובש - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-101",
+    "detailsHref": "/product?id=sign-101",
     "existingImage": ""
   },
   {
@@ -18,7 +18,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: עקומה חדה ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-102",
+    "detailsHref": "/product?id=sign-102",
     "existingImage": ""
   },
   {
@@ -29,7 +29,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: עקומה חדה שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-103",
+    "detailsHref": "/product?id=sign-103",
     "existingImage": ""
   },
   {
@@ -40,7 +40,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: עקומה ימינה ואח\"כ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-104",
+    "detailsHref": "/product?id=sign-104",
     "existingImage": ""
   },
   {
@@ -51,7 +51,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: עקומה שמאלה ואח\"כ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-105",
+    "detailsHref": "/product?id=sign-105",
     "existingImage": ""
   },
   {
@@ -62,7 +62,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: דרך מפותלת - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-106",
+    "detailsHref": "/product?id=sign-106",
     "existingImage": ""
   },
   {
@@ -73,7 +73,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "המשך הדרך שמאלה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-107",
+    "detailsHref": "/product?id=sign-107",
     "existingImage": ""
   },
   {
@@ -84,7 +84,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "המשך הדרך ימינה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-108",
+    "detailsHref": "/product?id=sign-108",
     "existingImage": ""
   },
   {
@@ -95,7 +95,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש הולך וצר - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-109",
+    "detailsHref": "/product?id=sign-109",
     "existingImage": ""
   },
   {
@@ -106,7 +106,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש הולך וצר מימין - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-110",
+    "detailsHref": "/product?id=sign-110",
     "existingImage": ""
   },
   {
@@ -117,7 +117,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש הולך וצר משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-111",
+    "detailsHref": "/product?id=sign-111",
     "existingImage": ""
   },
   {
@@ -128,7 +128,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מעבר צר/מכשול",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-112",
+    "detailsHref": "/product?id=sign-112",
     "existingImage": ""
   },
   {
@@ -139,7 +139,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מכשול גובה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-113",
+    "detailsHref": "/product?id=sign-113",
     "existingImage": ""
   },
   {
@@ -150,7 +150,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צומת הצטלבות - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-114",
+    "detailsHref": "/product?id=sign-114",
     "existingImage": ""
   },
   {
@@ -161,7 +161,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צומת קמץ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-115",
+    "detailsHref": "/product?id=sign-115",
     "existingImage": ""
   },
   {
@@ -172,7 +172,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צומת קמץ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-116",
+    "detailsHref": "/product?id=sign-116",
     "existingImage": ""
   },
   {
@@ -183,7 +183,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צומת קמץ - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-117",
+    "detailsHref": "/product?id=sign-117",
     "existingImage": ""
   },
   {
@@ -194,7 +194,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: המשך הדרך בכיווונים המסומנים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-118",
+    "detailsHref": "/product?id=sign-118",
     "existingImage": ""
   },
   {
@@ -205,7 +205,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צמתי קמץ ימינה ואח\"כ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-119",
+    "detailsHref": "/product?id=sign-119",
     "existingImage": ""
   },
   {
@@ -216,7 +216,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: צמתי קמץ שמאלה ואח\"כ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-120",
+    "detailsHref": "/product?id=sign-120",
     "existingImage": ""
   },
   {
@@ -227,7 +227,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מעגל תנועה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-121",
+    "detailsHref": "/product?id=sign-121",
     "existingImage": ""
   },
   {
@@ -238,7 +238,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "רמזור - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-122",
+    "detailsHref": "/product?id=sign-122",
     "existingImage": ""
   },
   {
@@ -249,7 +249,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש מתמזג מימין - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-123",
+    "detailsHref": "/product?id=sign-123",
     "existingImage": ""
   },
   {
@@ -260,7 +260,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: כביש מתמזג משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-124",
+    "detailsHref": "/product?id=sign-124",
     "existingImage": ""
   },
   {
@@ -271,7 +271,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: התמזגות עם כביש מימין - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-125",
+    "detailsHref": "/product?id=sign-125",
     "existingImage": ""
   },
   {
@@ -282,7 +282,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: התמזגות עם כביש משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-126",
+    "detailsHref": "/product?id=sign-126",
     "existingImage": ""
   },
   {
@@ -293,7 +293,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: רכבת מקומית חוצה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-128",
+    "detailsHref": "/product?id=sign-128",
     "existingImage": ""
   },
   {
@@ -304,7 +304,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: מפגש מסילת רכבת - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-129",
+    "detailsHref": "/product?id=sign-129",
     "existingImage": ""
   },
   {
@@ -315,7 +315,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: מעבר חצייה בדרך שלפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-135",
+    "detailsHref": "/product?id=sign-135",
     "existingImage": ""
   },
   {
@@ -326,7 +326,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: הולכי רגל בדרך שלפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-136",
+    "detailsHref": "/product?id=sign-136",
     "existingImage": ""
   },
   {
@@ -337,7 +337,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: תנועת אופניים - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-137",
+    "detailsHref": "/product?id=sign-137",
     "existingImage": ""
   },
   {
@@ -348,7 +348,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: מנהרה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-138",
+    "detailsHref": "/product?id=sign-138",
     "existingImage": ""
   },
   {
@@ -359,7 +359,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: תמרור \"עצור\" לפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-139",
+    "detailsHref": "/product?id=sign-139",
     "existingImage": ""
   },
   {
@@ -370,7 +370,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: ירידה תלולה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-140",
+    "detailsHref": "/product?id=sign-140",
     "existingImage": ""
   },
   {
@@ -381,7 +381,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: סכנת החלקה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-141",
+    "detailsHref": "/product?id=sign-141",
     "existingImage": ""
   },
   {
@@ -392,7 +392,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: אבנים מידרדרות מימין - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-142",
+    "detailsHref": "/product?id=sign-142",
     "existingImage": ""
   },
   {
@@ -403,7 +403,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: אבנים מידרדרות משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-143",
+    "detailsHref": "/product?id=sign-143",
     "existingImage": ""
   },
   {
@@ -414,7 +414,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: פסי האטה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-144",
+    "detailsHref": "/product?id=sign-144",
     "existingImage": ""
   },
   {
@@ -425,7 +425,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: תנועה דו סיטרית - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-145",
+    "detailsHref": "/product?id=sign-145",
     "existingImage": ""
   },
   {
@@ -436,7 +436,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: בעלי חיים - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-146",
+    "detailsHref": "/product?id=sign-146",
     "existingImage": ""
   },
   {
@@ -447,7 +447,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: רכב עבודה או טרקטור חוצה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-147",
+    "detailsHref": "/product?id=sign-147",
     "existingImage": ""
   },
   {
@@ -458,7 +458,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: סכנה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-150",
+    "detailsHref": "/product?id=sign-150",
     "existingImage": ""
   },
   {
@@ -469,7 +469,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ישר או ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-201",
+    "detailsHref": "/product?id=sign-201",
     "existingImage": ""
   },
   {
@@ -480,7 +480,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ישר או שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-202",
+    "detailsHref": "/product?id=sign-202",
     "existingImage": ""
   },
   {
@@ -491,7 +491,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ישר - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-203",
+    "detailsHref": "/product?id=sign-203",
     "existingImage": ""
   },
   {
@@ -502,7 +502,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-204",
+    "detailsHref": "/product?id=sign-204",
     "existingImage": ""
   },
   {
@@ -513,7 +513,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-205",
+    "detailsHref": "/product?id=sign-205",
     "existingImage": ""
   },
   {
@@ -524,7 +524,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ימינה, פנה אחרי התמרור - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-206",
+    "detailsHref": "/product?id=sign-206",
     "existingImage": ""
   },
   {
@@ -535,7 +535,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע שמאלה, פנה אחרי התמרור - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-207",
+    "detailsHref": "/product?id=sign-207",
     "existingImage": ""
   },
   {
@@ -546,7 +546,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ימינה או שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-208",
+    "detailsHref": "/product?id=sign-208",
     "existingImage": ""
   },
   {
@@ -557,7 +557,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ישר או פניית פרסה ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-209",
+    "detailsHref": "/product?id=sign-209",
     "existingImage": ""
   },
   {
@@ -568,7 +568,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: סע ישר או פניית פרסה שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-210",
+    "detailsHref": "/product?id=sign-210",
     "existingImage": ""
   },
   {
@@ -579,7 +579,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: פניית פרסה ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-211",
+    "detailsHref": "/product?id=sign-211",
     "existingImage": ""
   },
   {
@@ -590,7 +590,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: פניית פרסה שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-212",
+    "detailsHref": "/product?id=sign-212",
     "existingImage": ""
   },
   {
@@ -601,7 +601,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: עבור מימין או משמאל - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-213",
+    "detailsHref": "/product?id=sign-213",
     "existingImage": ""
   },
   {
@@ -612,7 +612,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: עבור מימין - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-214",
+    "detailsHref": "/product?id=sign-214",
     "existingImage": ""
   },
   {
@@ -623,7 +623,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: עבור משמאל - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-215",
+    "detailsHref": "/product?id=sign-215",
     "existingImage": ""
   },
   {
@@ -634,7 +634,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "כניסה לדרך מהירה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-216",
+    "detailsHref": "/product?id=sign-216",
     "existingImage": ""
   },
   {
@@ -645,7 +645,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "קצה דרך מהירה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-217",
+    "detailsHref": "/product?id=sign-217",
     "existingImage": ""
   },
   {
@@ -656,7 +656,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: מהירות מינימלית - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-218",
+    "detailsHref": "/product?id=sign-218",
     "existingImage": ""
   },
   {
@@ -667,7 +667,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: דרך לרכב מנועי בלבד - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-219",
+    "detailsHref": "/product?id=sign-219",
     "existingImage": ""
   },
   {
@@ -678,7 +678,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: רחוב משולב",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-220",
+    "detailsHref": "/product?id=sign-220",
     "existingImage": ""
   },
   {
@@ -689,7 +689,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: קצה רחוב משולב",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-221",
+    "detailsHref": "/product?id=sign-221",
     "existingImage": ""
   },
   {
@@ -700,7 +700,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: איזור מיתון תנועה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-222",
+    "detailsHref": "/product?id=sign-222",
     "existingImage": ""
   },
   {
@@ -711,7 +711,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: קצה איזור מיתון תנועה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-223",
+    "detailsHref": "/product?id=sign-223",
     "existingImage": ""
   },
   {
@@ -722,7 +722,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: נתיב חד סטרי לתנועת אופניים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-224",
+    "detailsHref": "/product?id=sign-224",
     "existingImage": ""
   },
   {
@@ -733,7 +733,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: קצה נתיב אופניים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-225",
+    "detailsHref": "/product?id=sign-225",
     "existingImage": ""
   },
   {
@@ -744,7 +744,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: שביל הולכי רגל בלבד - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-226",
+    "detailsHref": "/product?id=sign-226",
     "existingImage": ""
   },
   {
@@ -755,7 +755,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: שביל לתנועת אופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-227",
+    "detailsHref": "/product?id=sign-227",
     "existingImage": ""
   },
   {
@@ -766,7 +766,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: שביל משותף להולכי רגל ולתנועת אופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-228",
+    "detailsHref": "/product?id=sign-228",
     "existingImage": ""
   },
   {
@@ -777,7 +777,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראה: שבילים נפרדים להולכי רגל ואופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-229",
+    "detailsHref": "/product?id=sign-229",
     "existingImage": ""
   },
   {
@@ -788,7 +788,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: כביש אגרה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-230",
+    "detailsHref": "/product?id=sign-230",
     "existingImage": ""
   },
   {
@@ -799,7 +799,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: קצה כביש אגרה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-231",
+    "detailsHref": "/product?id=sign-231",
     "existingImage": ""
   },
   {
@@ -810,7 +810,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: האט - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-301",
+    "detailsHref": "/product?id=sign-301",
     "existingImage": ""
   },
   {
@@ -821,7 +821,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: עצור - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-302",
+    "detailsHref": "/product?id=sign-302",
     "existingImage": ""
   },
   {
@@ -832,7 +832,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: מעגל תנועה - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-303",
+    "detailsHref": "/product?id=sign-303",
     "existingImage": ""
   },
   {
@@ -843,7 +843,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: עצור (נייד) - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-304",
+    "detailsHref": "/product?id=sign-304",
     "existingImage": ""
   },
   {
@@ -854,7 +854,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: מעבר חצייה - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-306",
+    "detailsHref": "/product?id=sign-306",
     "existingImage": ""
   },
   {
@@ -865,7 +865,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: תן זכות קדימה בקטע צר - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-307",
+    "detailsHref": "/product?id=sign-307",
     "existingImage": ""
   },
   {
@@ -876,7 +876,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זכות קדימה: זכות קדימה שלך בקטע צר - יש לפעול לפי כללי הקדימות במקום",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-308",
+    "detailsHref": "/product?id=sign-308",
     "existingImage": ""
   },
   {
@@ -887,7 +887,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: כביש סגור - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-401",
+    "detailsHref": "/product?id=sign-401",
     "existingImage": ""
   },
   {
@@ -898,7 +898,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אין כניסה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-402",
+    "detailsHref": "/product?id=sign-402",
     "existingImage": ""
   },
   {
@@ -909,7 +909,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לכלי רכב מנועי - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-405",
+    "detailsHref": "/product?id=sign-405",
     "existingImage": ""
   },
   {
@@ -920,7 +920,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מנועי מעל משקל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-406",
+    "detailsHref": "/product?id=sign-406",
     "existingImage": ""
   },
   {
@@ -931,7 +931,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מוביל חומר מסוכן - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-407",
+    "detailsHref": "/product?id=sign-407",
     "existingImage": ""
   },
   {
@@ -942,7 +942,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מנועי למעט דו גלגלי - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-408",
+    "detailsHref": "/product?id=sign-408",
     "existingImage": ""
   },
   {
@@ -953,7 +953,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לאופנועים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-409",
+    "detailsHref": "/product?id=sign-409",
     "existingImage": ""
   },
   {
@@ -964,7 +964,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב עבודה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-410",
+    "detailsHref": "/product?id=sign-410",
     "existingImage": ""
   },
   {
@@ -975,7 +975,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לבעלי חיים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-411",
+    "detailsHref": "/product?id=sign-411",
     "existingImage": ""
   },
   {
@@ -986,7 +986,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לאופניים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-412",
+    "detailsHref": "/product?id=sign-412",
     "existingImage": ""
   },
   {
@@ -997,7 +997,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה להולכי רגל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-413",
+    "detailsHref": "/product?id=sign-413",
     "existingImage": ""
   },
   {
@@ -1008,7 +1008,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה להולכי רגל, אופניים ובעלי חיים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-414",
+    "detailsHref": "/product?id=sign-414",
     "existingImage": ""
   },
   {
@@ -1019,7 +1019,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מעל משקל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-415",
+    "detailsHref": "/product?id=sign-415",
     "existingImage": ""
   },
   {
@@ -1030,7 +1030,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מעל גובה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-416",
+    "detailsHref": "/product?id=sign-416",
     "existingImage": ""
   },
   {
@@ -1041,7 +1041,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מעל רוחב - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-417",
+    "detailsHref": "/product?id=sign-417",
     "existingImage": ""
   },
   {
@@ -1052,7 +1052,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: איזור אסור ללימודי נהיגה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-418",
+    "detailsHref": "/product?id=sign-418",
     "existingImage": ""
   },
   {
@@ -1063,7 +1063,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה איזור אסור ללימודי נהיגה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-419",
+    "detailsHref": "/product?id=sign-419",
     "existingImage": ""
   },
   {
@@ -1074,7 +1074,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: עקיפה אסורה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-420",
+    "detailsHref": "/product?id=sign-420",
     "existingImage": ""
   },
   {
@@ -1085,7 +1085,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה דרך עקיפה אסורה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-421",
+    "detailsHref": "/product?id=sign-421",
     "existingImage": ""
   },
   {
@@ -1096,7 +1096,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: עקיפה אסורה לרכב מעל 4 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-422",
+    "detailsHref": "/product?id=sign-422",
     "existingImage": ""
   },
   {
@@ -1107,7 +1107,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה דרך איסור עקיפה לרכב מעל 4 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-423",
+    "detailsHref": "/product?id=sign-423",
     "existingImage": ""
   },
   {
@@ -1118,7 +1118,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: איזור דרך עירונית - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-424",
+    "detailsHref": "/product?id=sign-424",
     "existingImage": ""
   },
   {
@@ -1129,7 +1129,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה איזור דרך עירונית - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-425",
+    "detailsHref": "/product?id=sign-425",
     "existingImage": ""
   },
   {
@@ -1140,7 +1140,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: הגבלת מהירות - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-426",
+    "detailsHref": "/product?id=sign-426",
     "existingImage": ""
   },
   {
@@ -1151,7 +1151,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה דרך הגבלת מהירות - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-427",
+    "detailsHref": "/product?id=sign-427",
     "existingImage": ""
   },
   {
@@ -1162,7 +1162,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אין ימינה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-428",
+    "detailsHref": "/product?id=sign-428",
     "existingImage": ""
   },
   {
@@ -1173,7 +1173,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אין שמאלה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-429",
+    "detailsHref": "/product?id=sign-429",
     "existingImage": ""
   },
   {
@@ -1184,7 +1184,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אין פרסה ימינה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-430",
+    "detailsHref": "/product?id=sign-430",
     "existingImage": ""
   },
   {
@@ -1195,7 +1195,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אין פרסה שמאלה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-431",
+    "detailsHref": "/product?id=sign-431",
     "existingImage": ""
   },
   {
@@ -1206,7 +1206,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה חנייה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-432",
+    "detailsHref": "/product?id=sign-432",
     "existingImage": ""
   },
   {
@@ -1217,7 +1217,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה חנייה ועצירה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-433",
+    "detailsHref": "/product?id=sign-433",
     "existingImage": ""
   },
   {
@@ -1228,7 +1228,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה דרך איסור החנייה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-434",
+    "detailsHref": "/product?id=sign-434",
     "existingImage": ""
   },
   {
@@ -1239,7 +1239,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: איזור חניה אסורה לרכב מעל 10 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-435",
+    "detailsHref": "/product?id=sign-435",
     "existingImage": ""
   },
   {
@@ -1250,7 +1250,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה איזור חניה אסורה לרכב מעל 10 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-436",
+    "detailsHref": "/product?id=sign-436",
     "existingImage": ""
   },
   {
@@ -1261,7 +1261,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: חניית נכה",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-437",
+    "detailsHref": "/product?id=sign-437",
     "existingImage": ""
   },
   {
@@ -1272,7 +1272,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: מכס - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-438",
+    "detailsHref": "/product?id=sign-438",
     "existingImage": ""
   },
   {
@@ -1283,7 +1283,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: תמרור למסר מחייב שלגביו אין תמרור קבוע",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-439",
+    "detailsHref": "/product?id=sign-439",
     "existingImage": ""
   },
   {
@@ -1294,7 +1294,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: אסורה כניסה לרכב מזהם - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-440",
+    "detailsHref": "/product?id=sign-440",
     "existingImage": ""
   },
   {
@@ -1305,7 +1305,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איסור/הגבלה: קצה איזור הכניסה לרכב מזהם - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-441",
+    "detailsHref": "/product?id=sign-441",
     "existingImage": ""
   },
   {
@@ -1316,7 +1316,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: דרך לתחבורה ציבורית - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-501",
+    "detailsHref": "/product?id=sign-501",
     "existingImage": ""
   },
   {
@@ -1327,7 +1327,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: קצה דרך תחבורה ציבורית - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-502",
+    "detailsHref": "/product?id=sign-502",
     "existingImage": ""
   },
   {
@@ -1338,7 +1338,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: התנועה בכיוון החץ הלבן מותרת לכל כלי הרכב - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-504",
+    "detailsHref": "/product?id=sign-504",
     "existingImage": ""
   },
   {
@@ -1349,7 +1349,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: תחנת אוטובוס - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-505",
+    "detailsHref": "/product?id=sign-505",
     "existingImage": ""
   },
   {
@@ -1360,7 +1360,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: תחנת רכבת - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-506",
+    "detailsHref": "/product?id=sign-506",
     "existingImage": ""
   },
   {
@@ -1371,7 +1371,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: תחנת מוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-507",
+    "detailsHref": "/product?id=sign-507",
     "existingImage": ""
   },
   {
@@ -1382,7 +1382,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: קצה תחום תחנת מוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-508",
+    "detailsHref": "/product?id=sign-508",
     "existingImage": ""
   },
   {
@@ -1393,7 +1393,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תחבורה ציבורית: איזור עצירה למוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-509",
+    "detailsHref": "/product?id=sign-509",
     "existingImage": ""
   },
   {
@@ -1404,7 +1404,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: כביד חד סטרי - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-618",
+    "detailsHref": "/product?id=sign-618",
     "existingImage": ""
   },
   {
@@ -1415,7 +1415,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: נתיב נוסף מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-619",
+    "detailsHref": "/product?id=sign-619",
     "existingImage": ""
   },
   {
@@ -1426,7 +1426,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: נתיב נוסף משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-620",
+    "detailsHref": "/product?id=sign-620",
     "existingImage": ""
   },
   {
@@ -1437,7 +1437,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: נתיב מתמזג מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-621",
+    "detailsHref": "/product?id=sign-621",
     "existingImage": ""
   },
   {
@@ -1448,7 +1448,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: נתיב מתמזג משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-622",
+    "detailsHref": "/product?id=sign-622",
     "existingImage": ""
   },
   {
@@ -1459,7 +1459,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: כביש ללא מוצא - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-623",
+    "detailsHref": "/product?id=sign-623",
     "existingImage": ""
   },
   {
@@ -1470,7 +1470,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: כביש ללא מוצא מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-624",
+    "detailsHref": "/product?id=sign-624",
     "existingImage": ""
   },
   {
@@ -1481,7 +1481,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: כביש ללא מוצא משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-625",
+    "detailsHref": "/product?id=sign-625",
     "existingImage": ""
   },
   {
@@ -1492,7 +1492,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: חנית כלי רכב - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-626",
+    "detailsHref": "/product?id=sign-626",
     "existingImage": ""
   },
   {
@@ -1503,7 +1503,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: מותרת החנייה על המדרכה - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-627",
+    "detailsHref": "/product?id=sign-627",
     "existingImage": ""
   },
   {
@@ -1514,7 +1514,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: קצה תחום חנייה - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-628",
+    "detailsHref": "/product?id=sign-628",
     "existingImage": ""
   },
   {
@@ -1525,7 +1525,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: חץ - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-632",
+    "detailsHref": "/product?id=sign-632",
     "existingImage": ""
   },
   {
@@ -1536,7 +1536,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: מנהרה - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-633",
+    "detailsHref": "/product?id=sign-633",
     "existingImage": ""
   },
   {
@@ -1547,7 +1547,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: קצה המנהרה - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-634",
+    "detailsHref": "/product?id=sign-634",
     "existingImage": ""
   },
   {
@@ -1558,7 +1558,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: כביש חד סטרי לרכב מנועי - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-636",
+    "detailsHref": "/product?id=sign-636",
     "existingImage": ""
   },
   {
@@ -1569,7 +1569,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: מפרץ לעצירת חירום - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-637",
+    "detailsHref": "/product?id=sign-637",
     "existingImage": ""
   },
   {
@@ -1580,7 +1580,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מידע והכוונה: העלאה והורדת נוסעים - התמרור מספק הכוונה או מידע לנהג בדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-638",
+    "detailsHref": "/product?id=sign-638",
     "existingImage": ""
   },
   {
@@ -1591,7 +1591,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "אזהרה: אתר עבודה - יש להאט ולהיערך בהתאם למצב הדרך",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-901",
+    "detailsHref": "/product?id=sign-901",
     "existingImage": ""
   },
   {
@@ -1602,7 +1602,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: קצה אתר עבודה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-902",
+    "detailsHref": "/product?id=sign-902",
     "existingImage": ""
   },
   {
@@ -1613,7 +1613,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: המשך הדרך ימינה/שמאלה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-903",
+    "detailsHref": "/product?id=sign-903",
     "existingImage": ""
   },
   {
@@ -1624,7 +1624,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: המשך הדרך בכיוון החיצים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-904",
+    "detailsHref": "/product?id=sign-904",
     "existingImage": ""
   },
   {
@@ -1635,7 +1635,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: כביש הולך וצר - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-905",
+    "detailsHref": "/product?id=sign-905",
     "existingImage": ""
   },
   {
@@ -1646,7 +1646,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: כביש הולך וצר מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-906",
+    "detailsHref": "/product?id=sign-906",
     "existingImage": ""
   },
   {
@@ -1657,7 +1657,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: כביש הולך וצר משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-907",
+    "detailsHref": "/product?id=sign-907",
     "existingImage": ""
   },
   {
@@ -1668,7 +1668,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: מעבר צר/מכשול - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-908",
+    "detailsHref": "/product?id=sign-908",
     "existingImage": ""
   },
   {
@@ -1679,7 +1679,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: נתיב נוסף מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-910",
+    "detailsHref": "/product?id=sign-910",
     "existingImage": ""
   },
   {
@@ -1690,7 +1690,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: נתיב נוסף משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-911",
+    "detailsHref": "/product?id=sign-911",
     "existingImage": ""
   },
   {
@@ -1701,7 +1701,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: כביש מתמזג מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-912",
+    "detailsHref": "/product?id=sign-912",
     "existingImage": ""
   },
   {
@@ -1712,7 +1712,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: כביש מתמזג משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-913",
+    "detailsHref": "/product?id=sign-913",
     "existingImage": ""
   },
   {
@@ -1723,7 +1723,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: הסטת תנועה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-914",
+    "detailsHref": "/product?id=sign-914",
     "existingImage": ""
   },
   {
@@ -1734,7 +1734,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: התמרור מעל יחל עוד __ מטרים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-916",
+    "detailsHref": "/product?id=sign-916",
     "existingImage": ""
   },
   {
@@ -1745,7 +1745,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: התמרור מעל יחול במהלך ה __ מטרים הקרובים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-917",
+    "detailsHref": "/product?id=sign-917",
     "existingImage": ""
   },
   {
@@ -1756,7 +1756,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: עמודי הכוונה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-930",
+    "detailsHref": "/product?id=sign-930",
     "existingImage": ""
   },
   {
@@ -1767,7 +1767,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור זמני: מפרץ לעצירת חירום - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
     "tag": "תמרורים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-935",
+    "detailsHref": "/product?id=sign-935",
     "existingImage": ""
   },
   {
@@ -1778,7 +1778,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "שלט בהתאמה אישית",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=custom-design-board",
+    "detailsHref": "/product?id=custom-design-board",
     "existingImage": ""
   },
   {
@@ -1789,7 +1789,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זהירות משאיות חוצות",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=warning-trucks-crossing-sign",
+    "detailsHref": "/product?id=warning-trucks-crossing-sign",
     "existingImage": ""
   },
   {
@@ -1800,7 +1800,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "משאיות מאטות משתלבות מימן",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=trucks-merging-from-right-sign",
+    "detailsHref": "/product?id=trucks-merging-from-right-sign",
     "existingImage": ""
   },
   {
@@ -1811,7 +1811,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "משאיות מאטות משתלבות משמאל",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=trucks-merging-from-left-sign",
+    "detailsHref": "/product?id=trucks-merging-from-left-sign",
     "existingImage": ""
   },
   {
@@ -1822,7 +1822,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הכניסה מותרת לעובדי האתר",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=site-workers-entry-allowed-sign",
+    "detailsHref": "/product?id=site-workers-entry-allowed-sign",
     "existingImage": ""
   },
   {
@@ -1833,7 +1833,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "זהירות הולכי רגל חוצים",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=warning-pedestrians-crossing-sign",
+    "detailsHref": "/product?id=warning-pedestrians-crossing-sign",
     "existingImage": ""
   },
   {
@@ -1844,7 +1844,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "איזור שטח תפעולי",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=operational-area-sign",
+    "detailsHref": "/product?id=operational-area-sign",
     "existingImage": ""
   },
   {
@@ -1855,7 +1855,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "המדרכה חסומה - נא לעבור למדרכה ממול",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sidewalk-blocked-cross-sign",
+    "detailsHref": "/product?id=sidewalk-blocked-cross-sign",
     "existingImage": ""
   },
   {
@@ -1866,7 +1866,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "סכנה כאן בונים",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=danger-construction-here-sign",
+    "detailsHref": "/product?id=danger-construction-here-sign",
     "existingImage": ""
   },
   {
@@ -1877,7 +1877,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "כניסה ויציאת רכב עבודה",
     "tag": "שלטים",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=work-vehicle-entry-exit-sign",
+    "detailsHref": "/product?id=work-vehicle-entry-exit-sign",
     "existingImage": ""
   },
   {
@@ -1888,7 +1888,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מנהל עבודה",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=site-manager-sign",
+    "detailsHref": "/product?id=site-manager-sign",
     "existingImage": ""
   },
   {
@@ -1899,7 +1899,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "ממונה בטיחות",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=safety-supervisor-sign",
+    "detailsHref": "/product?id=safety-supervisor-sign",
     "existingImage": ""
   },
   {
@@ -1910,7 +1910,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "עוזר בטיחות",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=assistant-safety-sign",
+    "detailsHref": "/product?id=assistant-safety-sign",
     "existingImage": ""
   },
   {
@@ -1921,7 +1921,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "קנסות בטיחות",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=safety-fines-sign",
+    "detailsHref": "/product?id=safety-fines-sign",
     "existingImage": ""
   },
   {
@@ -1932,7 +1932,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראות בטיחות",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=safety-instructions-sign",
+    "detailsHref": "/product?id=safety-instructions-sign",
     "existingImage": ""
   },
   {
@@ -1943,7 +1943,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "סכנה כאן בונים",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=danger-construction-site-sign",
+    "detailsHref": "/product?id=danger-construction-site-sign",
     "existingImage": ""
   },
   {
@@ -1954,7 +1954,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "סכנת נפילה מגובה",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=falling-from-height-danger-sign",
+    "detailsHref": "/product?id=falling-from-height-danger-sign",
     "existingImage": ""
   },
   {
@@ -1965,7 +1965,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "הוראות בטיחות",
     "tag": "שלטי בטיחות לאתרי בנייה",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=safety-instructions-sign-2",
+    "detailsHref": "/product?id=safety-instructions-sign-2",
     "existingImage": ""
   },
   {
@@ -1976,7 +1976,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "קונוס",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=safety-cones",
+    "detailsHref": "/product?id=safety-cones",
     "existingImage": ""
   },
   {
@@ -1987,7 +1987,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מראה פנורמית",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=panoramic-mirror",
+    "detailsHref": "/product?id=panoramic-mirror",
     "existingImage": ""
   },
   {
@@ -1998,7 +1998,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מפרידי נתיבים",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=lane-dividers",
+    "detailsHref": "/product?id=lane-dividers",
     "existingImage": ""
   },
   {
@@ -2009,7 +2009,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "מעצור חנייה",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=parking-stop",
+    "detailsHref": "/product?id=parking-stop",
     "existingImage": ""
   },
   {
@@ -2020,7 +2020,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "שומר חנייה",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=parking-guard",
+    "detailsHref": "/product?id=parking-guard",
     "existingImage": ""
   },
   {
@@ -2031,7 +2031,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "באמפר",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=bumper",
+    "detailsHref": "/product?id=bumper",
     "existingImage": ""
   },
   {
@@ -2042,7 +2042,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "עמוד גמיש גובה 45/75/100",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=flexible-post-45-75-100",
+    "detailsHref": "/product?id=flexible-post-45-75-100",
     "existingImage": ""
   },
   {
@@ -2053,7 +2053,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "עמוד מחסום",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=barrier-post",
+    "detailsHref": "/product?id=barrier-post",
     "existingImage": ""
   },
   {
@@ -2064,7 +2064,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "תמרור: עמוד לתמרור",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=sign-post",
+    "detailsHref": "/product?id=sign-post",
     "existingImage": ""
   },
   {
@@ -2075,7 +2075,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "יחידות חיבור 3/6 צול",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=connector-units-3-6-inch",
+    "detailsHref": "/product?id=connector-units-3-6-inch",
     "existingImage": ""
   },
   {
@@ -2086,7 +2086,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "יחידת חיבור דגל",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=flag-connector-unit",
+    "detailsHref": "/product?id=flag-connector-unit",
     "existingImage": ""
   },
   {
@@ -2097,7 +2097,7 @@ window.STORE_PRODUCTS_CATALOG = [
     "text": "פנס סולרי",
     "tag": "אביזרי בטיחות",
     "price": "לפי מפרט",
-    "detailsHref": "/pages/product.html?id=solar-lamp",
+    "detailsHref": "/product?id=solar-lamp",
     "existingImage": ""
   }
 ];
