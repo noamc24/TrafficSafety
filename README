@@ -1,0 +1,77 @@
+# 🚧 Traffic Safety Center
+
+A full-stack web application for a real-world traffic safety business, providing services and products for road marking, signage, and traffic management.
+
+🌐 Live Website: https://www.trafficsafetycenter.com
+
+---
+
+## 🧠 Overview
+
+This project was built as a production-ready website for a traffic safety company.
+
+It combines a modern frontend with a Node.js backend, focusing on performance, accessibility, and real-world usability.
+
+The system includes:
+- Service presentation (road marking, signage, traffic arrangements)
+- Product catalog with categories
+- Client-side shopping cart (quote-based system)
+- Contact system integrated with Telegram
+- Image optimization pipeline for performance
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- HTML5, CSS3, JavaScript
+- Bootstrap (RTL support)
+
+**Backend**
+- Node.js
+- Express
+
+**Other Tools**
+- Telegram Bot API (notifications)
+- Sharp (image optimization)
+- Render (deployment)
+
+---
+
+## ⚙️ Features
+
+### 🛒 Store System
+- Product categories
+- Client-side cart (LocalStorage-based)
+- Quote request flow (no direct payment yet)
+
+### ⚡ Performance Optimization
+- Lazy loading for product images
+- Custom image optimization pipeline (WebP conversion, thumbnails)
+
+👉 Image optimization script:
+See: :contentReference[oaicite:0]{index=0}
+
+### 📩 Contact System
+- Contact form sends messages directly to Telegram
+- Supports multiple recipients via environment variables
+
+### 📱 Responsive Design
+- Fully responsive (mobile-first approach)
+- RTL support for Hebrew
+
+### ♿ Accessibility
+- Designed according to Israeli Standard (T"י 5568) / WCAG AA principles
+- Includes:
+  - Text scaling
+  - High contrast mode
+  - Animation disabling
+  - Readable fonts
+
+---
+
+## 🚀 Setup & Installation
+
+```bash
+npm install
+npm run dev
