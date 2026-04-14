@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", async () => {
   const CART_STORAGE_KEY = "tsc_cart";
   const LAST_PRODUCT_KEY = "tsc_last_product_id";
   const filterButtons = document.querySelectorAll(".store-filters .store-filter-btn");
@@ -11,16 +11,6 @@
   const storeSearchInput = document.getElementById("storeSearchInput");
 
   if (!filterButtons.length || !productsGrid || !emptyState) return;
-
-  function fixMojibake(value) {
-    if (typeof value !== "string") return value;
-    if (!value.includes("׳")) return value;
-    try {
-      return decodeURIComponent(escape(value));
-    } catch {
-      return value;
-    }
-  }
 
   function extractCatalogFromExistingCards() {
     const existingItems = Array.from(productsGrid.querySelectorAll(".product-item"));
@@ -95,16 +85,16 @@
     productsGrid.appendChild(fragment);
   }
 
-  const productsCatalog = (Array.isArray(window.STORE_PRODUCTS_CATALOG) && window.STORE_PRODUCTS_CATALOG.length
-    ? window.STORE_PRODUCTS_CATALOG
-    : extractCatalogFromExistingCards())
-    .map((item) => ({
-      ...item,
-      title: fixMojibake(item.title),
-      text: fixMojibake(item.text),
-      tag: fixMojibake(item.tag),
-      price: fixMojibake(item.price)
-    }));
+  let productsData = null;
+  try {
+    productsData = await window.loadProductsData?.();
+  } catch (error) {
+    console.warn("Failed to load /data/products.json, falling back to existing cards.", error);
+  }
+
+  const productsCatalog = (Array.isArray(productsData?.storeCatalog) && productsData.storeCatalog.length
+    ? productsData.storeCatalog
+    : extractCatalogFromExistingCards());
   if (productsCatalog.length) {
     renderCatalogCards(productsCatalog);
     productItems = Array.from(productsGrid.querySelectorAll(".product-item"));

@@ -229,6 +229,13 @@ html.accessibility-text-large img {
   height: auto;
 }
 
+/* Keep footer logo stable when text enlargement is enabled */
+html.accessibility-text-large .footer-logo {
+  height: 48px !important;
+  width: auto !important;
+  max-height: 48px !important;
+}
+
 /* ========================= */
 /* מובייל - פה התיקון האמיתי */
 /* ========================= */
@@ -323,6 +330,11 @@ html.accessibility-text-large img {
   html.accessibility-text-large .accordion-button,
   html.accessibility-text-large .option-label {
     font-size: 1.05rem !important;
+  }
+
+  html.accessibility-text-large .footer-logo {
+    height: 40px !important;
+    max-height: 40px !important;
   }
 }
 

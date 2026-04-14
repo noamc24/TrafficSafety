@@ -119,13 +119,27 @@ function getOptionValue(item, optionName) {
   return found?.value || "";
 }
 
+function getOptionValueAny(item, optionNames = []) {
+  for (const name of optionNames) {
+    const value = getOptionValue(item, name);
+    if (value) return value;
+  }
+  return "";
+}
+
 function buildCustomDesignRestorePayload(item) {
+  const textFontSizeRaw = getOptionValue(item, "גודל כיתוב");
   return {
     productId: item.productId,
     shape: getOptionValue(item, "צורה"),
     size: getOptionValue(item, "גודל"),
     textEnabled: getOptionValue(item, "כיתוב"),
     textValue: getOptionValue(item, "נוסח מותאם"),
+    textFontFamily: getOptionValue(item, "פונט כיתוב"),
+    textFontSize: textFontSizeRaw ? String(textFontSizeRaw).replace("px", "") : "",
+    textFontColor: getOptionValue(item, "צבע כיתוב"),
+    textOffsetX: getOptionValueAny(item, ["רוחב כיתוב", "מיקום כיתוב X"]),
+    textOffsetY: getOptionValueAny(item, ["גובה כיתוב", "מיקום כיתוב Y"]),
     imageEnabled: getOptionValue(item, "תמונה"),
     notes: getOptionValue(item, "הערות"),
     customDesignPreview: item.customDesignPreview || "",

@@ -1,262 +1,44 @@
-﻿const PRODUCT_CATALOG = {
-  "triangleS": {
-    title: "׳×׳׳¨׳•׳¨ ׳¢׳¦׳•׳¨",
-    category: "׳×׳׳¨׳•׳¨׳™׳",
-    shortDescription: "׳×׳׳¨׳•׳¨ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳©׳™׳׳•׳© ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™ ׳×׳ ׳•׳¢׳”.",
-    longDescription: "׳×׳׳¨׳•׳¨ ׳׳™׳›׳•׳×׳™ ׳׳׳׳•׳׳™׳ ׳™׳•׳ ׳¢׳ ׳¦׳™׳₪׳•׳™ ׳׳—׳–׳™׳¨ ׳׳•׳¨, ׳׳×׳׳™׳ ׳׳”׳×׳§׳ ׳” ׳‘׳¢׳׳•׳“׳™ ׳×׳׳¨׳•׳¨ ׳•׳‘׳›׳ ׳™׳¡׳•׳× ׳׳׳×׳—׳׳™׳.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [
-      { name: "׳’׳•׳“׳", values: ["׳¡׳˜׳ ׳“׳¨׳˜׳™", "׳’׳“׳•׳"] },
-      { name: "׳¡׳•׳’ ׳׳—׳–׳™׳¨ ׳׳•׳¨", values: ["׳¨׳’׳™׳", "׳׳—׳–׳™׳¨ ׳׳•׳¨ ׳׳©׳•׳₪׳¨"] }
-    ]
-  },
-  "slowSign": {
-    title: "׳×׳׳¨׳•׳¨ ׳”׳׳˜",
-    category: "׳×׳׳¨׳•׳¨׳™׳",
-    shortDescription: "׳©׳™׳׳•׳‘ ׳ ׳¨׳׳•׳× ׳’׳‘׳•׳”׳” ׳•׳¢׳׳™׳“׳•׳× ׳׳×׳ ׳׳™ ׳—׳•׳¥.",
-    longDescription: "׳׳×׳׳™׳ ׳׳¨׳—׳•׳‘׳•׳× ׳₪׳ ׳™׳׳™׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳—׳ ׳™׳•׳ ׳™׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳©׳•׳ ׳•׳× ׳׳₪׳™ ׳“׳¨׳™׳©׳•׳× ׳”׳׳×׳¨.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳’׳•׳“׳", values: ["׳§׳˜׳", "׳‘׳™׳ ׳•׳ ׳™", "׳’׳“׳•׳"] }]
-  },
-  "direction-board": {
-    title: "׳©׳׳˜ ׳”׳›׳•׳•׳ ׳”",
-    category: "׳©׳׳˜׳™׳",
-    shortDescription: "׳©׳™׳׳•׳˜ ׳‘׳¨׳•׳¨ ׳׳׳×׳—׳׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳©׳˜׳—׳™ ׳×׳₪׳¢׳•׳.",
-    longDescription: "׳©׳׳˜ ׳”׳›׳•׳•׳ ׳” ׳‘׳”׳×׳׳׳” ׳׳₪׳¨׳•׳™׳§׳˜, ׳›׳•׳׳ ׳˜׳§׳¡׳˜/׳—׳™׳¦׳™׳, ׳¦׳‘׳¢׳™׳ ׳•׳₪׳×׳¨׳•׳ ׳•׳× ׳×׳׳™׳™׳” ׳׳• ׳¢׳׳•׳“.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳©׳™׳˜׳× ׳”׳×׳§׳ ׳”", values: ["׳¢׳ ׳§׳™׳¨", "׳¢׳ ׳¢׳׳•׳“"] }]
-  },
-  "private-parking-board": {
-    title: "׳©׳׳˜ ׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳×",
-    category: "׳©׳׳˜׳™׳",
-    shortDescription: "׳©׳׳˜ ׳׳§׳¦׳•׳¢׳™ ׳׳׳×׳—׳׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¢׳¡׳§׳™׳™׳.",
-    longDescription: "׳¢׳׳™׳“ ׳׳×׳ ׳׳™ ׳©׳׳© ׳•׳’׳©׳, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳”׳×׳׳׳× ׳ ׳•׳¡׳— ׳•׳¡׳™׳׳•׳ ׳׳₪׳™ ׳“׳¨׳™׳©׳× ׳”׳׳§׳•׳—.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳ ׳•׳¡׳—", values: ["׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳×", "׳—׳ ׳™׳” ׳׳“׳™׳™׳¨׳™׳ ׳‘׳׳‘׳“", "׳׳•׳×׳׳ ׳׳™׳©׳™׳×"] }]
-  },
-  "active-worksite-sign": {
-    title: "׳©׳׳˜ ׳׳×׳¨ ׳¢׳‘׳•׳“׳” ׳₪׳¢׳™׳",
-    category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
-    shortDescription: "׳׳¡׳™׳׳•׳ ׳‘׳¨׳•׳¨ ׳©׳ ׳׳–׳•׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳×׳©׳×׳™׳×.",
-    longDescription: "׳©׳׳˜׳™ ׳׳×׳¨ ׳¢׳‘׳•׳“׳” ׳׳§׳¨׳™׳׳•׳× ׳’׳‘׳•׳”׳” ׳‘׳™׳•׳ ׳•׳‘׳׳™׳׳”, ׳¢׳ ׳׳₪׳©׳¨׳•׳× ׳׳©׳™׳ ׳•׳™ ׳ ׳•׳¡׳— ׳‘׳”׳×׳׳ ׳׳¡׳•׳’ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳—׳•׳׳¨", values: ["׳₪׳—", "PVC ׳§׳©׳™׳—"] }]
-  },
-  "roadwork-warning-sign": {
-    title: "׳©׳׳˜ ׳–׳”׳™׳¨׳•׳× ׳¢׳‘׳•׳“׳•׳× ׳‘׳›׳‘׳™׳©",
-    category: "׳©׳׳˜׳™׳ ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳”",
-    shortDescription: "׳׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳”׳ ׳”׳’׳™׳ ׳•׳”׳¢׳•׳‘׳“׳™׳ ׳‘׳©׳˜׳—.",
-    longDescription: "׳₪׳×׳¨׳•׳ ׳ ׳₪׳•׳¥ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳›׳•׳׳ ׳׳₪׳©׳¨׳•׳™׳•׳× ׳”׳×׳§׳ ׳” ׳ ׳™׳™׳“׳•׳× ׳•׳§׳‘׳•׳¢׳•׳×.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳¡׳•׳’", values: ["׳ ׳™׳™׳“", "׳§׳‘׳•׳¢"] }]
-  },
-  "safety-cone": {
-    title: "׳§׳•׳ ׳•׳¡ ׳‘׳˜׳™׳—׳•׳×",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳§׳•׳ ׳•׳¡ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳¢׳‘׳•׳“׳•׳× ׳©׳˜׳— ׳•׳—׳ ׳™׳•׳ ׳™׳.",
-    longDescription: "׳׳×׳׳™׳ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳¡׳™׳׳•׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳׳–׳•׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/SafetyEquipment/cone1.webp", "/assets/SafetyEquipment/cone2.webp", "/assets/SafetyEquipment/cone3.webp"],
-    options: [{ name: "׳’׳•׳‘׳”", values: ['45 ׳¡"׳', '70 ׳¡"׳'] }]
-  },
-  "panoramic-mirror": {
-    title: "׳׳¨׳׳•׳× ׳₪׳ ׳•׳¨׳׳™׳•׳×",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳׳¨׳׳•׳× ׳׳©׳™׳₪׳•׳¨ ׳©׳“׳” ׳”׳¨׳׳™׳™׳” ׳‘׳¦׳׳×׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳™׳¦׳™׳׳•׳×.",
-    longDescription: "׳”׳׳•׳¦׳¨ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳¡׳•׳’׳™׳, ׳•׳›׳ ׳¡׳•׳’ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳’׳“׳׳™׳ ׳׳‘׳—׳™׳¨׳” ׳׳₪׳™ ׳×׳ ׳׳™ ׳”׳©׳˜׳—.",
-    images: ["/assets/SafetyEquipment/panoramicmirror1.webp", "/assets/SafetyEquipment/panoramicmirror2.webp", "/assets/SafetyEquipment/panoramicmirror3.webp"],
-    options: [
-      { name: "׳¡׳•׳’ ׳׳¨׳׳”", values: ["׳₪׳ ׳™׳׳™׳×", "׳—׳™׳¦׳•׳ ׳™׳×"] },
-      { name: "׳’׳•׳“׳", values: ['60 ׳¡"׳', '80 ׳¡"׳'] }
-    ]
-  },
-  "flexible-post": {
-    title: "׳¢׳׳•׳“׳™׳ ׳’׳׳™׳©׳™׳",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳׳”׳₪׳¨׳“׳”, ׳”׳›׳•׳•׳ ׳” ׳•׳¡׳™׳׳•׳ ׳׳¡׳׳•׳׳™׳.",
-    longDescription: "׳¢׳׳•׳“׳™׳ ׳’׳׳™׳©׳™׳ ׳¢׳׳™׳“׳™׳ ׳׳₪׳’׳™׳¢׳•׳× ׳—׳•׳–׳¨׳•׳×, ׳׳×׳׳™׳׳™׳ ׳׳׳¨׳—׳‘ ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/SafetyEquipment/flexiblepost1.webp", "/assets/SafetyEquipment/flexiblepost2.webp", "/assets/SafetyEquipment/flexiblepost3.webp"],
-    options: [{ name: "׳¦׳‘׳¢", values: ["׳›׳×׳•׳", "׳׳‘׳", "׳׳“׳•׳-׳׳‘׳"] }]
-  },
-  "parking-stop": {
-    title: "׳׳¢׳¦׳•׳¨׳™ ׳—׳ ׳™׳™׳”",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳׳¢׳¦׳™׳¨׳” ׳׳“׳•׳™׳§׳× ׳•׳‘׳˜׳•׳—׳” ׳©׳ ׳¨׳›׳‘׳™׳ ׳‘׳—׳ ׳™׳”.",
-    longDescription: "׳₪׳×׳¨׳•׳ ׳׳×׳׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¦׳™׳‘׳•׳¨׳™׳™׳, ׳¢׳ ׳׳’׳•׳•׳ ׳׳•׳¨׳›׳™׳ ׳•׳—׳•׳׳¨׳™ ׳™׳™׳¦׳•׳¨.",
-    images: ["/assets/SafetyEquipment/parkingstopper1.webp", "/assets/SafetyEquipment/parkingstopper2.webp", "/assets/SafetyEquipment/parkingstopper3.webp", "/assets/SafetyEquipment/parkingstopper4.webp"],
-    options: [{ name: "׳׳•׳¨׳", values: ['90 ׳¡"׳', '120 ׳¡"׳', '180 ׳¡"׳'] }]
-  },
-  "parking-guard": {
-    title: "׳©׳•׳׳¨׳™ ׳—׳ ׳™׳™׳”",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳ ׳™׳”׳•׳ ׳•׳”׳’׳ ׳” ׳¢׳ ׳׳§׳•׳׳•׳× ׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳™׳.",
-    longDescription: "׳©׳•׳׳¨׳™ ׳—׳ ׳™׳” ׳™׳“׳ ׳™׳™׳/׳ ׳ ׳¢׳׳™׳ ׳‘׳”׳×׳׳׳” ׳׳“׳¨׳™׳©׳•׳× ׳©׳™׳׳•׳© ׳™׳•׳׳™׳•׳׳™.",
-    images: ["/assets/SafetyEquipment/parkingkeeper1.webp", "/assets/SafetyEquipment/parkingkeeper2.webp", "/assets/SafetyEquipment/parkingkeeper3.webp", "/assets/SafetyEquipment/parkingkeeper4.webp"],
-    options: [{ name: "׳׳ ׳’׳ ׳•׳", values: ["׳™׳“׳ ׳™", "׳ ׳¢׳™׳׳” ׳¢׳ ׳׳₪׳×׳—"] }]
-  },
-  "speed-bump": {
-    title: "׳₪׳¡׳™ ׳”׳׳˜׳”",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳”׳׳˜׳× ׳׳”׳™׳¨׳•׳× ׳•׳©׳™׳₪׳•׳¨ ׳‘׳˜׳™׳—׳•׳× ׳‘׳׳–׳•׳¨׳™׳ ׳¨׳’׳™׳©׳™׳.",
-    longDescription: "׳₪׳¡׳™ ׳”׳׳˜׳” ׳׳•׳“׳•׳׳¨׳™׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳, ׳׳–׳•׳¨׳™ ׳׳•׳¡׳“׳•׳× ׳•׳“׳¨׳›׳™׳ ׳₪׳ ׳™׳׳™׳•׳×.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳’׳•׳‘׳” ׳₪׳¡", values: ["׳ ׳׳•׳", "׳‘׳™׳ ׳•׳ ׳™"] }]
-  },
-  "spike-barrier": {
-    title: "׳׳—׳¡׳•׳׳™ ׳“׳•׳§׳¨׳ ׳™׳",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳‘׳§׳¨׳× ׳׳¢׳‘׳¨ ׳׳¨׳›׳‘׳™׳ ׳‘׳›׳™׳•׳•׳ ׳׳•׳¨׳©׳” ׳‘׳׳‘׳“.",
-    longDescription: "׳׳×׳׳™׳ ׳׳›׳ ׳™׳¡׳•׳× ׳׳‘׳•׳§׳¨׳•׳×, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳׳×׳—׳׳™׳ ׳׳•׳’׳™׳¡׳˜׳™׳™׳ ׳¢׳ ׳“׳¨׳™׳©׳•׳× ׳׳‘׳˜׳—׳”.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳›׳™׳•׳•׳ ׳׳¢׳‘׳¨", values: ["׳—׳“-׳›׳™׳•׳•׳ ׳™", "׳“׳•-׳›׳™׳•׳•׳ ׳™"] }]
-  },
-  "lane-divider": {
-    title: "׳׳₪׳¨׳™׳“׳™ ׳ ׳×׳™׳‘׳™׳",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳”׳₪׳¨׳“׳” ׳‘׳¨׳•׳¨׳” ׳‘׳™׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳”׳›׳•׳•׳ ׳× ׳×׳ ׳•׳¢׳”.",
-    longDescription: "׳₪׳×׳¨׳•׳ ׳¢׳׳™׳“ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳ ׳׳• ׳§׳‘׳•׳¢׳™׳ ׳׳₪׳™ ׳׳•׳₪׳™ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/SafetyEquipment/laneseparators1.webp", "/assets/SafetyEquipment/laneseparators2.webp"],
-    options: [{ name: "׳¡׳•׳’ ׳׳₪׳¨׳™׳“", values: ["׳׳•׳“׳•׳׳¨׳™", "׳§׳©׳™׳—"] }]
-  },
-  "solar-lamp": {
-    title: "׳₪׳ ׳¡׳™׳ ׳¡׳•׳׳¨׳™׳™׳",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳×׳׳•׳¨׳” ׳¢׳¦׳׳׳™׳× ׳׳׳×׳¨׳™ ׳¢׳‘׳•׳“׳” ׳•׳׳•׳§׳“׳™ ׳¡׳™׳›׳•׳.",
-    longDescription: "׳₪׳ ׳¡׳™׳ ׳¡׳•׳׳¨׳™׳™׳ ׳׳©׳™׳₪׳•׳¨ ׳ ׳¨׳׳•׳× ׳•׳”׳×׳¨׳׳”, ׳׳׳ ׳×׳׳•׳× ׳‘׳×׳©׳×׳™׳× ׳—׳©׳׳ ׳‘׳׳×׳¨.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳¢׳•׳¦׳׳× ׳×׳׳•׳¨׳”", values: ["׳‘׳¡׳™׳¡׳™׳×", "׳—׳–׳§׳”"] }]
-  },
-  "other-safety": {
-    title: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳× ׳ ׳•׳¡׳₪׳™׳",
-    category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
-    shortDescription: "׳׳•׳¦׳¨׳™׳ ׳׳©׳׳™׳׳™׳ ׳׳₪׳™ ׳¦׳•׳¨׳ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    longDescription: "׳₪׳×׳¨׳•׳ ׳•׳× ׳ ׳•׳¡׳₪׳™׳ ׳׳”׳×׳׳׳” ׳׳™׳©׳™׳× ׳‘׳׳×׳¨: ׳©׳™׳׳•׳‘ ׳׳‘׳™׳–׳¨׳™׳, ׳¡׳™׳׳•׳, ׳׳–׳”׳¨׳” ׳•׳‘׳˜׳™׳—׳•׳×.",
-    images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-    options: [{ name: "׳¡׳•׳’ ׳׳•׳¦׳¨", values: ["׳׳•׳×׳׳ ׳׳₪׳¨׳•׳™׳§׳˜", "׳׳׳׳™ ׳§׳™׳™׳"] }]
-  }
-};
 const PRODUCT_CART_STORAGE_KEY = "tsc_cart";
 const LAST_PRODUCT_KEY = "tsc_last_product_id";
 const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
 
-function fixMojibake(value) {
-  if (typeof value !== "string") return value;
-  if (!value.includes("׳")) return value;
+let PRODUCT_CATALOG = {};
+
+function ensureProductShape(product = {}) {
+  const normalized = { ...product };
+  if (!normalized.description) {
+    normalized.description = normalized.shortDescription || normalized.longDescription || "";
+  }
+
+  if (Array.isArray(normalized.options)) {
+    normalized.options = normalized.options.map((option) => ({
+      name: option?.name || "אפשרות",
+      values: Array.isArray(option?.values) ? option.values : []
+    }));
+  } else {
+    normalized.options = [];
+  }
+
+  normalized.images = normalizeProductImages(normalized.images);
+  return normalized;
+}
+
+async function loadProductCatalog() {
   try {
-    return decodeURIComponent(escape(value));
-  } catch {
-    return value;
+    const productsData = await window.loadProductsData?.();
+    const rawCatalog = productsData?.productCatalog;
+    if (rawCatalog && typeof rawCatalog === "object") {
+      PRODUCT_CATALOG = Object.fromEntries(
+        Object.entries(rawCatalog).map(([productId, product]) => [productId, ensureProductShape(product)])
+      );
+      return;
+    }
+  } catch (error) {
+    console.warn("Failed to load /data/products.json", error);
   }
+
+  PRODUCT_CATALOG = {};
 }
-
-function normalizeObjectStringsInPlace(value) {
-  if (Array.isArray(value)) {
-    value.forEach((item, index) => {
-      value[index] = normalizeObjectStringsInPlace(item);
-    });
-    return value;
-  }
-
-  if (value && typeof value === "object") {
-    Object.keys(value).forEach((key) => {
-      value[key] = normalizeObjectStringsInPlace(value[key]);
-    });
-    return value;
-  }
-
-  return fixMojibake(value);
-}
-
-normalizeObjectStringsInPlace(PRODUCT_CATALOG);
-
-const LEGACY_SIGN_PRODUCT_IDS = [
-  "triangleS",
-  "slowSign",
-  "stop-sign",
-  "square-board",
-  "circle-board"
-];
-
-LEGACY_SIGN_PRODUCT_IDS.forEach((productId) => {
-  delete PRODUCT_CATALOG[productId];
-});
-
-PRODUCT_CATALOG["custom-design-board"] = {
-  title: "שלט בעיצוב אישי",
-  category: "שלטים",
-  shortDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
-  longDescription: "שלט בהתאמה אישית מלאה לפי מידה, צבע, ניסוח וצורת התקנה.",
-  images: ["/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png", "/assets/Icons/TSCLogoSquared.png"],
-  options: [
-    { name: "צורה", values: ["עיגול", "משולש", "משולש הפוך", "ריבוע", "מרובע", "מתומן"] },
-    { name: "גודל", values: ["לבחירה לפי צורה"] },
-    { name: "כיתוב", values: ["לא", "כן"] },
-    { name: "תמונה", values: ["לא", "כן"] }
-  ]
-};
-
-PRODUCT_CATALOG["panoramic-mirror"] = {
-  title: "מראה פנורמית",
-  category: "אביזרי בטיחות",
-  shortDescription: "מראה פנורמית עם בחירת חומר וגודל.",
-  longDescription: "מראה פנורמית עם בחירת חומר וגודל.",
-  images: ["/assets/Icons/TSCLogoSquared.png"],
-  options: [
-    { name: "חומר", values: ["פוליקרבונט", "אקרילי"] },
-    { name: "גודל", values: ["קוטר 60", "קוטר 80"] }
-  ]
-};
-
-PRODUCT_CATALOG["safety-cones"] = {
-  title: "קונוס",
-  category: "אביזרי בטיחות",
-  shortDescription: "קונוס עם בחירת צבע וגובה לפי דגם.",
-  longDescription: "קונוס עם בחירת צבע וגובה לפי דגם.",
-  images: ["/assets/Icons/TSCLogoSquared.png"],
-  options: [
-    { name: "צבע", values: ["כתום שחור", "כתום לבן"] },
-    { name: "גובה", values: ["50", "75"] }
-  ]
-};
-
-PRODUCT_CATALOG["connector-units-3-6-inch"] = {
-  title: "יחידת חיבור",
-  category: "אביזרי בטיחות",
-  shortDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
-  longDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
-  images: ["/assets/SafetyEquipment/signConnector.webp"],
-  options: [
-    { name: "סוג יחידה", values: ["3 צול", "6 צול"] }
-  ]
-};
-
-function hasGibberish(text) {
-  return typeof text === "string" && /׳|�/.test(text);
-}
-
-Object.keys(PRODUCT_CATALOG).forEach((productId) => {
-  const product = PRODUCT_CATALOG[productId];
-  if (!product.description) {
-    product.description = product.shortDescription || product.longDescription || "";
-  }
-
-  delete product.shortDescription;
-  delete product.longDescription;
-
-  if (Array.isArray(product.options)) {
-    product.options = product.options.map((opt, optIndex) => {
-      const optionName = hasGibberish(opt?.name) ? `אפשרות ${optIndex + 1}` : opt.name;
-      const optionValues = Array.isArray(opt?.values)
-        ? opt.values.map((val, valIndex) =>
-            hasGibberish(val) ? `בחירה ${valIndex + 1}` : val
-          )
-        : [];
-
-      return { name: optionName, values: optionValues };
-    });
-  }
-
-  product.images = normalizeProductImages(product.images);
-});
 
 function getProductIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
@@ -631,6 +413,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const sizeField = fields.find((field) => field.label === "גודל");
     const textField = fields.find((field) => field.label === "כיתוב");
     const imageField = fields.find((field) => field.label === "תמונה");
+    let textControlsWrapper = null;
 
     if (shapeField && sizeField) {
       const updateSizeOptionsByShape = () => {
@@ -657,6 +440,49 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
       textField.element.addEventListener("change", toggleCustomTextInput);
       toggleCustomTextInput();
+
+      textControlsWrapper = document.createElement("div");
+      textControlsWrapper.className = "product-option custom-text-controls";
+      textControlsWrapper.id = "customTextControlsWrapper";
+      textControlsWrapper.style.display = "none";
+      textControlsWrapper.innerHTML = `
+        <label>עיצוב טקסט</label>
+        <div class="custom-text-controls__grid">
+          <label class="custom-control-field" for="customTextFontFamily">
+            <span>פונט</span>
+            <select id="customTextFontFamily" class="form-select form-select-sm">
+              <option value="Arial">Arial</option>
+              <option value="'Rubik', Arial, sans-serif">Rubik</option>
+              <option value="'Assistant', Arial, sans-serif">Assistant</option>
+              <option value="'Noto Sans Hebrew', Arial, sans-serif">Noto Sans Hebrew</option>
+            </select>
+          </label>
+          <label class="custom-control-field" for="customTextFontColor">
+            <span>צבע טקסט</span>
+            <input id="customTextFontColor" type="color" class="form-control form-control-color" value="#111827" />
+          </label>
+          <label class="custom-control-field custom-control-field--full" for="customTextFontSize">
+            <span>גודל טקסט: <strong id="customTextFontSizeValue">40</strong>px</span>
+            <input id="customTextFontSize" type="range" class="form-range" min="20" max="96" step="2" value="40" />
+          </label>
+          <label class="custom-control-field custom-control-field--full" for="customTextOffsetX">
+            <span>רוחב: <strong id="customTextOffsetXValue">0</strong></span>
+            <input id="customTextOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+          </label>
+          <label class="custom-control-field custom-control-field--full" for="customTextOffsetY">
+            <span>גובה: <strong id="customTextOffsetYValue">0</strong></span>
+            <input id="customTextOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+          </label>
+        </div>
+      `;
+      optionsContainer.appendChild(textControlsWrapper);
+
+      const toggleTextControls = () => {
+        const show = textField.element.value === "כן";
+        textControlsWrapper.style.display = show ? "block" : "none";
+      };
+      textField.element.addEventListener("change", toggleTextControls);
+      toggleTextControls();
     }
 
     if (imageField) {
@@ -688,6 +514,14 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     optionsContainer.appendChild(customNotesWrapper);
 
     const imageTransform = { offsetX: 0, offsetY: 0, scale: 1 };
+    const textTransform = {
+      offsetX: 0,
+      offsetY: 0,
+      fontSize: 40,
+      fontColor: "#111827",
+      fontFamily: "Arial",
+      fontWeight: "700"
+    };
 
     let imageControlsWrapper = document.getElementById("customImageControlsWrapper");
     if (!imageControlsWrapper) {
@@ -697,14 +531,19 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       imageControlsWrapper.style.display = "none";
       imageControlsWrapper.innerHTML = `
         <label>שליטה על התמונה</label>
-        <div class="d-flex flex-wrap gap-2">
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="up">למעלה</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="down">למטה</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="left">שמאלה</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-move="right">ימינה</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-scale="up">הגדל</button>
-          <button type="button" class="btn btn-outline-secondary btn-sm" data-img-scale="down">הקטן</button>
-          <button type="button" class="btn btn-outline-dark btn-sm" data-img-reset="true">איפוס</button>
+        <div class="custom-image-controls__sliders">
+          <label class="custom-control-field custom-control-field--full" for="customImageOffsetX">
+            <span>רוחב: <strong id="customImageOffsetXValue">0</strong></span>
+            <input id="customImageOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+          </label>
+          <label class="custom-control-field custom-control-field--full" for="customImageOffsetY">
+            <span>גובה: <strong id="customImageOffsetYValue">0</strong></span>
+            <input id="customImageOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+          </label>
+          <label class="custom-control-field custom-control-field--full" for="customImageScale">
+            <span>גודל תמונה: <strong id="customImageScaleValue">100</strong>%</span>
+            <input id="customImageScale" type="range" class="form-range" min="35" max="250" step="5" value="100" />
+          </label>
         </div>
       `;
       const imageInputWrapper = document.getElementById("customImageOptionWrapper");
@@ -755,6 +594,15 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         previewNote.insertAdjacentElement("afterend", imageControlsWrapper);
       } else if (previewCanvas?.parentElement) {
         previewCanvas.insertAdjacentElement("afterend", imageControlsWrapper);
+      }
+    }
+    if (textControlsWrapper) {
+      if (imageControlsWrapper?.parentElement) {
+        imageControlsWrapper.insertAdjacentElement("afterend", textControlsWrapper);
+      } else if (previewNote?.parentElement) {
+        previewNote.insertAdjacentElement("afterend", textControlsWrapper);
+      } else if (previewCanvas?.parentElement) {
+        previewCanvas.insertAdjacentElement("afterend", textControlsWrapper);
       }
     }
 
@@ -864,8 +712,10 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       const words = textValue.split(/\s+/).filter(Boolean);
       const lines = [];
       let line = "";
-      const fontSize = Math.max(24, Math.min(46, Math.floor(bounds.h / 3.2)));
-      ctx.font = `700 ${fontSize}px Arial`;
+      const safeFontSize = Math.max(20, Math.min(96, Number(textTransform.fontSize) || 40));
+      const safeFontFamily = textTransform.fontFamily || "Arial";
+      const safeFontWeight = textTransform.fontWeight || "700";
+      ctx.font = `${safeFontWeight} ${safeFontSize}px ${safeFontFamily}`;
       words.forEach((word) => {
         const test = line ? `${line} ${word}` : word;
         if (ctx.measureText(test).width > maxWidth && line) {
@@ -880,16 +730,17 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       ctx.save();
       drawShapePath(shape);
       ctx.clip();
-      ctx.fillStyle = "#111827";
+      ctx.fillStyle = textTransform.fontColor || "#111827";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      const lineHeight = Math.floor(fontSize * 1.2);
-      const centerY = bounds.y + bounds.h * 0.33;
+      const lineHeight = Math.floor(safeFontSize * 1.2);
+      const centerY = bounds.y + bounds.h * 0.33 + textTransform.offsetY;
+      const centerX = previewCanvas.width / 2 + textTransform.offsetX;
       let startY = centerY - ((lines.length - 1) * lineHeight) / 2;
       const minY = bounds.y + lineHeight * 0.8;
       if (startY < minY) startY = minY;
       lines.forEach((l, i) => {
-        ctx.fillText(l, previewCanvas.width / 2, startY + i * lineHeight, maxWidth);
+        ctx.fillText(l, centerX, startY + i * lineHeight, maxWidth);
       });
       ctx.restore();
     }
@@ -1011,6 +862,91 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       }
     }
 
+    const textFontFamilyInput = document.getElementById("customTextFontFamily");
+    const textFontColorInput = document.getElementById("customTextFontColor");
+    const textFontSizeInput = document.getElementById("customTextFontSize");
+    const textOffsetXInput = document.getElementById("customTextOffsetX");
+    const textOffsetYInput = document.getElementById("customTextOffsetY");
+    const textFontSizeValue = document.getElementById("customTextFontSizeValue");
+    const textOffsetXValue = document.getElementById("customTextOffsetXValue");
+    const textOffsetYValue = document.getElementById("customTextOffsetYValue");
+
+    const imageOffsetXInput = document.getElementById("customImageOffsetX");
+    const imageOffsetYInput = document.getElementById("customImageOffsetY");
+    const imageScaleInput = document.getElementById("customImageScale");
+    const imageOffsetXValue = document.getElementById("customImageOffsetXValue");
+    const imageOffsetYValue = document.getElementById("customImageOffsetYValue");
+    const imageScaleValue = document.getElementById("customImageScaleValue");
+
+    const syncImageControls = () => {
+      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(imageTransform.offsetX));
+      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(imageTransform.offsetY));
+      if (imageScaleInput) imageScaleInput.value = String(Math.round(imageTransform.scale * 100));
+      if (imageOffsetXValue) imageOffsetXValue.textContent = String(Math.round(imageTransform.offsetX));
+      if (imageOffsetYValue) imageOffsetYValue.textContent = String(Math.round(imageTransform.offsetY));
+      if (imageScaleValue) imageScaleValue.textContent = String(Math.round(imageTransform.scale * 100));
+    };
+
+    const syncTextControls = () => {
+      if (textFontSizeInput) textFontSizeInput.value = String(Math.round(textTransform.fontSize));
+      if (textOffsetXInput) textOffsetXInput.value = String(Math.round(textTransform.offsetX));
+      if (textOffsetYInput) textOffsetYInput.value = String(Math.round(textTransform.offsetY));
+      if (textFontColorInput) textFontColorInput.value = textTransform.fontColor;
+      if (textFontFamilyInput) textFontFamilyInput.value = textTransform.fontFamily;
+      if (textFontSizeValue) textFontSizeValue.textContent = String(Math.round(textTransform.fontSize));
+      if (textOffsetXValue) textOffsetXValue.textContent = String(Math.round(textTransform.offsetX));
+      if (textOffsetYValue) textOffsetYValue.textContent = String(Math.round(textTransform.offsetY));
+    };
+
+    textFontFamilyInput?.addEventListener("change", () => {
+      hasCustomEdits = true;
+      textTransform.fontFamily = textFontFamilyInput.value;
+      updateCustomBoardPreview();
+    });
+    textFontColorInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      textTransform.fontColor = textFontColorInput.value || "#111827";
+      syncTextControls();
+      updateCustomBoardPreview();
+    });
+    textFontSizeInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      textTransform.fontSize = Number(textFontSizeInput.value || 40);
+      syncTextControls();
+      updateCustomBoardPreview();
+    });
+    textOffsetXInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      textTransform.offsetX = Number(textOffsetXInput.value || 0);
+      syncTextControls();
+      updateCustomBoardPreview();
+    });
+    textOffsetYInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      textTransform.offsetY = Number(textOffsetYInput.value || 0);
+      syncTextControls();
+      updateCustomBoardPreview();
+    });
+
+    imageOffsetXInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      imageTransform.offsetX = Number(imageOffsetXInput.value || 0);
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
+    imageOffsetYInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      imageTransform.offsetY = Number(imageOffsetYInput.value || 0);
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
+    imageScaleInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      imageTransform.scale = Math.max(0.35, Math.min(2.5, Number(imageScaleInput.value || 100) / 100));
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
+
     shapeField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
       updateCustomBoardPreview();
@@ -1035,33 +971,9 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         imageTransform.offsetX = 0;
         imageTransform.offsetY = 0;
         imageTransform.scale = 1;
+        syncImageControls();
         updateCustomBoardPreview();
       }
-    });
-
-    imageControlsWrapper?.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) return;
-
-      const move = target.getAttribute("data-img-move");
-      const scale = target.getAttribute("data-img-scale");
-      const reset = target.getAttribute("data-img-reset");
-      const moveStep = 16;
-
-      if (move === "up") imageTransform.offsetY -= moveStep;
-      if (move === "down") imageTransform.offsetY += moveStep;
-      if (move === "left") imageTransform.offsetX -= moveStep;
-      if (move === "right") imageTransform.offsetX += moveStep;
-      if (scale === "up") imageTransform.scale = Math.min(2.5, imageTransform.scale + 0.1);
-      if (scale === "down") imageTransform.scale = Math.max(0.35, imageTransform.scale - 0.1);
-      if (reset === "true") {
-        imageTransform.offsetX = 0;
-        imageTransform.offsetY = 0;
-        imageTransform.scale = 1;
-      }
-
-      hasCustomEdits = true;
-      updateCustomBoardPreview();
     });
 
     if (restorePayload) {
@@ -1090,8 +1002,17 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (customNotesInput && restorePayload.notes) {
         customNotesInput.value = restorePayload.notes;
       }
+      if (restorePayload.textFontFamily) textTransform.fontFamily = restorePayload.textFontFamily;
+      if (restorePayload.textFontColor) textTransform.fontColor = restorePayload.textFontColor;
+      if (restorePayload.textFontSize) textTransform.fontSize = Number(restorePayload.textFontSize) || 40;
+      if (restorePayload.textOffsetX) textTransform.offsetX = Number(restorePayload.textOffsetX) || 0;
+      if (restorePayload.textOffsetY) textTransform.offsetY = Number(restorePayload.textOffsetY) || 0;
       hasCustomEdits = false;
+      syncTextControls();
+      syncImageControls();
     }
+    syncTextControls();
+    syncImageControls();
     updateCustomBoardPreview();
   } else {
     const sizeField = fields.find((field) => field.label === "גודל");
@@ -1202,6 +1123,31 @@ function setupAddToCart(productId, product, optionFields) {
       });
     }
 
+    const textEnabledValue = optionFields.find((field) => field.label === "כיתוב")?.element?.value;
+    if (textEnabledValue === "כן") {
+      const textFontFamilyInput = document.getElementById("customTextFontFamily");
+      const textFontSizeInput = document.getElementById("customTextFontSize");
+      const textFontColorInput = document.getElementById("customTextFontColor");
+      const textOffsetXInput = document.getElementById("customTextOffsetX");
+      const textOffsetYInput = document.getElementById("customTextOffsetY");
+
+      if (textFontFamilyInput?.value) {
+        selectedOptions.push({ name: "פונט כיתוב", value: textFontFamilyInput.value });
+      }
+      if (textFontSizeInput?.value) {
+        selectedOptions.push({ name: "גודל כיתוב", value: `${textFontSizeInput.value}px` });
+      }
+      if (textFontColorInput?.value) {
+        selectedOptions.push({ name: "צבע כיתוב", value: textFontColorInput.value });
+      }
+      if (textOffsetXInput?.value) {
+        selectedOptions.push({ name: "רוחב כיתוב", value: textOffsetXInput.value });
+      }
+      if (textOffsetYInput?.value) {
+        selectedOptions.push({ name: "גובה כיתוב", value: textOffsetYInput.value });
+      }
+    }
+
     const quantity = Number(qtyField.value || 1);
     const cart = JSON.parse(localStorage.getItem(PRODUCT_CART_STORAGE_KEY) || "[]");
     const nextItem = {
@@ -1294,7 +1240,9 @@ function renderNotFound() {
   `;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProductCatalog();
+
   const productId = getProductIdFromUrl();
   const product = PRODUCT_CATALOG[productId] || buildDynamicProduct(productId);
   let customDesignRestore = null;
