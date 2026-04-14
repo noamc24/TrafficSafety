@@ -1,0 +1,62 @@
+# 🚧 Traffic Safety Center
+
+A production-ready website for a traffic safety business, focused on service presentation, client communication, and accessibility.
+
+🌐 Live Website: https://www.trafficsafetycenter.com
+
+---
+
+## 🧠 Overview
+
+This version of the project represents the initial stage of the system — a fully functional business website before the addition of an e-commerce store.
+
+The goal was to create a clean, professional, and accessible platform for presenting services and enabling fast client communication.
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- HTML5, CSS3, JavaScript
+- Bootstrap (RTL support)
+
+**Backend**
+- Node.js
+- Express
+
+**Other Tools**
+- Telegram Bot API (contact integration)
+- Render (deployment)
+
+---
+
+## ⚙️ Features
+
+### 🛣️ Service Presentation
+- Structured service pages (road marking, signage, traffic arrangements)
+- Clean UI focused on clarity and professionalism
+
+### 📩 Contact System
+- Contact form connected to Telegram
+- Real-time message delivery to business owner
+
+### 📱 Responsive Design
+- Fully responsive across mobile, tablet, and desktop
+- RTL support for Hebrew
+
+### ♿ Accessibility
+- Built according to Israeli Standard (T"י 5568) / WCAG AA principles
+- Includes:
+  - Text scaling
+  - High contrast mode
+  - Animation disabling
+  - Readable fonts
+
+---
+
+## 🚀 Setup & Installation
+
+```bash
+from root directory: Back
+npm install
+npm run dev
