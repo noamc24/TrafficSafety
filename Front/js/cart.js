@@ -88,10 +88,10 @@ function buildTelegramQuoteMessage(customer, cart) {
   const lines = [
     "🛒 <b>בקשת הצעת מחיר חדשה מהאתר</b>",
     "",
-    `👤 <b>שם:</b> ${escapeHtml(customer.fullName)}`,
-    `📞 <b>טלפון:</b> ${escapeHtml(customer.phone)}`,
-    `✉️ <b>אימייל:</b> ${escapeHtml(customer.email || "לא הוזן")}`,
-    `🏢 <b>חברה:</b> ${escapeHtml(customer.company || "לא הוזן")}`,
+    `👤 שם: ${escapeHtml(customer.fullName)}`,
+    `📞 טלפון: ${escapeHtml(customer.phone)}`,
+    `✉️ אימייל: ${escapeHtml(customer.email || "לא הוזן")}`,
+    `🏢 חברה: ${escapeHtml(customer.company || "לא הוזן")}`,
     "",
     "📦 <b>מוצרים:</b>"
   ];
@@ -129,6 +129,14 @@ function getOptionValueAny(item, optionNames = []) {
 
 function buildCustomDesignRestorePayload(item) {
   const textFontSizeRaw = getOptionValue(item, "גודל כיתוב");
+  const customTextFontSizePx = Number(item?.customDesignTextFontSizePx);
+  let restoredTextFontSize = "";
+  if (Number.isFinite(customTextFontSizePx) && customTextFontSizePx > 0) {
+    restoredTextFontSize = String(customTextFontSizePx);
+  } else if (textFontSizeRaw) {
+    const parsed = String(textFontSizeRaw).match(/\d+(?:\.\d+)?/);
+    restoredTextFontSize = parsed ? parsed[0] : "";
+  }
   return {
     productId: item.productId,
     shape: getOptionValue(item, "צורה"),
@@ -136,10 +144,11 @@ function buildCustomDesignRestorePayload(item) {
     textEnabled: getOptionValue(item, "כיתוב"),
     textValue: getOptionValue(item, "נוסח מותאם"),
     textFontFamily: getOptionValue(item, "פונט כיתוב"),
-    textFontSize: textFontSizeRaw ? String(textFontSizeRaw).replace("px", "") : "",
+    textFontSize: restoredTextFontSize,
     textFontColor: getOptionValue(item, "צבע כיתוב"),
     textOffsetX: getOptionValueAny(item, ["רוחב כיתוב", "מיקום כיתוב X"]),
     textOffsetY: getOptionValueAny(item, ["גובה כיתוב", "מיקום כיתוב Y"]),
+    textLineWidthPercent: String(getOptionValue(item, "אורך שורה") || "").replace("%", ""),
     imageEnabled: getOptionValue(item, "תמונה"),
     notes: getOptionValue(item, "הערות"),
     customDesignPreview: item.customDesignPreview || "",

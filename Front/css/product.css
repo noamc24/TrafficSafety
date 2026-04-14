@@ -158,6 +158,19 @@
   font-weight: 600;
 }
 
+#customTextOptionInput,
+#customTextControlsWrapper,
+#customTextControlsWrapper .form-select,
+#customTextControlsWrapper .form-range,
+#customTextControlsWrapper .custom-control-field > span {
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+#customTextOptionInput {
+  font-family: "Rubik", "Assistant", "Noto Sans Hebrew", Arial, sans-serif;
+}
+
 .custom-control-field--full {
   grid-column: 1 / -1;
 }
