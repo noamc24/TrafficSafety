@@ -55,7 +55,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳§׳•׳ ׳•׳¡ ׳‘׳•׳׳˜ ׳•׳¢׳׳™׳“ ׳׳¢׳‘׳•׳“׳•׳× ׳©׳˜׳— ׳•׳—׳ ׳™׳•׳ ׳™׳.",
     longDescription: "׳׳×׳׳™׳ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳, ׳¡׳™׳׳•׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳׳–׳•׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/SafetyEquipment/cone1.png", "/assets/SafetyEquipment/cone2.png", "/assets/SafetyEquipment/cone3.png"],
+    images: ["/assets/SafetyEquipment/cone1.webp", "/assets/SafetyEquipment/cone2.webp", "/assets/SafetyEquipment/cone3.webp"],
     options: [{ name: "׳’׳•׳‘׳”", values: ['45 ׳¡"׳', '70 ׳¡"׳'] }]
   },
   "panoramic-mirror": {
@@ -63,7 +63,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳¨׳׳•׳× ׳׳©׳™׳₪׳•׳¨ ׳©׳“׳” ׳”׳¨׳׳™׳™׳” ׳‘׳¦׳׳×׳™׳, ׳—׳ ׳™׳•׳ ׳™׳ ׳•׳™׳¦׳™׳׳•׳×.",
     longDescription: "׳”׳׳•׳¦׳¨ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳¡׳•׳’׳™׳, ׳•׳›׳ ׳¡׳•׳’ ׳–׳׳™׳ ׳‘׳©׳ ׳™ ׳’׳“׳׳™׳ ׳׳‘׳—׳™׳¨׳” ׳׳₪׳™ ׳×׳ ׳׳™ ׳”׳©׳˜׳—.",
-    images: ["/assets/SafetyEquipment/panoramicmirror1.png", "/assets/SafetyEquipment/panoramicmirror2.png", "/assets/SafetyEquipment/panoramicmirror3.png"],
+    images: ["/assets/SafetyEquipment/panoramicmirror1.webp", "/assets/SafetyEquipment/panoramicmirror2.webp", "/assets/SafetyEquipment/panoramicmirror3.webp"],
     options: [
       { name: "׳¡׳•׳’ ׳׳¨׳׳”", values: ["׳₪׳ ׳™׳׳™׳×", "׳—׳™׳¦׳•׳ ׳™׳×"] },
       { name: "׳’׳•׳“׳", values: ['60 ׳¡"׳', '80 ׳¡"׳'] }
@@ -74,7 +74,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳”׳₪׳¨׳“׳”, ׳”׳›׳•׳•׳ ׳” ׳•׳¡׳™׳׳•׳ ׳׳¡׳׳•׳׳™׳.",
     longDescription: "׳¢׳׳•׳“׳™׳ ׳’׳׳™׳©׳™׳ ׳¢׳׳™׳“׳™׳ ׳׳₪׳’׳™׳¢׳•׳× ׳—׳•׳–׳¨׳•׳×, ׳׳×׳׳™׳׳™׳ ׳׳׳¨׳—׳‘ ׳¢׳™׳¨׳•׳ ׳™ ׳•׳׳×׳¨׳™׳ ׳×׳₪׳¢׳•׳׳™׳™׳.",
-    images: ["/assets/SafetyEquipment/flexiblepost1.png", "/assets/SafetyEquipment/flexiblepost2.png", "/assets/SafetyEquipment/flexiblepost3.png"],
+    images: ["/assets/SafetyEquipment/flexiblepost1.webp", "/assets/SafetyEquipment/flexiblepost2.webp", "/assets/SafetyEquipment/flexiblepost3.webp"],
     options: [{ name: "׳¦׳‘׳¢", values: ["׳›׳×׳•׳", "׳׳‘׳", "׳׳“׳•׳-׳׳‘׳"] }]
   },
   "parking-stop": {
@@ -82,7 +82,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳׳¢׳¦׳™׳¨׳” ׳׳“׳•׳™׳§׳× ׳•׳‘׳˜׳•׳—׳” ׳©׳ ׳¨׳›׳‘׳™׳ ׳‘׳—׳ ׳™׳”.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳׳×׳׳™׳ ׳׳—׳ ׳™׳•׳ ׳™׳ ׳₪׳¨׳˜׳™׳™׳ ׳•׳¦׳™׳‘׳•׳¨׳™׳™׳, ׳¢׳ ׳׳’׳•׳•׳ ׳׳•׳¨׳›׳™׳ ׳•׳—׳•׳׳¨׳™ ׳™׳™׳¦׳•׳¨.",
-    images: ["/assets/SafetyEquipment/parkingstopper1.png", "/assets/SafetyEquipment/parkingstopper2.png", "/assets/SafetyEquipment/parkingstopper3.png", "/assets/SafetyEquipment/parkingstopper4.png"],
+    images: ["/assets/SafetyEquipment/parkingstopper1.webp", "/assets/SafetyEquipment/parkingstopper2.webp", "/assets/SafetyEquipment/parkingstopper3.webp", "/assets/SafetyEquipment/parkingstopper4.webp"],
     options: [{ name: "׳׳•׳¨׳", values: ['90 ׳¡"׳', '120 ׳¡"׳', '180 ׳¡"׳'] }]
   },
   "parking-guard": {
@@ -90,7 +90,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳ ׳™׳”׳•׳ ׳•׳”׳’׳ ׳” ׳¢׳ ׳׳§׳•׳׳•׳× ׳—׳ ׳™׳” ׳₪׳¨׳˜׳™׳™׳.",
     longDescription: "׳©׳•׳׳¨׳™ ׳—׳ ׳™׳” ׳™׳“׳ ׳™׳™׳/׳ ׳ ׳¢׳׳™׳ ׳‘׳”׳×׳׳׳” ׳׳“׳¨׳™׳©׳•׳× ׳©׳™׳׳•׳© ׳™׳•׳׳™׳•׳׳™.",
-    images: ["/assets/SafetyEquipment/parkingkeeper1.png", "/assets/SafetyEquipment/parkingkeeper2.png", "/assets/SafetyEquipment/parkingkeeper3.png", "/assets/SafetyEquipment/parkingkeeper4.png"],
+    images: ["/assets/SafetyEquipment/parkingkeeper1.webp", "/assets/SafetyEquipment/parkingkeeper2.webp", "/assets/SafetyEquipment/parkingkeeper3.webp", "/assets/SafetyEquipment/parkingkeeper4.webp"],
     options: [{ name: "׳׳ ׳’׳ ׳•׳", values: ["׳™׳“׳ ׳™", "׳ ׳¢׳™׳׳” ׳¢׳ ׳׳₪׳×׳—"] }]
   },
   "speed-bump": {
@@ -114,7 +114,7 @@
     category: "׳׳‘׳™׳–׳¨׳™ ׳‘׳˜׳™׳—׳•׳×",
     shortDescription: "׳”׳₪׳¨׳“׳” ׳‘׳¨׳•׳¨׳” ׳‘׳™׳ ׳ ׳×׳™׳‘׳™׳ ׳•׳”׳›׳•׳•׳ ׳× ׳×׳ ׳•׳¢׳”.",
     longDescription: "׳₪׳×׳¨׳•׳ ׳¢׳׳™׳“ ׳׳”׳¡׳“׳¨׳™ ׳×׳ ׳•׳¢׳” ׳–׳׳ ׳™׳™׳ ׳׳• ׳§׳‘׳•׳¢׳™׳ ׳׳₪׳™ ׳׳•׳₪׳™ ׳”׳₪׳¨׳•׳™׳§׳˜.",
-    images: ["/assets/SafetyEquipment/laneseparators1.png", "/assets/SafetyEquipment/laneseparators2.png"],
+    images: ["/assets/SafetyEquipment/laneseparators1.webp", "/assets/SafetyEquipment/laneseparators2.webp"],
     options: [{ name: "׳¡׳•׳’ ׳׳₪׳¨׳™׳“", values: ["׳׳•׳“׳•׳׳¨׳™", "׳§׳©׳™׳—"] }]
   },
   "solar-lamp": {
@@ -301,7 +301,7 @@ PRODUCT_CATALOG["connector-units-3-6-inch"] = {
   category: "אביזרי בטיחות",
   shortDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
   longDescription: "יחידת חיבור להתקנת תמרורים ושלטים על עמוד.",
-  images: ["/assets/SafetyEquipment/signConnector.png"],
+  images: ["/assets/SafetyEquipment/signConnector.webp"],
   options: [
     { name: "סוג יחידה", values: ["3 צול", "6 צול"] }
   ]
@@ -844,12 +844,12 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     }
 
     const blankImageByShape = {
-      "עיגול": "/assets/signs/circle.png",
-      "משולש": "/assets/signs/triangle.png",
-      "משולש הפוך": "/assets/signs/upsideDtriangle.png",
-      "ריבוע": "/assets/signs/square.png",
-      "מרובע": "/assets/signs/rectangle.png",
-      "מתומן": "/assets/signs/octagon.png"
+      "עיגול": "/assets/signs/circle.webp",
+      "משולש": "/assets/signs/triangle.webp",
+      "משולש הפוך": "/assets/signs/upsideDtriangle.webp",
+      "ריבוע": "/assets/signs/square.webp",
+      "מרובע": "/assets/signs/rectangle.webp",
+      "מתומן": "/assets/signs/octagon.webp"
     };
 
     function drawShapePath(shape) {
@@ -1421,6 +1421,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   setupAddToCart(productId, product, optionFields);
 });
+
 
 
 

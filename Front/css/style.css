@@ -35,6 +35,7 @@ body {
   font-size: clamp(0.95rem, 1vw, 1.1rem);
   overflow-x: hidden;
   max-width: 100%;
+  padding-bottom: 6rem;
 }
 
 img,
@@ -389,7 +390,7 @@ footer .container.small.text-muted.d-flex.flex-column.flex-md-row.align-items-ce
 
 footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start {
   flex: 1 1 auto;
-  min-width: max-content;
+  min-width: 0;
   flex-wrap: nowrap;
   justify-content: flex-start !important;
 }
@@ -401,11 +402,27 @@ footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start > span
 }
 
 footer .d-flex.gap-3.flex-grow-1.justify-content-end {
-  flex: 0 0 auto;
-  flex-wrap: nowrap;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  white-space: normal;
+  justify-content: center !important;
+  align-content: center;
+  overflow: visible;
+  min-width: 0;
+  text-align: center;
+}
+
+footer .footer-nav-links a {
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
-  justify-content: flex-end !important;
-  overflow-x: auto;
+  text-decoration: none;
+}
+
+footer .footer-nav-links a + a::before {
+  content: "•";
+  color: rgba(108, 117, 125, 0.75);
+  margin-inline: 0.5rem;
 }
 
 /* ===== Service Cards ===== */
@@ -625,6 +642,20 @@ footer .d-flex.gap-3.flex-grow-1.justify-content-end {
 
   .footer-logo {
     margin-right: 0;
+  }
+
+  footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start {
+    justify-content: center !important;
+  }
+
+  footer .d-flex.align-items-center.gap-2.flex-grow-1.justify-content-start > span {
+    white-space: normal;
+    text-align: center;
+  }
+
+  footer .d-flex.gap-3.flex-grow-1.justify-content-end {
+    justify-content: center !important;
+    gap: 0.35rem 0;
   }
 
   .map-container {

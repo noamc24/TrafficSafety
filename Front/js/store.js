@@ -154,48 +154,48 @@
 
     const specialImagesByCode = {
       "107": [
-        "/assets/TrafficSigns/100/107-1.png",
-        "/assets/TrafficSigns/100/107-2.png",
-        "/assets/TrafficSigns/100/107-3.png"
+        "/assets/TrafficSigns/100/107-1.webp",
+        "/assets/TrafficSigns/100/107-2.webp",
+        "/assets/TrafficSigns/100/107-3.webp"
       ],
       "108": [
-        "/assets/TrafficSigns/100/108-1.png",
-        "/assets/TrafficSigns/100/108-2.png",
-        "/assets/TrafficSigns/100/108-3.png"
+        "/assets/TrafficSigns/100/108-1.webp",
+        "/assets/TrafficSigns/100/108-2.webp",
+        "/assets/TrafficSigns/100/108-3.webp"
       ],
       "112": [
-        "/assets/TrafficSigns/100/112-1.png",
-        "/assets/TrafficSigns/100/112-2.png",
-        "/assets/TrafficSigns/100/112-3.png",
-        "/assets/TrafficSigns/100/112-4.png"
+        "/assets/TrafficSigns/100/112-1.webp",
+        "/assets/TrafficSigns/100/112-2.webp",
+        "/assets/TrafficSigns/100/112-3.webp",
+        "/assets/TrafficSigns/100/112-4.webp"
       ],
       "439": [
-        "/assets/TrafficSigns/400/439-1.png",
-        "/assets/TrafficSigns/400/439-2.png",
-        "/assets/TrafficSigns/400/439-3.png"
+        "/assets/TrafficSigns/400/439-1.webp",
+        "/assets/TrafficSigns/400/439-2.webp",
+        "/assets/TrafficSigns/400/439-3.webp"
       ],
       "632": [
-        "/assets/TrafficSigns/600/632-1.png",
-        "/assets/TrafficSigns/600/632-2.png"
+        "/assets/TrafficSigns/600/632-1.webp",
+        "/assets/TrafficSigns/600/632-2.webp"
       ],
       "914": [
-        "/assets/TrafficSigns/900/914-1.png",
-        "/assets/TrafficSigns/900/914-2.png"
+        "/assets/TrafficSigns/900/914-1.webp",
+        "/assets/TrafficSigns/900/914-2.webp"
       ],
       "903": [
-        "/assets/TrafficSigns/900/903-1.png",
-        "/assets/TrafficSigns/900/903-2.png",
-        "/assets/TrafficSigns/900/903-3.png"
+        "/assets/TrafficSigns/900/903-1.webp",
+        "/assets/TrafficSigns/900/903-2.webp",
+        "/assets/TrafficSigns/900/903-3.webp"
       ],
       "908": [
-        "/assets/TrafficSigns/900/908-1.png",
-        "/assets/TrafficSigns/900/908-2.png",
-        "/assets/TrafficSigns/900/908-3.png"
+        "/assets/TrafficSigns/900/908-1.webp",
+        "/assets/TrafficSigns/900/908-2.webp",
+        "/assets/TrafficSigns/900/908-3.webp"
       ],
         "930": [
-          "/assets/TrafficSigns/900/930-1.png",
-          "/assets/TrafficSigns/900/930-2.png",
-          "/assets/TrafficSigns/900/930-3.png"
+          "/assets/TrafficSigns/900/930-1.webp",
+          "/assets/TrafficSigns/900/930-2.webp",
+          "/assets/TrafficSigns/900/930-3.webp"
         ],
         "230": ["/assets/Icons/TSCLogoSquared.png"],
         "231": ["/assets/Icons/TSCLogoSquared.png"],
@@ -208,23 +208,23 @@
 
     const numericCode = Number(code);
     const series = Math.floor(numericCode / 100) * 100;
-    return [`/assets/TrafficSigns/${series}/${numericCode}.png`];
+    return [`/assets/TrafficSigns/${series}/${numericCode}.webp`];
   }
 
   function resolveSafetyProductImage(productId) {
     const safetyImageByProductId = {
-      "safety-cones": "/assets/SafetyEquipment/cone1.png",
-      "panoramic-mirror": "/assets/SafetyEquipment/panoramicmirror1.png",
-      "lane-dividers": "/assets/SafetyEquipment/laneseparators1.png",
-      "parking-stop": "/assets/SafetyEquipment/parkingstopper1.png",
-      "parking-guard": "/assets/SafetyEquipment/parkingkeeper1.png",
-      "bumper": "/assets/SafetyEquipment/laneseparators2.png",
-      "flexible-post-45-75-100": "/assets/SafetyEquipment/flexiblepost1.png",
-      "barrier-post": "/assets/SafetyEquipment/flexiblepost2.png",
-      "sign-post": "/assets/SafetyEquipment/flexiblepost3.png",
-      "connector-units-3-6-inch": "/assets/SafetyEquipment/signConnector.png",
-      "flag-connector-unit": "/assets/SafetyEquipment/parkingstopper3.png",
-      "solar-lamp": "/assets/SafetyEquipment/panoramicmirror2.png"
+      "safety-cones": "/assets/SafetyEquipment/cone1.webp",
+      "panoramic-mirror": "/assets/SafetyEquipment/panoramicmirror1.webp",
+      "lane-dividers": "/assets/SafetyEquipment/laneseparators1.webp",
+      "parking-stop": "/assets/SafetyEquipment/parkingstopper1.webp",
+      "parking-guard": "/assets/SafetyEquipment/parkingkeeper1.webp",
+      "bumper": "/assets/SafetyEquipment/laneseparators2.webp",
+      "flexible-post-45-75-100": "/assets/SafetyEquipment/flexiblepost1.webp",
+      "barrier-post": "/assets/SafetyEquipment/flexiblepost2.webp",
+      "sign-post": "/assets/SafetyEquipment/flexiblepost3.webp",
+      "connector-units-3-6-inch": "/assets/SafetyEquipment/signConnector.webp",
+      "flag-connector-unit": "/assets/SafetyEquipment/parkingstopper3.webp",
+      "solar-lamp": "/assets/SafetyEquipment/panoramicmirror2.webp"
     };
 
     return safetyImageByProductId[productId] || null;
@@ -456,4 +456,5 @@
     });
   });
 });
+
 
