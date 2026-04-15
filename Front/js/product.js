@@ -551,7 +551,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           </label>
           <label class="custom-control-field custom-control-field--full" for="customImageScale">
             <span>גודל תמונה: <strong id="customImageScaleValue">100</strong>%</span>
-            <input id="customImageScale" type="range" class="form-range" min="35" max="250" step="5" value="100" />
+            <input id="customImageScale" type="range" class="form-range" min="20" max="500" step="5" value="100" />
           </label>
         </div>
       `;
@@ -577,6 +577,9 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       mainImage.insertAdjacentElement("afterend", previewCanvas);
     }
     const previewCtx = previewCanvas?.getContext("2d");
+    let baseImageFrame = previewCanvas
+      ? { x: 0, y: 0, w: previewCanvas.width, h: previewCanvas.height }
+      : { x: 0, y: 0, w: 1000, h: 750 };
 
     if (mainImage) mainImage.style.display = "none";
     if (previewCanvas) previewCanvas.style.display = "block";
@@ -1146,6 +1149,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           const h = img.height * scale;
           const x = (previewCanvas.width - w) / 2;
           const y = (previewCanvas.height - h) / 2;
+          baseImageFrame = { x, y, w, h };
+          clearPreviewGeometryCaches();
           previewCtx.drawImage(img, x, y, w, h);
           resolve();
         };
@@ -1173,6 +1178,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           const h = img.height * scale;
           const x = (previewCanvas.width - w) / 2;
           const y = (previewCanvas.height - h) / 2;
+          baseImageFrame = { x, y, w, h };
+          clearPreviewGeometryCaches();
           previewCtx.drawImage(img, x, y, w, h);
           resolve();
         };
@@ -1314,6 +1321,11 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const imageOffsetXValue = document.getElementById("customImageOffsetXValue");
     const imageOffsetYValue = document.getElementById("customImageOffsetYValue");
     const imageScaleValue = document.getElementById("customImageScaleValue");
+    if (imageScaleInput) {
+      imageScaleInput.min = "20";
+      imageScaleInput.max = "500";
+      imageScaleInput.step = "5";
+    }
 
     const formatCm = (value) => Number(value || 0).toFixed(2);
 
@@ -1327,8 +1339,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     };
 
     const syncImageControls = () => {
-      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(imageTransform.offsetX));
-      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(imageTransform.offsetY));
+      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(-imageTransform.offsetX));
+      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(-imageTransform.offsetY));
       if (imageScaleInput) imageScaleInput.value = String(Math.round(imageTransform.scale * 100));
       if (imageOffsetXValue) imageOffsetXValue.textContent = String(Math.round(imageTransform.offsetX));
       if (imageOffsetYValue) imageOffsetYValue.textContent = String(Math.round(imageTransform.offsetY));
@@ -1402,19 +1414,19 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
     imageOffsetXInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.offsetX = Number(imageOffsetXInput.value || 0);
+      imageTransform.offsetX = -Number(imageOffsetXInput.value || 0);
       syncImageControls();
       updateCustomBoardPreview();
     });
     imageOffsetYInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.offsetY = Number(imageOffsetYInput.value || 0);
+      imageTransform.offsetY = -Number(imageOffsetYInput.value || 0);
       syncImageControls();
       updateCustomBoardPreview();
     });
     imageScaleInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.scale = Math.max(0.35, Math.min(2.5, Number(imageScaleInput.value || 100) / 100));
+      imageTransform.scale = Math.max(0.2, Math.min(5, Number(imageScaleInput.value || 100) / 100));
       syncImageControls();
       updateCustomBoardPreview();
     });
