@@ -551,7 +551,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           </label>
           <label class="custom-control-field custom-control-field--full" for="customImageScale">
             <span>גודל תמונה: <strong id="customImageScaleValue">100</strong>%</span>
-            <input id="customImageScale" type="range" class="form-range" min="35" max="250" step="5" value="100" />
+            <input id="customImageScale" type="range" class="form-range" min="20" max="500" step="5" value="100" />
           </label>
         </div>
       `;
@@ -577,6 +577,9 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       mainImage.insertAdjacentElement("afterend", previewCanvas);
     }
     const previewCtx = previewCanvas?.getContext("2d");
+    let baseImageFrame = previewCanvas
+      ? { x: 0, y: 0, w: previewCanvas.width, h: previewCanvas.height }
+      : { x: 0, y: 0, w: 1000, h: 750 };
 
     if (mainImage) mainImage.style.display = "none";
     if (previewCanvas) previewCanvas.style.display = "block";
@@ -624,75 +627,294 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       "מתומן": "/assets/signs/octagon.webp"
     };
 
-    function drawShapePath(shape) {
-      if (!previewCtx || !previewCanvas) return;
-      const ctx = previewCtx;
-      const w = previewCanvas.width;
-      const h = previewCanvas.height;
-      const cx = w / 2;
-      const cy = h / 2;
+    const shapeGeometryCache = new Map();
+    const imageBoundsCache = new Map();
+    const clearPreviewGeometryCaches = () => {
+      shapeGeometryCache.clear();
+      imageBoundsCache.clear();
+    };
+
+    const clonePoint = (point) => ({ x: point.x, y: point.y });
+
+    function getPolygonBounds(vertices) {
+      const xs = vertices.map((point) => point.x);
+      const ys = vertices.map((point) => point.y);
+      return {
+        x: Math.min(...xs),
+        y: Math.min(...ys),
+        w: Math.max(...xs) - Math.min(...xs),
+        h: Math.max(...ys) - Math.min(...ys)
+      };
+    }
+
+    function createRegularPolygon(cx, cy, radius, sides, rotation = 0) {
+      const vertices = [];
+      for (let i = 0; i < sides; i += 1) {
+        const angle = ((Math.PI * 2) / sides) * i + rotation;
+        vertices.push({
+          x: cx + Math.cos(angle) * radius,
+          y: cy + Math.sin(angle) * radius
+        });
+      }
+      return vertices;
+    }
+
+    function insetPolygon(vertices, cx, cy, insetPx) {
+      const outerRadius = Math.max(...vertices.map((point) => Math.hypot(point.x - cx, point.y - cy)));
+      const safeRadius = Math.max(1, outerRadius - insetPx);
+      const scale = safeRadius / outerRadius;
+      return vertices.map((point) => ({
+        x: cx + (point.x - cx) * scale,
+        y: cy + (point.y - cy) * scale
+      }));
+    }
+
+    function buildShapeGeometry(shape) {
+      if (!previewCanvas) return null;
+      const cacheKey = `${shape}:${previewCanvas.width}x${previewCanvas.height}:${baseImageFrame.x.toFixed(2)}:${baseImageFrame.y.toFixed(2)}:${baseImageFrame.w.toFixed(2)}:${baseImageFrame.h.toFixed(2)}`;
+      if (shapeGeometryCache.has(cacheKey)) return shapeGeometryCache.get(cacheKey);
+
+      const frame = baseImageFrame || { x: 0, y: 0, w: previewCanvas.width, h: previewCanvas.height };
+      const w = frame.w;
+      const h = frame.h;
+      const cx = frame.x + w / 2;
+      const cy = frame.y + h / 2;
       const min = Math.min(w, h);
+      const borderInset = min * 0.048;
 
+      let geometry = null;
       if (shape === "עיגול") {
-        const r = min * 0.34;
-        ctx.beginPath();
-        ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        return;
-      }
-      if (shape === "משולש") {
+        const outerRadius = min * 0.34;
+        const innerRadius = Math.max(8, outerRadius - borderInset);
+        geometry = {
+          kind: "circle",
+          cx,
+          cy,
+          outerRadius,
+          innerRadius,
+          outerBounds: { x: cx - outerRadius, y: cy - outerRadius, w: outerRadius * 2, h: outerRadius * 2 },
+          innerBounds: { x: cx - innerRadius, y: cy - innerRadius, w: innerRadius * 2, h: innerRadius * 2 }
+        };
+      } else if (shape === "משולש" || shape === "משולש הפוך") {
         const size = min * 0.62;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy - size / 2);
-        ctx.lineTo(cx + size / 2, cy + size / 2);
-        ctx.lineTo(cx - size / 2, cy + size / 2);
-        ctx.closePath();
-        return;
-      }
-      if (shape === "משולש הפוך") {
-        const size = min * 0.62;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy + size / 2);
-        ctx.lineTo(cx + size / 2, cy - size / 2);
-        ctx.lineTo(cx - size / 2, cy - size / 2);
-        ctx.closePath();
-        return;
-      }
-      if (shape === "מתומן") {
-        const r = min * 0.34;
-        ctx.beginPath();
-        for (let i = 0; i < 8; i += 1) {
-          const a = ((Math.PI * 2) / 8) * i - Math.PI / 8;
-          const x = cx + Math.cos(a) * r;
-          const y = cy + Math.sin(a) * r;
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.closePath();
-        return;
-      }
-      if (shape === "ריבוע") {
+        const half = size / 2;
+        const outerVertices = shape === "משולש"
+          ? [
+            { x: cx, y: cy - half },
+            { x: cx + half, y: cy + half },
+            { x: cx - half, y: cy + half }
+          ]
+          : [
+            { x: cx, y: cy + half },
+            { x: cx + half, y: cy - half },
+            { x: cx - half, y: cy - half }
+          ];
+        const innerVertices = insetPolygon(outerVertices, cx, cy, borderInset);
+        geometry = {
+          kind: "polygon",
+          cx,
+          cy,
+          outerVertices,
+          innerVertices,
+          outerBounds: getPolygonBounds(outerVertices),
+          innerBounds: getPolygonBounds(innerVertices)
+        };
+      } else if (shape === "מתומן") {
+        const radius = min * 0.34;
+        const outerVertices = createRegularPolygon(cx, cy, radius, 8, -Math.PI / 8);
+        const innerVertices = insetPolygon(outerVertices, cx, cy, borderInset);
+        geometry = {
+          kind: "polygon",
+          cx,
+          cy,
+          outerVertices,
+          innerVertices,
+          outerBounds: getPolygonBounds(outerVertices),
+          innerBounds: getPolygonBounds(innerVertices)
+        };
+      } else if (shape === "ריבוע") {
         const size = min * 0.66;
+        const innerSize = Math.max(10, size - borderInset * 2);
+        geometry = {
+          kind: "rect",
+          cx,
+          cy,
+          outerBounds: { x: cx - size / 2, y: cy - size / 2, w: size, h: size },
+          innerBounds: { x: cx - innerSize / 2, y: cy - innerSize / 2, w: innerSize, h: innerSize }
+        };
+      } else {
+        const rw = w * 0.72;
+        const rh = h * 0.48;
+        const innerW = Math.max(10, rw - borderInset * 2);
+        const innerH = Math.max(10, rh - borderInset * 2);
+        geometry = {
+          kind: "rect",
+          cx,
+          cy,
+          outerBounds: { x: cx - rw / 2, y: cy - rh / 2, w: rw, h: rh },
+          innerBounds: { x: cx - innerW / 2, y: cy - innerH / 2, w: innerW, h: innerH }
+        };
+      }
+
+      shapeGeometryCache.set(cacheKey, geometry);
+      return geometry;
+    }
+
+    function drawShapePath(shape, mode = "outer") {
+      if (!previewCtx || !previewCanvas) return;
+      const geometry = buildShapeGeometry(shape);
+      if (!geometry) return;
+      const ctx = previewCtx;
+      const useInner = mode === "inner";
+
+      if (geometry.kind === "circle") {
+        const radius = useInner ? geometry.innerRadius : geometry.outerRadius;
         ctx.beginPath();
-        ctx.rect(cx - size / 2, cy - size / 2, size, size);
+        ctx.arc(geometry.cx, geometry.cy, radius, 0, Math.PI * 2);
         return;
       }
 
-      const rw = w * 0.72;
-      const rh = h * 0.48;
+      if (geometry.kind === "rect") {
+        const rect = useInner ? geometry.innerBounds : geometry.outerBounds;
+        ctx.beginPath();
+        ctx.rect(rect.x, rect.y, rect.w, rect.h);
+        return;
+      }
+
+      const vertices = useInner ? geometry.innerVertices : geometry.outerVertices;
       ctx.beginPath();
-      ctx.rect(cx - rw / 2, cy - rh / 2, rw, rh);
+      vertices.forEach((point, index) => {
+        if (index === 0) ctx.moveTo(point.x, point.y);
+        else ctx.lineTo(point.x, point.y);
+      });
+      ctx.closePath();
+    }
+
+    function getHorizontalSegmentAtY(vertices, y) {
+      const xs = [];
+      const count = vertices.length;
+      for (let i = 0; i < count; i += 1) {
+        const a = vertices[i];
+        const b = vertices[(i + 1) % count];
+        const minY = Math.min(a.y, b.y);
+        const maxY = Math.max(a.y, b.y);
+        if (maxY - minY < 1e-6) continue;
+        if (y < minY || y >= maxY) continue;
+        const t = (y - a.y) / (b.y - a.y);
+        xs.push(a.x + (b.x - a.x) * t);
+      }
+      if (xs.length < 2) return null;
+      xs.sort((a, b) => a - b);
+      return { left: xs[0], right: xs[xs.length - 1] };
+    }
+
+    function findBestRectInPolygon(vertices, aspectRatio) {
+      const bounds = getPolygonBounds(vertices);
+      const yMin = bounds.y;
+      const yMax = bounds.y + bounds.h;
+      const sampleCount = 120;
+      const yValues = Array.from({ length: sampleCount }, (_, index) => yMin + ((yMax - yMin) * index) / (sampleCount - 1));
+      const segments = yValues.map((y) => getHorizontalSegmentAtY(vertices, y));
+
+      const measureAvailableWidth = (top, bottom) => {
+        let leftEdge = -Infinity;
+        let rightEdge = Infinity;
+        for (let i = 0; i < yValues.length; i += 1) {
+          const y = yValues[i];
+          if (y < top || y > bottom) continue;
+          const segment = segments[i];
+          if (!segment) return null;
+          leftEdge = Math.max(leftEdge, segment.left);
+          rightEdge = Math.min(rightEdge, segment.right);
+          if (rightEdge <= leftEdge) return null;
+        }
+        return {
+          left: leftEdge,
+          right: rightEdge,
+          width: rightEdge - leftEdge
+        };
+      };
+
+      let best = {
+        x: bounds.x,
+        y: bounds.y,
+        w: Math.max(1, bounds.w * 0.5),
+        h: Math.max(1, bounds.w * 0.5 / Math.max(aspectRatio, 0.01))
+      };
+      let bestArea = best.w * best.h;
+
+      yValues.forEach((centerY) => {
+        const maxHeight = Math.min(centerY - yMin, yMax - centerY) * 2;
+        if (maxHeight <= 1) return;
+        let low = 0;
+        let high = maxHeight;
+        let chosen = null;
+        for (let step = 0; step < 16; step += 1) {
+          const candidateH = (low + high) / 2;
+          const top = centerY - candidateH / 2;
+          const bottom = centerY + candidateH / 2;
+          const segment = measureAvailableWidth(top, bottom);
+          if (!segment) {
+            high = candidateH;
+            continue;
+          }
+          if (segment.width >= candidateH * aspectRatio) {
+            chosen = { ...segment, h: candidateH, centerY };
+            low = candidateH;
+          } else {
+            high = candidateH;
+          }
+        }
+
+        if (!chosen) return;
+        const h = chosen.h;
+        const w = h * aspectRatio;
+        const x = chosen.left + (chosen.width - w) / 2;
+        const y = chosen.centerY - h / 2;
+        const area = w * h;
+        if (area > bestArea) {
+          best = { x, y, w, h };
+          bestArea = area;
+        }
+      });
+
+      return best;
     }
 
     function getShapeContentBounds(shape) {
-      if (!previewCanvas) return { x: 120, y: 120, w: 760, h: 510 };
-      const w = previewCanvas.width;
-      const h = previewCanvas.height;
+      const geometry = buildShapeGeometry(shape);
+      if (!geometry) return { x: 120, y: 120, w: 760, h: 510 };
+      const innerBounds = geometry.innerBounds;
+      return { x: innerBounds.x, y: innerBounds.y, w: innerBounds.w, h: innerBounds.h };
+    }
 
-      if (shape === "עיגול") return { x: w * 0.24, y: h * 0.20, w: w * 0.52, h: h * 0.60 };
-      if (shape === "משולש" || shape === "משולש הפוך") return { x: w * 0.28, y: h * 0.24, w: w * 0.44, h: h * 0.52 };
-      if (shape === "מתומן") return { x: w * 0.24, y: h * 0.20, w: w * 0.52, h: h * 0.60 };
-      if (shape === "ריבוע") return { x: w * 0.24, y: h * 0.18, w: w * 0.52, h: h * 0.64 };
-      return { x: w * 0.14, y: h * 0.26, w: w * 0.72, h: h * 0.48 };
+    function getImageContentBounds(shape, imageAspectRatio) {
+      const geometry = buildShapeGeometry(shape);
+      if (!geometry) return getShapeContentBounds(shape);
+      const safeAspect = Math.max(0.05, Number(imageAspectRatio) || 1);
+      const cacheKey = `${shape}:${previewCanvas.width}x${previewCanvas.height}:${safeAspect.toFixed(4)}`;
+      if (imageBoundsCache.has(cacheKey)) return imageBoundsCache.get(cacheKey);
+
+      let bounds;
+      if (geometry.kind === "rect") {
+        const source = geometry.innerBounds;
+        let w = source.w;
+        let h = w / safeAspect;
+        if (h > source.h) {
+          h = source.h;
+          w = h * safeAspect;
+        }
+        bounds = { x: source.x + (source.w - w) / 2, y: source.y + (source.h - h) / 2, w, h };
+      } else if (geometry.kind === "circle") {
+        const h = (2 * geometry.innerRadius) / Math.sqrt(safeAspect * safeAspect + 1);
+        const w = h * safeAspect;
+        bounds = { x: geometry.cx - w / 2, y: geometry.cy - h / 2, w, h };
+      } else {
+        bounds = findBestRectInPolygon(geometry.innerVertices.map(clonePoint), safeAspect);
+      }
+
+      imageBoundsCache.set(cacheKey, bounds);
+      return bounds;
     }
 
     function parseSizeToDimensionsCm(shape, sizeValue) {
@@ -857,7 +1079,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (!lines.length) return;
 
       ctx.save();
-      drawShapePath(shape);
+      drawShapePath(shape, "inner");
       ctx.clip();
       ctx.fillStyle = textTransform.fontColor || "#111827";
       ctx.textAlign = "center";
@@ -889,17 +1111,16 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         }
         const img = new Image();
         img.onload = () => {
-          const bounds = getShapeContentBounds(shape);
-          const maxW = bounds.w * 0.85;
-          const maxH = bounds.h * 0.5;
-          const baseScale = Math.min(maxW / img.width, maxH / img.height, 1);
-          const finalScale = baseScale * imageTransform.scale;
+          const imageAspectRatio = img.width / Math.max(img.height, 1);
+          const fitRect = getImageContentBounds(shape, imageAspectRatio);
+          const baseScale = fitRect.w / Math.max(img.width, 1);
+          const finalScale = Math.max(0.01, baseScale * imageTransform.scale);
           const w = img.width * finalScale;
           const h = img.height * finalScale;
-          const x = bounds.x + (bounds.w - w) / 2 + imageTransform.offsetX;
-          const y = bounds.y + bounds.h * 0.62 - h / 2 + imageTransform.offsetY;
+          const x = fitRect.x + (fitRect.w - w) / 2 + imageTransform.offsetX;
+          const y = fitRect.y + (fitRect.h - h) / 2 + imageTransform.offsetY;
           previewCtx.save();
-          drawShapePath(shape);
+          drawShapePath(shape, "inner");
           previewCtx.clip();
           previewCtx.drawImage(img, x, y, w, h);
           previewCtx.restore();
@@ -933,6 +1154,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           const h = img.height * scale;
           const x = (previewCanvas.width - w) / 2;
           const y = (previewCanvas.height - h) / 2;
+          baseImageFrame = { x, y, w, h };
+          clearPreviewGeometryCaches();
           previewCtx.drawImage(img, x, y, w, h);
           resolve();
         };
@@ -960,6 +1183,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           const h = img.height * scale;
           const x = (previewCanvas.width - w) / 2;
           const y = (previewCanvas.height - h) / 2;
+          baseImageFrame = { x, y, w, h };
+          clearPreviewGeometryCaches();
           previewCtx.drawImage(img, x, y, w, h);
           resolve();
         };
@@ -1101,6 +1326,11 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const imageOffsetXValue = document.getElementById("customImageOffsetXValue");
     const imageOffsetYValue = document.getElementById("customImageOffsetYValue");
     const imageScaleValue = document.getElementById("customImageScaleValue");
+    if (imageScaleInput) {
+      imageScaleInput.min = "20";
+      imageScaleInput.max = "500";
+      imageScaleInput.step = "5";
+    }
 
     const formatCm = (value) => Number(value || 0).toFixed(2);
 
@@ -1114,8 +1344,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     };
 
     const syncImageControls = () => {
-      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(imageTransform.offsetX));
-      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(imageTransform.offsetY));
+      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(-imageTransform.offsetX));
+      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(-imageTransform.offsetY));
       if (imageScaleInput) imageScaleInput.value = String(Math.round(imageTransform.scale * 100));
       if (imageOffsetXValue) imageOffsetXValue.textContent = String(Math.round(imageTransform.offsetX));
       if (imageOffsetYValue) imageOffsetYValue.textContent = String(Math.round(imageTransform.offsetY));
@@ -1189,19 +1419,19 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
     imageOffsetXInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.offsetX = Number(imageOffsetXInput.value || 0);
+      imageTransform.offsetX = -Number(imageOffsetXInput.value || 0);
       syncImageControls();
       updateCustomBoardPreview();
     });
     imageOffsetYInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.offsetY = Number(imageOffsetYInput.value || 0);
+      imageTransform.offsetY = -Number(imageOffsetYInput.value || 0);
       syncImageControls();
       updateCustomBoardPreview();
     });
     imageScaleInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-      imageTransform.scale = Math.max(0.35, Math.min(2.5, Number(imageScaleInput.value || 100) / 100));
+      imageTransform.scale = Math.max(0.2, Math.min(5, Number(imageScaleInput.value || 100) / 100));
       syncImageControls();
       updateCustomBoardPreview();
     });
