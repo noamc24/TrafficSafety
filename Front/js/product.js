@@ -452,15 +452,18 @@ function renderOptions(options, productId = "", productCategory = "", productTit
             <span>פונט</span>
             <select id="customTextFontFamily" class="form-select form-select-sm">
               <option value="Arial">Arial</option>
-              <option value="'Rubik', Arial, sans-serif">Rubik</option>
-              <option value="'Assistant', Arial, sans-serif">Assistant</option>
-              <option value="'Noto Sans Hebrew', Arial, sans-serif">Noto Sans Hebrew</option>
+              <option value="Rubik">Rubik</option>
+              <option value="Assistant">Assistant</option>
+              <option value="Noto Sans Hebrew">Noto Sans Hebrew</option>
             </select>
           </label>
-          <label class="custom-control-field" for="customTextFontColor">
-            <span>צבע טקסט</span>
-            <input id="customTextFontColor" type="color" class="form-control form-control-color" value="#111827" />
-          </label>
+          <div class="custom-control-field custom-control-field--color-reset">
+            <label for="customTextFontColor">
+              <span>צבע טקסט</span>
+              <input id="customTextFontColor" type="color" class="form-control form-control-color" value="#111827" />
+            </label>
+            <button id="customTextResetButton" type="button" class="btn btn-outline-secondary btn-sm custom-text-reset-btn">אפס</button>
+          </div>
           <label class="custom-control-field custom-control-field--full" for="customTextFontThickness">
             <span>עובי פונט: <strong id="customTextFontThicknessValue">3.00</strong> ס"מ</span>
             <input id="customTextFontThickness" type="range" class="form-range" min="1" max="30" step="0.1" value="3" />
@@ -476,10 +479,6 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           <label class="custom-control-field custom-control-field--full" for="customTextOffsetY">
             <span>מיקום אנכי: <strong id="customTextOffsetYValue">0.00</strong> ס\"מ</span>
             <input id="customTextOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
-          </label>
-          <label class="custom-control-field custom-control-field--full" for="customTextLineWidth">
-            <span>אורך שורה: <strong id="customTextLineWidthValue">92</strong>%</span>
-            <input id="customTextLineWidth" type="range" class="form-range" min="40" max="100" step="1" value="92" />
           </label>
         </div>
       `;
@@ -530,7 +529,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       fontColor: "#111827",
       fontFamily: "Arial",
       fontWeight: "700",
-      lineWidthPercent: 92
+      linkRatio: 8
     };
 
     let imageControlsWrapper = document.getElementById("customImageControlsWrapper");
@@ -788,29 +787,37 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     function drawTextOnBoard(textValue, shape) {
       if (!previewCtx || !previewCanvas || !textValue) return;
       const ctx = previewCtx;
-      const scaleContext = getTextScaleContext(shape);
-      const { bounds, contentWidthCm, contentHeightCm, pxPerCmX, pxPerCmY } = scaleContext;
+      const trimmedText = String(textValue || "").trim();
+      if (!trimmedText) return;
+
+      const { bounds, contentWidthCm, contentHeightCm, pxPerCmX, pxPerCmY } = getTextScaleContext(shape);
       const dynamicMaxLineCm = getDynamicLineLengthCm(shape, contentWidthCm, contentHeightCm, textTransform.offsetY, pxPerCmY);
       const dynamicMaxThicknessCm = getDynamicThicknessMaxCm(shape, contentHeightCm, dynamicMaxLineCm);
-      const safeLineLengthCm = Math.max(3, Math.min(dynamicMaxLineCm, Number(textTransform.lineLengthCm) || 24));
-      const safeThicknessCm = Math.max(0.8, Math.min(dynamicMaxThicknessCm, Number(textTransform.fontThicknessCm) || 3));
-      const maxWidth = safeLineLengthCm * pxPerCmX;
-      const bounds = getShapeContentBounds(shape);
-      const safeLineWidthPercent = Math.max(40, Math.min(100, Number(textTransform.lineWidthPercent) || 92));
-      const maxWidth = bounds.w * (safeLineWidthPercent / 100);
-      const words = textValue.split(/\s+/).filter(Boolean);
+      const safeLineLengthCm = Math.max(0.8, Math.min(dynamicMaxLineCm, Number(textTransform.lineLengthCm) || 0));
+      const safeThicknessCm = Math.max(0.4, Math.min(dynamicMaxThicknessCm, Number(textTransform.fontThicknessCm) || 0));
+      const maxWidth = Math.max(1, safeLineLengthCm * pxPerCmX);
+
+      const fontFamilyMap = {
+        Arial: 'Arial, sans-serif',
+        Rubik: '"Rubik", Arial, sans-serif',
+        Assistant: '"Assistant", Arial, sans-serif',
+        'Noto Sans Hebrew': '"Noto Sans Hebrew", Arial, sans-serif'
+      };
+      const selectedFont = textTransform.fontFamily || "Arial";
+      const safeFontFamily = fontFamilyMap[selectedFont] || fontFamilyMap.Arial;
+      const safeFontWeight = textTransform.fontWeight || "700";
+      const safeFontSize = Math.max(14, Math.min(180, safeThicknessCm * pxPerCmY));
+      ctx.font = `${safeFontWeight} ${safeFontSize}px ${safeFontFamily}`;
+
       const lines = [];
-      const textRows = String(textValue)
+      const textRows = trimmedText
         .split("\n")
         .map((row) => row.trim())
         .filter(Boolean);
-      const safeFontSize = Math.max(16, Math.min(180, safeThicknessCm * pxPerCmY));
-      const safeFontFamily = textTransform.fontFamily || "Arial";
-      const safeFontWeight = textTransform.fontWeight || "700";
-      ctx.font = `${safeFontWeight} ${safeFontSize}px ${safeFontFamily}`;
 
       const wrapRow = (rowText) => {
         const words = rowText.split(/\s+/).filter(Boolean);
+        if (!words.length) return;
         let currentLine = "";
 
         words.forEach((word) => {
@@ -845,7 +852,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (textRows.length) {
         textRows.forEach(wrapRow);
       } else {
-        wrapRow(String(textValue).trim());
+        wrapRow(trimmedText);
       }
       if (!lines.length) return;
 
@@ -856,11 +863,10 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.direction = "rtl";
+
       const lineHeight = Math.floor(safeFontSize * 1.2);
-      const maxLines = Math.max(1, Math.floor(bounds.h / lineHeight));
+      const maxLines = Math.max(1, Math.floor(bounds.h / Math.max(lineHeight, 1)));
       const fittedLines = lines.slice(0, maxLines);
-      const baseCenterYRatio = shape === "משולש" ? 0.56 : (shape === "משולש הפוך" ? 0.40 : 0.33);
-      const centerY = bounds.y + bounds.h * baseCenterYRatio + textTransform.offsetY;
       const baseCenterYRatio = shape === "משולש" ? 0.56 : (shape === "משולש הפוך" ? 0.40 : 0.33);
       const centerY = bounds.y + bounds.h * baseCenterYRatio + textTransform.offsetY;
       const centerX = previewCanvas.width / 2 + textTransform.offsetX;
@@ -962,6 +968,86 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       });
     }
 
+    function getHasCustomText() {
+      const textInput = document.getElementById("customTextOptionInput");
+      const textEnabled = textField?.element?.value === "כן";
+      const textValue = String(textInput?.value || "").trim();
+      return Boolean(textEnabled && textValue);
+    }
+
+    function getTextRangeModel(shape) {
+      const { contentWidthCm, contentHeightCm, pxPerCmY } = getTextScaleContext(shape);
+      const dynamicMaxLineCm = getDynamicLineLengthCm(shape, contentWidthCm, contentHeightCm, textTransform.offsetY, pxPerCmY);
+      const dynamicMaxThicknessCm = getDynamicThicknessMaxCm(shape, contentHeightCm, dynamicMaxLineCm);
+      return {
+        minThicknessCm: 0.4,
+        maxThicknessCm: dynamicMaxThicknessCm,
+        minLineCm: 0.8,
+        maxLineCm: dynamicMaxLineCm
+      };
+    }
+
+    function recalcTextControlRanges(shape, source = "none") {
+      if (!previewCanvas) return;
+      const hasCustomText = getHasCustomText();
+
+      if (!hasCustomText) {
+        textTransform.fontThicknessCm = 0;
+        textTransform.lineLengthCm = 0;
+
+        if (textFontThicknessInput) {
+          textFontThicknessInput.min = "0";
+          textFontThicknessInput.max = "0";
+          textFontThicknessInput.value = "0";
+          textFontThicknessInput.disabled = true;
+        }
+
+        if (textLineLengthInput) {
+          textLineLengthInput.min = "0";
+          textLineLengthInput.max = "0";
+          textLineLengthInput.value = "0";
+          textLineLengthInput.disabled = true;
+        }
+        return;
+      }
+
+      const { minThicknessCm, maxThicknessCm, minLineCm, maxLineCm } = getTextRangeModel(shape);
+
+      if (textFontThicknessInput) {
+        textFontThicknessInput.disabled = false;
+        textFontThicknessInput.min = String(minThicknessCm.toFixed(2));
+        textFontThicknessInput.max = String(maxThicknessCm.toFixed(2));
+      }
+      if (textLineLengthInput) {
+        textLineLengthInput.disabled = false;
+        textLineLengthInput.min = String(minLineCm.toFixed(2));
+        textLineLengthInput.max = String(maxLineCm.toFixed(2));
+      }
+
+      const linkRatio = Math.max(2, Math.min(16, Number(textTransform.linkRatio) || 8));
+
+      if (source === "thickness") {
+        const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, Number(textTransform.fontThicknessCm) || minThicknessCm));
+        const safeLine = Math.max(minLineCm, Math.min(maxLineCm, safeThickness * linkRatio));
+        textTransform.fontThicknessCm = safeThickness;
+        textTransform.lineLengthCm = safeLine;
+        return;
+      }
+
+      if (source === "line") {
+        const safeLine = Math.max(minLineCm, Math.min(maxLineCm, Number(textTransform.lineLengthCm) || minLineCm));
+        const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, safeLine / linkRatio));
+        textTransform.lineLengthCm = safeLine;
+        textTransform.fontThicknessCm = safeThickness;
+        return;
+      }
+
+      const currentThickness = Number(textTransform.fontThicknessCm) || minThicknessCm;
+      const currentLine = Number(textTransform.lineLengthCm) || (currentThickness * linkRatio);
+      textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, currentThickness));
+      textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, currentLine));
+    }
+
     let hasCustomEdits = false;
 
     async function updateCustomBoardPreview() {
@@ -976,6 +1062,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         imageControlsWrapper.style.display = imageEnabled ? "block" : "none";
       }
 
+      recalcTextControlRanges(shape, "none");
+
       if (!hasCustomEdits && restorePayload?.customDesignPreview) {
         await drawStoredPreview(restorePayload.customDesignPreview);
         return;
@@ -986,9 +1074,10 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         const file = imageInput.files[0];
         await drawUserImageOnBoard(file, shape);
       }
+
       if (textEnabled) {
-        const textValue = textInput?.value?.trim() || "";
-        drawTextOnBoard(textValue, shape);
+        const textValue = String(textInput?.value || "").trim();
+        if (textValue) drawTextOnBoard(textValue, shape);
       }
     }
 
@@ -998,21 +1087,13 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const textLineLengthInput = document.getElementById("customTextLineLength");
     const textOffsetXInput = document.getElementById("customTextOffsetX");
     const textOffsetYInput = document.getElementById("customTextOffsetY");
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-    const textLineWidthInput = document.getElementById("customTextLineWidth");
-    const textFontSizeValue = document.getElementById("customTextFontSizeValue");
+    const customTextInput = document.getElementById("customTextOptionInput");
+    const customImageInput = document.getElementById("customImageOptionInput");
+    const textResetButton = document.getElementById("customTextResetButton");
+    const textFontThicknessValue = document.getElementById("customTextFontThicknessValue");
+    const textLineLengthValue = document.getElementById("customTextLineLengthValue");
     const textOffsetXValue = document.getElementById("customTextOffsetXValue");
     const textOffsetYValue = document.getElementById("customTextOffsetYValue");
-    const textLineWidthValue = document.getElementById("customTextLineWidthValue");
 
     const imageOffsetXInput = document.getElementById("customImageOffsetX");
     const imageOffsetYInput = document.getElementById("customImageOffsetY");
@@ -1020,44 +1101,16 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const imageOffsetXValue = document.getElementById("customImageOffsetXValue");
     const imageOffsetYValue = document.getElementById("customImageOffsetYValue");
     const imageScaleValue = document.getElementById("customImageScaleValue");
-    const pxToCm = (pxValue) => (Number(pxValue || 0) / 37.8).toFixed(2);
 
-    const recalcTextControlRanges = (shape, source = "thickness") => {
-      if (!previewCanvas) return;
+    const formatCm = (value) => Number(value || 0).toFixed(2);
 
-      const { contentWidthCm, contentHeightCm } = getTextScaleContext(shape);
-      const maxThicknessCm = Math.max(0.8, Math.min(contentHeightCm * 0.78, contentWidthCm * 0.42));
-      const minThicknessCm = 0.8;
-      const maxLineCm = Math.max(4, contentWidthCm * 0.95);
-      const minLineCm = 4;
-
-      const { contentWidthCm, contentHeightCm, pxPerCmY } = getTextScaleContext(shape);
-      const maxLineCm = getDynamicLineLengthCm(shape, contentWidthCm, contentHeightCm, textTransform.offsetY, pxPerCmY);
-      const maxThicknessCm = getDynamicThicknessMaxCm(shape, contentHeightCm, maxLineCm);
-      const minThicknessCm = 0.8;
-      const minLineCm = 3;
-
-      if (textFontThicknessInput) {
-        textFontThicknessInput.min = String(minThicknessCm);
-        textFontThicknessInput.max = String(maxThicknessCm);
-      }
-      if (textLineLengthInput) {
-        textLineLengthInput.min = String(minLineCm);
-        textLineLengthInput.max = String(maxLineCm);
-      }
-
-      const ratio = Math.max(2, Math.min(16, Number(textTransform.linkRatio) || 8));
-
-      if (source === "thickness") {
-        textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, Number(textTransform.fontThicknessCm) || 3));
-        textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, textTransform.fontThicknessCm * ratio));
-      } else if (source === "line") {
-        textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, Number(textTransform.lineLengthCm) || 24));
-        textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, textTransform.lineLengthCm / ratio));
-      } else {
-        textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, Number(textTransform.fontThicknessCm) || 3));
-        textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, Number(textTransform.lineLengthCm) || (textTransform.fontThicknessCm * ratio)));
-      }
+    const resetTextTransform = () => {
+      textTransform.fontColor = "#111827";
+      textTransform.fontFamily = "Arial";
+      textTransform.offsetX = 0;
+      textTransform.offsetY = 0;
+      textTransform.fontThicknessCm = 3;
+      textTransform.lineLengthCm = 24;
     };
 
     const syncImageControls = () => {
@@ -1072,32 +1125,26 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const syncTextControls = () => {
       const currentShape = shapeField?.element?.value || "מרובע";
       recalcTextControlRanges(currentShape, "none");
+
       if (textFontThicknessInput) textFontThicknessInput.value = String(textTransform.fontThicknessCm.toFixed(2));
       if (textLineLengthInput) textLineLengthInput.value = String(textTransform.lineLengthCm.toFixed(2));
       if (textOffsetXInput) textOffsetXInput.value = String(Math.round(textTransform.offsetX));
       if (textOffsetYInput) textOffsetYInput.value = String(Math.round(textTransform.offsetY));
-      if (textLineWidthInput) textLineWidthInput.value = String(Math.round(textTransform.lineWidthPercent));
       if (textFontColorInput) textFontColorInput.value = textTransform.fontColor;
       if (textFontFamilyInput) textFontFamilyInput.value = textTransform.fontFamily;
-      if (textFontSizeValue) textFontSizeValue.textContent = String(Math.round(textTransform.fontSize));
-      if (textOffsetXValue) textOffsetXValue.textContent = String(Math.round(textTransform.offsetX));
-      if (textOffsetYValue) textOffsetYValue.textContent = String(Math.round(textTransform.offsetY));
-      if (textLineWidthValue) textLineWidthValue.textContent = String(Math.round(textTransform.lineWidthPercent));
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
+
+      if (textFontThicknessValue) textFontThicknessValue.textContent = formatCm(textTransform.fontThicknessCm);
+      if (textLineLengthValue) textLineLengthValue.textContent = formatCm(textTransform.lineLengthCm);
+      if (textOffsetXValue) textOffsetXValue.textContent = formatCm(textTransform.offsetX / 37.8);
+      if (textOffsetYValue) textOffsetYValue.textContent = formatCm(textTransform.offsetY / 37.8);
     };
 
-    textFontFamilyInput?.addEventListener("change", () => {
+    textFontFamilyInput?.addEventListener("change", async () => {
       hasCustomEdits = true;
-      textTransform.fontFamily = textFontFamilyInput.value;
+      textTransform.fontFamily = textFontFamilyInput.value || "Arial";
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
       updateCustomBoardPreview();
     });
     textFontColorInput?.addEventListener("input", () => {
@@ -1107,25 +1154,15 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       updateCustomBoardPreview();
     });
     textFontThicknessInput?.addEventListener("input", () => {
-
       hasCustomEdits = true;
-      textTransform.fontThicknessCm = Number(textFontThicknessInput.value || 3);
+      textTransform.fontThicknessCm = Number(textFontThicknessInput.value || 0);
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "thickness");
       syncTextControls();
       updateCustomBoardPreview();
     });
     textLineLengthInput?.addEventListener("input", () => {
       hasCustomEdits = true;
-
-      hasCustomEdits = true;
-      textTransform.fontThicknessCm = Number(textFontThicknessInput.value || 3);
-      recalcTextControlRanges(shapeField?.element?.value || "מרובע", "thickness");
-      syncTextControls();
-      updateCustomBoardPreview();
-    });
-    textLineLengthInput?.addEventListener("input", () => {
-      hasCustomEdits = true;
-      textTransform.lineLengthCm = Number(textLineLengthInput.value || 24);
+      textTransform.lineLengthCm = Number(textLineLengthInput.value || 0);
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "line");
       syncTextControls();
       updateCustomBoardPreview();
@@ -1142,9 +1179,10 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       syncTextControls();
       updateCustomBoardPreview();
     });
-    textLineWidthInput?.addEventListener("input", () => {
+    textResetButton?.addEventListener("click", () => {
       hasCustomEdits = true;
-      textTransform.lineWidthPercent = Number(textLineWidthInput.value || 92);
+      resetTextTransform();
+      recalcTextControlRanges(shapeField?.element?.value || "מרובע", "none");
       syncTextControls();
       updateCustomBoardPreview();
     });
@@ -1182,27 +1220,25 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     });
     textField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
+      syncTextControls();
       updateCustomBoardPreview();
     });
     imageField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
       updateCustomBoardPreview();
     });
-    document.addEventListener("input", (event) => {
-      if (event.target && event.target.id === "customTextOptionInput") {
-        hasCustomEdits = true;
-        updateCustomBoardPreview();
-      }
+    customTextInput?.addEventListener("input", () => {
+      hasCustomEdits = true;
+      syncTextControls();
+      updateCustomBoardPreview();
     });
-    document.addEventListener("change", (event) => {
-      if (event.target && event.target.id === "customImageOptionInput") {
-        hasCustomEdits = true;
-        imageTransform.offsetX = 0;
-        imageTransform.offsetY = 0;
-        imageTransform.scale = 1;
-        syncImageControls();
-        updateCustomBoardPreview();
-      }
+    customImageInput?.addEventListener("change", () => {
+      hasCustomEdits = true;
+      imageTransform.offsetX = 0;
+      imageTransform.offsetY = 0;
+      imageTransform.scale = 1;
+      syncImageControls();
+      updateCustomBoardPreview();
     });
 
     if (restorePayload) {
@@ -1233,38 +1269,16 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       }
       if (restorePayload.textFontFamily) textTransform.fontFamily = restorePayload.textFontFamily;
       if (restorePayload.textFontColor) textTransform.fontColor = restorePayload.textFontColor;
-      if (restorePayload.textFontThicknessCm) textTransform.fontThicknessCm = Number(restorePayload.textFontThicknessCm) || 3;
-      if (restorePayload.textLineLengthCm) textTransform.lineLengthCm = Number(restorePayload.textLineLengthCm) || 24;
+      if (restorePayload.textFontThicknessCm !== undefined) textTransform.fontThicknessCm = Number(restorePayload.textFontThicknessCm) || 0;
+      if (restorePayload.textLineLengthCm !== undefined) textTransform.lineLengthCm = Number(restorePayload.textLineLengthCm) || 0;
       if (restorePayload.textOffsetX) textTransform.offsetX = Number(restorePayload.textOffsetX) || 0;
       if (restorePayload.textOffsetY) textTransform.offsetY = Number(restorePayload.textOffsetY) || 0;
-<<<<<<< ours
-<<<<<<< ours
-<<<<<<< ours
-      recalcTextControlRanges(shapeField?.element?.value || "מרובע", "none");
 
-      if (restorePayload.textLineWidthPercent) {
-        textTransform.lineWidthPercent = Number(restorePayload.textLineWidthPercent) || 92;
-      }
- 
-=======
-      if (restorePayload.textLineWidthPercent) {
-        textTransform.lineWidthPercent = Number(restorePayload.textLineWidthPercent) || 92;
-      }
->>>>>>> theirs
-=======
-      if (restorePayload.textLineWidthPercent) {
-        textTransform.lineWidthPercent = Number(restorePayload.textLineWidthPercent) || 92;
-      }
->>>>>>> theirs
-=======
-      if (restorePayload.textLineWidthPercent) {
-        textTransform.lineWidthPercent = Number(restorePayload.textLineWidthPercent) || 92;
-      }
->>>>>>> theirs
       hasCustomEdits = false;
       syncTextControls();
       syncImageControls();
     }
+
     syncTextControls();
     syncImageControls();
     updateCustomBoardPreview();
@@ -1385,7 +1399,6 @@ function setupAddToCart(productId, product, optionFields) {
       const textFontColorInput = document.getElementById("customTextFontColor");
       const textOffsetXInput = document.getElementById("customTextOffsetX");
       const textOffsetYInput = document.getElementById("customTextOffsetY");
-      const textLineWidthInput = document.getElementById("customTextLineWidth");
 
       if (textFontFamilyInput?.value) {
         selectedOptions.push({ name: "פונט כיתוב", value: textFontFamilyInput.value });
@@ -1404,18 +1417,6 @@ function setupAddToCart(productId, product, optionFields) {
       }
       if (textOffsetYInput?.value) {
         selectedOptions.push({ name: "מיקום אנכי כיתוב", value: `${pxToCm(textOffsetYInput.value)} ס\"מ` });
-      }
-      if (textLineWidthInput?.value) {
-        selectedOptions.push({ name: "אורך שורה", value: `${textLineWidthInput.value}%` });
-      }
-      if (textLineWidthInput?.value) {
-        selectedOptions.push({ name: "אורך שורה", value: `${textLineWidthInput.value}%` });
-      }
-      if (textLineWidthInput?.value) {
-        selectedOptions.push({ name: "אורך שורה", value: `${textLineWidthInput.value}%` });
-      }
-      if (textLineWidthInput?.value) {
-        selectedOptions.push({ name: "אורך שורה", value: `${textLineWidthInput.value}%` });
       }
     }
 
@@ -1554,15 +1555,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     customDesignRestore
   );
   setupAddToCart(productId, product, optionFields);
-<<<<<<< ours
 });
-=======
-});
-
-<<<<<<< ours
-<<<<<<< ours
->>>>>>> theirs
-=======
->>>>>>> theirs
-=======
->>>>>>> theirs
