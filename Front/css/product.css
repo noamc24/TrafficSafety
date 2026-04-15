@@ -153,6 +153,22 @@
   gap: 0.35rem;
 }
 
+.custom-control-field--color-reset {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 0.5rem;
+}
+
+.custom-control-field--color-reset label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.custom-text-reset-btn {
+  min-width: 4.25rem;
+  height: fit-content;
+}
+
 .custom-control-field > span {
   font-size: 0.92rem;
   font-weight: 600;
@@ -204,6 +220,14 @@
 
   .custom-image-controls__buttons {
     display: none !important;
+  }
+
+  .custom-control-field--color-reset {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-text-reset-btn {
+    width: 100%;
   }
 
   .custom-control-field > span {
