@@ -629,10 +629,6 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
     const shapeGeometryCache = new Map();
     const imageBoundsCache = new Map();
-    const clearPreviewGeometryCaches = () => {
-      shapeGeometryCache.clear();
-      imageBoundsCache.clear();
-    };
 
     const clonePoint = (point) => ({ x: point.x, y: point.y });
 
@@ -671,14 +667,13 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
     function buildShapeGeometry(shape) {
       if (!previewCanvas) return null;
-      const cacheKey = `${shape}:${previewCanvas.width}x${previewCanvas.height}:${baseImageFrame.x.toFixed(2)}:${baseImageFrame.y.toFixed(2)}:${baseImageFrame.w.toFixed(2)}:${baseImageFrame.h.toFixed(2)}`;
+      const cacheKey = `${shape}:${previewCanvas.width}x${previewCanvas.height}`;
       if (shapeGeometryCache.has(cacheKey)) return shapeGeometryCache.get(cacheKey);
 
-      const frame = baseImageFrame || { x: 0, y: 0, w: previewCanvas.width, h: previewCanvas.height };
-      const w = frame.w;
-      const h = frame.h;
-      const cx = frame.x + w / 2;
-      const cy = frame.y + h / 2;
+      const w = previewCanvas.width;
+      const h = previewCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
       const min = Math.min(w, h);
       const borderInset = min * 0.048;
 
