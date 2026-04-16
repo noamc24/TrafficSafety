@@ -67,7 +67,6 @@ function buildImageVariants(src) {
     return { full: cleanSrc, thumb: cleanSrc, fallback: cleanSrc };
   }
 
-  // Convention: "<name>-thumb.webp" for thumbnails, "<name>.webp" for larger detail images.
   const stem = cleanSrc.slice(0, dotIdx);
   const normalizedStem = stem.endsWith("-thumb") ? stem.slice(0, -6) : stem;
   return {
