@@ -386,8 +386,8 @@
     const count = readCart().reduce((sum, row) => sum + (Number(row.quantity) || 1), 0);
     heroCartLink.textContent =
       count > 0
-        ? `מעבר לתהליך הזמנה (${count})`
-        : "מעבר לתהליך הזמנה";
+        ? `מעבר לעגלה (${count})`
+        : "מעבר לעגלה";
   }
 
   updateHeroCartText();
