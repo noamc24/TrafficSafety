@@ -314,7 +314,7 @@ if (backToTopButton) {
 
 
 const COOKIE_CONSENT_STORAGE_KEY = "cookieConsentStatus";
-const GOOGLE_ANALYTICS_ID = "G-XXXXXXXXXX";
+const GOOGLE_ANALYTICS_ID = "G-5S6M1YBCSL";
 
 function loadGoogleAnalytics() {
   if (!GOOGLE_ANALYTICS_ID || window.__tscGaLoaded) return;
