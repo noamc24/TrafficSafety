@@ -182,7 +182,9 @@
       ],
       "632": [
         "/assets/TrafficSigns/600/632-1.webp",
-        "/assets/TrafficSigns/600/632-2.webp"
+        "/assets/TrafficSigns/600/632-2.webp",
+        "/assets/TrafficSigns/900/932-1.webp",
+        "/assets/TrafficSigns/900/932-2.webp"
       ],
       "914": [
         "/assets/TrafficSigns/900/914-1.webp",
