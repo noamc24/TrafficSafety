@@ -312,6 +312,115 @@ if (backToTopButton) {
   });
 }
 
+
+const COOKIE_CONSENT_STORAGE_KEY = "cookieConsentStatus";
+const GOOGLE_ANALYTICS_ID = "G-XXXXXXXXXX";
+
+function loadGoogleAnalytics() {
+  if (!GOOGLE_ANALYTICS_ID || window.__tscGaLoaded) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag(){
+    window.dataLayer.push(arguments);
+  };
+
+  const analyticsScript = document.createElement("script");
+  analyticsScript.async = true;
+  analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GOOGLE_ANALYTICS_ID)}`;
+  analyticsScript.dataset.gaLoader = "true";
+  document.head.appendChild(analyticsScript);
+
+  window.gtag("js", new Date());
+  window.gtag("config", GOOGLE_ANALYTICS_ID);
+  window.__tscGaLoaded = true;
+}
+
+function buildCookieConsentBanner() {
+  if (document.getElementById("cookieConsentBanner")) return;
+
+  const banner = document.createElement("section");
+  banner.id = "cookieConsentBanner";
+  banner.className = "cookie-consent-banner";
+  banner.setAttribute("role", "dialog");
+  banner.setAttribute("aria-live", "polite");
+  banner.setAttribute("aria-label", "הודעת שימוש בעוגיות");
+
+  banner.innerHTML = `
+    <div class="cookie-consent-banner__content container" dir="rtl">
+      <p class="cookie-consent-banner__text mb-0">
+        האתר עושה שימוש בעוגיות (Cookies) ובטכנולוגיות דומות לצורך תפעול תקין, ניתוח שימוש ושיפור חוויית המשתמש. ניתן לקרוא עוד במדיניות הפרטיות.
+        <a href="/privacy" class="cookie-consent-banner__link">מדיניות פרטיות</a>
+      </p>
+      <div class="cookie-consent-banner__actions" role="group" aria-label="פעולות הסכמה לעוגיות">
+        <button type="button" class="btn btn-warning cookie-consent-accept" data-cookie-consent="accept">אישור</button>
+        <button type="button" class="btn btn-outline-secondary cookie-consent-decline" data-cookie-consent="decline">דחייה</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(banner);
+}
+
+function setCookieBannerVisibility(isVisible) {
+  const banner = document.getElementById("cookieConsentBanner");
+  if (!banner) return;
+
+  banner.classList.toggle("is-visible", isVisible);
+  document.body.classList.toggle("has-cookie-banner", isVisible);
+}
+
+function saveCookieConsentStatus(status) {
+  try {
+    localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, status);
+  } catch (error) {
+    console.error("Failed to save cookie consent status:", error);
+  }
+}
+
+function getCookieConsentStatus() {
+  try {
+    return localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY);
+  } catch (error) {
+    console.error("Failed to read cookie consent status:", error);
+    return null;
+  }
+}
+
+function initializeCookieConsent() {
+  buildCookieConsentBanner();
+
+  const status = getCookieConsentStatus();
+  if (status === "accepted") {
+    loadGoogleAnalytics();
+    setCookieBannerVisibility(false);
+    return;
+  }
+
+  if (status === "declined") {
+    setCookieBannerVisibility(false);
+    return;
+  }
+
+  setCookieBannerVisibility(true);
+
+  const banner = document.getElementById("cookieConsentBanner");
+  if (!banner) return;
+
+  const acceptButton = banner.querySelector('[data-cookie-consent="accept"]');
+  const declineButton = banner.querySelector('[data-cookie-consent="decline"]');
+
+  acceptButton?.addEventListener("click", () => {
+    saveCookieConsentStatus("accepted");
+    setCookieBannerVisibility(false);
+    loadGoogleAnalytics();
+  });
+
+  declineButton?.addEventListener("click", () => {
+    saveCookieConsentStatus("declined");
+    setCookieBannerVisibility(false);
+  });
+}
+
 const CART_STORAGE_KEY = "tsc_cart";
 
 function getCartItemCount() {
@@ -329,6 +438,7 @@ function updateCartIndicators() {
     el.textContent = String(count);
   });
 }
+initializeCookieConsent();
 mountPartials();
 setupContactForm();
 setupImageLightbox();
