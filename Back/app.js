@@ -52,6 +52,7 @@ const pageRouteRedirects = {
   '/pages/privacy.html': '/privacy',
   '/pages/terms.html': '/terms',
   '/pages/accessibility.html': '/accessibility',
+  '/pages/request-confirmation.html': '/request-confirmation',
 };
 
 app.get(Object.keys(pageRouteRedirects), (req, res) => {
@@ -94,6 +95,11 @@ app.get("/terms", (req, res) => {
 app.get("/accessibility", (req, res) => {
   res.setHeader("Cache-Control", "no-store");
   return res.sendFile(path.join(clientPath, "pages", "accessibility.html"));
+});
+
+app.get("/request-confirmation", (req, res) => {
+  res.setHeader("Cache-Control", "no-store");
+  return res.sendFile(path.join(clientPath, "pages", "request-confirmation.html"));
 });
 
 app.get("*", (req, res, next) => {
