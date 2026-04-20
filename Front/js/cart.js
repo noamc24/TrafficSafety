@@ -1,4 +1,6 @@
 ﻿const CART_PAGE_STORAGE_KEY = "tsc_cart";
+const LAST_SUBMITTED_CART_KEY = "tsc_last_submitted_cart";
+const LAST_SUBMITTED_CART_PERSIST_KEY = "tsc_last_submitted_cart_persist";
 const LAST_PRODUCT_KEY = "tsc_last_product_id";
 const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
 const WHATSAPP_NUMBER = "972548778669";
@@ -127,6 +129,38 @@ function getOptionValueAny(item, optionNames = []) {
   return "";
 }
 
+function sanitizePreviewForApi(preview) {
+  if (typeof preview !== "string") return "";
+  const trimmed = preview.trim();
+  if (!trimmed) return "";
+  if (
+    trimmed.startsWith("http://") ||
+    trimmed.startsWith("https://") ||
+    trimmed.startsWith("data:image/")
+  ) {
+    return trimmed;
+  }
+  return "";
+}
+
+function buildSubmittedItemsSnapshot(cart) {
+  if (!Array.isArray(cart)) return [];
+  return cart.map((item) => ({
+    title: item?.title || "מוצר",
+    quantity: Number(item?.quantity) || 1,
+    category: item?.category || "ללא קטגוריה"
+  }));
+}
+
+function encodeSubmittedItemsForHash(items) {
+  try {
+    const json = JSON.stringify(items || []);
+    return btoa(unescape(encodeURIComponent(json)));
+  } catch (_) {
+    return "";
+  }
+}
+
 function buildCustomDesignRestorePayload(item) {
   const textFontSizeRaw = getOptionValue(item, "גודל כיתוב");
   const customTextFontSizePx = Number(item?.customDesignTextFontSizePx);
@@ -248,15 +282,21 @@ function validateQuoteForm(data) {
 }
 
 async function submitQuoteRequest(customer, cart) {
-  const message = buildTelegramQuoteMessage(customer, cart);
+  const message = "נשלחה בקשה להצעת מחיר.";
 
-  const sanitizedCart = cart.map((item) => ({
-    title: item.title || "",
-    quantity: item.quantity || 1,
-    category: item.category || "",
-    options: Array.isArray(item.options) ? item.options : [],
-    customDesignPreview: item.customDesignPreview || ""
-  }));
+  const sanitizedCart = cart.map((item) => {
+    const preview = sanitizePreviewForApi(item.customDesignPreview);
+    const nextItem = {
+      title: item.title || "",
+      quantity: item.quantity || 1,
+      category: item.category || "",
+      options: Array.isArray(item.options) ? item.options : []
+    };
+    if (preview) {
+      nextItem.customDesignPreview = preview;
+    }
+    return nextItem;
+  });
 
   const response = await fetch("/api/contact", {
     method: "POST",
@@ -269,6 +309,7 @@ async function submitQuoteRequest(customer, cart) {
       email: customer.email,
       company: customer.company,
       message,
+      notes: customer.notes || "",
       cart: sanitizedCart
     })
   });
@@ -276,7 +317,18 @@ async function submitQuoteRequest(customer, cart) {
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data?.details || data?.error || "שליחת הבקשה נכשלה");
+    const firstValidationError =
+      Array.isArray(data?.validationErrors) && data.validationErrors.length
+        ? data.validationErrors[0]
+        : null;
+    const validationMessage = firstValidationError
+      ? `${firstValidationError.field || "field"}: ${firstValidationError.message || "Invalid value."}`
+      : "";
+    const messageFromServer =
+      validationMessage || data?.details || data?.error || "שליחת הבקשה נכשלה";
+    const error = new Error(messageFromServer);
+    error.validationErrors = data?.validationErrors || [];
+    throw error;
   }
 
   return data;
@@ -369,18 +421,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         await submitQuoteRequest(customer, cart);
 
-        if (quoteFeedback) {
-          quoteFeedback.textContent = "הבקשה נשלחה בהצלחה. נחזור אליך בהקדם.";
-          quoteFeedback.className = "quote-feedback quote-feedback--success";
-        }
-
-        quoteForm.reset();
+        const submittedItems = buildSubmittedItemsSnapshot(cart);
+        const submittedCartSnapshot = JSON.stringify(submittedItems);
+        sessionStorage.setItem(LAST_SUBMITTED_CART_KEY, submittedCartSnapshot);
+        localStorage.setItem(LAST_SUBMITTED_CART_PERSIST_KEY, submittedCartSnapshot);
         localStorage.removeItem(CART_PAGE_STORAGE_KEY);
         window.dispatchEvent(new Event("tsc-cart-updated"));
-        renderCart();
+        quoteForm.reset();
+        const encodedItems = encodeSubmittedItemsForHash(submittedItems);
+        const confirmationUrl = encodedItems
+          ? `/request-confirmation#items=${encodeURIComponent(encodedItems)}`
+          : "/request-confirmation";
+        window.location.assign(confirmationUrl);
       } catch (error) {
+        console.error("Quote request failed:", error);
         if (quoteFeedback) {
-          quoteFeedback.textContent = "משהו השתבש בשליחה. נסה שוב או צור קשר בטלפון/וואטסאפ.";
+          quoteFeedback.textContent =
+            error?.message || "משהו השתבש בשליחה. נסה שוב או צור קשר בטלפון/וואטסאפ.";
           quoteFeedback.className = "quote-feedback quote-feedback--error";
         }
       } finally {

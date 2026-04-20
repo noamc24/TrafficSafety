@@ -1,0 +1,117 @@
+.request-confirmation-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 255, 255, 1) 35%);
+}
+
+.request-confirmation-main {
+  min-height: clamp(24rem, 60vh, 42rem);
+  display: flex;
+  align-items: center;
+}
+
+.request-confirmation-card {
+  width: min(100%, 50rem);
+  border-radius: 1.25rem;
+}
+
+.request-confirmation-icon {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1;
+  color: #198754;
+  margin-bottom: 1rem;
+}
+
+.request-confirmation-title {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: #111827;
+}
+
+.request-confirmation-message,
+.request-confirmation-clarification,
+.request-confirmation-contact {
+  max-width: 52ch;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.8;
+  color: #374151;
+}
+
+.request-confirmation-clarification {
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 0.85rem;
+  background-color: rgba(248, 250, 252, 0.9);
+}
+
+.request-confirmation-contact {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+}
+
+.request-confirmation-contact a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.request-confirmation-btn {
+  min-width: clamp(11rem, 36vw, 14rem);
+}
+
+.submitted-items {
+  width: min(100%, 52ch);
+  margin: 0 auto 1.5rem;
+  text-align: right;
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  border-radius: 0.85rem;
+  background-color: #fff;
+  padding: 0.9rem 1rem;
+}
+
+.submitted-items__title {
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-weight: 800;
+  margin: 0 0 0.6rem;
+  color: #111827;
+}
+
+.submitted-items__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.submitted-item {
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 0.7rem;
+  padding: 0.6rem 0.75rem;
+  background: #f8fafc;
+}
+
+.submitted-item__head {
+  display: flex;
+  gap: 0.35rem;
+  align-items: baseline;
+  color: #0f172a;
+}
+
+.submitted-item__index {
+  font-weight: 700;
+}
+
+.submitted-item__meta {
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  color: #334155;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+@media (max-width: 575.98px) {
+  .request-confirmation-actions .request-confirmation-btn {
+    width: 100%;
+  }
+}

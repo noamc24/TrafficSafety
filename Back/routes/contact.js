@@ -6,11 +6,12 @@ const MAX_FULL_NAME_LENGTH = 80;
 const MAX_COMPANY_LENGTH = 120;
 const MAX_PHONE_LENGTH = 25;
 const MAX_EMAIL_LENGTH = 254;
-const MAX_MESSAGE_LENGTH = 2000;
+const MAX_MESSAGE_LENGTH = 6000;
 const MAX_NOTES_LENGTH = 1000;
 const MAX_CART_ITEMS = 30;
 const MAX_CART_TITLE_LENGTH = 160;
-const MAX_PREVIEW_LENGTH = 2048;
+const MAX_PREVIEW_LENGTH = 10 * 1024 * 1024;
+const TELEGRAM_SAFE_MESSAGE_LIMIT = 3900;
 
 const allowedTopLevelFields = new Set([
   "fullName",
@@ -25,7 +26,7 @@ const allowedTopLevelFields = new Set([
 
 const nameRegex = /^[\p{L}\p{N}\s.'\-_,()]{2,80}$/u;
 const phoneRegex = /^[+()\-.\s0-9]{7,25}$/;
-const safeTextRegex = /^[\p{L}\p{N}\p{P}\s\n\r]{0,2000}$/u;
+const safeTextRegex = /^[\p{L}\p{N}\p{P}\p{S}\s\n\r]{0,6000}$/u;
 
 function escapeTelegramHtml(value) {
   return String(value ?? "")
@@ -38,6 +39,45 @@ function escapeTelegramHtml(value) {
 
 function pushError(errors, field, message) {
   errors.push({ field, message });
+}
+
+function formatCartOptions(options) {
+  if (!Array.isArray(options) || !options.length) return "ללא";
+  return options
+    .map((opt) => {
+      const optionName = escapeTelegramHtml(opt?.name || "אפשרות");
+      const optionValue = escapeTelegramHtml(opt?.value || "-");
+      return `${optionName}: ${optionValue}`;
+    })
+    .join(" | ");
+}
+
+function buildCartSummary(cart) {
+  if (!Array.isArray(cart) || !cart.length) {
+    return "\n📦 <b>פריטים בהזמנה:</b>\nאין פריטים בהזמנה.";
+  }
+
+  const lines = ["", "📦 <b>פריטים בהזמנה:</b>"];
+  cart.forEach((item, idx) => {
+    const title = escapeTelegramHtml(item?.title || "מוצר");
+    const quantity = escapeTelegramHtml(item?.quantity || 1);
+    const category = escapeTelegramHtml(item?.category || "ללא");
+    const optionsText = formatCartOptions(item?.options);
+    lines.push(
+      `${idx + 1}. <b>${title}</b>`,
+      `כמות: ${quantity}`,
+      `קטגוריה: ${category}`,
+      `אפשרויות: ${optionsText}`,
+      "",
+    );
+  });
+  return lines.join("\n");
+}
+
+function truncateTelegramText(text) {
+  const safeText = String(text || "");
+  if (safeText.length <= TELEGRAM_SAFE_MESSAGE_LIMIT) return safeText;
+  return `${safeText.slice(0, TELEGRAM_SAFE_MESSAGE_LIMIT)}\n\n... (ההודעה קוצרה)`;
 }
 
 function validateContactPayload(body) {
@@ -110,12 +150,14 @@ function validateContactPayload(body) {
     );
   }
 
-  if (
-    typeof normalizedEmail !== "string" ||
-    normalizedEmail.length > MAX_EMAIL_LENGTH ||
-    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)
-  ) {
-    pushError(errors, "email", "Please provide a valid email address.");
+  if (normalizedEmail !== "") {
+    if (
+      typeof normalizedEmail !== "string" ||
+      normalizedEmail.length > MAX_EMAIL_LENGTH ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail)
+    ) {
+      pushError(errors, "email", "Please provide a valid email address.");
+    }
   }
 
   if (
@@ -127,7 +169,7 @@ function validateContactPayload(body) {
     pushError(
       errors,
       "message",
-      "Message must be 5-2000 characters and include only standard text characters.",
+      "Message must be 5-6000 characters and include standard text symbols.",
     );
   }
 
@@ -182,17 +224,17 @@ function validateContactPayload(body) {
       if (item.customDesignPreview !== undefined) {
         const preview = item.customDesignPreview;
         const isString = typeof preview === "string";
-        const isValidLength = isString && preview.length <= MAX_PREVIEW_LENGTH;
-        const isValidProtocol =
-          isString &&
-          (preview.startsWith("http://") ||
-            preview.startsWith("https://") ||
-            preview.startsWith("data:image/"));
-        if (!isValidLength || !isValidProtocol) {
+        const isDataUri = isString && preview.startsWith("data:image/");
+        const isHttpUrl =
+          isString && (preview.startsWith("http://") || preview.startsWith("https://"));
+        const isValidLength =
+          (isHttpUrl && preview.length <= 2048) ||
+          (isDataUri && preview.length <= MAX_PREVIEW_LENGTH);
+        if (!isValidLength || (!isDataUri && !isHttpUrl)) {
           pushError(
             errors,
             `cart[${index}].customDesignPreview`,
-            "Preview must be a valid URL or image data URI up to 2048 characters.",
+            "Preview must be a valid http(s) URL (up to 2048 chars) or image data URI.",
           );
         }
       }
@@ -230,7 +272,8 @@ router.post("/", async (req, res) => {
       `📝 <b>הודעה:</b>\n${senderMessage}\n\n` +
       `📎 <b>הערות:</b>\n${senderNotes}`;
 
-    await sendTelegramMessage(text);
+    const finalText = truncateTelegramText(`${text}${buildCartSummary(cart)}`);
+    await sendTelegramMessage(finalText);
 
     if (Array.isArray(cart) && cart.length) {
       for (const item of cart) {
