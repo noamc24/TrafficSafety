@@ -68,10 +68,25 @@ function buildImageVariants(src) {
   }
 
   const stem = cleanSrc.slice(0, dotIdx);
-  const normalizedStem = stem.endsWith("-thumb") ? stem.slice(0, -6) : stem;
+  const extension = cleanSrc.slice(dotIdx).toLowerCase();
+  const isThumbVariant = stem.endsWith("-thumb");
+  const normalizedStem = isThumbVariant ? stem.slice(0, -6) : stem;
+
+  if (extension !== ".webp") {
+    return { full: cleanSrc, thumb: cleanSrc, fallback: cleanSrc };
+  }
+
+  if (isThumbVariant) {
+    return {
+      full: `${normalizedStem}.webp`,
+      thumb: cleanSrc,
+      fallback: cleanSrc
+    };
+  }
+
   return {
-    full: `${normalizedStem}.webp`,
-    thumb: `${normalizedStem}-thumb.webp`,
+    full: cleanSrc,
+    thumb: cleanSrc,
     fallback: cleanSrc
   };
 }

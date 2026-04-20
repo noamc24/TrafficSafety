@@ -1,4 +1,4 @@
-{
+﻿{
   "storeCatalog": [
     {
       "productId": "sign-101",
@@ -782,28 +782,6 @@
       "existingImage": ""
     },
     {
-      "productId": "sign-230",
-      "category": "signs",
-      "signSubcategory": "instruction",
-      "title": "230 - כביש אגרה",
-      "text": "תמרור: כביש אגרה",
-      "tag": "תמרורים",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-230",
-      "existingImage": ""
-    },
-    {
-      "productId": "sign-231",
-      "category": "signs",
-      "signSubcategory": "instruction",
-      "title": "231 - קצה כביש אגרה",
-      "text": "תמרור: קצה כביש אגרה",
-      "tag": "תמרורים",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-231",
-      "existingImage": ""
-    },
-    {
       "productId": "sign-301",
       "category": "signs",
       "signSubcategory": "right-of-way",
@@ -852,7 +830,7 @@
       "category": "signs",
       "signSubcategory": "right-of-way",
       "title": "306 - מעבר חצייה",
-      "text": "זכות קדימה: מעבר חצייה - יש לפעול לפי כללי הקדימות במקום",
+      "text": "זכות קדימה: מעבר חצייה - יש לפעול לפי כללי הקדימות במקום <br> תמרור דו-צדדי",
       "tag": "תמרורים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=sign-306",
@@ -1310,28 +1288,6 @@
       "existingImage": ""
     },
     {
-      "productId": "sign-501",
-      "category": "signs",
-      "signSubcategory": "public-transport",
-      "title": "501 - דרך לתחבורה ציבורית",
-      "text": "תחבורה ציבורית: דרך לתחבורה ציבורית - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
-      "tag": "תמרורים",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-501",
-      "existingImage": ""
-    },
-    {
-      "productId": "sign-502",
-      "category": "signs",
-      "signSubcategory": "public-transport",
-      "title": "502 - קצה דרך תחבורה ציבורית",
-      "text": "תחבורה ציבורית: קצה דרך תחבורה ציבורית - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
-      "tag": "תמרורים",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-502",
-      "existingImage": ""
-    },
-    {
       "productId": "sign-504",
       "category": "signs",
       "signSubcategory": "public-transport",
@@ -1346,22 +1302,11 @@
       "productId": "sign-505",
       "category": "signs",
       "signSubcategory": "public-transport",
-      "title": "505 - תחנת אוטובוס",
-      "text": "תחבורה ציבורית: תחנת אוטובוס - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
+      "title": "505/506 - תחנת אוטובוס/רכבת קלה",
+      "text": "תחבורה ציבורית: תחנת אוטובוס/רכבת קלה - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים <br> תמרור דו-צדדי",
       "tag": "תמרורים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=sign-505",
-      "existingImage": ""
-    },
-    {
-      "productId": "sign-506",
-      "category": "signs",
-      "signSubcategory": "public-transport",
-      "title": "506 - תחנת רכבת",
-      "text": "תחבורה ציבורית: תחנת רכבת - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
-      "tag": "תמרורים",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-506",
       "existingImage": ""
     },
     {
@@ -2067,6 +2012,17 @@
       "price": "לפי מפרט",
       "detailsHref": "/product?id=sign-post",
       "existingImage": ""
+    },
+    {
+      "productId": "height-limiter",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "מגביל גובה",
+      "text": "מגביל גובה",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-113",
+      "existingImage": "/assets/TrafficSigns/100/113.webp"
     },
     {
       "productId": "connector-units-3-6-inch",

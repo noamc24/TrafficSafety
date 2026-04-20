@@ -6,7 +6,7 @@
 }
 
 .navbar .nav-link {
-  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  font-size: clamp(1.2rem, 1.45vw, 1.55rem);
   padding: 0.6rem 0.9rem;
   color: #ffffff;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
@@ -59,13 +59,13 @@
 
 /* ===== Buttons ===== */
 .navbar .btn {
-  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  font-size: clamp(1.2rem, 1.45vw, 1.55rem);
   padding: 0.6rem 1.1rem;
 }
 
 /* ===== Logo ===== */
 .navbar .navbar-logo {
-  height: clamp(6rem, 12vw, 15rem);
+  height: clamp(9rem, 18vw, 22.5rem);
   width: auto;
   object-fit: contain;
   display: block;
@@ -77,27 +77,56 @@
 
 .navbar-brand .brand-text {
   line-height: 1.1;
-  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
   font-weight: 700;
+}
+
+/* ===== Large screens stability (1530px+) ===== */
+@media (min-width: 95.625rem) {
+  .navbar > .container-fluid {
+    padding-inline: 1rem !important;
+  }
+
+  .navbar .navbar-logo {
+    height: clamp(7.2rem, 7vw, 10.5rem);
+  }
+
+  .navbar-brand .brand-text {
+    font-size: clamp(1.1rem, 1.05vw, 1.5rem);
+  }
+
+  .navbar .nav-link {
+    font-size: clamp(1.08rem, 0.95vw, 1.28rem);
+    padding: 0.5rem 0.6rem;
+  }
+
+  .navbar .btn {
+    font-size: clamp(1.08rem, 0.95vw, 1.28rem);
+    padding: 0.5rem 0.85rem;
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.4rem !important;
+  }
 }
 
 /* ===== Wide Desktop Fit (prevent left clipping before offcanvas) ===== */
 @media (max-width: 96rem) {
   .navbar .navbar-logo {
-    height: clamp(4.8rem, 8vw, 7rem);
+    height: clamp(7.2rem, 12vw, 10.5rem);
   }
 
   .navbar-brand .brand-text {
-    font-size: clamp(1rem, 1.25vw, 1.3rem);
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
   }
 
   .navbar .nav-link {
-    font-size: clamp(0.98rem, 1.05vw, 1.15rem);
+    font-size: clamp(1.08rem, 1.2vw, 1.28rem);
     padding: 0.5rem 0.6rem;
   }
 
   .navbar .btn {
-    font-size: clamp(0.98rem, 1.05vw, 1.15rem);
+    font-size: clamp(1.08rem, 1.2vw, 1.28rem);
     padding: 0.5rem 0.85rem;
   }
 
@@ -156,11 +185,11 @@
   }
 
   .navbar .navbar-logo {
-    height: clamp(4.5rem, 10vw, 8rem);
+    height: clamp(6.75rem, 15vw, 12rem);
   }
 
   .navbar-brand .brand-text {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
   }
 }
 
@@ -172,11 +201,11 @@
   }
 
   .navbar .navbar-logo {
-    height: 3.5rem;
+    height: 5.25rem;
   }
 
   .navbar-brand .brand-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .offcanvas .nav-link {

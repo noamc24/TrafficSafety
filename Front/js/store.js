@@ -127,12 +127,27 @@
       return { thumb: cleanSrc, full: cleanSrc, fallback: cleanSrc };
     }
 
-    // Convention: "<name>-thumb.webp" for cards, "<name>.webp" for product details.
     const stem = cleanSrc.slice(0, dotIdx);
-    const normalizedStem = stem.endsWith("-thumb") ? stem.slice(0, -6) : stem;
+    const extension = cleanSrc.slice(dotIdx).toLowerCase();
+    const isThumbVariant = stem.endsWith("-thumb");
+    const normalizedStem = isThumbVariant ? stem.slice(0, -6) : stem;
+
+    // Prefer explicit source paths to avoid broken images when PNG/WebP naming is mixed.
+    if (extension !== ".webp") {
+      return { thumb: cleanSrc, full: cleanSrc, fallback: cleanSrc };
+    }
+
+    if (isThumbVariant) {
+      return {
+        thumb: cleanSrc,
+        full: `${normalizedStem}.webp`,
+        fallback: cleanSrc
+      };
+    }
+
     return {
-      thumb: `${normalizedStem}-thumb.webp`,
-      full: `${normalizedStem}.webp`,
+      thumb: cleanSrc,
+      full: cleanSrc,
       fallback: cleanSrc
     };
   }
