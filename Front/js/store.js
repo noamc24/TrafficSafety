@@ -464,10 +464,63 @@
 
   function matchesSearchTerm(item, searchTerm) {
     if (!searchTerm) return true;
+    const inferShapeByProduct = (productId = "", title = "", category = "") => {
+      const normalizedTitle = String(title || "");
+      const normalizedCategory = String(category || "");
+      const signMatch = String(productId || "").match(/^sign-(\d+)$/);
+      if (signMatch) {
+        const code = Number(signMatch[1]);
+        const inRange = (from, to) => code >= from && code <= to;
+        if (
+          inRange(101, 106) ||
+          inRange(109, 111) ||
+          inRange(114, 117) ||
+          inRange(119, 150) ||
+          code === 301 ||
+          code === 901
+        ) return "משולש";
+        if (
+          inRange(220, 225) ||
+          code === 306 ||
+          code === 308 ||
+          inRange(504, 505) ||
+          inRange(618, 626) ||
+          code === 628 ||
+          inRange(633, 638) ||
+          code === 902 ||
+          inRange(905, 907) ||
+          inRange(910, 914) ||
+          code === 935
+        ) return "ריבוע";
+        if (
+          inRange(201, 215) ||
+          inRange(218, 219) ||
+          inRange(226, 229) ||
+          inRange(303, 304) ||
+          code === 307 ||
+          inRange(401, 438) ||
+          inRange(440, 441)
+        ) return "עיגול";
+        if (code === 302) return "מתומן";
+        return "מרובע";
+      }
+      if (normalizedTitle.includes("מתומן")) return "מתומן";
+      if (normalizedTitle.includes("משולש")) return "משולש";
+      if (normalizedTitle.includes("עיגול") || normalizedTitle.includes("קוטר")) return "עיגול";
+      if (normalizedTitle.includes("ריבוע")) return "ריבוע";
+      if (normalizedCategory.includes("שלט")) return "מרובע";
+      if (normalizedCategory.includes("תמרור")) return "מרובע";
+      return "";
+    };
+
+    const title = item.querySelector(".product-card__title")?.textContent || "";
+    const text = item.querySelector(".product-card__text")?.textContent || "";
+    const shape = inferShapeByProduct(item.dataset.productId || "", title, item.dataset.category || "");
     const haystack = [
       item.dataset.productId || "",
-      item.querySelector(".product-card__title")?.textContent || "",
-      item.querySelector(".product-card__text")?.textContent || ""
+      title,
+      text,
+      shape
     ].join(" ").toLowerCase();
     return haystack.includes(searchTerm);
   }
@@ -478,13 +531,14 @@
     const searchTerm = (storeSearchInput?.value || "").trim().toLowerCase();
 
     productItems.forEach((item) => {
+      const isCustomDesignBoard = item.dataset.productId === "custom-design-board";
       const itemCategory = item.dataset.category;
       const signSubCategory = item.dataset.signSubcategory || "all";
-      const categoryMatch = selectedFilter === "all" || itemCategory === selectedFilter;
+      const categoryMatch = isCustomDesignBoard || selectedFilter === "all" || itemCategory === selectedFilter;
       let subCategoryMatch = true;
 
       if (selectedFilter === "signs") {
-        subCategoryMatch = selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
+        subCategoryMatch = isCustomDesignBoard || selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
       }
 
       if (categoryMatch && subCategoryMatch && matchesSearchTerm(item, searchTerm)) {

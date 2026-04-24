@@ -176,10 +176,10 @@ function buildDynamicProduct(productId) {
 function getSizeOptionsByShape(shape) {
   const sizeMap = {
     "ריבוע": ["50X50 ס\"מ", "60X60 ס\"מ", "100X100 ס\"מ"],
-    "עיגול": ["קוטר 60 ס\"מ", "קוטר 80 ס\"מ", "קוטר 100 ס\"מ", "קוטר 120 ס\"מ"],
+    "עיגול": ["קוטר 50 ס\"מ", "קוטר 60 ס\"מ", "קוטר 80 ס\"מ", "קוטר 100 ס\"מ", "קוטר 120 ס\"מ"],
     "משולש": ["60 ס\"מ", "80 ס\"מ", "100 ס\"מ", "120 ס\"מ"],
     "משולש הפוך": ["60 ס\"מ", "80 ס\"מ", "100 ס\"מ", "120 ס\"מ"],
-    "מתומן": ["קוטר 50 ס\"מ", "קוטר 60 ס\"מ", "קוטר 80 ס\"מ"],
+    "מתומן": ["קוטר 50 ס\"מ", "קוטר 60 ס\"מ", "קוטר 80 ס\"מ", "קוטר 100 ס\"מ", "קוטר 120 ס\"מ"],
     "מרובע": ["20X50 ס\"מ", "20X60 ס\"מ", "20X100 ס\"מ", "50X50 ס\"מ", "50X60 ס\"מ", "50X100 ס\"מ", "60X60 ס\"מ", "60X100 ס\"מ", "100X100 ס\"מ"]
   };
 
@@ -397,6 +397,11 @@ function enableCustomSelectUi(container) {
 function renderOptions(options, productId = "", productCategory = "", productTitle = "", restorePayload = null) {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
+  const SIZE_FIELD_LABELS = new Set(["גודל", "אורך צלע", "אורך 2 צלעות", "קוטר"]);
+  const isSignProduct = /^sign-\d+$/.test(productId || "");
+  const inferredSignShape = isSignProduct
+    ? inferShapeByProduct(productId, productTitle, productCategory)
+    : null;
 
   const setSelectValues = (select, values) => {
     if (!select) return;
@@ -412,9 +417,18 @@ function renderOptions(options, productId = "", productCategory = "", productTit
   const fields = [];
   optionsContainer.innerHTML = "";
   const hasComplementaryOptions = shouldApplyMountingOptions(productId, productCategory);
-  const normalizedOptions = hasComplementaryOptions
+  const filteredOptions = hasComplementaryOptions
     ? options.filter((option) => option?.name !== "חומר")
     : options;
+  const normalizedOptions = filteredOptions.map((option) => {
+    if (isSignProduct && option?.name === "גודל" && inferredSignShape) {
+      return {
+        ...option,
+        values: getSizeOptionsByShape(inferredSignShape)
+      };
+    }
+    return option;
+  });
 
   normalizedOptions.forEach((option, index) => {
     const wrapper = document.createElement("div");
@@ -437,6 +451,30 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     fields.push({ label: option.name, element: select });
     optionsContainer.appendChild(wrapper);
   });
+
+  if (isSignProduct) {
+    const sizeField = fields.find((field) => SIZE_FIELD_LABELS.has(field.label));
+    if (sizeField) {
+      const inferredShape = inferredSignShape;
+      let sizeLabel = "גודל";
+
+      if (inferredShape === "משולש" || inferredShape === "משולש הפוך") {
+        sizeLabel = "אורך צלע";
+      } else if (inferredShape === "ריבוע" || inferredShape === "מרובע") {
+        sizeLabel = "אורך 2 צלעות";
+      } else if (inferredShape === "עיגול" || inferredShape === "מתומן") {
+        sizeLabel = "קוטר";
+      }
+
+      const sizeLabelElement = sizeField.element
+        ?.closest(".product-option")
+        ?.querySelector("label");
+      if (sizeLabelElement) {
+        sizeLabelElement.textContent = sizeLabel;
+      }
+      sizeField.label = sizeLabel;
+    }
+  }
 
   if (hasComplementaryOptions) {
     const complementaryWrapper = document.createElement("div");
@@ -585,7 +623,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
   if (productId === "custom-design-board") {
     const shapeField = fields.find((field) => field.label === "צורה");
-    const sizeField = fields.find((field) => field.label === "גודל");
+    const sizeField = fields.find((field) => SIZE_FIELD_LABELS.has(field.label));
     const textField = fields.find((field) => field.label === "כיתוב");
     const imageField = fields.find((field) => field.label === "תמונה");
     let textControlsWrapper = null;
