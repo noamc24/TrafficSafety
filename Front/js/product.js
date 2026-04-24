@@ -1,4 +1,4 @@
-const PRODUCT_CART_STORAGE_KEY = "tsc_cart";
+﻿const PRODUCT_CART_STORAGE_KEY = "tsc_cart";
 const LAST_PRODUCT_KEY = "tsc_last_product_id";
 const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
 
@@ -175,12 +175,12 @@ function buildDynamicProduct(productId) {
 
 function getSizeOptionsByShape(shape) {
   const sizeMap = {
-    "ריבוע": ["20X20 ס\"מ", "50X50 ס\"מ", "60X60 ס\"מ", "100X100 ס\"מ"],
+    "ריבוע": ["50X50 ס\"מ", "60X60 ס\"מ", "100X100 ס\"מ"],
     "עיגול": ["קוטר 60 ס\"מ", "קוטר 80 ס\"מ", "קוטר 100 ס\"מ", "קוטר 120 ס\"מ"],
     "משולש": ["60 ס\"מ", "80 ס\"מ", "100 ס\"מ", "120 ס\"מ"],
     "משולש הפוך": ["60 ס\"מ", "80 ס\"מ", "100 ס\"מ", "120 ס\"מ"],
     "מתומן": ["קוטר 50 ס\"מ", "קוטר 60 ס\"מ", "קוטר 80 ס\"מ"],
-    "מרובע": ["20X20 ס\"מ", "20X50 ס\"מ", "20X60 ס\"מ", "20X100 ס\"מ", "50X50 ס\"מ", "50X60 ס\"מ", "50X100 ס\"מ", "60X60 ס\"מ", "60X100 ס\"מ", "100X100 ס\"מ"]
+    "מרובע": ["20X50 ס\"מ", "20X60 ס\"מ", "20X100 ס\"מ", "50X50 ס\"מ", "50X60 ס\"מ", "50X100 ס\"מ", "60X60 ס\"מ", "60X100 ס\"מ", "100X100 ס\"מ"]
   };
 
   return sizeMap[shape] || ["לבחירה לפי צורה"];
@@ -316,6 +316,84 @@ function getMountingSubject(productId = "", category = "") {
   return "מוצר";
 }
 
+function enableCustomSelectUi(container) {
+  if (!container) return;
+  const nativeSelects = Array.from(container.querySelectorAll("select.form-select"));
+  const openClass = "is-open";
+  const initializedFlag = "1";
+
+  const closeAll = () => {
+    container.querySelectorAll(".tsc-custom-select").forEach((root) => root.classList.remove(openClass));
+  };
+
+  document.addEventListener("click", (event) => {
+    if (!container.contains(event.target)) closeAll();
+  });
+
+  nativeSelects.forEach((select) => {
+    if (select.dataset.customSelectInit === initializedFlag) return;
+    select.dataset.customSelectInit = initializedFlag;
+    select.classList.add("tsc-native-select-hidden");
+
+    const customRoot = document.createElement("div");
+    customRoot.className = "tsc-custom-select";
+    customRoot.setAttribute("dir", "rtl");
+
+    const trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "tsc-custom-select__trigger";
+
+    const list = document.createElement("ul");
+    list.className = "tsc-custom-select__list";
+    list.setAttribute("role", "listbox");
+
+    const renderOptions = () => {
+      const options = Array.from(select.options);
+      list.innerHTML = "";
+
+      options.forEach((opt) => {
+        const item = document.createElement("li");
+        item.className = "tsc-custom-select__item";
+        item.textContent = opt.textContent || opt.value;
+        item.dataset.value = opt.value;
+        item.setAttribute("role", "option");
+
+        if (opt.value === select.value) {
+          item.classList.add("is-selected");
+        }
+
+        item.addEventListener("click", () => {
+          select.value = opt.value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          customRoot.classList.remove(openClass);
+        });
+
+        list.appendChild(item);
+      });
+
+      const selectedOption = options.find((opt) => opt.value === select.value) || options[0];
+      trigger.textContent = selectedOption ? (selectedOption.textContent || selectedOption.value) : "";
+    };
+
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const wasOpen = customRoot.classList.contains(openClass);
+      closeAll();
+      if (!wasOpen) customRoot.classList.add(openClass);
+    });
+
+    select.addEventListener("change", renderOptions);
+
+    const observer = new MutationObserver(renderOptions);
+    observer.observe(select, { childList: true, subtree: true, attributes: true });
+
+    customRoot.appendChild(trigger);
+    customRoot.appendChild(list);
+    select.insertAdjacentElement("afterend", customRoot);
+    renderOptions();
+  });
+}
+
 function renderOptions(options, productId = "", productCategory = "", productTitle = "", restorePayload = null) {
   const optionsContainer = document.getElementById("productOptions");
   if (!optionsContainer) return [];
@@ -333,8 +411,12 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
   const fields = [];
   optionsContainer.innerHTML = "";
+  const hasComplementaryOptions = shouldApplyMountingOptions(productId, productCategory);
+  const normalizedOptions = hasComplementaryOptions
+    ? options.filter((option) => option?.name !== "חומר")
+    : options;
 
-  options.forEach((option, index) => {
+  normalizedOptions.forEach((option, index) => {
     const wrapper = document.createElement("div");
     wrapper.className = "product-option";
 
@@ -356,48 +438,96 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     optionsContainer.appendChild(wrapper);
   });
 
-  if (shouldApplyMountingOptions(productId, productCategory)) {
-    const mountingSubject = getMountingSubject(productId, productCategory);
-    const mountingQuestionLabel = `על מה יישב ה${mountingSubject}?`;
-    const hasInstallationField = fields.some((field) =>
-      /התקנה|שיטת התקנה/.test(field.label || "")
-    );
+  if (hasComplementaryOptions) {
+    const complementaryWrapper = document.createElement("div");
+    complementaryWrapper.className = "product-option";
+    complementaryWrapper.innerHTML = `
+      <label>מוצרים משלימים</label>
+      <div id="complementaryProductsOptions" class="d-flex flex-column gap-2 mt-2">
+        <label class="form-check m-0">
+          <input class="form-check-input" type="checkbox" value="ללא" checked>
+          <span class="form-check-label">ללא</span>
+        </label>
+        <label class="form-check m-0">
+          <input class="form-check-input" type="checkbox" value="עמוד">
+          <span class="form-check-label">עמוד 3 צול</span>
+        </label>
+        <label class="form-check m-0">
+          <input class="form-check-input" type="checkbox" value="יחידת חיבור">
+          <span class="form-check-label">יחידת חיבור</span>
+        </label>
+      </div>
+    `;
+    optionsContainer.appendChild(complementaryWrapper);
 
-    if (!hasInstallationField) {
-      const mountWrapper = document.createElement("div");
-      mountWrapper.className = "product-option";
-      mountWrapper.innerHTML = `
-        <label for="productMountBase">${mountingQuestionLabel}</label>
-        <select id="productMountBase" class="form-select">
-          <option value="קיר">קיר</option>
-          <option value="עמוד">עמוד</option>
-        </select>
-      `;
-      optionsContainer.appendChild(mountWrapper);
-      const mountSelect = mountWrapper.querySelector("select");
-      fields.push({ label: mountingQuestionLabel, element: mountSelect });
+    const complementaryContainer = complementaryWrapper.querySelector("#complementaryProductsOptions");
+    const complementaryCheckboxes = Array.from(complementaryContainer?.querySelectorAll("input[type='checkbox']") || []);
+    const noneCheckbox = complementaryCheckboxes.find((checkbox) => checkbox.value === "ללא");
 
-      const connectorWrapper = document.createElement("div");
-      connectorWrapper.className = "product-option";
-      connectorWrapper.style.display = "none";
-      connectorWrapper.innerHTML = `
-        <label for="productConnectorUnit">יחידת חיבור</label>
-        <select id="productConnectorUnit" class="form-select">
-          <option value="ללא">ללא</option>
-          <option value="3 צול">3 צול</option>
-          <option value="6 צול">6 צול</option>
-        </select>
-      `;
-      optionsContainer.appendChild(connectorWrapper);
-      const connectorSelect = connectorWrapper.querySelector("select");
-      fields.push({ label: "יחידת חיבור", element: connectorSelect });
+    const poleLengthWrapper = document.createElement("div");
+    poleLengthWrapper.className = "product-option";
+    poleLengthWrapper.style.display = "none";
+    poleLengthWrapper.innerHTML = `
+      <label for="productPoleLength">גובה העמוד</label>
+      <select id="productPoleLength" class="form-select">
+        <option value="1.5 מטר">1.5 מטר</option>
+        <option value="3 מטר">3 מטר</option>
+        <option value="3.5 מטר">3.5 מטר</option>
+        <option value="4 מטר">4 מטר</option>
+      </select>
+    `;
+    optionsContainer.appendChild(poleLengthWrapper);
+    const poleLengthSelect = poleLengthWrapper.querySelector("select");
 
-      const toggleConnectorUnit = () => {
-        connectorWrapper.style.display = mountSelect.value === "עמוד" ? "block" : "none";
-      };
-      mountSelect.addEventListener("change", toggleConnectorUnit);
-      toggleConnectorUnit();
-    }
+    const connectorTypeWrapper = document.createElement("div");
+    connectorTypeWrapper.className = "product-option";
+    connectorTypeWrapper.style.display = "none";
+    connectorTypeWrapper.innerHTML = `
+      <label for="productConnectorUnit">סוג יחידת חיבור</label>
+      <select id="productConnectorUnit" class="form-select">
+        <option value="3 צול">3 צול</option>
+        <option value="6 צול">6 צול</option>
+      </select>
+    `;
+    optionsContainer.appendChild(connectorTypeWrapper);
+    const connectorTypeSelect = connectorTypeWrapper.querySelector("select");
+
+    const updateComplementaryUi = () => {
+      const selected = complementaryCheckboxes
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+      poleLengthWrapper.style.display = selected.includes("עמוד") ? "block" : "none";
+      connectorTypeWrapper.style.display = selected.includes("יחידת חיבור") ? "block" : "none";
+    };
+
+    complementaryCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        if (checkbox.value === "ללא" && checkbox.checked) {
+          complementaryCheckboxes.forEach((item) => {
+            if (item.value !== "ללא") item.checked = false;
+          });
+        } else if (checkbox.value !== "ללא" && checkbox.checked && noneCheckbox) {
+          noneCheckbox.checked = false;
+        }
+
+        if (!complementaryCheckboxes.some((item) => item.checked) && noneCheckbox) {
+          noneCheckbox.checked = true;
+        }
+
+        updateComplementaryUi();
+      });
+    });
+
+    updateComplementaryUi();
+    fields.push({
+      label: "מוצרים משלימים",
+      element: complementaryContainer,
+      getValues: () => complementaryCheckboxes
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => ({ name: "מוצרים משלימים", value: checkbox.value }))
+    });
+    fields.push({ label: "גובה עמוד 3 צול", element: poleLengthSelect });
+    fields.push({ label: "סוג יחידת חיבור", element: connectorTypeSelect });
   }
 
   if (productId === "safety-cones") {
@@ -1597,15 +1727,19 @@ function renderOptions(options, productId = "", productCategory = "", productTit
   quantityWrapper.className = "product-option";
   quantityWrapper.innerHTML = `
     <label for="productQty">כמות</label>
-    <select id="productQty" class="form-select">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+    <input
+      id="productQty"
+      class="form-control"
+      type="number"
+      inputmode="numeric"
+      min="1"
+      max="50"
+      step="1"
+      value="1"
+    />
   `;
   optionsContainer.appendChild(quantityWrapper);
+  enableCustomSelectUi(optionsContainer);
 
   return fields;
 }
@@ -1616,6 +1750,15 @@ function setupAddToCart(productId, product, optionFields) {
   const qtyField = document.getElementById("productQty");
   const pxToCm = (pxValue) => (Number(pxValue || 0) / 37.8).toFixed(2);
   if (!btn || !feedback || !qtyField) return;
+  qtyField.addEventListener("input", () => {
+    const digitsOnly = String(qtyField.value || "").replace(/[^\d]/g, "");
+    if (!digitsOnly) {
+      qtyField.value = "";
+      return;
+    }
+    const clamped = Math.min(50, Math.max(1, Number(digitsOnly)));
+    qtyField.value = String(clamped);
+  });
 
   const getCartImage = (images) => {
     if (productId === "safety-cones") {
@@ -1635,10 +1778,15 @@ function setupAddToCart(productId, product, optionFields) {
         const wrapper = field.element?.closest(".product-option");
         return wrapper ? wrapper.style.display !== "none" : true;
       })
-      .map((field) => ({
-        name: field.label,
-        value: field.element.value
-      }));
+      .flatMap((field) => {
+        if (typeof field.getValues === "function") {
+          return field.getValues();
+        }
+        return [{
+          name: field.label,
+          value: field.element.value
+        }];
+      });
 
     const customTextInput = document.getElementById("customTextOptionInput");
     const customTextValue = customTextInput ? customTextInput.value.trim() : "";
@@ -1696,7 +1844,7 @@ function setupAddToCart(productId, product, optionFields) {
       }
     }
 
-    const quantity = Number(qtyField.value || 1);
+    const quantity = Math.min(50, Math.max(1, Number(qtyField.value || 1)));
     const cart = JSON.parse(localStorage.getItem(PRODUCT_CART_STORAGE_KEY) || "[]");
     const nextItem = {
       productId,
@@ -1738,10 +1886,13 @@ function setupAddToCart(productId, product, optionFields) {
       cart.push(nextItem);
     }
 
-    const connectorOption = selectedOptions.find((opt) => opt.name === "יחידת חיבור");
-    const connectorType = connectorOption?.value;
-    const shouldAddConnectorProduct = connectorType === "3 צול" || connectorType === "6 צול";
+    const complementarySelections = selectedOptions
+      .filter((opt) => opt.name === "מוצרים משלימים")
+      .map((opt) => opt.value);
+    const shouldAddPoleProduct = complementarySelections.includes("עמוד");
+    const shouldAddConnectorProduct = complementarySelections.includes("יחידת חיבור");
     if (shouldAddConnectorProduct) {
+      const connectorType = selectedOptions.find((opt) => opt.name === "סוג יחידת חיבור")?.value || "3 צול";
       const connectorProduct = PRODUCT_CATALOG["connector-units-3-6-inch"] || {};
       const connectorItem = {
         productId: "connector-units-3-6-inch",
@@ -1765,6 +1916,34 @@ function setupAddToCart(productId, product, optionFields) {
         existingConnector.quantity = (Number(existingConnector.quantity) || 1) + connectorItem.quantity;
       } else {
         cart.push(connectorItem);
+      }
+    }
+
+    if (shouldAddPoleProduct) {
+      const poleLength = selectedOptions.find((opt) => opt.name === "גובה עמוד 3 צול")?.value || "3 מטר";
+      const poleProduct = PRODUCT_CATALOG["sign-post"] || {};
+      const poleItem = {
+        productId: "sign-post",
+        title: poleProduct.title || "עמוד 3 צול",
+        category: poleProduct.category || "אביזרי בטיחות",
+        image: getCartImage(poleProduct.images),
+        quantity,
+        options: [{ name: "גובה", value: poleLength }],
+        addedAt: new Date().toISOString()
+      };
+
+      const existingPole = cart.find((item) => {
+        if (item.productId !== poleItem.productId) return false;
+        const a = item.options || [];
+        const b = poleItem.options || [];
+        if (a.length !== b.length) return false;
+        return a.every((opt, idx) => opt.name === b[idx]?.name && opt.value === b[idx]?.value);
+      });
+
+      if (existingPole) {
+        existingPole.quantity = (Number(existingPole.quantity) || 1) + poleItem.quantity;
+      } else {
+        cart.push(poleItem);
       }
     }
 

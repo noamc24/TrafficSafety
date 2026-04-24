@@ -81,6 +81,58 @@ object {
   border-radius: 1rem;
 }
 
+/* ===== Brand Color For Store/Product Option Inputs ===== */
+.store-page .form-check-input,
+.store-page .form-select,
+.store-page .form-control,
+.product-page .form-check-input,
+.product-page .form-select,
+.product-page .form-control {
+  accent-color: var(--tsc-yellow);
+}
+
+.store-page .form-check-input:checked,
+.product-page .form-check-input:checked {
+  background-color: var(--tsc-yellow);
+  border-color: var(--tsc-yellow);
+}
+
+.store-page .form-check-input:focus,
+.store-page .form-select:focus,
+.store-page .form-control:focus,
+.product-page .form-check-input:focus,
+.product-page .form-select:focus,
+.product-page .form-control:focus {
+  border-color: var(--tsc-yellow);
+  box-shadow: 0 0 0 0.2rem rgba(244, 163, 0, 0.25);
+}
+
+.store-page .form-select option:checked,
+.product-page .form-select option:checked {
+  background: var(--tsc-yellow) !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+  box-shadow: 0 0 0 62.5rem var(--tsc-yellow) inset;
+}
+
+.store-page .form-select option:hover,
+.store-page .form-select option:focus,
+.product-page .form-select option:hover,
+.product-page .form-select option:focus {
+  background: rgba(244, 163, 0, 0.35) !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+  box-shadow: 0 0 0 62.5rem rgba(244, 163, 0, 0.35) inset;
+}
+
+.store-page .form-select:focus option:hover,
+.product-page .form-select:focus option:hover {
+  background: var(--tsc-yellow) !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000;
+  box-shadow: 0 0 0 62.5rem var(--tsc-yellow) inset;
+}
+
 /* ===== Hero ===== */
 .hero {
   background: linear-gradient(180deg, #f8f9fa, #ffffff);

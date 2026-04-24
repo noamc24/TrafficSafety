@@ -65,6 +65,15 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.store-hero__text + .store-hero__text {
+  margin-top: -0.6rem;
+  margin-bottom: 1.25rem;
+  color: #6a6a6a;
+  font-size: clamp(0.98rem, 1.15vw, 1.05rem);
+  padding-inline-start: 0.6rem;
+  border-inline-start: 0.2rem solid rgba(244, 163, 0, 0.45);
+}
+
 .store-hero__actions {
   display: flex;
   flex-wrap: wrap;

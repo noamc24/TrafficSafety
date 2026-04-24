@@ -119,6 +119,95 @@
   overflow-wrap: anywhere;
 }
 
+.product-options .tsc-native-select-hidden {
+  position: absolute !important;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.product-options .tsc-custom-select {
+  position: relative;
+}
+
+.product-options .tsc-custom-select__trigger {
+  width: 100%;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: #212529;
+  padding: 0.62rem 2.2rem 0.62rem 0.9rem;
+  text-align: right;
+  line-height: 1.4;
+  position: relative;
+}
+
+.product-options .tsc-custom-select__trigger::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 0.125rem solid #4b5563;
+  border-bottom: 0.125rem solid #4b5563;
+  transform: translateY(-60%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.product-options .tsc-custom-select.is-open .tsc-custom-select__trigger {
+  border-color: #f4a300;
+  box-shadow: 0 0 0 0.2rem rgba(244, 163, 0, 0.25);
+}
+
+.product-options .tsc-custom-select.is-open .tsc-custom-select__trigger::before {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.product-options .tsc-custom-select__list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: #fff;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+  margin: 0;
+  padding: 0.3rem 0;
+  list-style: none;
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.product-options .tsc-custom-select.is-open .tsc-custom-select__list {
+  display: block;
+}
+
+.product-options .tsc-custom-select__item {
+  padding: 0.52rem 0.9rem;
+  cursor: pointer;
+  color: #1f2937;
+}
+
+.product-options .tsc-custom-select__item:hover {
+  background: rgba(244, 163, 0, 0.25);
+}
+
+.product-options .tsc-custom-select__item.is-selected {
+  background: #f4a300;
+  color: #111827;
+  font-weight: 700;
+}
+
 .product-actions {
   display: flex;
   align-items: center;
