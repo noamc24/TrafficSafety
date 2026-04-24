@@ -529,19 +529,28 @@
     let visibleCount = 0;
     const selectedSignFilter = getSelectedSignSubFilter();
     const searchTerm = (storeSearchInput?.value || "").trim().toLowerCase();
+    const shapeKeywords = ["משולש", "ריבוע", "מרובע", "עיגול", "מתומן"];
+    const isShapeSearch = searchTerm.length >= 2 && shapeKeywords.some((keyword) =>
+      keyword.includes(searchTerm) || searchTerm.includes(keyword)
+    );
+
+    // Keep default catalog order unless we explicitly promote an item.
+    productItems.forEach((item) => productsGrid.appendChild(item));
 
     productItems.forEach((item) => {
       const isCustomDesignBoard = item.dataset.productId === "custom-design-board";
       const itemCategory = item.dataset.category;
       const signSubCategory = item.dataset.signSubcategory || "all";
-      const categoryMatch = isCustomDesignBoard || selectedFilter === "all" || itemCategory === selectedFilter;
+      const customBoardByShapeSearch = isCustomDesignBoard && isShapeSearch;
+      const categoryMatch = customBoardByShapeSearch || selectedFilter === "all" || itemCategory === selectedFilter;
       let subCategoryMatch = true;
+      const searchMatch = customBoardByShapeSearch || matchesSearchTerm(item, searchTerm);
 
       if (selectedFilter === "signs") {
-        subCategoryMatch = isCustomDesignBoard || selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
+        subCategoryMatch = customBoardByShapeSearch || selectedSignFilter === "all" || signSubCategory === selectedSignFilter;
       }
 
-      if (categoryMatch && subCategoryMatch && matchesSearchTerm(item, searchTerm)) {
+      if (categoryMatch && subCategoryMatch && searchMatch) {
         item.classList.remove("d-none");
         visibleCount++;
       } else {
@@ -553,6 +562,14 @@
       emptyState.classList.remove("d-none");
     } else {
       emptyState.classList.add("d-none");
+    }
+
+    // Only in shape-search mode: show custom design board first.
+    if (isShapeSearch) {
+      const customDesignItem = productItems.find((item) => item.dataset.productId === "custom-design-board");
+      if (customDesignItem && !customDesignItem.classList.contains("d-none")) {
+        productsGrid.prepend(customDesignItem);
+      }
     }
   }
 
