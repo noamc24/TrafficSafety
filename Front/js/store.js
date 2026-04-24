@@ -1,6 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", async () => {
   const CART_STORAGE_KEY = "tsc_cart";
   const LAST_PRODUCT_KEY = "tsc_last_product_id";
+  const STORE_VIEW_STATE_KEY = "tsc_store_view_state";
   const filterButtons = document.querySelectorAll(".store-filters .store-filter-btn");
   const signSubFilterButtons = document.querySelectorAll(".store-sign-subfilter-btn");
   const signsSubFilters = document.getElementById("signsSubFilters");
@@ -221,7 +222,7 @@
 
   function resolveSafetyProductImage(productId) {
     const safetyImageByProductId = {
-      "safety-cones": "/assets/SafetyEquipment/cone1.webp",
+      "safety-cones": "/assets/SafetyEquipment/blackcone.webp",
       "panoramic-mirror": "/assets/SafetyEquipment/panoramicmirror1.webp",
       "lane-dividers": "/assets/SafetyEquipment/laneseparators1.webp",
       "parking-stop": "/assets/SafetyEquipment/parkingstopper1.webp",
@@ -403,6 +404,64 @@
     return activeBtn?.dataset.signFilter || "all";
   }
 
+  function getSelectedMainFilter() {
+    const activeBtn = document.querySelector(".store-filter-btn.active:not(.store-sign-subfilter-btn)");
+    return activeBtn?.dataset.filter || "all";
+  }
+
+  function saveStoreViewState() {
+    const payload = {
+      mainFilter: getSelectedMainFilter(),
+      signFilter: getSelectedSignSubFilter(),
+      searchTerm: (storeSearchInput?.value || "").trim()
+    };
+    localStorage.setItem(STORE_VIEW_STATE_KEY, JSON.stringify(payload));
+  }
+
+  function readStoreViewState() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(STORE_VIEW_STATE_KEY) || "{}");
+      return {
+        mainFilter: typeof parsed.mainFilter === "string" ? parsed.mainFilter : "all",
+        signFilter: typeof parsed.signFilter === "string" ? parsed.signFilter : "all",
+        searchTerm: typeof parsed.searchTerm === "string" ? parsed.searchTerm : ""
+      };
+    } catch {
+      return { mainFilter: "all", signFilter: "all", searchTerm: "" };
+    }
+  }
+
+  function applyStoreViewState() {
+    const state = readStoreViewState();
+    const mainBtn = document.querySelector(`.store-filters .store-filter-btn[data-filter="${state.mainFilter}"]`)
+      || document.querySelector('.store-filters .store-filter-btn[data-filter="all"]');
+
+    filterButtons.forEach((btn) => {
+      if (!btn.classList.contains("store-sign-subfilter-btn")) {
+        btn.classList.remove("active");
+      }
+    });
+    mainBtn?.classList.add("active");
+
+    const selectedMainFilter = mainBtn?.dataset.filter || "all";
+    if (selectedMainFilter === "signs") {
+      signsSubFilters?.classList.remove("d-none");
+    } else {
+      signsSubFilters?.classList.add("d-none");
+    }
+
+    signSubFilterButtons.forEach((btn) => btn.classList.remove("active"));
+    const signBtn = document.querySelector(`.store-sign-subfilter-btn[data-sign-filter="${state.signFilter}"]`)
+      || document.querySelector('.store-sign-subfilter-btn[data-sign-filter="all"]');
+    signBtn?.classList.add("active");
+
+    if (storeSearchInput) {
+      storeSearchInput.value = state.searchTerm;
+    }
+
+    filterProducts(selectedMainFilter);
+  }
+
   function matchesSearchTerm(item, searchTerm) {
     if (!searchTerm) return true;
     const haystack = [
@@ -447,6 +506,7 @@
     storeSearchInput.addEventListener("input", () => {
       const activeMainFilter = document.querySelector(".store-filter-btn.active:not(.store-sign-subfilter-btn)");
       filterProducts(activeMainFilter?.dataset.filter || "all");
+      saveStoreViewState();
     });
   }
 
@@ -467,6 +527,7 @@
       }
 
       filterProducts(selectedFilter);
+      saveStoreViewState();
     });
   });
 
@@ -478,6 +539,12 @@
       const activeMainFilter = document.querySelector(".store-filter-btn.active:not(.store-sign-subfilter-btn)");
       const selectedMainFilter = activeMainFilter?.dataset.filter || "all";
       filterProducts(selectedMainFilter);
+      saveStoreViewState();
     });
   });
+
+  applyStoreViewState();
 });
+
+
+

@@ -1,4 +1,4 @@
-﻿{
+{
   "storeCatalog": [
     {
       "productId": "sign-101",
@@ -1736,7 +1736,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=warning-trucks-crossing-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/trucksCrossing.webp"
     },
     {
       "productId": "trucks-merging-from-right-sign",
@@ -1747,7 +1747,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=trucks-merging-from-right-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/trucksSlowRight.webp"
     },
     {
       "productId": "trucks-merging-from-left-sign",
@@ -1758,7 +1758,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=trucks-merging-from-left-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/trucksSlowLeft.webp"
     },
     {
       "productId": "site-workers-entry-allowed-sign",
@@ -1769,7 +1769,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=site-workers-entry-allowed-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/staffEntry.webp"
     },
     {
       "productId": "warning-pedestrians-crossing-sign",
@@ -1791,7 +1791,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=operational-area-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/serviceZone.webp"
     },
     {
       "productId": "sidewalk-blocked-cross-sign",
@@ -1802,7 +1802,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=sidewalk-blocked-cross-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/sidewalkClosed.webp"
     },
     {
       "productId": "danger-construction-here-sign",
@@ -1813,7 +1813,7 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=danger-construction-here-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/constructionDanger.webp"
     },
     {
       "productId": "work-vehicle-entry-exit-sign",
@@ -1824,95 +1824,194 @@
       "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=work-vehicle-entry-exit-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/workVehicleEntryExit.webp"
     },
     {
       "productId": "site-manager-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "מנהל עבודה",
       "text": "מנהל עבודה",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=site-manager-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/siteManager.webp"
     },
     {
       "productId": "safety-supervisor-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "ממונה בטיחות",
       "text": "ממונה בטיחות",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=safety-supervisor-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/safetyOfficer.webp"
     },
     {
       "productId": "assistant-safety-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "עוזר בטיחות",
       "text": "עוזר בטיחות",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=assistant-safety-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/safetyAssistant.webp"
     },
     {
       "productId": "safety-fines-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "קנסות בטיחות",
       "text": "קנסות בטיחות",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=safety-fines-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/safetyFines.webp"
     },
     {
       "productId": "safety-instructions-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "הוראות בטיחות",
       "text": "הוראות בטיחות",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=safety-instructions-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/safetyInstructions.webp"
     },
     {
       "productId": "danger-construction-site-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "סכנה כאן בונים",
       "text": "סכנה כאן בונים",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=danger-construction-site-sign",
       "existingImage": ""
     },
     {
       "productId": "falling-from-height-danger-sign",
-      "category": "worksite",
+      "category": "boards",
       "signSubcategory": "",
       "title": "סכנת נפילה מגובה",
       "text": "סכנת נפילה מגובה",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=falling-from-height-danger-sign",
-      "existingImage": ""
+      "existingImage": "/assets/signs/fallingDebris.webp"
     },
     {
-      "productId": "safety-instructions-sign-2",
-      "category": "worksite",
+      "productId": "paid-sign",
+      "category": "boards",
       "signSubcategory": "",
-      "title": "הוראות בטיחות",
-      "text": "הוראות בטיחות",
-      "tag": "שלטי בטיחות לאתרי בנייה",
+      "title": "בתשלום",
+      "text": "בתשלום",
+      "tag": "שלטים",
       "price": "לפי מפרט",
-      "detailsHref": "/product?id=safety-instructions-sign-2",
-      "existingImage": ""
+      "detailsHref": "/product?id=paid-sign",
+      "existingImage": "/assets/signs/paid.webp"
+    },
+    {
+      "productId": "project-management-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "ניהול פרויקט",
+      "text": "ניהול פרויקט",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=project-management-sign",
+      "existingImage": "/assets/signs/projectManagement.webp"
+    },
+    {
+      "productId": "except-work-vehicles-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "פרט לרכב עבודה",
+      "text": "פרט לרכב עבודה",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=except-work-vehicles-sign",
+      "existingImage": "/assets/signs/exceptWorkVehicles.webp"
+    },
+    {
+      "productId": "increased-fine-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "קנס מוגדל",
+      "text": "קנס מוגדל",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=increased-fine-sign",
+      "existingImage": "/assets/signs/increasedFine.webp"
+    },
+    {
+      "productId": "fire-lane-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רחבת כיבוי אש",
+      "text": "רחבת כיבוי אש",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=fire-lane-sign",
+      "existingImage": "/assets/signs/fireLane.webp"
+    },
+    {
+      "productId": "road-closed-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רחוב חסום",
+      "text": "רחוב חסום",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=road-closed-sign",
+      "existingImage": "/assets/signs/roadClosed.webp"
+    },
+    {
+      "productId": "over-35t-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רכב מעל 3.5 טון",
+      "text": "רכב מעל 3.5 טון",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=over-35t-sign",
+      "existingImage": "/assets/signs/over35t.webp"
+    },
+    {
+      "productId": "trucks-merge-right-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות משתלבות מימין",
+      "text": "משאיות משתלבות מימין",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merge-right-sign",
+      "existingImage": "/assets/signs/trucksMergeRight.webp"
+    },
+    {
+      "productId": "trucks-merge-left-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות משתלבות משמאל",
+      "text": "משאיות משתלבות משמאל",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merge-left-sign",
+      "existingImage": "/assets/signs/trucksMergeLeft.webp"
+    },
+    {
+      "productId": "roadwork-warning-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "סכנה כאן בונים",
+      "text": "סכנה כאן בונים",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=roadwork-warning-sign",
+      "existingImage": "/assets/signs/constructionDanger.webp"
     },
     {
       "productId": "safety-cones",
@@ -1970,17 +2069,6 @@
       "existingImage": ""
     },
     {
-      "productId": "bumper",
-      "category": "safety",
-      "signSubcategory": "",
-      "title": "באמפר",
-      "text": "באמפר",
-      "tag": "אביזרי בטיחות",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=bumper",
-      "existingImage": ""
-    },
-    {
       "productId": "flexible-post-45-75-100",
       "category": "safety",
       "signSubcategory": "",
@@ -1993,25 +2081,14 @@
     },
     {
       "productId": "barrier-post",
-      "category": "safety",
+      "category": "boards",
       "signSubcategory": "",
-      "title": "עמוד מחסום",
-      "text": "עמוד מחסום",
-      "tag": "אביזרי בטיחות",
+      "title": "מחסום לפנייך",
+      "text": "מחסום לפנייך",
+      "tag": "שלטים",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=barrier-post",
-      "existingImage": ""
-    },
-    {
-      "productId": "sign-post",
-      "category": "safety",
-      "signSubcategory": "",
-      "title": "עמוד לתמרור",
-      "text": "תמרור: עמוד לתמרור",
-      "tag": "אביזרי בטיחות",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=sign-post",
-      "existingImage": ""
+      "existingImage": "/assets/signs/barrier.webp"
     },
     {
       "productId": "height-limiter",
@@ -2025,6 +2102,17 @@
       "existingImage": "/assets/TrafficSigns/100/113.webp"
     },
     {
+      "productId": "solar-lamp",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "פנס סולרי",
+      "text": "פנס סולרי",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=solar-lamp",
+      "existingImage": "/assets/SafetyEquipment/solarLight.png"
+    },
+    {
       "productId": "connector-units-3-6-inch",
       "category": "safety",
       "signSubcategory": "",
@@ -2036,26 +2124,15 @@
       "existingImage": ""
     },
     {
-      "productId": "flag-connector-unit",
+      "productId": "rubber-base",
       "category": "safety",
       "signSubcategory": "",
-      "title": "יחידת חיבור דגל",
-      "text": "יחידת חיבור דגל",
+      "title": "בסיס גומי",
+      "text": "בסיס גומי",
       "tag": "אביזרי בטיחות",
       "price": "לפי מפרט",
-      "detailsHref": "/product?id=flag-connector-unit",
-      "existingImage": ""
-    },
-    {
-      "productId": "solar-lamp",
-      "category": "safety",
-      "signSubcategory": "",
-      "title": "פנס סולרי",
-      "text": "פנס סולרי",
-      "tag": "אביזרי בטיחות",
-      "price": "לפי מפרט",
-      "detailsHref": "/product?id=solar-lamp",
-      "existingImage": ""
+      "detailsHref": "/product?id=rubber-base",
+      "existingImage": "/assets/SafetyEquipment/rubberBase.png"
     }
   ],
   "productCatalog": {
@@ -2130,7 +2207,7 @@
       "category": "שלטים",
       "description": "משאיות מאטות משתלבות מימן",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/trucksSlowRight.webp"
       ],
       "options": [
         {
@@ -2155,7 +2232,7 @@
       "category": "שלטים",
       "description": "משאיות מאטות משתלבות משמאל",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/trucksSlowLeft.webp"
       ],
       "options": [
         {
@@ -2180,7 +2257,7 @@
       "category": "שלטים",
       "description": "הכניסה מותרת לעובדי האתר",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/staffEntry.webp"
       ],
       "options": [
         {
@@ -2205,7 +2282,7 @@
       "category": "שלטים",
       "description": "זהירות הולכי רגל חוצים",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/trucksCrossing.webp"
       ],
       "options": [
         {
@@ -2230,7 +2307,7 @@
       "category": "שלטים",
       "description": "איזור שטח תפעולי",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/serviceZone.webp"
       ],
       "options": [
         {
@@ -2255,7 +2332,7 @@
       "category": "שלטים",
       "description": "המדרכה חסומה - נא לעבור למדרכה ממול",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/sidewalkClosed.webp"
       ],
       "options": [
         {
@@ -2280,7 +2357,7 @@
       "category": "שלטים",
       "description": "סכנה כאן בונים",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/constructionDanger.webp"
       ],
       "options": [
         {
@@ -2305,7 +2382,7 @@
       "category": "שלטים",
       "description": "כניסה ויציאת רכב עבודה",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/workVehicleEntryExit.webp"
       ],
       "options": [
         {
@@ -2327,10 +2404,10 @@
     },
     "site-manager-sign": {
       "title": "מנהל עבודה",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "מנהל עבודה",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/siteManager.webp"
       ],
       "options": [
         {
@@ -2352,10 +2429,10 @@
     },
     "safety-supervisor-sign": {
       "title": "ממונה בטיחות",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "ממונה בטיחות",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/safetyOfficer.webp"
       ],
       "options": [
         {
@@ -2377,10 +2454,10 @@
     },
     "assistant-safety-sign": {
       "title": "עוזר בטיחות",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "עוזר בטיחות",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/safetyAssistant.webp"
       ],
       "options": [
         {
@@ -2402,10 +2479,10 @@
     },
     "safety-fines-sign": {
       "title": "קנסות בטיחות",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "קנסות בטיחות",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/safetyFines.webp"
       ],
       "options": [
         {
@@ -2427,10 +2504,10 @@
     },
     "safety-instructions-sign": {
       "title": "הוראות בטיחות",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "הוראות בטיחות",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/safetyInstructions.webp"
       ],
       "options": [
         {
@@ -2452,7 +2529,7 @@
     },
     "danger-construction-site-sign": {
       "title": "סכנה כאן בונים",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "סכנה כאן בונים",
       "images": [
         "/assets/Icons/TSCLogoSquared.png"
@@ -2477,33 +2554,8 @@
     },
     "falling-from-height-danger-sign": {
       "title": "סכנת נפילה מגובה",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "סכנת נפילה מגובה",
-      "images": [
-        "/assets/Icons/TSCLogoSquared.png"
-      ],
-      "options": [
-        {
-          "name": "חומר",
-          "values": [
-            "פח מגולוון",
-            "PVC קשיח"
-          ]
-        },
-        {
-          "name": "גודל",
-          "values": [
-            "50X50",
-            "60X60",
-            "100X100"
-          ]
-        }
-      ]
-    },
-    "safety-instructions-sign-2": {
-      "title": "הוראות בטיחות",
-      "category": "שלטי בטיחות לאתרי בנייה",
-      "description": "הוראות בטיחות",
       "images": [
         "/assets/Icons/TSCLogoSquared.png"
       ],
@@ -2530,7 +2582,8 @@
       "category": "אביזרי בטיחות",
       "description": "קונוס",
       "images": [
-        "/assets/SafetyEquipment/cone1.webp"
+        "/assets/SafetyEquipment/blackcone.webp",
+        "/assets/SafetyEquipment/whitecone.webp"
       ],
       "options": [
         {
@@ -2554,7 +2607,9 @@
       "category": "אביזרי בטיחות",
       "description": "מראה פנורמית",
       "images": [
-        "/assets/SafetyEquipment/panoramicmirror1.webp"
+        "/assets/SafetyEquipment/panoramicmirror1.webp",
+        "/assets/SafetyEquipment/panoramicmirror2.webp",
+        "/assets/SafetyEquipment/panoramicmirror3.webp"
       ],
       "options": [
         {
@@ -2594,7 +2649,9 @@
       "category": "אביזרי בטיחות",
       "description": "מעצור חנייה",
       "images": [
-        "/assets/SafetyEquipment/parkingstopper1.webp"
+        "/assets/SafetyEquipment/parkingstopper1.webp",
+        "/assets/SafetyEquipment/parkingstopper2.webp",
+        "/assets/SafetyEquipment/parkingstopper4.webp"
       ],
       "options": [
         {
@@ -2610,23 +2667,10 @@
       "category": "אביזרי בטיחות",
       "description": "שומר חנייה",
       "images": [
-        "/assets/SafetyEquipment/parkingkeeper1.webp"
-      ],
-      "options": [
-        {
-          "name": "דגם",
-          "values": [
-            "סטנדרטי"
-          ]
-        }
-      ]
-    },
-    "bumper": {
-      "title": "באמפר",
-      "category": "אביזרי בטיחות",
-      "description": "באמפר",
-      "images": [
-        "/assets/SafetyEquipment/laneseparators2.webp"
+        "/assets/SafetyEquipment/parkingkeeper1.webp",
+        "/assets/SafetyEquipment/parkingkeeper2.webp",
+        "/assets/SafetyEquipment/parkingkeeper3.webp",
+        "/assets/SafetyEquipment/parkingkeeper4.webp"
       ],
       "options": [
         {
@@ -2653,12 +2697,27 @@
         }
       ]
     },
-    "barrier-post": {
-      "title": "עמוד מחסום",
+      "title": "עמוד גמיש גובה 45/75/100",
       "category": "אביזרי בטיחות",
-      "description": "עמוד מחסום",
+      "description": "עמוד גמיש גובה 45/75/100",
       "images": [
-        "/assets/SafetyEquipment/flexiblepost2.webp"
+        "/assets/SafetyEquipment/flexiblepost1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "barrier-post": {
+      "title": "מחסום לפנייך:",
+      "category": "שלטים",
+      "description": "מחסום לפנייך:",
+      "images": [
+        "/assets/signs/barrier.webp"
       ],
       "options": [
         {
@@ -2686,12 +2745,12 @@
         }
       ]
     },
-    "flag-connector-unit": {
-      "title": "יחידת חיבור דגל",
+    "solar-lamp": {
+      "title": "פנס סולרי",
       "category": "אביזרי בטיחות",
-      "description": "יחידת חיבור דגל",
+      "description": "פנס סולרי",
       "images": [
-        "/assets/SafetyEquipment/parkingstopper3.webp"
+        "/assets/SafetyEquipment/solarLight.png"
       ],
       "options": [
         {
@@ -2702,12 +2761,12 @@
         }
       ]
     },
-    "solar-lamp": {
-      "title": "פנס סולרי",
+    "rubber-base": {
+      "title": "בסיס גומי",
       "category": "אביזרי בטיחות",
-      "description": "פנס סולרי",
+      "description": "בסיס גומי",
       "images": [
-        "/assets/SafetyEquipment/panoramicmirror2.webp"
+        "/assets/SafetyEquipment/rubberBase.png"
       ],
       "options": [
         {
@@ -2739,7 +2798,7 @@
       "category": "אביזרי בטיחות",
       "description": "קונוס",
       "images": [
-        "/assets/SafetyEquipment/cone1.webp"
+        "/assets/SafetyEquipment/blackcone.webp"
       ],
       "options": [
         {
@@ -2883,10 +2942,235 @@
     },
     "roadwork-warning-sign": {
       "title": "סכנה כאן בונים",
-      "category": "שלטי בטיחות לאתרי בנייה",
+      "category": "שלטים",
       "description": "סכנה כאן בונים",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/signs/constructionDanger.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "paid-sign": {
+      "title": "בתשלום",
+      "category": "שלטים",
+      "description": "בתשלום",
+      "images": [
+        "/assets/signs/paid.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "project-management-sign": {
+      "title": "ניהול פרויקט",
+      "category": "שלטים",
+      "description": "ניהול פרויקט",
+      "images": [
+        "/assets/signs/projectManagement.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "except-work-vehicles-sign": {
+      "title": "פרט לרכב עבודה",
+      "category": "שלטים",
+      "description": "פרט לרכב עבודה",
+      "images": [
+        "/assets/signs/exceptWorkVehicles.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "increased-fine-sign": {
+      "title": "קנס מוגדל",
+      "category": "שלטים",
+      "description": "קנס מוגדל",
+      "images": [
+        "/assets/signs/increasedFine.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "fire-lane-sign": {
+      "title": "רחבת כיבוי אש",
+      "category": "שלטים",
+      "description": "רחבת כיבוי אש",
+      "images": [
+        "/assets/signs/fireLane.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "road-closed-sign": {
+      "title": "רחוב חסום",
+      "category": "שלטים",
+      "description": "רחוב חסום",
+      "images": [
+        "/assets/signs/roadClosed.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "over-35t-sign": {
+      "title": "רכב מעל 3.5 טון",
+      "category": "שלטים",
+      "description": "רכב מעל 3.5 טון",
+      "images": [
+        "/assets/signs/over35t.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merge-right-sign": {
+      "title": "משאיות משתלבות מימין",
+      "category": "שלטים",
+      "description": "משאיות משתלבות מימין",
+      "images": [
+        "/assets/signs/trucksMergeRight.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merge-left-sign": {
+      "title": "משאיות משתלבות משמאל",
+      "category": "שלטים",
+      "description": "משאיות משתלבות משמאל",
+      "images": [
+        "/assets/signs/trucksMergeLeft.webp"
       ],
       "options": [
         {
@@ -2921,38 +3205,6 @@
           ]
         }
       ]
-    },
-    "spike-barrier": {
-      "title": "יחידת חיבור דגל",
-      "category": "אביזרי בטיחות",
-      "description": "יחידת חיבור דגל",
-      "images": [
-        "/assets/SafetyEquipment/parkingstopper3.webp"
-      ],
-      "options": [
-        {
-          "name": "דגם",
-          "values": [
-            "סטנדרטי"
-          ]
-        }
-      ]
-    },
-    "other-safety": {
-      "title": "פנס סולרי",
-      "category": "אביזרי בטיחות",
-      "description": "פנס סולרי",
-      "images": [
-        "/assets/SafetyEquipment/panoramicmirror2.webp"
-      ],
-      "options": [
-        {
-          "name": "דגם",
-          "values": [
-            "סטנדרטי"
-          ]
-        }
-      ]
     }
   }
-}
+

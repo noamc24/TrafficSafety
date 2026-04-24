@@ -403,8 +403,35 @@ function renderOptions(options, productId = "", productCategory = "", productTit
   if (productId === "safety-cones") {
     const colorField = fields.find((field) => field.label === "צבע");
     const heightField = fields.find((field) => field.label === "גובה");
+    const coneImages = normalizeProductImages(PRODUCT_CATALOG["safety-cones"]?.images || []);
 
     if (colorField && heightField) {
+      const pickConeImageByColor = (colorValue = "") => {
+        const isWhiteCone = /לבן/.test(String(colorValue || ""));
+        const blackConeImage = coneImages.find((image) =>
+          /blackcone\.webp$/i.test(image.full || "") ||
+          /blackcone\.webp$/i.test(image.thumb || "") ||
+          /blackcone\.webp$/i.test(image.fallback || "")
+        ) || coneImages[0];
+        const whiteConeImage = coneImages.find((image) =>
+          /whitecone\.webp$/i.test(image.full || "") ||
+          /whitecone\.webp$/i.test(image.thumb || "") ||
+          /whitecone\.webp$/i.test(image.fallback || "")
+        ) || coneImages[1] || blackConeImage;
+
+        return isWhiteCone ? whiteConeImage : blackConeImage;
+      };
+
+      const updateConeImageByColor = () => {
+        const selectedImage = pickConeImageByColor(colorField.element.value);
+        if (!selectedImage) return;
+        renderGallery(
+          [selectedImage],
+          productTitle || "קונוס",
+          productTitle || "קונוס"
+        );
+      };
+
       const updateConeHeightOptions = () => {
         const color = colorField.element.value;
         const values = color === "כתום שחור" ? ["75"] : ["50", "75"];
@@ -417,8 +444,12 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         });
       };
 
-      colorField.element.addEventListener("change", updateConeHeightOptions);
+      colorField.element.addEventListener("change", () => {
+        updateConeHeightOptions();
+        updateConeImageByColor();
+      });
       updateConeHeightOptions();
+      updateConeImageByColor();
     }
   }
 
@@ -1587,6 +1618,12 @@ function setupAddToCart(productId, product, optionFields) {
   if (!btn || !feedback || !qtyField) return;
 
   const getCartImage = (images) => {
+    if (productId === "safety-cones") {
+      const mainImage = document.getElementById("mainProductImage");
+      const selectedSrc = mainImage?.getAttribute("src") || mainImage?.src;
+      if (selectedSrc) return selectedSrc;
+    }
+
     const first = Array.isArray(images) ? images[0] : null;
     if (!first) return "/assets/Icons/TSCLogoSquared.png";
     return first.fallback || first.full || first.thumb || "/assets/Icons/TSCLogoSquared.png";
