@@ -59,7 +59,7 @@ function getQueryParam(name) {
 function buildImageVariants(src) {
   const safeSrc = typeof src === "string" && src.trim()
     ? src.trim()
-    : "/assets/Icons/TSCLogoSquared.png";
+    : "/assets/Icons/TSCLogoSquared.webp";
   const qIdx = safeSrc.indexOf("?");
   const cleanSrc = qIdx >= 0 ? safeSrc.slice(0, qIdx) : safeSrc;
   const dotIdx = cleanSrc.lastIndexOf(".");
@@ -93,7 +93,7 @@ function buildImageVariants(src) {
 
 function normalizeProductImages(images = []) {
   if (!Array.isArray(images) || !images.length) {
-    const fallback = "/assets/Icons/TSCLogoSquared.png";
+    const fallback = "/assets/Icons/TSCLogoSquared.webp";
     return [{ full: fallback, thumb: fallback, fallback }];
   }
 
@@ -103,7 +103,7 @@ function normalizeProductImages(images = []) {
     }
 
     if (entry && typeof entry === "object") {
-      const full = entry.full || entry.src || entry.image || entry.thumb || entry.fallback || "/assets/Icons/TSCLogoSquared.png";
+      const full = entry.full || entry.src || entry.image || entry.thumb || entry.fallback || "/assets/Icons/TSCLogoSquared.webp";
       const variants = buildImageVariants(full);
       return {
         full: entry.full || variants.full,
@@ -112,7 +112,7 @@ function normalizeProductImages(images = []) {
       };
     }
 
-    const fallback = "/assets/Icons/TSCLogoSquared.png";
+    const fallback = "/assets/Icons/TSCLogoSquared.webp";
     return { full: fallback, thumb: fallback, fallback };
   });
 }
@@ -156,9 +156,9 @@ function buildDynamicProduct(productId) {
         };
       })
     : [{
-        full: imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
-        thumb: thumbFromQuery || imageFromQuery || "/assets/Icons/TSCLogoSquared.png",
-        fallback: imageFallbackFromQuery || "/assets/Icons/TSCLogoSquared.png"
+        full: imageFromQuery || "/assets/Icons/TSCLogoSquared.webp",
+        thumb: thumbFromQuery || imageFromQuery || "/assets/Icons/TSCLogoSquared.webp",
+        fallback: imageFallbackFromQuery || "/assets/Icons/TSCLogoSquared.webp"
       }];
 
   return {
@@ -1806,8 +1806,8 @@ function setupAddToCart(productId, product, optionFields) {
     }
 
     const first = Array.isArray(images) ? images[0] : null;
-    if (!first) return "/assets/Icons/TSCLogoSquared.png";
-    return first.fallback || first.full || first.thumb || "/assets/Icons/TSCLogoSquared.png";
+    if (!first) return "/assets/Icons/TSCLogoSquared.webp";
+    return first.fallback || first.full || first.thumb || "/assets/Icons/TSCLogoSquared.webp";
   };
 
   btn.addEventListener("click", () => {
@@ -2049,3 +2049,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   setupAddToCart(productId, product, optionFields);
 });
+

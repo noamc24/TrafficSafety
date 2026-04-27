@@ -115,9 +115,9 @@
   function buildImageVariants(src) {
     if (!src || typeof src !== "string") {
       return {
-        thumb: "/assets/Icons/TSCLogoSquared.png",
-        full: "/assets/Icons/TSCLogoSquared.png",
-        fallback: "/assets/Icons/TSCLogoSquared.png"
+        thumb: "/assets/Icons/TSCLogoSquared.webp",
+        full: "/assets/Icons/TSCLogoSquared.webp",
+        fallback: "/assets/Icons/TSCLogoSquared.webp"
       };
     }
 
@@ -206,11 +206,11 @@
           "/assets/TrafficSigns/900/930-2.webp",
           "/assets/TrafficSigns/900/930-3.webp"
         ],
-        "230": ["/assets/Icons/TSCLogoSquared.png"],
-        "231": ["/assets/Icons/TSCLogoSquared.png"],
-        "501": ["/assets/Icons/TSCLogoSquared.png"],
-        "502": ["/assets/Icons/TSCLogoSquared.png"],
-        "506": ["/assets/Icons/TSCLogoSquared.png"]
+        "230": ["/assets/Icons/TSCLogoSquared.webp"],
+        "231": ["/assets/Icons/TSCLogoSquared.webp"],
+        "501": ["/assets/Icons/TSCLogoSquared.webp"],
+        "502": ["/assets/Icons/TSCLogoSquared.webp"],
+        "506": ["/assets/Icons/TSCLogoSquared.webp"]
       };
 
     if (specialImagesByCode[code]) return specialImagesByCode[code];
@@ -233,7 +233,7 @@
       "sign-post": "/assets/SafetyEquipment/flexiblepost3.webp",
       "connector-units-3-6-inch": "/assets/SafetyEquipment/signConnector.webp",
       "flag-connector-unit": "/assets/SafetyEquipment/parkingstopper3.webp",
-      "solar-lamp": "/assets/SafetyEquipment/panoramicmirror2.webp"
+      "solar-lamp": "/assets/SafetyEquipment/solarLight.webp"
     };
 
     return safetyImageByProductId[productId] || null;
@@ -291,13 +291,13 @@
 
         cardImage = document.createElement("img");
         cardImage.className = "product-card__image";
-        cardImage.src = "/assets/Icons/TSCLogoSquared.png";
+        cardImage.src = "/assets/Icons/TSCLogoSquared.webp";
         cardImage.alt = text;
         imageWrap.prepend(cardImage);
       }
     }
 
-    const sourceImage = cardImage?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.png";
+    const sourceImage = cardImage?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.webp";
     const imageVariants = buildImageVariants(sourceImage);
     const image = imageVariants.fallback;
     const footer = item.querySelector(".product-card__footer");
@@ -322,7 +322,7 @@
           return;
         }
 
-        cardImage.src = "/assets/Icons/TSCLogoSquared.png";
+        cardImage.src = "/assets/Icons/TSCLogoSquared.webp";
       });
     }
 
@@ -616,6 +616,7 @@
 
   applyStoreViewState();
 });
+
 
 
 

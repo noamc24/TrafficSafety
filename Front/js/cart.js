@@ -28,7 +28,7 @@ function optionText(options = []) {
 }
 
 function buildCartItemHtml(item, index) {
-  const imageSrc = item.image || "/assets/Icons/TSCLogoSquared.png";
+  const imageSrc = item.image || "/assets/Icons/TSCLogoSquared.webp";
   const title = item.title || "מוצר";
   const category = item.category || "";
   const isLargeInlineImage = typeof imageSrc === "string" && imageSrc.startsWith("data:image/");
@@ -449,3 +449,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+

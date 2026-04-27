@@ -38,6 +38,21 @@ body {
   padding-bottom: 6rem;
 }
 
+/* Reserve partial mount space to reduce layout shifts before async navbar/footer injection */
+#navbarMount {
+  min-height: 6.75rem;
+}
+
+#footerMount {
+  min-height: 8rem;
+}
+
+@media (min-width: 62rem) {
+  #navbarMount {
+    min-height: 8.5rem;
+  }
+}
+
 img,
 iframe,
 video,

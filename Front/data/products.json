@@ -1,4 +1,4 @@
-{
+﻿{
   "storeCatalog": [
     {
       "productId": "sign-101",
@@ -2110,7 +2110,7 @@
       "tag": "אביזרי בטיחות",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=solar-lamp",
-      "existingImage": "/assets/SafetyEquipment/solarLight.png"
+      "existingImage": "/assets/SafetyEquipment/solarLight.webp"
     },
     {
       "productId": "connector-units-3-6-inch",
@@ -2132,7 +2132,7 @@
       "tag": "אביזרי בטיחות",
       "price": "לפי מפרט",
       "detailsHref": "/product?id=rubber-base",
-      "existingImage": "/assets/SafetyEquipment/rubberBase.png"
+      "existingImage": "/assets/SafetyEquipment/rubberBase.webp"
     }
   ],
   "productCatalog": {
@@ -2141,7 +2141,7 @@
       "category": "שלטים",
       "description": "שלט בהתאמה אישית",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2182,7 +2182,7 @@
       "category": "שלטים",
       "description": "זהירות משאיות חוצות",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2532,7 +2532,7 @@
       "category": "שלטים",
       "description": "סכנה כאן בונים",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2557,7 +2557,7 @@
       "category": "שלטים",
       "description": "סכנת נפילה מגובה",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2750,7 +2750,7 @@
       "category": "אביזרי בטיחות",
       "description": "פנס סולרי",
       "images": [
-        "/assets/SafetyEquipment/solarLight.png"
+        "/assets/SafetyEquipment/solarLight.webp"
       ],
       "options": [
         {
@@ -2766,7 +2766,7 @@
       "category": "אביזרי בטיחות",
       "description": "בסיס גומי",
       "images": [
-        "/assets/SafetyEquipment/rubberBase.png"
+        "/assets/SafetyEquipment/rubberBase.webp"
       ],
       "options": [
         {
@@ -2838,7 +2838,7 @@
       "category": "שלטים",
       "description": "שלט בהתאמה אישית",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2879,7 +2879,7 @@
       "category": "שלטים",
       "description": "שלט בהתאמה אישית",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -2920,7 +2920,7 @@
       "category": "שלטים",
       "description": "איזור שטח תפעולי",
       "images": [
-        "/assets/Icons/TSCLogoSquared.png"
+        "/assets/Icons/TSCLogoSquared.webp"
       ],
       "options": [
         {
@@ -3207,4 +3207,5 @@
       ]
     }
   }
+
 
