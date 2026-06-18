@@ -86,35 +86,6 @@ function buildWhatsappMessage(cart) {
   return lines.join("\n");
 }
 
-function buildTelegramQuoteMessage(customer, cart) {
-  const lines = [
-    "🛒 <b>בקשת הצעת מחיר חדשה מהאתר</b>",
-    "",
-    `👤 שם: ${escapeHtml(customer.fullName)}`,
-    `📞 טלפון: ${escapeHtml(customer.phone)}`,
-    `✉️ אימייל: ${escapeHtml(customer.email || "לא הוזן")}`,
-    `🏢 חברה: ${escapeHtml(customer.company || "לא הוזן")}`,
-    "",
-    "📦 <b>מוצרים:</b>"
-  ];
-
-  cart.forEach((item, idx) => {
-    const hasCustomPreview = Boolean(item.customDesignPreview);
-    lines.push(
-      `${idx + 1}. <b>${escapeHtml(item.title || "מוצר")}</b>`,
-      `כמות: ${escapeHtml(item.quantity || 1)}`,
-      `קטגוריה: ${escapeHtml(item.category || "ללא")}`,
-      `אפשרויות: ${escapeHtml(optionText(item.options))}`,
-      `הדמיית עיצוב: ${hasCustomPreview ? "מצורפת" : "ללא"}`,
-      ""
-    );
-  });
-
-  lines.push(`📝 <b>הערות:</b> ${escapeHtml(customer.notes || "ללא הערות")}`);
-
-  return lines.join("\n");
-}
-
 function getOptionValue(item, optionName) {
   const options = Array.isArray(item?.options) ? item.options : [];
   const found = options.find((opt) => opt?.name === optionName);

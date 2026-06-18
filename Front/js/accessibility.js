@@ -80,12 +80,18 @@ window.initAccessibilityTools = function () {
 };
 
 function applyAccessibilitySettings(settings) {
-  const root = document.documentElement;
-  const body = document.body;
+  try {
+    const root = document.documentElement;
+    const body = document.body;
+    if (!root || !body) return;
 
-  root.classList.toggle("accessibility-text-large", !!settings.increaseText);
+    root.classList.toggle("accessibility-text-large", !!settings.increaseText);
 
-  body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
-  body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
-  body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
+    body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
+    body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
+    body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
+  } catch (err) {
+    // Prevent accessibility toggles from throwing and breaking other UI
+    console.error('applyAccessibilitySettings error', err);
+  }
 }

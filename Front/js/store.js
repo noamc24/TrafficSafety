@@ -86,6 +86,11 @@
     productsGrid.appendChild(fragment);
   }
 
+  function removeProductItem(item) {
+    item.remove();
+    productItems = productItems.filter((entry) => entry !== item);
+  }
+
   let productsData = null;
   try {
     productsData = await window.loadProductsData?.();
@@ -280,24 +285,21 @@
       if (mappedImageSrc) {
         cardImage = document.createElement("img");
         cardImage.className = "product-card__image";
-        cardImage.src = mappedImageSrc;
         cardImage.alt = text;
+        cardImage.src = mappedImageSrc;
         imageWrap.prepend(cardImage);
       } else {
-        if (isSignProduct) {
-          item.remove();
-          return;
-        }
-
-        cardImage = document.createElement("img");
-        cardImage.className = "product-card__image";
-        cardImage.src = "/assets/Icons/TSCLogoSquared.webp";
-        cardImage.alt = text;
-        imageWrap.prepend(cardImage);
+        removeProductItem(item);
+        return;
       }
     }
 
-    const sourceImage = cardImage?.getAttribute("src") || "/assets/Icons/TSCLogoSquared.webp";
+    const sourceImage = cardImage?.getAttribute("src");
+    if (!sourceImage) {
+      removeProductItem(item);
+      return;
+    }
+
     const imageVariants = buildImageVariants(sourceImage);
     const image = imageVariants.fallback;
     const footer = item.querySelector(".product-card__footer");
@@ -309,21 +311,10 @@
       if (!cardImage.hasAttribute("width")) cardImage.setAttribute("width", "500");
       if (!cardImage.hasAttribute("height")) cardImage.setAttribute("height", "500");
 
-      cardImage.src = imageVariants.thumb;
       cardImage.addEventListener("error", () => {
-        const currentSrc = cardImage.getAttribute("src") || "";
-        if (currentSrc !== imageVariants.fallback) {
-          cardImage.src = imageVariants.fallback;
-          return;
-        }
-
-        if (isSignProduct) {
-          item.remove();
-          return;
-        }
-
-        cardImage.src = "/assets/Icons/TSCLogoSquared.webp";
+        removeProductItem(item);
       });
+      cardImage.src = imageVariants.thumb;
     }
 
     if (productId && detailsLink) {

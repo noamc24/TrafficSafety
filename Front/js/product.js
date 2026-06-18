@@ -310,14 +310,6 @@ function shouldApplyMountingOptions(productId = "", category = "") {
   return normalizedCategory.includes("שלט") || normalizedCategory.includes("תמרור");
 }
 
-function getMountingSubject(productId = "", category = "") {
-  if (/^sign-\d+$/.test(productId || "")) return "תמרור";
-  const normalizedCategory = String(category || "");
-  if (normalizedCategory.includes("שלט")) return "שלט";
-  if (normalizedCategory.includes("תמרור")) return "תמרור";
-  return "מוצר";
-}
-
 function enableCustomSelectUi(container) {
   if (!container) return;
   const nativeSelects = Array.from(container.querySelectorAll("select.form-select"));
@@ -908,8 +900,26 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       previewCanvas.height = 750;
       previewCanvas.className = "product-gallery__main";
       previewCanvas.setAttribute("aria-label", "תצוגה מקדימה של השלט המעוצב");
+      previewCanvas.style.width = "min(100%, 46rem)";
+      previewCanvas.style.height = "auto";
+      previewCanvas.style.maxWidth = "100%";
+      previewCanvas.style.maxHeight = "min(70vh, 46rem)";
+      previewCanvas.style.aspectRatio = "auto";
+      previewCanvas.style.padding = "0";
+      previewCanvas.style.margin = "0 auto";
       previewCanvas.style.display = "none";
       mainImage.insertAdjacentElement("afterend", previewCanvas);
+      // Ensure the canvas element's pixel dimensions match the preview geometry
+      setTimeout(() => {
+        try {
+          if (typeof resizePreviewCanvasForShape === "function") {
+            const currentShape = (typeof shapeField !== 'undefined' && shapeField?.element?.value) ? shapeField.element.value : 'מרובע';
+            resizePreviewCanvasForShape(currentShape);
+          }
+        } catch (e) {
+          // ignore
+        }
+      }, 0);
     }
     const previewCtx = previewCanvas?.getContext("2d");
     let baseImageFrame = previewCanvas
@@ -1111,13 +1121,19 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (!previewCanvas) return null;
       const dimensions = getPreviewCanvasDimensions(shape);
       const shouldResize = previewCanvas.width !== dimensions.width || previewCanvas.height !== dimensions.height;
+      // Use the element's displayed size (CSS layout) multiplied by devicePixelRatio
+      // so the canvas drawing buffer matches the rendered aspect and avoids stretching.
+      const dpr = Math.max(1, window.devicePixelRatio || 1);
+      const displayW = Math.max(1, Math.round((previewCanvas.clientWidth || dimensions.width) * dpr));
+      const displayH = Math.max(1, Math.round((previewCanvas.clientHeight || dimensions.height) * dpr));
+      const needBufferResize = previewCanvas.width !== displayW || previewCanvas.height !== displayH;
 
-      if (shouldResize) {
-        previewCanvas.width = dimensions.width;
-        previewCanvas.height = dimensions.height;
+      if (needBufferResize) {
+        previewCanvas.width = displayW;
+        previewCanvas.height = displayH;
       }
 
-      previewCanvas.style.setProperty("--custom-preview-aspect", `${dimensions.width} / ${dimensions.height}`);
+      previewCanvas.style.setProperty("--custom-preview-aspect", `${displayW} / ${displayH}`);
       if (shouldResize) clearPreviewGeometryCaches();
       return dimensions;
     }
@@ -1392,7 +1408,21 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         const w = h * safeAspect;
         bounds = { x: geometry.cx - w / 2, y: geometry.cy - h / 2, w, h };
       } else {
-        bounds = findBestRectInPolygon(geometry.innerVertices.map(clonePoint), safeAspect);
+        // For polygonal shapes (triangles, octagons, etc.) prefer a simple,
+        // centered fit inside the innerBounds. The previous heuristic tried
+        // to find a largest-area rect which caused images to appear offset
+        // in narrow polygons like triangles. Centering inside innerBounds
+        // provides a more intuitive result for uploaded images.
+        const source = geometry.innerBounds;
+        let w = source.w;
+        let h = w / safeAspect;
+        if (h > source.h) {
+          h = source.h;
+          w = h * safeAspect;
+        }
+        const x = source.x + (source.w - w) / 2;
+        const y = source.y + (source.h - h) / 2;
+        bounds = { x, y, w, h };
       }
 
       imageBoundsCache.set(cacheKey, bounds);
@@ -2095,11 +2125,29 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       syncTextControls();
       updateCustomBoardPreview();
     });
-    customImageInput?.addEventListener("change", () => {
+    customImageInput?.addEventListener("change", async () => {
       hasCustomEdits = true;
+      // Reset transforms so the uploaded image starts centered
       imageTransform.offsetX = 0;
       imageTransform.offsetY = 0;
       imageTransform.scale = 1;
+
+      // Preload the image to ensure the preview drawing uses correct fit calculations
+      const file = customImageInput.files?.[0];
+      if (file) {
+        try {
+          await new Promise((resolve, reject) => {
+            const img = new Image();
+            const url = URL.createObjectURL(file);
+            img.onload = () => { URL.revokeObjectURL(url); resolve(); };
+            img.onerror = () => { URL.revokeObjectURL(url); resolve(); };
+            img.src = url;
+          });
+        } catch (e) {
+          // ignore preload errors
+        }
+      }
+
       syncImageControls();
       updateCustomBoardPreview();
     });
