@@ -1,0 +1,11 @@
+﻿{
+  "name": "traffic-safety-center",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "images:optimize": "node scripts/optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

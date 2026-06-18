@@ -1,37 +1,44 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+﻿<nav class="navbar navbar-expand-xxl navbar-dark sticky-top">
   <div class="container-fluid d-flex justify-content-between align-items-center px-2 px-md-4">
 
-    <!-- Mobile toggle (only on < lg) -->
-    <button class="navbar-toggler d-lg-none" type="button"
+    <!-- Mobile toggle (only on < xxl) -->
+    <button class="navbar-toggler d-xxl-none" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
             aria-controls="mobileMenu" aria-label="פתח תפריט">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- Brand (Logo + Text) -->
-    <a class="navbar-brand fw-bold d-flex align-items-center gap-2 flex-shrink-0" href="#home">
-      <img src="/assets/Icons/TSCLogo.png" alt="סמל החברה" class="navbar-logo">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2 flex-shrink-0" href="/#home">
+      <img src="/assets/Icons/TSCLogo.webp" alt="סמל החברה" class="navbar-logo" width="972" height="531">
       <span class="brand-text">המרכז לבטיחות בתנועה</span>
     </a>
 
-    <div class="navbar-mobile-spacer d-lg-none" aria-hidden="true"></div>
+    <div class="navbar-mobile-spacer d-xxl-none" aria-hidden="true"></div>
 
-    <!-- Desktop menu (only on lg+) -->
-    <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end ms-3">
+    <!-- Desktop menu (only on xxl+) -->
+    <div class="collapse navbar-collapse d-none d-xxl-flex justify-content-end ms-3">
       <ul class="navbar-nav gap-2 align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" href="#home">דף הבית</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">אודות</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">שירותים</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">פרויקטים</a></li>
-        <li class="nav-item"><a class="nav-link" href="#signs">לוח התמרורים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#home">דף הבית</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#about">אודות</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#services">שירותים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#projects">פרויקטים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#signs">לוח התמרורים</a></li>
+        <li class="nav-item"><a class="nav-link" href="/store">חנות</a></li>
         <li class="nav-item">
-          <a class="btn btn-warning text-dark px-3 fw-bold" href="#contact">צור קשר</a>
+          <a class="nav-link d-inline-flex align-items-center gap-1" href="/cart">
+            עגלה
+            <span class="badge rounded-pill text-bg-warning text-dark" data-cart-count-badge>0</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-warning text-dark px-3 fw-bold" href="/#contact">צור קשר</a>
         </li>
       </ul>
     </div>
 
     <!-- Offcanvas (Mobile only) -->
-    <div class="offcanvas offcanvas-end text-bg-dark d-lg-none"
+    <div class="offcanvas offcanvas-end text-bg-dark d-xxl-none"
          tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
       <div class="offcanvas-header">
 
@@ -48,21 +55,27 @@
       <div class="offcanvas-body">
         <!-- Optional: centered logo at top of menu -->
         <div class="text-center mb-3">
-          <a href="#home" data-bs-dismiss="offcanvas">
-            <img src="/assets/Icons/TSCLogo.png" alt="סמל החברה" class="offcanvas-logo-lg">
+          <a href="/#home">
+            <img src="/assets/Icons/TSCLogo.webp" alt="סמל החברה" class="offcanvas-logo-lg" width="972" height="531" loading="lazy" decoding="async">
           </a>
         </div>
 
         <div class="d-grid gap-2">
-          <a class="btn btn-outline-light" href="#home" data-bs-dismiss="offcanvas">דף הבית</a>
-          <a class="btn btn-outline-light" href="#about" data-bs-dismiss="offcanvas">אודות</a>
-          <a class="btn btn-outline-light" href="#services" data-bs-dismiss="offcanvas">שירותים</a>
-          <a class="btn btn-outline-light" href="#projects" data-bs-dismiss="offcanvas">פרויקטים</a>
-          <a class="btn btn-outline-light" href="#signs" data-bs-dismiss="offcanvas">לוח התמרורים</a>
-          <a class="btn btn-warning text-dark fw-bold" href="#contact" data-bs-dismiss="offcanvas">צור קשר</a>
+          <a class="btn btn-outline-light" href="/#home">דף הבית</a>
+          <a class="btn btn-outline-light" href="/#about">אודות</a>
+          <a class="btn btn-outline-light" href="/#services">שירותים</a>
+          <a class="btn btn-outline-light" href="/#projects">פרויקטים</a>
+          <a class="btn btn-outline-light" href="/#signs">לוח התמרורים</a>
+          <a class="btn btn-outline-light" href="/store">חנות</a>
+          <a class="btn btn-outline-light d-flex align-items-center justify-content-center gap-2" href="/cart">
+            עגלה
+            <span class="badge rounded-pill text-bg-warning text-dark" data-cart-count-badge>0</span>
+          </a>
+          <a class="btn btn-warning text-dark fw-bold" href="/#contact">צור קשר</a>
         </div>
       </div>
     </div>
 
   </div>
 </nav>
+

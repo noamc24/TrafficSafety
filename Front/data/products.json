@@ -1,0 +1,3211 @@
+﻿{
+  "storeCatalog": [
+    {
+      "productId": "sign-101",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "101 - כביש משובש",
+      "text": "אזהרה: כביש משובש - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-101",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-102",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "102 - עקומה חדה ימינה",
+      "text": "אזהרה: עקומה חדה ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-102",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-103",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "103 - עקומה חדה שמאלה",
+      "text": "אזהרה: עקומה חדה שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-103",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-104",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "104 - עקומה ימינה ואח\"כ שמאלה",
+      "text": "אזהרה: עקומה ימינה ואח\"כ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-104",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-105",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "105 - עקומה שמאלה ואח\"כ ימינה",
+      "text": "אזהרה: עקומה שמאלה ואח\"כ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-105",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-106",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "106 - דרך מפותלת",
+      "text": "אזהרה: דרך מפותלת - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-106",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-107",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "107 - המשך הדרך שמאלה",
+      "text": "המשך הדרך שמאלה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-107",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-108",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "108 - המשך הדרך ימינה",
+      "text": "המשך הדרך ימינה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-108",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-109",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "109 - כביש הולך וצר",
+      "text": "אזהרה: כביש הולך וצר - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-109",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-110",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "110 - כביש הולך וצר מימין",
+      "text": "אזהרה: כביש הולך וצר מימין - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-110",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-111",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "111 - כביש הולך וצר משמאל",
+      "text": "אזהרה: כביש הולך וצר משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-111",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-112",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "112 - מעבר צר/מכשול",
+      "text": "מעבר צר/מכשול",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-112",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-113",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "113 - מכשול גובה",
+      "text": "מכשול גובה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-113",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-114",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "114 - צומת הצטלבות",
+      "text": "אזהרה: צומת הצטלבות - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-114",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-115",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "115 - צומת קמץ ימינה",
+      "text": "אזהרה: צומת קמץ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-115",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-116",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "116 - צומת קמץ שמאלה",
+      "text": "אזהרה: צומת קמץ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-116",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-117",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "117 - צומת קמץ",
+      "text": "אזהרה: צומת קמץ - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-117",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-118",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "118 - המשך הדרך בכיווונים המסומנים",
+      "text": "תמרור: המשך הדרך בכיווונים המסומנים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-118",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-119",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "119 - צמתי קמץ ימינה ואח\"כ שמאלה",
+      "text": "אזהרה: צמתי קמץ ימינה ואח\"כ שמאלה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-119",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-120",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "120 - צמתי קמץ שמאלה ואח\"כ ימינה",
+      "text": "אזהרה: צמתי קמץ שמאלה ואח\"כ ימינה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-120",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-121",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "121 - מעגל תנועה",
+      "text": "מעגל תנועה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-121",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-122",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "122 - רמזור",
+      "text": "רמזור - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-122",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-123",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "123 - כביש מתמזג מימין",
+      "text": "אזהרה: כביש מתמזג מימין - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-123",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-124",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "124 - כביש מתמזג משמאל",
+      "text": "אזהרה: כביש מתמזג משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-124",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-125",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "125 - התמזגות עם כביש מימין",
+      "text": "אזהרה: התמזגות עם כביש מימין - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-125",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-126",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "126 - התמזגות עם כביש משמאל",
+      "text": "אזהרה: התמזגות עם כביש משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-126",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-128",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "128 - רכבת מקומית חוצה",
+      "text": "אזהרה: רכבת מקומית חוצה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-128",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-129",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "129 - מפגש מסילת רכבת",
+      "text": "אזהרה: מפגש מסילת רכבת - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-129",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-135",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "135 - מעבר חצייה בדרך שלפנייך",
+      "text": "אזהרה: מעבר חצייה בדרך שלפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-135",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-136",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "136 - הולכי רגל בדרך שלפנייך",
+      "text": "אזהרה: הולכי רגל בדרך שלפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-136",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-137",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "137 - תנועת אופניים",
+      "text": "אזהרה: תנועת אופניים - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-137",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-138",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "138 - מנהרה",
+      "text": "אזהרה: מנהרה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-138",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-139",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "139 - תמרור \"עצור\" לפנייך",
+      "text": "אזהרה: תמרור \"עצור\" לפנייך - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-139",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-140",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "140 - ירידה תלולה",
+      "text": "אזהרה: ירידה תלולה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-140",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-141",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "141 - סכנת החלקה",
+      "text": "אזהרה: סכנת החלקה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-141",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-142",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "142 - אבנים מידרדרות מימין",
+      "text": "אזהרה: אבנים מידרדרות מימין - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-142",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-143",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "143 - אבנים מידרדרות משמאל",
+      "text": "אזהרה: אבנים מידרדרות משמאל - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-143",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-144",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "144 - פסי האטה",
+      "text": "אזהרה: פסי האטה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-144",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-145",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "145 - תנועה דו סיטרית",
+      "text": "אזהרה: תנועה דו סיטרית - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-145",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-146",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "146 - בעלי חיים",
+      "text": "אזהרה: בעלי חיים - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-146",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-147",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "147 - רכב עבודה או טרקטור חוצה",
+      "text": "אזהרה: רכב עבודה או טרקטור חוצה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-147",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-150",
+      "category": "signs",
+      "signSubcategory": "warning-alert",
+      "title": "150 - סכנה",
+      "text": "אזהרה: סכנה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-150",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-201",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "201 - סע ישר או ימינה",
+      "text": "הוראה: סע ישר או ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-201",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-202",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "202 - סע ישר או שמאלה",
+      "text": "הוראה: סע ישר או שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-202",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-203",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "203 - סע ישר",
+      "text": "הוראה: סע ישר - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-203",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-204",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "204 - סע ימינה",
+      "text": "הוראה: סע ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-204",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-205",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "205 - סע שמאלה",
+      "text": "הוראה: סע שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-205",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-206",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "206 - סע ימינה, פנה אחרי התמרור",
+      "text": "הוראה: סע ימינה, פנה אחרי התמרור - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-206",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-207",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "207 - סע שמאלה, פנה אחרי התמרור",
+      "text": "הוראה: סע שמאלה, פנה אחרי התמרור - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-207",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-208",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "208 - סע ימינה או שמאלה",
+      "text": "הוראה: סע ימינה או שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-208",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-209",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "209 - סע ישר או פניית פרסה ימינה",
+      "text": "הוראה: סע ישר או פניית פרסה ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-209",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-210",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "210 - סע ישר או פניית פרסה שמאלה",
+      "text": "הוראה: סע ישר או פניית פרסה שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-210",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-211",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "211 - פניית פרסה ימינה",
+      "text": "הוראה: פניית פרסה ימינה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-211",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-212",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "212 - פניית פרסה שמאלה",
+      "text": "הוראה: פניית פרסה שמאלה - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-212",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-213",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "213 - עבור מימין או משמאל",
+      "text": "הוראה: עבור מימין או משמאל - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-213",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-214",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "214 - עבור מימין",
+      "text": "הוראה: עבור מימין - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-214",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-215",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "215 - עבור משמאל",
+      "text": "הוראה: עבור משמאל - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-215",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-216",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "216 - כניסה לדרך מהירה",
+      "text": "כניסה לדרך מהירה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-216",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-217",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "217 - קצה דרך מהירה",
+      "text": "קצה דרך מהירה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-217",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-218",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "218 - מהירות מינימלית",
+      "text": "הוראה: מהירות מינימלית - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-218",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-219",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "219 - דרך לרכב מנועי בלבד",
+      "text": "הוראה: דרך לרכב מנועי בלבד - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-219",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-220",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "220 - רחוב משולב",
+      "text": "תמרור: רחוב משולב",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-220",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-221",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "221 - קצה רחוב משולב",
+      "text": "תמרור: קצה רחוב משולב",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-221",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-222",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "222 - איזור מיתון תנועה",
+      "text": "תמרור: איזור מיתון תנועה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-222",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-223",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "223 - קצה איזור מיתון תנועה",
+      "text": "תמרור: קצה איזור מיתון תנועה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-223",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-224",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "224 - נתיב חד סטרי לתנועת אופניים",
+      "text": "תמרור: נתיב חד סטרי לתנועת אופניים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-224",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-225",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "225 - קצה נתיב אופניים",
+      "text": "תמרור: קצה נתיב אופניים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-225",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-226",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "226 - שביל הולכי רגל בלבד",
+      "text": "הוראה: שביל הולכי רגל בלבד - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-226",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-227",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "227 - שביל לתנועת אופניים",
+      "text": "הוראה: שביל לתנועת אופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-227",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-228",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "228 - שביל משותף להולכי רגל ולתנועת אופניים",
+      "text": "הוראה: שביל משותף להולכי רגל ולתנועת אופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-228",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-229",
+      "category": "signs",
+      "signSubcategory": "instruction",
+      "title": "229 - שבילים נפרדים להולכי רגל ואופניים",
+      "text": "הוראה: שבילים נפרדים להולכי רגל ואופניים - חובה לנהוג בהתאם לכיוון או לפעולה המוצגים בתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-229",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-301",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "301 - האט",
+      "text": "אזהרה: האט - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-301",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-302",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "302 - עצור",
+      "text": "זכות קדימה: עצור - יש לפעול לפי כללי הקדימות במקום",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-302",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-303",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "303 - מעגל תנועה",
+      "text": "זכות קדימה: מעגל תנועה - יש לפעול לפי כללי הקדימות במקום",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-303",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-304",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "304 - עצור (נייד)",
+      "text": "זכות קדימה: עצור (נייד) - יש לפעול לפי כללי הקדימות במקום",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-304",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-306",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "306 - מעבר חצייה",
+      "text": "זכות קדימה: מעבר חצייה - יש לפעול לפי כללי הקדימות במקום <br> תמרור דו-צדדי",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-306",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-307",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "307 - תן זכות קדימה בקטע צר",
+      "text": "זכות קדימה: תן זכות קדימה בקטע צר - יש לפעול לפי כללי הקדימות במקום",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-307",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-308",
+      "category": "signs",
+      "signSubcategory": "right-of-way",
+      "title": "308 - זכות קדימה שלך בקטע צר",
+      "text": "זכות קדימה: זכות קדימה שלך בקטע צר - יש לפעול לפי כללי הקדימות במקום",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-308",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-401",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "401 - כביש סגור",
+      "text": "איסור/הגבלה: כביש סגור - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-401",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-402",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "402 - אין כניסה",
+      "text": "איסור/הגבלה: אין כניסה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-402",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-405",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "405 - אסורה כניסה לכלי רכב מנועי",
+      "text": "איסור/הגבלה: אסורה כניסה לכלי רכב מנועי - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-405",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-406",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "406 - אסורה כניסה לרכב מנועי מעל משקל",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מנועי מעל משקל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-406",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-407",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "407 - אסורה כניסה לרכב מוביל חומר מסוכן",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מוביל חומר מסוכן - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-407",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-408",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "408 - אסורה כניסה לרכב מנועי למעט דו גלגלי",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מנועי למעט דו גלגלי - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-408",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-409",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "409 - אסורה כניסה לאופנועים",
+      "text": "איסור/הגבלה: אסורה כניסה לאופנועים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-409",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-410",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "410 - אסורה כניסה לרכב עבודה",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב עבודה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-410",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-411",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "411 - אסורה כניסה לבעלי חיים",
+      "text": "איסור/הגבלה: אסורה כניסה לבעלי חיים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-411",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-412",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "412 - אסורה כניסה לאופניים",
+      "text": "איסור/הגבלה: אסורה כניסה לאופניים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-412",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-413",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "413 - אסורה כניסה להולכי רגל",
+      "text": "איסור/הגבלה: אסורה כניסה להולכי רגל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-413",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-414",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "414 - אסורה כניסה להולכי רגל, אופניים ובעלי חיים",
+      "text": "איסור/הגבלה: אסורה כניסה להולכי רגל, אופניים ובעלי חיים - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-414",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-415",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "415 - אסורה כניסה לרכב מעל משקל",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מעל משקל - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-415",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-416",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "416 - אסורה כניסה לרכב מעל גובה",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מעל גובה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-416",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-417",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "417 - אסורה כניסה לרכב מעל רוחב",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מעל רוחב - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-417",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-418",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "418 - איזור אסור ללימודי נהיגה",
+      "text": "איסור/הגבלה: איזור אסור ללימודי נהיגה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-418",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-419",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "419 - קצה איזור אסור ללימודי נהיגה",
+      "text": "איסור/הגבלה: קצה איזור אסור ללימודי נהיגה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-419",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-420",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "420 - עקיפה אסורה",
+      "text": "איסור/הגבלה: עקיפה אסורה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-420",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-421",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "421 - קצה דרך עקיפה אסורה",
+      "text": "איסור/הגבלה: קצה דרך עקיפה אסורה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-421",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-422",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "422 - עקיפה אסורה לרכב מעל 4 טון",
+      "text": "איסור/הגבלה: עקיפה אסורה לרכב מעל 4 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-422",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-423",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "423 - קצה דרך איסור עקיפה לרכב מעל 4 טון",
+      "text": "איסור/הגבלה: קצה דרך איסור עקיפה לרכב מעל 4 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-423",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-424",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "424 - איזור דרך עירונית",
+      "text": "איסור/הגבלה: איזור דרך עירונית - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-424",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-425",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "425 - קצה איזור דרך עירונית",
+      "text": "איסור/הגבלה: קצה איזור דרך עירונית - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-425",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-426",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "426 - הגבלת מהירות",
+      "text": "איסור/הגבלה: הגבלת מהירות - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-426",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-427",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "427 - קצה דרך הגבלת מהירות",
+      "text": "איסור/הגבלה: קצה דרך הגבלת מהירות - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-427",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-428",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "428 - אין ימינה",
+      "text": "איסור/הגבלה: אין ימינה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-428",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-429",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "429 - אין שמאלה",
+      "text": "איסור/הגבלה: אין שמאלה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-429",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-430",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "430 - אין פרסה ימינה",
+      "text": "איסור/הגבלה: אין פרסה ימינה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-430",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-431",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "431 - אין פרסה שמאלה",
+      "text": "איסור/הגבלה: אין פרסה שמאלה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-431",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-432",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "432 - אסורה חנייה",
+      "text": "איסור/הגבלה: אסורה חנייה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-432",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-433",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "433 - אסורה חנייה ועצירה",
+      "text": "איסור/הגבלה: אסורה חנייה ועצירה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-433",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-434",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "434 - קצה דרך איסור החנייה",
+      "text": "איסור/הגבלה: קצה דרך איסור החנייה - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-434",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-435",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "435 - איזור חניה אסורה לרכב מעל 10 טון",
+      "text": "איסור/הגבלה: איזור חניה אסורה לרכב מעל 10 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-435",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-436",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "436 - קצה איזור חניה אסורה לרכב מעל 10 טון",
+      "text": "איסור/הגבלה: קצה איזור חניה אסורה לרכב מעל 10 טון - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-436",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-437",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "437 - חניית נכה",
+      "text": "תמרור: חניית נכה",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-437",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-438",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "438 - מכס",
+      "text": "איסור/הגבלה: מכס - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-438",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-439",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "439 - תמרור למסר מחייב שלגביו אין תמרור קבוע",
+      "text": "תמרור: תמרור למסר מחייב שלגביו אין תמרור קבוע",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-439",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-440",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "440 - אסורה כניסה לרכב מזהם",
+      "text": "איסור/הגבלה: אסורה כניסה לרכב מזהם - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-440",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-441",
+      "category": "signs",
+      "signSubcategory": "restriction",
+      "title": "441 - קצה איזור הכניסה לרכב מזהם",
+      "text": "איסור/הגבלה: קצה איזור הכניסה לרכב מזהם - הכניסה או הפעולה מוגבלת בהתאם לתמרור",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-441",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-504",
+      "category": "signs",
+      "signSubcategory": "public-transport",
+      "title": "504 - התנועה בכיוון החץ הלבן מותרת לכל כלי הרכב",
+      "text": "תחבורה ציבורית: התנועה בכיוון החץ הלבן מותרת לכל כלי הרכב - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-504",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-505",
+      "category": "signs",
+      "signSubcategory": "public-transport",
+      "title": "505/506 - תחנת אוטובוס/רכבת קלה",
+      "text": "תחבורה ציבורית: תחנת אוטובוס/רכבת קלה - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים <br> תמרור דו-צדדי",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-505",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-507",
+      "category": "signs",
+      "signSubcategory": "public-transport",
+      "title": "507 - תחנת מוניות",
+      "text": "תחבורה ציבורית: תחנת מוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-507",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-508",
+      "category": "signs",
+      "signSubcategory": "public-transport",
+      "title": "508 - קצה תחום תחנת מוניות",
+      "text": "תחבורה ציבורית: קצה תחום תחנת מוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-508",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-509",
+      "category": "signs",
+      "signSubcategory": "public-transport",
+      "title": "509 - איזור עצירה למוניות",
+      "text": "תחבורה ציבורית: איזור עצירה למוניות - התמרור מסדיר נתיבים, תחנות או הסדרי נסיעה ייעודיים",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-509",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-618",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "618 - כביד חד סטרי",
+      "text": "מידע והכוונה: כביד חד סטרי - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-618",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-619",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "619 - נתיב נוסף מימין",
+      "text": "מידע והכוונה: נתיב נוסף מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-619",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-620",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "620 - נתיב נוסף משמאל",
+      "text": "מידע והכוונה: נתיב נוסף משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-620",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-621",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "621 - נתיב מתמזג מימין",
+      "text": "מידע והכוונה: נתיב מתמזג מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-621",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-622",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "622 - נתיב מתמזג משמאל",
+      "text": "מידע והכוונה: נתיב מתמזג משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-622",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-623",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "623 - כביש ללא מוצא",
+      "text": "מידע והכוונה: כביש ללא מוצא - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-623",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-624",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "624 - כביש ללא מוצא מימין",
+      "text": "מידע והכוונה: כביש ללא מוצא מימין - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-624",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-625",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "625 - כביש ללא מוצא משמאל",
+      "text": "מידע והכוונה: כביש ללא מוצא משמאל - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-625",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-626",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "626 - חנית כלי רכב",
+      "text": "מידע והכוונה: חנית כלי רכב - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-626",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-627",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "627 - מותרת החנייה על המדרכה",
+      "text": "מידע והכוונה: מותרת החנייה על המדרכה - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-627",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-628",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "628 - קצה תחום חנייה",
+      "text": "מידע והכוונה: קצה תחום חנייה - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-628",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-632",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "632 - חץ",
+      "text": "מידע והכוונה: חץ - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-632",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-633",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "633 - מנהרה",
+      "text": "מידע והכוונה: מנהרה - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-633",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-634",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "634 - קצה המנהרה",
+      "text": "מידע והכוונה: קצה המנהרה - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-634",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-636",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "636 - כביש חד סטרי לרכב מנועי",
+      "text": "מידע והכוונה: כביש חד סטרי לרכב מנועי - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-636",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-637",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "637 - מפרץ לעצירת חירום",
+      "text": "מידע והכוונה: מפרץ לעצירת חירום - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-637",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-638",
+      "category": "signs",
+      "signSubcategory": "information-guidance",
+      "title": "638 - העלאה והורדת נוסעים",
+      "text": "מידע והכוונה: העלאה והורדת נוסעים - התמרור מספק הכוונה או מידע לנהג בדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-638",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-901",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "901 - אתר עבודה",
+      "text": "אזהרה: אתר עבודה - יש להאט ולהיערך בהתאם למצב הדרך",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-901",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-902",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "902 - קצה אתר עבודה",
+      "text": "תמרור זמני: קצה אתר עבודה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-902",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-903",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "903 - המשך הדרך ימינה/שמאלה",
+      "text": "תמרור זמני: המשך הדרך ימינה/שמאלה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-903",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-904",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "904 - המשך הדרך בכיוון החיצים",
+      "text": "תמרור זמני: המשך הדרך בכיוון החיצים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-904",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-905",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "905 - כביש הולך וצר",
+      "text": "תמרור זמני: כביש הולך וצר - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-905",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-906",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "906 - כביש הולך וצר מימין",
+      "text": "תמרור זמני: כביש הולך וצר מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-906",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-907",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "907 - כביש הולך וצר משמאל",
+      "text": "תמרור זמני: כביש הולך וצר משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-907",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-908",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "908 - מעבר צר/מכשול",
+      "text": "תמרור זמני: מעבר צר/מכשול - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-908",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-910",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "910 - נתיב נוסף מימין",
+      "text": "תמרור זמני: נתיב נוסף מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-910",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-911",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "911 - נתיב נוסף משמאל",
+      "text": "תמרור זמני: נתיב נוסף משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-911",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-912",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "912 - כביש מתמזג מימין",
+      "text": "תמרור זמני: כביש מתמזג מימין - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-912",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-913",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "913 - כביש מתמזג משמאל",
+      "text": "תמרור זמני: כביש מתמזג משמאל - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-913",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-914",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "914 - הסטת תנועה",
+      "text": "תמרור זמני: הסטת תנועה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-914",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-916",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "916 - התמרור מעל יחל עוד __ מטרים",
+      "text": "תמרור זמני: התמרור מעל יחל עוד __ מטרים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-916",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-917",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "917 - התמרור מעל יחול במהלך ה __ מטרים הקרובים",
+      "text": "תמרור זמני: התמרור מעל יחול במהלך ה __ מטרים הקרובים - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-917",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-930",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "930 - עמודי הכוונה",
+      "text": "תמרור זמני: עמודי הכוונה - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-930",
+      "existingImage": ""
+    },
+    {
+      "productId": "sign-935",
+      "category": "signs",
+      "signSubcategory": "temporary-sign",
+      "title": "935 - מפרץ לעצירת חירום",
+      "text": "תמרור זמני: מפרץ לעצירת חירום - ההנחיה חלה באזור עבודה או בהסדר תנועה זמני",
+      "tag": "תמרורים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-935",
+      "existingImage": ""
+    },
+    {
+      "productId": "custom-design-board",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "שלט בהתאמה אישית",
+      "text": "שלט בהתאמה אישית",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=custom-design-board",
+      "existingImage": "/assets/signs/uniqsign.webp"
+    },
+    {
+      "productId": "warning-trucks-crossing-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "זהירות משאיות חוצות",
+      "text": "זהירות משאיות חוצות",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=warning-trucks-crossing-sign",
+      "existingImage": "/assets/signs/trucksCrossing.webp"
+    },
+    {
+      "productId": "trucks-merging-from-right-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות מאטות משתלבות מימן",
+      "text": "משאיות מאטות משתלבות מימן",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merging-from-right-sign",
+      "existingImage": "/assets/signs/trucksSlowRight.webp"
+    },
+    {
+      "productId": "trucks-merging-from-left-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות מאטות משתלבות משמאל",
+      "text": "משאיות מאטות משתלבות משמאל",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merging-from-left-sign",
+      "existingImage": "/assets/signs/trucksSlowLeft.webp"
+    },
+    {
+      "productId": "site-workers-entry-allowed-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "הכניסה מותרת לעובדי האתר",
+      "text": "הכניסה מותרת לעובדי האתר",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=site-workers-entry-allowed-sign",
+      "existingImage": "/assets/signs/staffEntry.webp"
+    },
+    {
+      "productId": "warning-pedestrians-crossing-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "זהירות הולכי רגל חוצים",
+      "text": "זהירות הולכי רגל חוצים",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=warning-pedestrians-crossing-sign",
+      "existingImage": ""
+    },
+    {
+      "productId": "operational-area-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "איזור שטח תפעולי",
+      "text": "איזור שטח תפעולי",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=operational-area-sign",
+      "existingImage": "/assets/signs/serviceZone.webp"
+    },
+    {
+      "productId": "sidewalk-blocked-cross-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "המדרכה חסומה - נא לעבור למדרכה ממול",
+      "text": "המדרכה חסומה - נא לעבור למדרכה ממול",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sidewalk-blocked-cross-sign",
+      "existingImage": "/assets/signs/sidewalkClosed.webp"
+    },
+    {
+      "productId": "danger-construction-here-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "סכנה כאן בונים",
+      "text": "סכנה כאן בונים",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=danger-construction-here-sign",
+      "existingImage": "/assets/signs/constructionDanger.webp"
+    },
+    {
+      "productId": "work-vehicle-entry-exit-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "כניסה ויציאת רכב עבודה",
+      "text": "כניסה ויציאת רכב עבודה",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=work-vehicle-entry-exit-sign",
+      "existingImage": "/assets/signs/workVehicleEntryExit.webp"
+    },
+    {
+      "productId": "site-manager-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "מנהל עבודה",
+      "text": "מנהל עבודה",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=site-manager-sign",
+      "existingImage": "/assets/signs/siteManager.webp"
+    },
+    {
+      "productId": "safety-supervisor-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "ממונה בטיחות",
+      "text": "ממונה בטיחות",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=safety-supervisor-sign",
+      "existingImage": "/assets/signs/safetyOfficer.webp"
+    },
+    {
+      "productId": "assistant-safety-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "עוזר בטיחות",
+      "text": "עוזר בטיחות",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=assistant-safety-sign",
+      "existingImage": "/assets/signs/safetyAssistant.webp"
+    },
+    {
+      "productId": "safety-fines-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "קנסות בטיחות",
+      "text": "קנסות בטיחות",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=safety-fines-sign",
+      "existingImage": "/assets/signs/safetyFines.webp"
+    },
+    {
+      "productId": "safety-instructions-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "הוראות בטיחות",
+      "text": "הוראות בטיחות",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=safety-instructions-sign",
+      "existingImage": "/assets/signs/safetyInstructions.webp"
+    },
+    {
+      "productId": "danger-construction-site-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "סכנה כאן בונים",
+      "text": "סכנה כאן בונים",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=danger-construction-site-sign",
+      "existingImage": ""
+    },
+    {
+      "productId": "falling-from-height-danger-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "סכנת נפילה מגובה",
+      "text": "סכנת נפילה מגובה",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=falling-from-height-danger-sign",
+      "existingImage": "/assets/signs/fallingDebris.webp"
+    },
+    {
+      "productId": "paid-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "בתשלום",
+      "text": "בתשלום",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=paid-sign",
+      "existingImage": "/assets/signs/paid.webp"
+    },
+    {
+      "productId": "project-management-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "ניהול פרויקט",
+      "text": "ניהול פרויקט",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=project-management-sign",
+      "existingImage": "/assets/signs/projectManagement.webp"
+    },
+    {
+      "productId": "except-work-vehicles-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "פרט לרכב עבודה",
+      "text": "פרט לרכב עבודה",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=except-work-vehicles-sign",
+      "existingImage": "/assets/signs/exceptWorkVehicles.webp"
+    },
+    {
+      "productId": "increased-fine-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "קנס מוגדל",
+      "text": "קנס מוגדל",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=increased-fine-sign",
+      "existingImage": "/assets/signs/increasedFine.webp"
+    },
+    {
+      "productId": "fire-lane-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רחבת כיבוי אש",
+      "text": "רחבת כיבוי אש",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=fire-lane-sign",
+      "existingImage": "/assets/signs/fireLane.webp"
+    },
+    {
+      "productId": "road-closed-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רחוב חסום",
+      "text": "רחוב חסום",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=road-closed-sign",
+      "existingImage": "/assets/signs/roadClosed.webp"
+    },
+    {
+      "productId": "over-35t-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "רכב מעל 3.5 טון",
+      "text": "רכב מעל 3.5 טון",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=over-35t-sign",
+      "existingImage": "/assets/signs/over35t.webp"
+    },
+    {
+      "productId": "trucks-merge-right-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות משתלבות מימין",
+      "text": "משאיות משתלבות מימין",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merge-right-sign",
+      "existingImage": "/assets/signs/trucksMergeRight.webp"
+    },
+    {
+      "productId": "trucks-merge-left-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "משאיות משתלבות משמאל",
+      "text": "משאיות משתלבות משמאל",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=trucks-merge-left-sign",
+      "existingImage": "/assets/signs/trucksMergeLeft.webp"
+    },
+    {
+      "productId": "roadwork-warning-sign",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "סכנה כאן בונים",
+      "text": "סכנה כאן בונים",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=roadwork-warning-sign",
+      "existingImage": "/assets/signs/constructionDanger.webp"
+    },
+    {
+      "productId": "safety-cones",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "קונוס",
+      "text": "קונוס",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=safety-cones",
+      "existingImage": ""
+    },
+    {
+      "productId": "panoramic-mirror",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "מראה פנורמית",
+      "text": "מראה פנורמית",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=panoramic-mirror",
+      "existingImage": ""
+    },
+    {
+      "productId": "lane-dividers",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "מפרידי נתיבים",
+      "text": "מפרידי נתיבים",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=lane-dividers",
+      "existingImage": ""
+    },
+    {
+      "productId": "parking-stop",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "מעצור חנייה",
+      "text": "מעצור חנייה",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=parking-stop",
+      "existingImage": ""
+    },
+    {
+      "productId": "parking-guard",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "שומר חנייה",
+      "text": "שומר חנייה",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=parking-guard",
+      "existingImage": ""
+    },
+    {
+      "productId": "flexible-post-45-75-100",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "עמוד גמיש גובה 45/75/100",
+      "text": "עמוד גמיש גובה 45/75/100",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=flexible-post-45-75-100",
+      "existingImage": ""
+    },
+    {
+      "productId": "barrier-post",
+      "category": "boards",
+      "signSubcategory": "",
+      "title": "מחסום לפנייך",
+      "text": "מחסום לפנייך",
+      "tag": "שלטים",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=barrier-post",
+      "existingImage": "/assets/signs/barrier.webp"
+    },
+    {
+      "productId": "height-limiter",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "מגביל גובה",
+      "text": "מגביל גובה",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=sign-113",
+      "existingImage": "/assets/TrafficSigns/100/113.webp"
+    },
+    {
+      "productId": "solar-lamp",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "פנס סולרי",
+      "text": "פנס סולרי",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=solar-lamp",
+      "existingImage": "/assets/SafetyEquipment/solarLight.webp"
+    },
+    {
+      "productId": "connector-units-3-6-inch",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "יחידות חיבור 3/6 צול",
+      "text": "יחידות חיבור 3/6 צול",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=connector-units-3-6-inch",
+      "existingImage": ""
+    },
+    {
+      "productId": "rubber-base",
+      "category": "safety",
+      "signSubcategory": "",
+      "title": "בסיס גומי",
+      "text": "בסיס גומי",
+      "tag": "אביזרי בטיחות",
+      "price": "לפי מפרט",
+      "detailsHref": "/product?id=rubber-base",
+      "existingImage": "/assets/SafetyEquipment/rubberBase.webp"
+    }
+  ],
+  "productCatalog": {
+    "custom-design-board": {
+      "title": "שלט בהתאמה אישית",
+      "category": "שלטים",
+      "description": "שלט בהתאמה אישית",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "צורה",
+          "values": [
+            "עיגול",
+            "משולש",
+            "משולש הפוך",
+            "ריבוע",
+            "מרובע",
+            "מתומן"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "לבחירה לפי צורה"
+          ]
+        },
+        {
+          "name": "כיתוב",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        },
+        {
+          "name": "תמונה",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        }
+      ]
+    },
+    "warning-trucks-crossing-sign": {
+      "title": "זהירות משאיות חוצות",
+      "category": "שלטים",
+      "description": "זהירות משאיות חוצות",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merging-from-right-sign": {
+      "title": "משאיות מאטות משתלבות מימן",
+      "category": "שלטים",
+      "description": "משאיות מאטות משתלבות מימן",
+      "images": [
+        "/assets/signs/trucksSlowRight.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merging-from-left-sign": {
+      "title": "משאיות מאטות משתלבות משמאל",
+      "category": "שלטים",
+      "description": "משאיות מאטות משתלבות משמאל",
+      "images": [
+        "/assets/signs/trucksSlowLeft.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "site-workers-entry-allowed-sign": {
+      "title": "הכניסה מותרת לעובדי האתר",
+      "category": "שלטים",
+      "description": "הכניסה מותרת לעובדי האתר",
+      "images": [
+        "/assets/signs/staffEntry.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "warning-pedestrians-crossing-sign": {
+      "title": "זהירות הולכי רגל חוצים",
+      "category": "שלטים",
+      "description": "זהירות הולכי רגל חוצים",
+      "images": [
+        "/assets/signs/trucksCrossing.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "operational-area-sign": {
+      "title": "איזור שטח תפעולי",
+      "category": "שלטים",
+      "description": "איזור שטח תפעולי",
+      "images": [
+        "/assets/signs/serviceZone.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "sidewalk-blocked-cross-sign": {
+      "title": "המדרכה חסומה - נא לעבור למדרכה ממול",
+      "category": "שלטים",
+      "description": "המדרכה חסומה - נא לעבור למדרכה ממול",
+      "images": [
+        "/assets/signs/sidewalkClosed.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "danger-construction-here-sign": {
+      "title": "סכנה כאן בונים",
+      "category": "שלטים",
+      "description": "סכנה כאן בונים",
+      "images": [
+        "/assets/signs/constructionDanger.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "work-vehicle-entry-exit-sign": {
+      "title": "כניסה ויציאת רכב עבודה",
+      "category": "שלטים",
+      "description": "כניסה ויציאת רכב עבודה",
+      "images": [
+        "/assets/signs/workVehicleEntryExit.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "site-manager-sign": {
+      "title": "מנהל עבודה",
+      "category": "שלטים",
+      "description": "מנהל עבודה",
+      "images": [
+        "/assets/signs/siteManager.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "safety-supervisor-sign": {
+      "title": "ממונה בטיחות",
+      "category": "שלטים",
+      "description": "ממונה בטיחות",
+      "images": [
+        "/assets/signs/safetyOfficer.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "assistant-safety-sign": {
+      "title": "עוזר בטיחות",
+      "category": "שלטים",
+      "description": "עוזר בטיחות",
+      "images": [
+        "/assets/signs/safetyAssistant.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "safety-fines-sign": {
+      "title": "קנסות בטיחות",
+      "category": "שלטים",
+      "description": "קנסות בטיחות",
+      "images": [
+        "/assets/signs/safetyFines.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "safety-instructions-sign": {
+      "title": "הוראות בטיחות",
+      "category": "שלטים",
+      "description": "הוראות בטיחות",
+      "images": [
+        "/assets/signs/safetyInstructions.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "danger-construction-site-sign": {
+      "title": "סכנה כאן בונים",
+      "category": "שלטים",
+      "description": "סכנה כאן בונים",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "falling-from-height-danger-sign": {
+      "title": "סכנת נפילה מגובה",
+      "category": "שלטים",
+      "description": "סכנת נפילה מגובה",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "safety-cones": {
+      "title": "קונוס",
+      "category": "אביזרי בטיחות",
+      "description": "קונוס",
+      "images": [
+        "/assets/SafetyEquipment/blackcone.webp",
+        "/assets/SafetyEquipment/whitecone.webp"
+      ],
+      "options": [
+        {
+          "name": "צבע",
+          "values": [
+            "כתום שחור",
+            "כתום לבן"
+          ]
+        },
+        {
+          "name": "גובה",
+          "values": [
+            "50",
+            "75"
+          ]
+        }
+      ]
+    },
+    "panoramic-mirror": {
+      "title": "מראה פנורמית",
+      "category": "אביזרי בטיחות",
+      "description": "מראה פנורמית",
+      "images": [
+        "/assets/SafetyEquipment/panoramicmirror1.webp",
+        "/assets/SafetyEquipment/panoramicmirror2.webp",
+        "/assets/SafetyEquipment/panoramicmirror3.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פוליקרבונט",
+            "אקרילי"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "קוטר 60",
+            "קוטר 80"
+          ]
+        }
+      ]
+    },
+    "lane-dividers": {
+      "title": "מפרידי נתיבים",
+      "category": "אביזרי בטיחות",
+      "description": "מפרידי נתיבים",
+      "images": [
+        "/assets/SafetyEquipment/laneseparators1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "parking-stop": {
+      "title": "מעצור חנייה",
+      "category": "אביזרי בטיחות",
+      "description": "מעצור חנייה",
+      "images": [
+        "/assets/SafetyEquipment/parkingstopper1.webp",
+        "/assets/SafetyEquipment/parkingstopper2.webp",
+        "/assets/SafetyEquipment/parkingstopper4.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "parking-guard": {
+      "title": "שומר חנייה",
+      "category": "אביזרי בטיחות",
+      "description": "שומר חנייה",
+      "images": [
+        "/assets/SafetyEquipment/parkingkeeper1.webp",
+        "/assets/SafetyEquipment/parkingkeeper2.webp",
+        "/assets/SafetyEquipment/parkingkeeper3.webp",
+        "/assets/SafetyEquipment/parkingkeeper4.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "flexible-post-45-75-100": {
+      "title": "עמוד גמיש גובה 45/75/100",
+      "category": "אביזרי בטיחות",
+      "description": "עמוד גמיש גובה 45/75/100",
+      "images": [
+        "/assets/SafetyEquipment/flexiblepost1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+      "title": "עמוד גמיש גובה 45/75/100",
+      "category": "אביזרי בטיחות",
+      "description": "עמוד גמיש גובה 45/75/100",
+      "images": [
+        "/assets/SafetyEquipment/flexiblepost1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "barrier-post": {
+      "title": "מחסום לפנייך:",
+      "category": "שלטים",
+      "description": "מחסום לפנייך:",
+      "images": [
+        "/assets/signs/barrier.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "connector-units-3-6-inch": {
+      "title": "יחידות חיבור 3/6 צול",
+      "category": "אביזרי בטיחות",
+      "description": "יחידות חיבור 3/6 צול",
+      "images": [
+        "/assets/SafetyEquipment/signConnector.webp"
+      ],
+      "options": [
+        {
+          "name": "סוג יחידה",
+          "values": [
+            "3 צול",
+            "6 צול"
+          ]
+        }
+      ]
+    },
+    "solar-lamp": {
+      "title": "פנס סולרי",
+      "category": "אביזרי בטיחות",
+      "description": "פנס סולרי",
+      "images": [
+        "/assets/SafetyEquipment/solarLight.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "rubber-base": {
+      "title": "בסיס גומי",
+      "category": "אביזרי בטיחות",
+      "description": "בסיס גומי",
+      "images": [
+        "/assets/SafetyEquipment/rubberBase.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "lane-divider": {
+      "title": "מפרידי נתיבים",
+      "category": "אביזרי בטיחות",
+      "description": "מפרידי נתיבים",
+      "images": [
+        "/assets/SafetyEquipment/laneseparators1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "safety-cone": {
+      "title": "קונוס",
+      "category": "אביזרי בטיחות",
+      "description": "קונוס",
+      "images": [
+        "/assets/SafetyEquipment/blackcone.webp"
+      ],
+      "options": [
+        {
+          "name": "צבע",
+          "values": [
+            "כתום שחור",
+            "כתום לבן"
+          ]
+        },
+        {
+          "name": "גובה",
+          "values": [
+            "50",
+            "75"
+          ]
+        }
+      ]
+    },
+    "flexible-post": {
+      "title": "עמוד גמיש גובה 45/75/100",
+      "category": "אביזרי בטיחות",
+      "description": "עמוד גמיש גובה 45/75/100",
+      "images": [
+        "/assets/SafetyEquipment/flexiblepost1.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    },
+    "direction-board": {
+      "title": "שלט בהתאמה אישית",
+      "category": "שלטים",
+      "description": "שלט בהתאמה אישית",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "צורה",
+          "values": [
+            "עיגול",
+            "משולש",
+            "משולש הפוך",
+            "ריבוע",
+            "מרובע",
+            "מתומן"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "לבחירה לפי צורה"
+          ]
+        },
+        {
+          "name": "כיתוב",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        },
+        {
+          "name": "תמונה",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        }
+      ]
+    },
+    "private-parking-board": {
+      "title": "שלט בהתאמה אישית",
+      "category": "שלטים",
+      "description": "שלט בהתאמה אישית",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "צורה",
+          "values": [
+            "עיגול",
+            "משולש",
+            "משולש הפוך",
+            "ריבוע",
+            "מרובע",
+            "מתומן"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "לבחירה לפי צורה"
+          ]
+        },
+        {
+          "name": "כיתוב",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        },
+        {
+          "name": "תמונה",
+          "values": [
+            "לא",
+            "כן"
+          ]
+        }
+      ]
+    },
+    "active-worksite-sign": {
+      "title": "איזור שטח תפעולי",
+      "category": "שלטים",
+      "description": "איזור שטח תפעולי",
+      "images": [
+        "/assets/Icons/TSCLogoSquared.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "roadwork-warning-sign": {
+      "title": "סכנה כאן בונים",
+      "category": "שלטים",
+      "description": "סכנה כאן בונים",
+      "images": [
+        "/assets/signs/constructionDanger.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "paid-sign": {
+      "title": "בתשלום",
+      "category": "שלטים",
+      "description": "בתשלום",
+      "images": [
+        "/assets/signs/paid.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "project-management-sign": {
+      "title": "ניהול פרויקט",
+      "category": "שלטים",
+      "description": "ניהול פרויקט",
+      "images": [
+        "/assets/signs/projectManagement.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "except-work-vehicles-sign": {
+      "title": "פרט לרכב עבודה",
+      "category": "שלטים",
+      "description": "פרט לרכב עבודה",
+      "images": [
+        "/assets/signs/exceptWorkVehicles.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "increased-fine-sign": {
+      "title": "קנס מוגדל",
+      "category": "שלטים",
+      "description": "קנס מוגדל",
+      "images": [
+        "/assets/signs/increasedFine.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "fire-lane-sign": {
+      "title": "רחבת כיבוי אש",
+      "category": "שלטים",
+      "description": "רחבת כיבוי אש",
+      "images": [
+        "/assets/signs/fireLane.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "road-closed-sign": {
+      "title": "רחוב חסום",
+      "category": "שלטים",
+      "description": "רחוב חסום",
+      "images": [
+        "/assets/signs/roadClosed.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "over-35t-sign": {
+      "title": "רכב מעל 3.5 טון",
+      "category": "שלטים",
+      "description": "רכב מעל 3.5 טון",
+      "images": [
+        "/assets/signs/over35t.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merge-right-sign": {
+      "title": "משאיות משתלבות מימין",
+      "category": "שלטים",
+      "description": "משאיות משתלבות מימין",
+      "images": [
+        "/assets/signs/trucksMergeRight.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "trucks-merge-left-sign": {
+      "title": "משאיות משתלבות משמאל",
+      "category": "שלטים",
+      "description": "משאיות משתלבות משמאל",
+      "images": [
+        "/assets/signs/trucksMergeLeft.webp"
+      ],
+      "options": [
+        {
+          "name": "חומר",
+          "values": [
+            "פח מגולוון",
+            "PVC קשיח"
+          ]
+        },
+        {
+          "name": "גודל",
+          "values": [
+            "50X50",
+            "60X60",
+            "100X100"
+          ]
+        }
+      ]
+    },
+    "speed-bump": {
+      "title": "באמפר",
+      "category": "אביזרי בטיחות",
+      "description": "באמפר",
+      "images": [
+        "/assets/SafetyEquipment/laneseparators2.webp"
+      ],
+      "options": [
+        {
+          "name": "דגם",
+          "values": [
+            "סטנדרטי"
+          ]
+        }
+      ]
+    }
+  }
+
+

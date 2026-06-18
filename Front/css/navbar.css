@@ -1,0 +1,214 @@
+/* ===== Navbar ===== */
+.navbar {
+  padding-top: 1.2vh;
+  padding-bottom: 0.2vh;
+  background-color: var(--tsc-dark);
+}
+
+.navbar .nav-link {
+  font-size: clamp(1.2rem, 1.45vw, 1.55rem);
+  padding: 0.6rem 0.9rem;
+  color: #ffffff;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.navbar .nav-link:hover {
+  color: var(--tsc-yellow);
+}
+
+/* ❌ מבטל active כללי */
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* ✅ כל עמוד אמיתי (כולל עגלה, store וכו') */
+.navbar .nav-link.active:not([href*="#"]),
+.navbar .nav-link[aria-current="page"]:not([href*="#"]) {
+  color: var(--tsc-yellow);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.12rem;
+  text-underline-offset: 0.35rem;
+}
+
+/* ✅ HOME בלבד */
+.navbar .nav-link[href="/"].active,
+.navbar .nav-link[href="/#home"].active,
+.navbar .nav-link[href="/pages/main.html#home"].active,
+.navbar .nav-link[href="/"][aria-current="page"],
+.navbar .nav-link[href="/#home"][aria-current="page"],
+.navbar .nav-link[href="/pages/main.html#home"][aria-current="page"] {
+  color: var(--tsc-yellow);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ❌ מבטל anchors (#services וכו') */
+.navbar .nav-link[href*="#"]:not([href="/#home"]).active,
+.navbar .nav-link[href*="#"]:not([href="/#home"])[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* ===== Buttons ===== */
+.navbar .btn {
+  font-size: clamp(1.2rem, 1.45vw, 1.55rem);
+  padding: 0.6rem 1.1rem;
+}
+
+/* ===== Logo ===== */
+.navbar .navbar-logo {
+  height: clamp(9rem, 18vw, 22.5rem);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-brand {
+  min-width: 0;
+}
+
+.navbar-brand .brand-text {
+  line-height: 1.1;
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-weight: 700;
+}
+
+/* ===== Large screens stability (1530px+) ===== */
+@media (min-width: 95.625rem) {
+  .navbar > .container-fluid {
+    padding-inline: 1rem !important;
+  }
+
+  .navbar .navbar-logo {
+    height: clamp(9rem, 8.5vw, 14rem);
+  }
+
+  .navbar-brand .brand-text {
+    font-size: clamp(1.2rem, 1.2vw, 1.9rem);
+  }
+
+  .navbar .nav-link {
+    font-size: clamp(1.1rem, 1.1vw, 1.45rem);
+    padding: 0.55rem 0.75rem;
+  }
+
+  .navbar .btn {
+    font-size: clamp(1.1rem, 1.1vw, 1.45rem);
+    padding: 0.55rem 1rem;
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.5rem !important;
+  }
+}
+
+/* ===== Wide Desktop Fit (prevent left clipping before offcanvas) ===== */
+@media (max-width: 96rem) {
+  .navbar .navbar-logo {
+    height: clamp(7.2rem, 12vw, 10.5rem);
+  }
+
+  .navbar-brand .brand-text {
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+  }
+
+  .navbar .nav-link {
+    font-size: clamp(1.08rem, 1.2vw, 1.28rem);
+    padding: 0.5rem 0.6rem;
+  }
+
+  .navbar .btn {
+    font-size: clamp(1.08rem, 1.2vw, 1.28rem);
+    padding: 0.5rem 0.85rem;
+  }
+
+  .navbar .navbar-nav {
+    gap: 0.4rem !important;
+  }
+}
+
+/* ===== Offcanvas ===== */
+.offcanvas-logo-lg {
+  height: clamp(4.5rem, 8vw, 8rem);
+  width: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+.navbar-mobile-spacer {
+  display: none;
+}
+
+/* ===== Center Brand While Offcanvas Is Active (< xxl) ===== */
+@media (max-width: 87.5rem) {
+  .navbar > .container-fluid {
+    gap: 0.5rem;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+/* ===== Small Desktop / Tablet ===== */
+@media (max-width: 62rem) {
+  .navbar > .container-fluid {
+    gap: 0.5rem;
+    padding-inline: 1rem !important;
+  }
+
+  .navbar-toggler {
+    flex-shrink: 0;
+  }
+
+  .navbar-mobile-spacer {
+    display: block;
+    width: 2.75rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+  }
+
+  .navbar-brand {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .navbar .navbar-logo {
+    height: clamp(6.75rem, 15vw, 12rem);
+  }
+
+  .navbar-brand .brand-text {
+    font-size: 1.35rem;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 48rem) {
+  .navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar .navbar-logo {
+    height: 5.25rem;
+  }
+
+  .navbar-brand .brand-text {
+    font-size: 1.1rem;
+  }
+
+  .offcanvas .nav-link {
+    padding-block: 0.75rem;
+  }
+}

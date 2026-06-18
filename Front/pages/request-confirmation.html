@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הבקשה התקבלה בהצלחה | המרכז לבטיחות בתנועה</title>
+  <meta name="description" content="אישור קבלת פנייה לקבלת הצעת מחיר מהמרכז לבטיחות בתנועה." />
+
+  <link rel="icon" type="image/png" href="/assets/Icons/TSCLogo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/style.css?v=20260129v2" />
+  <link rel="stylesheet" href="/css/navbar.css?v=20260409" />
+  <link rel="stylesheet" href="/css/accessibility.css" />
+  <link rel="stylesheet" href="/css/request-confirmation.css?v=20260420v1" />
+</head>
+<body class="request-confirmation-page">
+  <div id="navbarMount"></div>
+
+  <main id="main-content" class="request-confirmation-main container py-4 py-md-5">
+    <section class="request-confirmation-card card border-0 shadow-sm mx-auto" aria-labelledby="requestConfirmationTitle">
+      <div class="card-body p-4 p-md-5 text-center">
+        <div class="request-confirmation-icon" aria-hidden="true">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+
+        <h1 id="requestConfirmationTitle" class="request-confirmation-title mb-3">הבקשה התקבלה בהצלחה</h1>
+
+        <p class="request-confirmation-message mb-3">
+          קיבלנו את פנייתכם וניצור עמכם קשר בהקדם האפשרי לצורך המשך טיפול ומתן הצעת מחיר.
+        </p>
+
+        <p class="request-confirmation-clarification mb-3">
+          יובהר כי שליחת הבקשה דרך האתר אינה מהווה רכישה או הזמנה מחייבת, אלא פנייה לקבלת הצעת מחיר בלבד.
+        </p>
+
+        <p class="request-confirmation-contact mb-4">
+          לשאלות נוספות ניתן ליצור קשר בטלפון <a href="tel:0548778669">054-8778669</a> או בדוא״ל <a href="mailto:hamerkaz.bt@gmail.com">hamerkaz.bt@gmail.com</a>
+        </p>
+
+        <section id="submittedItemsSection" class="submitted-items text-start d-none" aria-labelledby="submittedItemsTitle">
+          <h2 id="submittedItemsTitle" class="submitted-items__title">פירוט הבקשה</h2>
+          <ul id="submittedItemsList" class="submitted-items__list" aria-live="polite"></ul>
+        </section>
+
+        <div class="request-confirmation-actions d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="/" class="btn btn-warning fw-bold text-dark request-confirmation-btn">חזרה לדף הבית</a>
+          <a href="/store" class="btn btn-outline-dark request-confirmation-btn">המשך לעמוד החנות</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footerMount"></div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="/js/accessibility.js"></script>
+  <script defer src="/js/accessibility-loader.js"></script>
+  <script defer src="/js/main.js?v=20260129v2"></script>
+  <script defer src="/js/request-confirmation.js?v=20260420v4"></script>
+</body>
+</html>

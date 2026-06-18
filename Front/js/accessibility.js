@@ -4,6 +4,7 @@ window.initAccessibilityTools = function () {
   const disableAnimations = document.getElementById("disableAnimations");
   const readableFont = document.getElementById("readableFont");
   const applyButton = document.getElementById("applyAccessibility");
+  const resetButton = document.getElementById("resetAccessibility");
 
   if (!increaseText || !highContrast || !disableAnimations || !readableFont || !applyButton) {
     return;
@@ -14,26 +15,49 @@ window.initAccessibilityTools = function () {
   }
   applyButton.dataset.initialized = "true";
 
-  const savedSettings = JSON.parse(localStorage.getItem("accessibilitySettings")) || {};
+  const controls = [increaseText, highContrast, disableAnimations, readableFont];
+  const readSavedSettings = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem("accessibilitySettings") || "{}");
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      localStorage.removeItem("accessibilitySettings");
+      return {};
+    }
+  };
 
-  increaseText.checked = !!savedSettings.increaseText;
-  highContrast.checked = !!savedSettings.highContrast;
-  disableAnimations.checked = !!savedSettings.disableAnimations;
-  readableFont.checked = !!savedSettings.readableFont;
+  const syncControls = (settings) => {
+    increaseText.checked = !!settings.increaseText;
+    highContrast.checked = !!settings.highContrast;
+    disableAnimations.checked = !!settings.disableAnimations;
+    readableFont.checked = !!settings.readableFont;
+  };
 
-  applyAccessibilitySettings(savedSettings);
+  const collectSettings = () => ({
+    increaseText: increaseText.checked,
+    highContrast: highContrast.checked,
+    disableAnimations: disableAnimations.checked,
+    readableFont: readableFont.checked,
+  });
 
-  applyButton.addEventListener("click", () => {
-    const settings = {
-      increaseText: increaseText.checked,
-      highContrast: highContrast.checked,
-      disableAnimations: disableAnimations.checked,
-      readableFont: readableFont.checked,
-    };
-
+  const saveAndApply = (settings) => {
     localStorage.setItem("accessibilitySettings", JSON.stringify(settings));
     applyAccessibilitySettings(settings);
+  };
 
+  const savedSettings = readSavedSettings();
+
+  syncControls(savedSettings);
+  applyAccessibilitySettings(savedSettings);
+
+  controls.forEach((control) => {
+    control.addEventListener("change", () => {
+      applyAccessibilitySettings(collectSettings());
+    });
+  });
+
+  applyButton.addEventListener("click", () => {
+    saveAndApply(collectSettings());
     const modalElement = document.getElementById("accessibilityModal");
     if (modalElement && window.bootstrap) {
       const modalInstance =
@@ -42,15 +66,32 @@ window.initAccessibilityTools = function () {
       modalInstance.hide();
     }
   });
+
+  resetButton?.addEventListener("click", () => {
+    const emptySettings = {
+      increaseText: false,
+      highContrast: false,
+      disableAnimations: false,
+      readableFont: false,
+    };
+    syncControls(emptySettings);
+    saveAndApply(emptySettings);
+  });
 };
 
 function applyAccessibilitySettings(settings) {
-  const root = document.documentElement;
-  const body = document.body;
+  try {
+    const root = document.documentElement;
+    const body = document.body;
+    if (!root || !body) return;
 
-  root.classList.toggle("accessibility-text-large", !!settings.increaseText);
+    root.classList.toggle("accessibility-text-large", !!settings.increaseText);
 
-  body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
-  body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
-  body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
+    body.classList.toggle("accessibility-high-contrast", !!settings.highContrast);
+    body.classList.toggle("accessibility-no-animations", !!settings.disableAnimations);
+    body.classList.toggle("accessibility-readable-font", !!settings.readableFont);
+  } catch (err) {
+    // Prevent accessibility toggles from throwing and breaking other UI
+    console.error('applyAccessibilitySettings error', err);
+  }
 }

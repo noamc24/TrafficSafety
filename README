@@ -1,62 +1,115 @@
-# 🚧 Traffic Safety Center
+# Traffic Safety Center
 
-A production-ready website for a traffic safety business, focused on service presentation, client communication, and accessibility.
+Production website for a traffic safety company, including a public catalog, quote-request cart flow, and backend delivery of leads to Telegram.
 
-🌐 Live Website: https://www.trafficsafetycenter.com
+Live site: `https://www.trafficsafetycenter.com`
 
----
+## Project Structure
 
-## 🧠 Overview
+- `Front/` - Static client (HTML/CSS/JS), product catalog, product page, cart, and request-confirmation page.
+- `Back/` - Express server, API routes, Telegram integration, and runtime configuration.
 
-This version of the project represents the initial stage of the system — a fully functional business website before the addition of an e-commerce store.
+## Tech Stack
 
-The goal was to create a clean, professional, and accessible platform for presenting services and enabling fast client communication.
+- Frontend: HTML5, CSS3, Vanilla JavaScript, Bootstrap (RTL)
+- Backend: Node.js, Express
+- Integrations: Telegram Bot API
 
----
+## Core User Flow
 
-## 🛠 Tech Stack
+1. User browses products in `/store`.
+2. User adds products to cart (`localStorage` key: `tsc_cart`).
+3. User submits quote request from `/cart`.
+4. Backend validates payload and sends formatted lead to Telegram (`/api/contact`).
+5. Cart is cleared and user is redirected to `/request-confirmation`.
+6. Confirmation page shows submitted item summary from session/local storage or URL hash fallback.
 
-**Frontend**
-- HTML5, CSS3, JavaScript
-- Bootstrap (RTL support)
+## Implemented Features
 
-**Backend**
-- Node.js
-- Express
+- Product catalog with category/subcategory filtering and search.
+- Product image resolution logic for traffic signs and safety equipment.
+- Cart with quantity edits, remove actions, and quote form.
+- WhatsApp quick message button from cart.
+- Request-confirmation page with submitted-items recap.
+- API payload sanitization and strict validation on backend.
+- Telegram notifications to multiple recipients in one request.
+- Optional custom-design preview image forwarding to Telegram (`sendPhoto`).
+- Contact endpoint rate limiting (default: 12 requests / 24h per IP).
+- Canonical route handling for static pages (`/store`, `/product`, `/cart`, etc.).
 
-**Other Tools**
-- Telegram Bot API (contact integration)
-- Render (deployment)
+## Backend API
 
----
+### `POST /api/contact`
 
-## ⚙️ Features
+Validates and accepts quote/contact submissions.
 
-### 🛣️ Service Presentation
-- Structured service pages (road marking, signage, traffic arrangements)
-- Clean UI focused on clarity and professionalism
+Expected top-level fields:
+- `fullName` (or `name`)
+- `phone`
+- `email` (optional)
+- `company` (optional)
+- `message`
+- `notes` (optional)
+- `cart` (array, optional but supported and validated)
 
-### 📩 Contact System
-- Contact form connected to Telegram
-- Real-time message delivery to business owner
+Validation highlights:
+- Rejects unknown top-level fields.
+- Enforces max lengths for identity/message/cart fields.
+- Validates phone and email formats.
+- Validates `cart` item structure and quantity range.
+- Accepts `customDesignPreview` only as:
+  - `http(s)` URL (up to 2048 chars), or
+  - `data:image/...` URI (up to 10MB).
 
-### 📱 Responsive Design
-- Fully responsive across mobile, tablet, and desktop
-- RTL support for Hebrew
+## Telegram Delivery
 
-### ♿ Accessibility
-- Built according to Israeli Standard (T"י 5568) / WCAG AA principles
-- Includes:
-  - Text scaling
-  - High contrast mode
-  - Animation disabling
-  - Readable fonts
+Telegram sending is implemented in `Back/bot/Sender.js`.
 
----
+- `sendTelegramMessage(text)` sends one HTML-formatted message to all configured chat IDs.
+- `sendTelegramPhoto(dataUrl, caption)` sends optional preview images from cart items.
+- Partial failures are logged; full failure across all recipients throws.
 
-## 🚀 Setup & Installation
+## Environment Variables
+
+Create `Back/.env`:
+
+```env
+PORT=3000
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_IDS=123456789,987654321
+CONTACT_RATE_LIMIT_MAX=12
+```
+
+Notes:
+- `TELEGRAM_CHAT_IDS` supports multiple IDs separated by commas.
+- `CONTACT_RATE_LIMIT_MAX` is optional (defaults to `12`).
+
+## Local Development
+
+From project root:
 
 ```bash
-from root directory: Back
+cd Back
 npm install
-npm run dev
+npm start
+```
+
+Server starts on:
+- `http://localhost:3000` (unless `PORT` overrides it)
+
+Frontend is served statically from `Front/` by Express.
+
+## Route Map
+
+- `/` -> main page
+- `/store` -> store catalog
+- `/product` -> product details page
+- `/cart` -> quote/cart page
+- `/request-confirmation` -> post-submit confirmation page
+- `/api/contact` -> contact + quote submission endpoint
+
+## Operational Notes
+
+- Static files are served with disabled cache headers in current server setup.
+- Quote submission clears cart state and stores a submitted-items snapshot for confirmation rendering.
+- Error responses from `/api/contact` return `validationErrors` for client display.

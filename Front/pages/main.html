@@ -17,8 +17,8 @@
   </script>
 
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" href="/assets/Icons/TSCLogo.png" />
-  <link rel="apple-touch-icon" href="/assets/photos/TSCLogoSquared.png">
+  <link rel="icon" type="image/png" href="/assets/Icons/TSCLogo.webp" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/Icons/TSCLogoSquared.webp">
 
   <meta name="description" content="המרכז לבטיחות בתנועה מספק שירותי סימון כבישים, שילוט, תמרור והסדרי תנועה בסטנדרט מקצועי גבוה, תוך הקפדה על בטיחות, איכות ועמידה בתקנים." />  <meta name="keywords" content="סימון כבישים, חניות, שלטים, תמרורים, עגלת חץ, שילוט, תמרור, בטיחות תנועה, הסדרי תנועה" />
   <meta name="robots" content="index, follow" />
@@ -27,27 +27,24 @@
   <meta property="og:title" content="המרכז לבטיחות בתנועה" />
   <meta property="og:description" content="המרכז לבטיחות בתנועה מספק שירותי סימון כבישים, שילוט, תמרור והסדרי תנועה בסטנדרט מקצועי גבוה, תוך הקפדה על בטיחות, איכות ועמידה בתקנים." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/Icons/TSCLogoSquared.png" />
+  <meta property="og:image" content="/assets/Icons/TSCLogoSquared.webp" />
   <meta property="og:locale" content="he_IL" />
 
   <meta name="theme-color" content="#111827" />
 
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   
   <link rel="stylesheet" href="/css/style.css?v=20260129v2" />
+  <link rel="stylesheet" href="/css/navbar.css?v=20260409" />
   <link rel="stylesheet" href="/css/accessibility.css">
+  <link rel="preload" as="image" href="/assets/Icons/Cone.webp" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
 </head>
 
-<body>
+<body class="home-page">
   <div id="navbarMount"></div>
   
   
@@ -65,6 +62,7 @@
             <a href="#contact" class="btn btn-warning btn-lg fw-bold text-dark">דבר איתנו</a>
             <a href="#projects" class="btn btn-outline-dark btn-lg">לפרויקטים</a>
             <a href="#signs" class="btn btn-outline-secondary btn-lg">לוח התמרורים</a>
+            <a href="/store" class="btn btn-warning btn-lg fw-bold text-dark">לחנות</a>
           </div>
         </div>
         <div class="col-12 col-lg-5 pe-0">
@@ -82,9 +80,14 @@
               </ul>
             </div>
             <img 
-              src="/assets/Icons/Cone.png" 
+              src="/assets/Icons/Cone.webp" 
               alt="קונוס" 
-              class="top-service-side-image">
+              class="top-service-side-image"
+              width="1024"
+              height="1536"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async">
           </div>
         </div>
           <div class="alert alert-light border mt-3 mb-0">
@@ -157,7 +160,7 @@
       </p>
     </div>
     <div class="about-image-container">
-      <img src="/assets/Icons/Constractor.png" alt="אודות" class="about-image">
+      <img src="/assets/Icons/Constractor.webp" alt="אודות" class="about-image" width="1024" height="1536" loading="lazy" decoding="async">
     </div>
 
   </div>
@@ -168,17 +171,28 @@
   <div class="services-header">
     <h1 class="fw-bold mb-3">שירותים</h1>
     <a href="#home">
-      <img src="/assets/Icons/TSCLogo.png" alt="סמל החברה" class="service-logo">
+      <img src="/assets/Icons/TSCLogo.webp" alt="סמל החברה" class="service-logo" width="972" height="531" loading="lazy" decoding="async">
     </a>
+    <button
+      type="button"
+      class="btn btn-outline-dark section-toggle-btn"
+      data-section-toggle
+      data-toggle-target="servicesContent"
+      aria-expanded="true"
+      aria-label="סגירה ופתיחה של השירותים"
+    >
+      <i class="bi bi-chevron-up" aria-hidden="true"></i>
+    </button>
   </div>
 
+  <div id="servicesContent">
   <div class="row g-3 mt-2">
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">סימון כבישים</h5>
-            <img src="/assets/Icons/Cone.png" alt="סימון כבישים" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="סימון כבישים" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">סימון וצביעת כבישים, מעברי חצייה, ועוד</h6>
           <p class="text-muted mb-0">
@@ -193,7 +207,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">שילוט ותמרור</h5>
-            <img src="/assets/Icons/Cone.png" alt="שילוט ותמרור" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="שילוט ותמרור" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">ייצור, אספקה והתקנה של שילוט ותמרור</h6>
           <p class="text-muted mb-0">
@@ -208,7 +222,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">סופגי אנרגיה</h5>
-            <img src="/assets/Icons/Cone.png" alt="סופגי אנרגיה" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="סופגי אנרגיה" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">מעקות פלדה, סופגי אנרגיה ויחידות קצה</h6>
           <p class="text-muted mb-0">
@@ -223,7 +237,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">הסדרי תנועה</h5>
-            <img src="/assets/Icons/Cone.png" alt="הסדרי תנועה" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="הסדרי תנועה" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">הקמה ותחזוקה של הסדרי תנועה זמניים וסופיים</h6>
           <p class="text-muted mb-0">
@@ -238,7 +252,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">חניונים</h5>
-            <img src="/assets/Icons/Cone.png" alt="חניונים" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="חניונים" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">תכנון, סימון ואבזור חניונים</h6>
           <p class="text-muted mb-0">
@@ -253,7 +267,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">עגלות חץ ופקחים</h5>
-            <img src="/assets/Icons/Cone.png" alt="עגלות חץ ופקחים" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="עגלות חץ ופקחים" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">הקמה, הכוונה ותחזוקה של אמצעי בטיחות בתנועה</h6>
           <p class="text-muted mb-0">
@@ -268,7 +282,7 @@
         <div class="card-body">
           <div class="service-card-header">
             <h5 class="fw-bold mb-0">אביזרי בטיחות</h5>
-            <img src="/assets/Icons/Cone.png" alt="אביזרי בטיחות" class="service-card-icon">
+            <img src="/assets/Icons/Cone.webp" alt="אביזרי בטיחות" class="service-card-icon" width="1024" height="1536" loading="lazy" decoding="async">
           </div>
           <h6 class="text-dark mb-2">מגוון אביזרי בטיחות לחניונים וכבישים</h6>
           <p class="text-muted mb-0">
@@ -282,130 +296,138 @@
   <div class="mt-4">
     <a href="#contact" class="btn btn-warning btn-lg fw-bold text-dark">קבל הצעת מחיר</a>
   </div>
+  </div>
 </section>
 
   <!-- Projects section -->
-<section id="projects" class="container my-5 reveal projects-collapsible">
-  <div class="projects-header projects-toggle" role="button" tabindex="0" aria-expanded="true" aria-controls="projectsGallery">
-    <div class="projects-header-top">
-      <div class="projects-title-wrap">
-        <h1 class="fw-bold mb-0">פרויקטים</h1>
-        <img src="/assets/Icons/HelmetVest.png" alt="סמל החברה" class="projects-logo">
-      </div>
-
-      <span class="projects-chevron" aria-hidden="true">
-        <span class="projects-chevron" aria-hidden="true">
-          <i class="bi bi-chevron-down"></i>
-        </span>
-      </span>
+  <section id="projects" class="container my-5 reveal">
+    <div class="projects-header">
+      <h1 class="fw-bold mb-3">פרויקטים</h1>
+      <img src="/assets/Icons/HelmetVest.webp" alt="סמל החברה" class="projects-logo" width="1024" height="1024" loading="lazy" decoding="async">
+      <button
+        type="button"
+        class="btn btn-outline-dark section-toggle-btn"
+        data-section-toggle
+        data-toggle-target="projectsContent"
+        aria-expanded="true"
+        aria-label="סגירה ופתיחה של הפרויקטים"
+      >
+        <i class="bi bi-chevron-up" aria-hidden="true"></i>
+      </button>
+      <p class="text-muted fs-5">גלריית פרויקטים ודוגמאות מהשטח.</p>
     </div>
-
-    <p class="text-muted fs-5 mb-0">גלריית פרויקטים ודוגמאות מהשטח.</p>
-  </div>
-
-  <div id="projectsGallery" class="row g-3 mt-2 projects-content">
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project1.png" alt="סימון מפעלים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+    <div id="projectsContent" class="row g-3 mt-2">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project1.webp" alt="סימון מפעלים" class="card-img-top" data-lightbox="true" width="1536" height="1536" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project2.png" alt="סימון חניות" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project2.webp" alt="סימון חניות" class="card-img-top" data-lightbox="true" width="1282" height="1282" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project3.png" alt="סימון כבישים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project3.webp" alt="סימון כבישים" class="card-img-top" data-lightbox="true" width="1080" height="1080" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project8.png" alt="סימון מנחת רחפנים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project8.webp" alt="סימון מנחת רחפנים" class="card-img-top" data-lightbox="true" width="1080" height="1080" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project10.png" alt="שילוט" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project10.webp" alt="שילוט" class="card-img-top" data-lightbox="true" width="608" height="608" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project4.png" alt="תמרור וסימון כבישים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project4.webp" alt="תמרור וסימון כבישים" class="card-img-top" data-lightbox="true" width="1536" height="1536" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project13.png" alt="הסדר תנועה זמני" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project13.webp" alt="הסדר תנועה זמני" class="card-img-top" data-lightbox="true" width="1600" height="1200" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project5.png" alt="סימון שביל אופניים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project5.webp" alt="סימון שביל אופניים" class="card-img-top" data-lightbox="true" width="1080" height="1080" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project14.png" alt="תמרור אתר עבודה" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project14.webp" alt="תמרור אתר עבודה" class="card-img-top" data-lightbox="true" width="1152" height="1152" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>      
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project15.webp" alt="תמרור וסימון כבישים" class="card-img-top" data-lightbox="true" width="1536" height="1536" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project15.png" alt="תמרור וסימון כבישים" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project16.webp" alt="שירותי דפוס" class="card-img-top" data-lightbox="true" width="2048" height="1536" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project16.png" alt="שירותי דפוס" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project12.webp" alt= "שילוט לאתר עבודה" class="card-img-top" data-lightbox="true" width="1152" height="1152" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project17.png" alt="שילוט לאתר עבודה" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project11.webp" alt="שילוט" class="card-img-top" data-lightbox="true" width="945" height="945" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project18.png" alt="שילוט" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project9.webp" alt="שירותי דפוס" class="card-img-top" data-lightbox="true" width="1290" height="1290" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project19.png" alt="שירותי דפוס" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project6.webp" alt="שילוט רחוב" class="card-img-top" data-lightbox="true" width="1290" height="1290" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="col-12 col-md-6 col-lg-3">
-      <div class="card h-100 shadow-sm">
-        <img src="/assets/photos/project21.png" alt="שילוט רחוב" class="card-img-top" data-lightbox="true">
-        <div class="card-body"></div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="/assets/Photos/project7.webp" alt="שילוט גן" class="card-img-top" data-lightbox="true" width="1152" height="1152" loading="lazy" decoding="async">
+          <div class="card-body">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -429,10 +451,11 @@
         <div class="d-flex flex-wrap gap-2">
           <a href="#contact" class="btn btn-warning btn-lg fw-bold text-dark">דבר איתנו</a>
           <a href="#services" class="btn btn-outline-dark btn-lg">כל השירותים</a>
+          <a href="/store" class="btn btn-warning btn-lg fw-bold text-dark">לחנות התמרורים</a>
         </div>
       </div>
       <div class="col-12 col-lg-6 text-center">
-        <img src="/assets/photos/TrafficSigns.png" alt="לוח התמרורים" class="signs-image" data-lightbox="true">
+        <img src="/assets/Photos/TrafficSigns.webp" alt="לוח התמרורים" class="signs-image" data-lightbox="true" width="1180" height="774" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -446,23 +469,23 @@
 
         <form id="contactForm" class="card shadow-sm p-3">
           <div class="mb-3">
-            <label class="form-label">שם מלא *</label>
-            <input name="fullName" class="form-control" required />
+            <label for="contactFullName" class="form-label">שם מלא *</label>
+            <input id="contactFullName" name="fullName" class="form-control" autocomplete="name" required />
           </div>
 
           <div class="mb-3">
-            <label class="form-label">אימייל</label>
-            <input name="email" class="form-control" placeholder="yourname@gmail.com" />
+            <label for="contactEmail" class="form-label">אימייל</label>
+            <input id="contactEmail" type="email" name="email" class="form-control" placeholder="yourname@gmail.com" autocomplete="email" />
           </div>
 
           <div class="mb-3">
-            <label class="form-label">מס' פלאפון</label>
-            <input name="phone" class="form-control" placeholder="05X-XXXXXXX" />
+            <label for="contactPhone" class="form-label">מס' פלאפון</label>
+            <input id="contactPhone" type="tel" name="phone" class="form-control" placeholder="05X-XXXXXXX" autocomplete="tel" />
           </div>
 
           <div class="mb-3">
-            <label class="form-label">הודעה *</label>
-            <textarea name="message" rows="4" class="form-control" placeholder="מה צריך לבצע?" required></textarea>
+            <label for="contactMessage" class="form-label">הודעה *</label>
+            <textarea id="contactMessage" name="message" rows="4" class="form-control" placeholder="מה צריך לבצע?" required></textarea>
           </div>
 
           <button class="btn btn-warning fw-bold text-dark" type="submit">שלח</button>
@@ -504,6 +527,7 @@
                 style="border: 0;" 
                 allowfullscreen="" 
                 loading="lazy" 
+                title="מפת מיקום המרכז לבטיחות בתנועה"
                 referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             </div>
@@ -519,18 +543,20 @@
       target="_blank"
       rel="noopener"
       class="fixed-contact-btn whatsapp-btn"
+      aria-label="יצירת קשר ב-WhatsApp"
       title="WhatsApp">
       <i class="bi bi-whatsapp"></i>
     </a>
     <a href="tel:0548778669"
       class="fixed-contact-btn phone-btn"
+      aria-label="התקשרות טלפונית"
       title="Phone">
       <i class="bi bi-telephone-fill"></i>
     </a>
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" class="btn btn-warning btn-lg" title="חזור לראש העמוד">
+  <button id="backToTop" class="btn btn-warning btn-lg" type="button" aria-label="חזור לראש העמוד" title="חזור לראש העמוד">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
     </svg>
@@ -546,7 +572,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex flex-column flex-lg-row align-items-center gap-4">
-            <img id="lightboxModalImage" src="" alt="" class="img-fluid rounded shadow-sm" />
+            <img id="lightboxModalImage" src="" alt="תמונה מוצר כללי מוגדלת" class="img-fluid rounded shadow-sm" width="1200" height="900" decoding="async" />
             <div class="text-start">
               <h5 id="lightboxModalTitle" class="fw-bold"></h5>
               <p id="lightboxModalDesc" class="text-muted"></p>
@@ -559,10 +585,11 @@
 
   <div id="footerMount"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/js/accessibility.js"></script>
-  <script src="/js/accessibility-loader.js"></script>
-  <script src="/js/main.js?v=20260129v2"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer src="/js/accessibility.js"></script>
+  <script defer src="/js/accessibility-loader.js"></script>
+  <script defer src="/js/main.js?v=20260129v2"></script>
 
 </body>
 </html>
+
