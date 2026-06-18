@@ -1,6 +1,8 @@
 ﻿const PRODUCT_CART_STORAGE_KEY = "tsc_cart";
 const LAST_PRODUCT_KEY = "tsc_last_product_id";
 const CUSTOM_DESIGN_RESTORE_KEY = "tsc_custom_design_restore";
+const CUSTOM_DESIGN_TEXT_FONT_FAMILY = "Arial, sans-serif";
+const CUSTOM_DESIGN_TEXT_FONT_WEIGHT = "700";
 
 let PRODUCT_CATALOG = {};
 
@@ -323,7 +325,10 @@ function enableCustomSelectUi(container) {
   const initializedFlag = "1";
 
   const closeAll = () => {
-    container.querySelectorAll(".tsc-custom-select").forEach((root) => root.classList.remove(openClass));
+    container.querySelectorAll(".tsc-custom-select").forEach((root) => {
+      root.classList.remove(openClass);
+      root.querySelector(".tsc-custom-select__trigger")?.setAttribute("aria-expanded", "false");
+    });
   };
 
   document.addEventListener("click", (event) => {
@@ -334,6 +339,8 @@ function enableCustomSelectUi(container) {
     if (select.dataset.customSelectInit === initializedFlag) return;
     select.dataset.customSelectInit = initializedFlag;
     select.classList.add("tsc-native-select-hidden");
+    select.tabIndex = -1;
+    select.setAttribute("aria-hidden", "true");
 
     const customRoot = document.createElement("div");
     customRoot.className = "tsc-custom-select";
@@ -342,10 +349,47 @@ function enableCustomSelectUi(container) {
     const trigger = document.createElement("button");
     trigger.type = "button";
     trigger.className = "tsc-custom-select__trigger";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-label", select.closest(".product-option")?.querySelector("label")?.textContent || "בחירת אפשרות");
 
     const list = document.createElement("ul");
     list.className = "tsc-custom-select__list";
     list.setAttribute("role", "listbox");
+    list.id = `${select.id || `productOption${Math.random().toString(36).slice(2)}`}CustomList`;
+    trigger.setAttribute("aria-controls", list.id);
+
+    const getItems = () => Array.from(list.querySelectorAll(".tsc-custom-select__item"));
+
+    const openList = (focusSelected = true) => {
+      closeAll();
+      customRoot.classList.add(openClass);
+      trigger.setAttribute("aria-expanded", "true");
+      if (!focusSelected) return;
+      const items = getItems();
+      const selectedItem = items.find((item) => item.dataset.value === select.value) || items[0];
+      selectedItem?.focus({ preventScroll: true });
+    };
+
+    const closeList = (returnFocus = true) => {
+      customRoot.classList.remove(openClass);
+      trigger.setAttribute("aria-expanded", "false");
+      if (returnFocus) trigger.focus({ preventScroll: true });
+    };
+
+    const moveItemFocus = (currentItem, direction) => {
+      const items = getItems();
+      if (!items.length) return;
+      const currentIndex = Math.max(0, items.indexOf(currentItem));
+      const nextIndex = (currentIndex + direction + items.length) % items.length;
+      items[nextIndex]?.focus({ preventScroll: true });
+    };
+
+    const chooseOption = (opt) => {
+      select.value = opt.value;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+      closeList(true);
+    };
 
     const renderOptions = () => {
       const options = Array.from(select.options);
@@ -357,15 +401,49 @@ function enableCustomSelectUi(container) {
         item.textContent = opt.textContent || opt.value;
         item.dataset.value = opt.value;
         item.setAttribute("role", "option");
+        item.tabIndex = -1;
 
         if (opt.value === select.value) {
           item.classList.add("is-selected");
+          item.setAttribute("aria-selected", "true");
+        } else {
+          item.setAttribute("aria-selected", "false");
         }
 
         item.addEventListener("click", () => {
-          select.value = opt.value;
-          select.dispatchEvent(new Event("change", { bubbles: true }));
-          customRoot.classList.remove(openClass);
+          chooseOption(opt);
+        });
+
+        item.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            moveItemFocus(item, 1);
+            return;
+          }
+          if (event.key === "ArrowUp") {
+            event.preventDefault();
+            moveItemFocus(item, -1);
+            return;
+          }
+          if (event.key === "Home") {
+            event.preventDefault();
+            getItems()[0]?.focus({ preventScroll: true });
+            return;
+          }
+          if (event.key === "End") {
+            event.preventDefault();
+            getItems().at(-1)?.focus({ preventScroll: true });
+            return;
+          }
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            chooseOption(opt);
+            return;
+          }
+          if (event.key === "Escape") {
+            event.preventDefault();
+            closeList(true);
+          }
         });
 
         list.appendChild(item);
@@ -378,11 +456,30 @@ function enableCustomSelectUi(container) {
     trigger.addEventListener("click", (event) => {
       event.preventDefault();
       const wasOpen = customRoot.classList.contains(openClass);
-      closeAll();
-      if (!wasOpen) customRoot.classList.add(openClass);
+      if (wasOpen) {
+        closeList(false);
+      } else {
+        openList(false);
+      }
     });
 
-    select.addEventListener("change", renderOptions);
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        openList(true);
+        if (event.key === "ArrowUp") getItems().at(-1)?.focus({ preventScroll: true });
+        return;
+      }
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeList(false);
+      }
+    });
+
+    select.addEventListener("change", () => {
+      renderOptions();
+      closeList(false);
+    });
 
     const observer = new MutationObserver(renderOptions);
     observer.observe(select, { childList: true, subtree: true, attributes: true });
@@ -643,7 +740,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       customTextWrapper.style.display = "none";
       customTextWrapper.innerHTML = `
         <label for="customTextOptionInput">הכנס כיתוב</label>
-        <textarea id="customTextOptionInput" class="form-control" rows="3" dir="rtl" lang="he" placeholder="הכנס טקסט חופשי לשלט (אפשר גם ירידת שורה)"></textarea>
+        <textarea id="customTextOptionInput" class="form-control" rows="3" dir="rtl" lang="he" placeholder="הכנס טקסט"></textarea>
       `;
       optionsContainer.appendChild(customTextWrapper);
 
@@ -661,22 +758,10 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       textControlsWrapper.innerHTML = `
         <label>עיצוב טקסט</label>
         <div class="custom-text-controls__grid">
-          <label class="custom-control-field" for="customTextFontFamily">
-            <span>פונט</span>
-            <select id="customTextFontFamily" class="form-select form-select-sm">
-              <option value="Arial">Arial</option>
-              <option value="Rubik">Rubik</option>
-              <option value="Assistant">Assistant</option>
-              <option value="Noto Sans Hebrew">Noto Sans Hebrew</option>
-            </select>
+          <label class="custom-control-field custom-control-field--full" for="customTextFontColor">
+            <span>צבע טקסט</span>
+            <input id="customTextFontColor" type="color" class="form-control form-control-color" value="#111827" />
           </label>
-          <div class="custom-control-field custom-control-field--color-reset">
-            <label for="customTextFontColor">
-              <span>צבע טקסט</span>
-              <input id="customTextFontColor" type="color" class="form-control form-control-color" value="#111827" />
-            </label>
-            <button id="customTextResetButton" type="button" class="btn btn-outline-secondary btn-sm custom-text-reset-btn">אפס</button>
-          </div>
           <label class="custom-control-field custom-control-field--full" for="customTextFontThickness">
             <span>עובי פונט: <strong id="customTextFontThicknessValue">3.00</strong> ס"מ</span>
             <input id="customTextFontThickness" type="range" class="form-range" min="1" max="30" step="0.1" value="3" />
@@ -685,14 +770,26 @@ function renderOptions(options, productId = "", productCategory = "", productTit
             <span>אורך שורה: <strong id="customTextLineLengthValue">24.00</strong> ס"מ</span>
             <input id="customTextLineLength" type="range" class="form-range" min="4" max="120" step="0.1" value="24" />
           </label>
-          <label class="custom-control-field custom-control-field--full" for="customTextOffsetX">
-            <span>מיקום אופקי: <strong id="customTextOffsetXValue">0.00</strong> ס\"מ</span>
-            <input id="customTextOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
-          </label>
-          <label class="custom-control-field custom-control-field--full" for="customTextOffsetY">
-            <span>מיקום אנכי: <strong id="customTextOffsetYValue">0.00</strong> ס\"מ</span>
-            <input id="customTextOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
-          </label>
+          <div class="custom-control-field custom-control-field--full custom-control-field--with-reset">
+            <label for="customTextOffsetX">
+              <span>מיקום אופקי: <strong id="customTextOffsetXValue">0.00</strong> ס\"מ</span>
+              <input id="customTextOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+            </label>
+            <button id="customTextOffsetXReset" type="button" class="btn btn-outline-secondary btn-sm custom-reset-btn" title="אפס מיקום אופקי של הטקסט" aria-label="אפס מיקום אופקי של הטקסט">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+              <span>אפס</span>
+            </button>
+          </div>
+          <div class="custom-control-field custom-control-field--full custom-control-field--with-reset">
+            <label for="customTextOffsetY">
+              <span>מיקום אנכי: <strong id="customTextOffsetYValue">0.00</strong> ס\"מ</span>
+              <input id="customTextOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+            </label>
+            <button id="customTextOffsetYReset" type="button" class="btn btn-outline-secondary btn-sm custom-reset-btn" title="אפס מיקום אנכי של הטקסט" aria-label="אפס מיקום אנכי של הטקסט">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+              <span>אפס</span>
+            </button>
+          </div>
         </div>
       `;
       optionsContainer.appendChild(textControlsWrapper);
@@ -740,8 +837,6 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       fontThicknessCm: 3,
       lineLengthCm: 24,
       fontColor: "#111827",
-      fontFamily: "Arial",
-      fontWeight: "700",
       linkRatio: 8
     };
 
@@ -752,16 +847,28 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       imageControlsWrapper.id = "customImageControlsWrapper";
       imageControlsWrapper.style.display = "none";
       imageControlsWrapper.innerHTML = `
-        <label>שליטה על התמונה</label>
+        <label>עיצוב התמונה</label>
         <div class="custom-image-controls__sliders">
-          <label class="custom-control-field custom-control-field--full" for="customImageOffsetX">
-            <span>רוחב: <strong id="customImageOffsetXValue">0</strong></span>
-            <input id="customImageOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
-          </label>
-          <label class="custom-control-field custom-control-field--full" for="customImageOffsetY">
-            <span>גובה: <strong id="customImageOffsetYValue">0</strong></span>
-            <input id="customImageOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
-          </label>
+          <div class="custom-control-field custom-control-field--full custom-control-field--with-reset">
+            <label for="customImageOffsetX">
+              <span>מיקום אופקי: <strong id="customImageOffsetXValue">0.00</strong> ס"מ</span>
+              <input id="customImageOffsetX" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+            </label>
+            <button id="customImageOffsetXReset" type="button" class="btn btn-outline-secondary btn-sm custom-reset-btn" title="אפס מיקום אופקי של התמונה" aria-label="אפס מיקום אופקי של התמונה">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+              <span>אפס</span>
+            </button>
+          </div>
+          <div class="custom-control-field custom-control-field--full custom-control-field--with-reset">
+            <label for="customImageOffsetY">
+              <span>מיקום אנכי: <strong id="customImageOffsetYValue">0.00</strong> ס"מ</span>
+              <input id="customImageOffsetY" type="range" class="form-range" min="-220" max="220" step="2" value="0" />
+            </label>
+            <button id="customImageOffsetYReset" type="button" class="btn btn-outline-secondary btn-sm custom-reset-btn" title="אפס מיקום אנכי של התמונה" aria-label="אפס מיקום אנכי של התמונה">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+              <span>אפס</span>
+            </button>
+          </div>
           <label class="custom-control-field custom-control-field--full" for="customImageScale">
             <span>גודל תמונה: <strong id="customImageScaleValue">100</strong>%</span>
             <input id="customImageScale" type="range" class="form-range" min="20" max="500" step="5" value="100" />
@@ -774,6 +881,21 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       } else {
         optionsContainer.appendChild(imageControlsWrapper);
       }
+    }
+
+    let designResetWrapper = document.getElementById("customDesignResetWrapper");
+    if (!designResetWrapper) {
+      designResetWrapper = document.createElement("div");
+      designResetWrapper.className = "product-option custom-design-reset";
+      designResetWrapper.id = "customDesignResetWrapper";
+      designResetWrapper.style.display = "none";
+      designResetWrapper.innerHTML = `
+        <button id="customDesignPlacementReset" type="button" class="btn btn-outline-dark btn-sm custom-reset-btn custom-reset-btn--all" title="אפס את מיקום הטקסט והתמונה" aria-label="אפס את מיקום הטקסט והתמונה">
+          <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+          <span>אפס הכל</span>
+        </button>
+      `;
+      optionsContainer.appendChild(designResetWrapper);
     }
 
     const mainImage = document.getElementById("mainProductImage");
@@ -821,6 +943,17 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         previewCanvas.insertAdjacentElement("afterend", imageControlsWrapper);
       }
     }
+
+    if (designResetWrapper) {
+      designResetWrapper.classList.add("custom-design-reset-below-preview");
+      if (imageControlsWrapper?.parentElement) {
+        imageControlsWrapper.insertAdjacentElement("afterend", designResetWrapper);
+      } else if (previewNote?.parentElement) {
+        previewNote.insertAdjacentElement("afterend", designResetWrapper);
+      } else if (previewCanvas?.parentElement) {
+        previewCanvas.insertAdjacentElement("afterend", designResetWrapper);
+      }
+    }
     if (textControlsWrapper) {
       if (imageControlsWrapper?.parentElement) {
         imageControlsWrapper.insertAdjacentElement("afterend", textControlsWrapper);
@@ -840,10 +973,24 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       "מתומן": "/assets/signs/octagon.webp"
     };
 
+    const blankShapeImageCache = new Map();
     const shapeGeometryCache = new Map();
     const imageBoundsCache = new Map();
+    const PREVIEW_MAX_WIDTH = 1100;
+    const PREVIEW_MAX_HEIGHT = 820;
+    const PREVIEW_MIN_WIDTH = 560;
+    const PREVIEW_MIN_HEIGHT = 280;
 
     const clonePoint = (point) => ({ x: point.x, y: point.y });
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    const parseNumericValue = (value) => {
+      const raw = String(value ?? "").replace(/,/g, ".").match(/-?\d+(?:\.\d+)?/);
+      return raw ? Number(raw[0]) : NaN;
+    };
+    function clearPreviewGeometryCaches() {
+      shapeGeometryCache.clear();
+      imageBoundsCache.clear();
+    }
 
     function getPolygonBounds(vertices) {
       const xs = vertices.map((point) => point.x);
@@ -878,22 +1025,123 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       }));
     }
 
+    function fitBoundsForAspect(canvasWidth, canvasHeight, aspectRatio, padding) {
+      const availableWidth = Math.max(1, canvasWidth - padding * 2);
+      const availableHeight = Math.max(1, canvasHeight - padding * 2);
+      const safeAspect = clamp(Number(aspectRatio) || 1, 0.12, 8);
+      let w = availableWidth;
+      let h = w / safeAspect;
+
+      if (h > availableHeight) {
+        h = availableHeight;
+        w = h * safeAspect;
+      }
+
+      return {
+        x: (canvasWidth - w) / 2,
+        y: (canvasHeight - h) / 2,
+        w,
+        h
+      };
+    }
+
+    function fitImageInsideRect(imageWidth, imageHeight, rect) {
+      const safeImageWidth = Math.max(1, Number(imageWidth) || 1);
+      const safeImageHeight = Math.max(1, Number(imageHeight) || 1);
+      const scale = Math.min(rect.w / safeImageWidth, rect.h / safeImageHeight);
+      const w = safeImageWidth * scale;
+      const h = safeImageHeight * scale;
+      return {
+        x: rect.x + (rect.w - w) / 2,
+        y: rect.y + (rect.h - h) / 2,
+        w,
+        h
+      };
+    }
+
+    function loadBlankShapeImage(src) {
+      if (!src) return Promise.resolve(null);
+      if (blankShapeImageCache.has(src)) return blankShapeImageCache.get(src);
+
+      const imagePromise = new Promise((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = src;
+      });
+
+      blankShapeImageCache.set(src, imagePromise);
+      return imagePromise;
+    }
+
+    function getPreviewCanvasDimensions(shape) {
+      const dimensions = parseSizeToDimensionsCm(shape, sizeField?.element?.value || "");
+      const signAspect = clamp(dimensions.widthCm / Math.max(dimensions.heightCm, 0.01), 0.15, 8);
+      let width = Math.min(PREVIEW_MAX_WIDTH, Math.round(PREVIEW_MAX_HEIGHT * signAspect));
+      let height = Math.round(width / signAspect);
+
+      if (height > PREVIEW_MAX_HEIGHT) {
+        height = PREVIEW_MAX_HEIGHT;
+        width = Math.round(height * signAspect);
+      }
+
+      if (height < PREVIEW_MIN_HEIGHT) {
+        height = PREVIEW_MIN_HEIGHT;
+        width = Math.min(PREVIEW_MAX_WIDTH, Math.round(height * signAspect));
+      }
+
+      if (width < PREVIEW_MIN_WIDTH) {
+        width = PREVIEW_MIN_WIDTH;
+        height = Math.min(PREVIEW_MAX_HEIGHT, Math.round(width / signAspect));
+      }
+
+      width = Math.round(clamp(width, PREVIEW_MIN_WIDTH, PREVIEW_MAX_WIDTH));
+      height = Math.round(clamp(height, PREVIEW_MIN_HEIGHT, PREVIEW_MAX_HEIGHT));
+
+      return {
+        width,
+        height,
+        signAspect,
+        signWidthCm: dimensions.widthCm,
+        signHeightCm: dimensions.heightCm
+      };
+    }
+
+    function resizePreviewCanvasForShape(shape) {
+      if (!previewCanvas) return null;
+      const dimensions = getPreviewCanvasDimensions(shape);
+      const shouldResize = previewCanvas.width !== dimensions.width || previewCanvas.height !== dimensions.height;
+
+      if (shouldResize) {
+        previewCanvas.width = dimensions.width;
+        previewCanvas.height = dimensions.height;
+      }
+
+      previewCanvas.style.setProperty("--custom-preview-aspect", `${dimensions.width} / ${dimensions.height}`);
+      if (shouldResize) clearPreviewGeometryCaches();
+      return dimensions;
+    }
+
     function buildShapeGeometry(shape) {
       if (!previewCanvas) return null;
-      const cacheKey = `${shape}:${previewCanvas.width}x${previewCanvas.height}`;
+      const dimensions = getPreviewCanvasDimensions(shape);
+      const cacheKey = `${shape}:${sizeField?.element?.value || ""}:${previewCanvas.width}x${previewCanvas.height}`;
       if (shapeGeometryCache.has(cacheKey)) return shapeGeometryCache.get(cacheKey);
 
       const w = previewCanvas.width;
       const h = previewCanvas.height;
+      const min = Math.min(w, h);
+      const padding = clamp(min * 0.085, 18, 72);
       const cx = w / 2;
       const cy = h / 2;
-      const min = Math.min(w, h);
-      const borderInset = min * 0.048;
-
+      const signAspect = clamp(dimensions.signWidthCm / Math.max(dimensions.signHeightCm, 0.01), 0.15, 8);
+      const borderInsetRatio = shape === "מרובע" || shape === "ריבוע" ? 0.085 : 0.13;
       let geometry = null;
+
       if (shape === "עיגול") {
-        const outerRadius = min * 0.34;
-        const innerRadius = Math.max(8, outerRadius - borderInset);
+        const outerBounds = fitBoundsForAspect(w, h, 1, padding);
+        const outerRadius = Math.min(outerBounds.w, outerBounds.h) / 2;
+        const innerRadius = Math.max(8, outerRadius * (1 - borderInsetRatio));
         geometry = {
           kind: "circle",
           cx,
@@ -901,22 +1149,24 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           outerRadius,
           innerRadius,
           outerBounds: { x: cx - outerRadius, y: cy - outerRadius, w: outerRadius * 2, h: outerRadius * 2 },
-          innerBounds: { x: cx - innerRadius, y: cy - innerRadius, w: innerRadius * 2, h: innerRadius * 2 }
+          innerBounds: { x: cx - innerRadius, y: cy - innerRadius, w: innerRadius * 2, h: innerRadius * 2 },
+          signWidthCm: dimensions.signWidthCm,
+          signHeightCm: dimensions.signHeightCm
         };
       } else if (shape === "משולש" || shape === "משולש הפוך") {
-        const size = min * 0.62;
-        const half = size / 2;
+        const outerBounds = fitBoundsForAspect(w, h, signAspect, padding);
         const outerVertices = shape === "משולש"
           ? [
-            { x: cx, y: cy - half },
-            { x: cx + half, y: cy + half },
-            { x: cx - half, y: cy + half }
+            { x: outerBounds.x + outerBounds.w / 2, y: outerBounds.y },
+            { x: outerBounds.x + outerBounds.w, y: outerBounds.y + outerBounds.h },
+            { x: outerBounds.x, y: outerBounds.y + outerBounds.h }
           ]
           : [
-            { x: cx, y: cy + half },
-            { x: cx + half, y: cy - half },
-            { x: cx - half, y: cy - half }
+            { x: outerBounds.x + outerBounds.w / 2, y: outerBounds.y + outerBounds.h },
+            { x: outerBounds.x + outerBounds.w, y: outerBounds.y },
+            { x: outerBounds.x, y: outerBounds.y }
           ];
+        const borderInset = Math.min(outerBounds.w, outerBounds.h) * borderInsetRatio;
         const innerVertices = insetPolygon(outerVertices, cx, cy, borderInset);
         geometry = {
           kind: "polygon",
@@ -925,12 +1175,15 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           outerVertices,
           innerVertices,
           outerBounds: getPolygonBounds(outerVertices),
-          innerBounds: getPolygonBounds(innerVertices)
+          innerBounds: getPolygonBounds(innerVertices),
+          signWidthCm: dimensions.signWidthCm,
+          signHeightCm: dimensions.signHeightCm
         };
       } else if (shape === "מתומן") {
-        const radius = min * 0.34;
+        const outerBounds = fitBoundsForAspect(w, h, 1, padding);
+        const radius = Math.min(outerBounds.w, outerBounds.h) / 2;
         const outerVertices = createRegularPolygon(cx, cy, radius, 8, -Math.PI / 8);
-        const innerVertices = insetPolygon(outerVertices, cx, cy, borderInset);
+        const innerVertices = insetPolygon(outerVertices, cx, cy, radius * borderInsetRatio);
         geometry = {
           kind: "polygon",
           cx,
@@ -938,34 +1191,56 @@ function renderOptions(options, productId = "", productCategory = "", productTit
           outerVertices,
           innerVertices,
           outerBounds: getPolygonBounds(outerVertices),
-          innerBounds: getPolygonBounds(innerVertices)
-        };
-      } else if (shape === "ריבוע") {
-        const size = min * 0.66;
-        const innerSize = Math.max(10, size - borderInset * 2);
-        geometry = {
-          kind: "rect",
-          cx,
-          cy,
-          outerBounds: { x: cx - size / 2, y: cy - size / 2, w: size, h: size },
-          innerBounds: { x: cx - innerSize / 2, y: cy - innerSize / 2, w: innerSize, h: innerSize }
+          innerBounds: getPolygonBounds(innerVertices),
+          signWidthCm: dimensions.signWidthCm,
+          signHeightCm: dimensions.signHeightCm
         };
       } else {
-        const rw = w * 0.72;
-        const rh = h * 0.48;
-        const innerW = Math.max(10, rw - borderInset * 2);
-        const innerH = Math.max(10, rh - borderInset * 2);
+        const rectAspect = shape === "ריבוע" ? 1 : signAspect;
+        const outerBounds = fitBoundsForAspect(w, h, rectAspect, padding);
+        const inset = Math.min(outerBounds.w, outerBounds.h) * borderInsetRatio;
+        const innerBounds = {
+          x: outerBounds.x + inset,
+          y: outerBounds.y + inset,
+          w: Math.max(10, outerBounds.w - inset * 2),
+          h: Math.max(10, outerBounds.h - inset * 2)
+        };
         geometry = {
-          kind: "rect",
+          kind: "roundedRect",
           cx,
           cy,
-          outerBounds: { x: cx - rw / 2, y: cy - rh / 2, w: rw, h: rh },
-          innerBounds: { x: cx - innerW / 2, y: cy - innerH / 2, w: innerW, h: innerH }
+          outerBounds,
+          innerBounds,
+          radius: Math.min(outerBounds.w, outerBounds.h) * 0.055,
+          innerRadius: Math.min(innerBounds.w, innerBounds.h) * 0.035,
+          signWidthCm: dimensions.signWidthCm,
+          signHeightCm: dimensions.signHeightCm
         };
       }
 
       shapeGeometryCache.set(cacheKey, geometry);
       return geometry;
+    }
+
+    function roundedRectPath(ctx, rect, radius) {
+      const r = Math.max(0, Math.min(radius, rect.w / 2, rect.h / 2));
+      if (typeof ctx.roundRect === "function") {
+        ctx.beginPath();
+        ctx.roundRect(rect.x, rect.y, rect.w, rect.h, r);
+        return;
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(rect.x + r, rect.y);
+      ctx.lineTo(rect.x + rect.w - r, rect.y);
+      ctx.quadraticCurveTo(rect.x + rect.w, rect.y, rect.x + rect.w, rect.y + r);
+      ctx.lineTo(rect.x + rect.w, rect.y + rect.h - r);
+      ctx.quadraticCurveTo(rect.x + rect.w, rect.y + rect.h, rect.x + rect.w - r, rect.y + rect.h);
+      ctx.lineTo(rect.x + r, rect.y + rect.h);
+      ctx.quadraticCurveTo(rect.x, rect.y + rect.h, rect.x, rect.y + rect.h - r);
+      ctx.lineTo(rect.x, rect.y + r);
+      ctx.quadraticCurveTo(rect.x, rect.y, rect.x + r, rect.y);
+      ctx.closePath();
     }
 
     function drawShapePath(shape, mode = "outer") {
@@ -982,10 +1257,9 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         return;
       }
 
-      if (geometry.kind === "rect") {
+      if (geometry.kind === "roundedRect") {
         const rect = useInner ? geometry.innerBounds : geometry.outerBounds;
-        ctx.beginPath();
-        ctx.rect(rect.x, rect.y, rect.w, rect.h);
+        roundedRectPath(ctx, rect, useInner ? geometry.innerRadius : geometry.radius);
         return;
       }
 
@@ -1104,7 +1378,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (imageBoundsCache.has(cacheKey)) return imageBoundsCache.get(cacheKey);
 
       let bounds;
-      if (geometry.kind === "rect") {
+      if (geometry.kind === "roundedRect") {
         const source = geometry.innerBounds;
         let w = source.w;
         let h = w / safeAspect;
@@ -1140,8 +1414,18 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         return { widthCm: sideCm, heightCm: (Math.sqrt(3) / 2) * sideCm };
       }
 
+      if (shape === "ריבוע") {
+        const sideCm = numericParts[0] || numericParts[1] || 60;
+        return { widthCm: sideCm, heightCm: sideCm };
+      }
+
       if (numericParts.length >= 2) {
-        return { widthCm: numericParts[0], heightCm: numericParts[1] };
+        const first = numericParts[0];
+        const second = numericParts[1];
+        return {
+          widthCm: Math.max(first, second),
+          heightCm: Math.min(first, second)
+        };
       }
 
       const sideCm = numericParts[0] || 60;
@@ -1149,13 +1433,13 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     }
 
     function getTextScaleContext(shape) {
-      const sizeValue = sizeField?.element?.value || "";
-      const bounds = getShapeContentBounds(shape);
-      const dimensions = parseSizeToDimensionsCm(shape, sizeValue);
-      const signWidthCm = Math.max(1, Number(dimensions.widthCm) || 1);
-      const signHeightCm = Math.max(1, Number(dimensions.heightCm) || 1);
-      const contentWidthRatio = bounds.w / previewCanvas.width;
-      const contentHeightRatio = bounds.h / previewCanvas.height;
+      const geometry = buildShapeGeometry(shape);
+      const bounds = geometry?.innerBounds || getShapeContentBounds(shape);
+      const outerBounds = geometry?.outerBounds || { w: previewCanvas.width, h: previewCanvas.height };
+      const signWidthCm = Math.max(1, Number(geometry?.signWidthCm) || 1);
+      const signHeightCm = Math.max(1, Number(geometry?.signHeightCm) || 1);
+      const contentWidthRatio = bounds.w / Math.max(outerBounds.w, 1);
+      const contentHeightRatio = bounds.h / Math.max(outerBounds.h, 1);
       const contentWidthCm = Math.max(1, signWidthCm * contentWidthRatio);
       const contentHeightCm = Math.max(1, signHeightCm * contentHeightRatio);
       const pxPerCmX = bounds.w / contentWidthCm;
@@ -1170,6 +1454,21 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       };
     }
 
+    function getSignScaleContext(shape) {
+      const geometry = buildShapeGeometry(shape);
+      const outerBounds = geometry?.outerBounds || { w: previewCanvas.width, h: previewCanvas.height };
+      const signWidthCm = Math.max(1, Number(geometry?.signWidthCm) || 1);
+      const signHeightCm = Math.max(1, Number(geometry?.signHeightCm) || 1);
+
+      return {
+        outerBounds,
+        signWidthCm,
+        signHeightCm,
+        pxPerCmX: outerBounds.w / signWidthCm,
+        pxPerCmY: outerBounds.h / signHeightCm
+      };
+    }
+
     function getDynamicLineLengthCm(shape, contentWidthCm, contentHeightCm, textOffsetY = 0, pxPerCmY = 1) {
       const offsetYcm = Number(textOffsetY || 0) / Math.max(pxPerCmY, 0.001);
       const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
@@ -1178,39 +1477,74 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         const baseRatio = shape === "משולש" ? 0.62 : 0.38;
         const verticalRatio = clamp(baseRatio + (offsetYcm / Math.max(contentHeightCm, 0.001)), 0.12, 0.88);
         const widthRatio = shape === "משולש" ? verticalRatio : (1 - verticalRatio);
-        return Math.max(3, contentWidthCm * widthRatio * 0.92);
+        return Math.max(6, contentWidthCm * widthRatio * 1.25);
       }
 
-      if (shape === "עיגול") return Math.max(3, contentWidthCm * 0.78);
-      if (shape === "מתומן") return Math.max(3, contentWidthCm * 0.82);
-      return Math.max(3, contentWidthCm * 0.92);
+      if (shape === "עיגול") return Math.max(6, contentWidthCm * 1.18);
+      if (shape === "מתומן") return Math.max(6, contentWidthCm * 1.22);
+      return Math.max(6, contentWidthCm * 1.45);
     }
 
     function getDynamicThicknessMaxCm(shape, contentHeightCm, maxLineCm) {
       if (shape === "משולש" || shape === "משולש הפוך") {
-        return Math.max(0.8, Math.min(contentHeightCm * 0.22, maxLineCm * 0.20));
+        return Math.max(1.4, Math.min(contentHeightCm * 0.34, maxLineCm * 0.28));
       }
       if (shape === "עיגול" || shape === "מתומן") {
-        return Math.max(0.8, Math.min(contentHeightCm * 0.36, maxLineCm * 0.24));
+        return Math.max(1.4, Math.min(contentHeightCm * 0.54, maxLineCm * 0.32));
       }
-      return Math.max(0.8, Math.min(contentHeightCm * 0.48, maxLineCm * 0.26));
+      return Math.max(1.4, Math.min(contentHeightCm * 0.76, maxLineCm * 0.34));
     }
 
     function drawFallbackBoard(shape) {
       if (!previewCtx || !previewCanvas) return;
+      resizePreviewCanvasForShape(shape);
       const ctx = previewCtx;
       const { width, height } = previewCanvas;
       ctx.clearRect(0, 0, width, height);
       ctx.fillStyle = "#ffffff";
       ctx.fillRect(0, 0, width, height);
 
+      const geometry = buildShapeGeometry(shape);
+      if (!geometry) return;
+
       ctx.save();
-      ctx.fillStyle = "#ffffff";
-      ctx.strokeStyle = "#111827";
-      ctx.lineWidth = 8;
-      drawShapePath(shape);
-      ctx.fill();
-      ctx.stroke();
+      if (shape === "מרובע" || shape === "ריבוע") {
+        const blue = "#2f4f97";
+        const outerLine = clamp(Math.min(geometry.outerBounds.w, geometry.outerBounds.h) * 0.035, 7, 22);
+        const innerGap = clamp(outerLine * 2.15, 14, 42);
+        const innerLineBounds = {
+          x: geometry.outerBounds.x + innerGap,
+          y: geometry.outerBounds.y + innerGap,
+          w: Math.max(10, geometry.outerBounds.w - innerGap * 2),
+          h: Math.max(10, geometry.outerBounds.h - innerGap * 2)
+        };
+
+        drawShapePath(shape);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+
+        ctx.strokeStyle = blue;
+        ctx.lineWidth = outerLine;
+        drawShapePath(shape);
+        ctx.stroke();
+
+        ctx.lineWidth = Math.max(4, outerLine * 0.55);
+        roundedRectPath(ctx, innerLineBounds, Math.max(2, geometry.radius * 0.55));
+        ctx.stroke();
+      } else {
+        drawShapePath(shape);
+        ctx.fillStyle = "#ef1717";
+        ctx.fill();
+
+        drawShapePath(shape, "inner");
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+
+        ctx.strokeStyle = "#111827";
+        ctx.lineWidth = clamp(Math.min(geometry.outerBounds.w, geometry.outerBounds.h) * 0.012, 3, 10);
+        drawShapePath(shape);
+        ctx.stroke();
+      }
       ctx.restore();
     }
 
@@ -1227,15 +1561,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       const safeThicknessCm = Math.max(0.4, Math.min(dynamicMaxThicknessCm, Number(textTransform.fontThicknessCm) || 0));
       const maxWidth = Math.max(1, safeLineLengthCm * pxPerCmX);
 
-      const fontFamilyMap = {
-        Arial: 'Arial, sans-serif',
-        Rubik: '"Rubik", Arial, sans-serif',
-        Assistant: '"Assistant", Arial, sans-serif',
-        'Noto Sans Hebrew': '"Noto Sans Hebrew", Arial, sans-serif'
-      };
-      const selectedFont = textTransform.fontFamily || "Arial";
-      const safeFontFamily = fontFamilyMap[selectedFont] || fontFamilyMap.Arial;
-      const safeFontWeight = textTransform.fontWeight || "700";
+      const safeFontFamily = CUSTOM_DESIGN_TEXT_FONT_FAMILY;
+      const safeFontWeight = CUSTOM_DESIGN_TEXT_FONT_WEIGHT;
       const safeFontSize = Math.max(14, Math.min(180, safeThicknessCm * pxPerCmY));
       ctx.font = `${safeFontWeight} ${safeFontSize}px ${safeFontFamily}`;
 
@@ -1297,16 +1624,18 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       const lineHeight = Math.floor(safeFontSize * 1.2);
       const maxLines = Math.max(1, Math.floor(bounds.h / Math.max(lineHeight, 1)));
       const fittedLines = lines.slice(0, maxLines);
-      const baseCenterYRatio = shape === "משולש" ? 0.56 : (shape === "משולש הפוך" ? 0.40 : 0.33);
+      const baseCenterYRatio = shape === "משולש" ? 0.58 : (shape === "משולש הפוך" ? 0.42 : 0.5);
       const centerY = bounds.y + bounds.h * baseCenterYRatio + textTransform.offsetY;
       const centerX = previewCanvas.width / 2 + textTransform.offsetX;
       let startY = centerY - ((fittedLines.length - 1) * lineHeight) / 2;
       const minY = bounds.y + lineHeight * 0.8;
+      const maxStartY = bounds.y + bounds.h - Math.max(0, fittedLines.length - 1) * lineHeight - lineHeight * 0.35;
       if (startY < minY) startY = minY;
+      if (startY > maxStartY) startY = maxStartY;
 
       fittedLines.forEach((lineText, i) => {
         const rowY = startY + i * lineHeight;
-        ctx.fillText(lineText, centerX, rowY, maxWidth);
+        ctx.fillText(lineText, centerX, rowY);
       });
       ctx.restore();
     }
@@ -1340,39 +1669,40 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       });
     }
 
-    function drawBaseImage(shape) {
-      return new Promise((resolve) => {
-        if (!previewCtx || !previewCanvas) {
-          resolve();
-          return;
-        }
-        const src = blankImageByShape[shape];
-        if (!src) {
-          drawFallbackBoard(shape);
-          resolve();
-          return;
-        }
-        const img = new Image();
-        img.onload = () => {
-          previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
+    async function drawBaseImage(shape, renderId = null) {
+      const geometry = buildShapeGeometry(shape);
+      const usesTriangleAsset = shape === "משולש" || shape === "משולש הפוך";
+
+      if (usesTriangleAsset && geometry && previewCtx && previewCanvas) {
+        const img = await loadBlankShapeImage(blankImageByShape[shape]);
+        if (renderId !== null && renderId !== previewRenderId) return;
+
+        if (img) {
+          const { width, height } = previewCanvas;
+          previewCtx.clearRect(0, 0, width, height);
           previewCtx.fillStyle = "#ffffff";
-          previewCtx.fillRect(0, 0, previewCanvas.width, previewCanvas.height);
-          const scale = Math.min(previewCanvas.width / img.width, previewCanvas.height / img.height);
-          const w = img.width * scale;
-          const h = img.height * scale;
-          const x = (previewCanvas.width - w) / 2;
-          const y = (previewCanvas.height - h) / 2;
-          baseImageFrame = { x, y, w, h };
-          clearPreviewGeometryCaches();
-          previewCtx.drawImage(img, x, y, w, h);
-          resolve();
+          previewCtx.fillRect(0, 0, width, height);
+
+          const target = fitImageInsideRect(img.naturalWidth || img.width, img.naturalHeight || img.height, geometry.outerBounds);
+          previewCtx.save();
+          previewCtx.imageSmoothingEnabled = true;
+          previewCtx.imageSmoothingQuality = "high";
+          previewCtx.drawImage(img, target.x, target.y, target.w, target.h);
+          previewCtx.restore();
+          baseImageFrame = target;
+          return;
+        }
+      }
+
+      drawFallbackBoard(shape);
+      if (geometry) {
+        baseImageFrame = {
+          x: geometry.outerBounds.x,
+          y: geometry.outerBounds.y,
+          w: geometry.outerBounds.w,
+          h: geometry.outerBounds.h
         };
-        img.onerror = () => {
-          drawFallbackBoard(shape);
-          resolve();
-        };
-        img.src = src;
-      });
+      }
     }
 
     function drawStoredPreview(dataUrl) {
@@ -1420,6 +1750,34 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       };
     }
 
+    function getNaturalTextLineLengthCm(shape, thicknessCm, minLineCm, maxLineCm) {
+      if (!previewCtx || !previewCanvas) return null;
+      const textInput = document.getElementById("customTextOptionInput");
+      const textValue = String(textInput?.value || "").trim();
+      if (!textValue) return null;
+
+      const { pxPerCmX, pxPerCmY } = getTextScaleContext(shape);
+      const safeThicknessCm = Math.max(0.4, Number(thicknessCm) || 3);
+      const safeFontSize = Math.max(14, Math.min(180, safeThicknessCm * pxPerCmY));
+      const safeFontFamily = CUSTOM_DESIGN_TEXT_FONT_FAMILY;
+      const safeFontWeight = CUSTOM_DESIGN_TEXT_FONT_WEIGHT;
+      const rows = textValue
+        .split("\n")
+        .map((row) => row.trim())
+        .filter(Boolean);
+
+      previewCtx.save();
+      previewCtx.font = `${safeFontWeight} ${safeFontSize}px ${safeFontFamily}`;
+      const longestLinePx = rows.reduce((maxWidth, row) => {
+        return Math.max(maxWidth, previewCtx.measureText(row).width);
+      }, 0);
+      previewCtx.restore();
+
+      if (!longestLinePx) return null;
+      const naturalLineCm = (longestLinePx / Math.max(pxPerCmX, 0.001)) * 1.08;
+      return Math.max(minLineCm, Math.min(maxLineCm, naturalLineCm));
+    }
+
     function recalcTextControlRanges(shape, source = "none") {
       if (!previewCanvas) return;
       const hasCustomText = getHasCustomText();
@@ -1457,42 +1815,56 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         textLineLengthInput.max = String(maxLineCm.toFixed(2));
       }
 
-      const linkRatio = Math.max(2, Math.min(16, Number(textTransform.linkRatio) || 8));
+      const linkRatio = Math.max(3, Math.min(18, Number(textTransform.linkRatio) || 8));
+      const defaultThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, 3));
 
       if (source === "thickness") {
-        const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, Number(textTransform.fontThicknessCm) || minThicknessCm));
-        const safeLine = Math.max(minLineCm, Math.min(maxLineCm, safeThickness * linkRatio));
+        const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, Number(textTransform.fontThicknessCm) || defaultThicknessCm));
+        const linkedLine = safeThickness * linkRatio;
         textTransform.fontThicknessCm = safeThickness;
-        textTransform.lineLengthCm = safeLine;
+        textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, linkedLine));
         return;
       }
 
       if (source === "line") {
         const safeLine = Math.max(minLineCm, Math.min(maxLineCm, Number(textTransform.lineLengthCm) || minLineCm));
-        const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, safeLine / linkRatio));
+        const linkedThickness = safeLine / linkRatio;
         textTransform.lineLengthCm = safeLine;
-        textTransform.fontThicknessCm = safeThickness;
+        textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, linkedThickness));
         return;
       }
 
-      const currentThickness = Number(textTransform.fontThicknessCm) || minThicknessCm;
-      const currentLine = Number(textTransform.lineLengthCm) || (currentThickness * linkRatio);
-      textTransform.fontThicknessCm = Math.max(minThicknessCm, Math.min(maxThicknessCm, currentThickness));
-      textTransform.lineLengthCm = Math.max(minLineCm, Math.min(maxLineCm, currentLine));
+      const currentThickness = Number(textTransform.fontThicknessCm) || defaultThicknessCm;
+      const safeThickness = Math.max(minThicknessCm, Math.min(maxThicknessCm, currentThickness));
+      const linkedDefaultLine = Math.min(maxLineCm, Math.max(minLineCm, safeThickness * linkRatio));
+      const naturalLine = getNaturalTextLineLengthCm(shape, safeThickness, minLineCm, maxLineCm);
+      const currentLine = Number(textTransform.lineLengthCm) || linkedDefaultLine;
+
+      textTransform.fontThicknessCm = safeThickness;
+      textTransform.lineLengthCm = hasManualTextSizing
+        ? Math.max(minLineCm, Math.min(maxLineCm, currentLine))
+        : Math.max(minLineCm, Math.min(maxLineCm, naturalLine || linkedDefaultLine));
     }
 
     let hasCustomEdits = false;
+    let hasManualTextSizing = false;
+    let previewRenderId = 0;
 
     async function updateCustomBoardPreview() {
+      const renderId = ++previewRenderId;
       const shape = shapeField?.element?.value || "מרובע";
       const textEnabled = textField?.element?.value === "כן";
       const imageEnabled = imageField?.element?.value === "כן";
       const textInput = document.getElementById("customTextOptionInput");
       const imageInput = document.getElementById("customImageOptionInput");
       const hasImageFile = Boolean(imageInput?.files?.[0]);
+      resizePreviewCanvasForShape(shape);
 
       if (imageControlsWrapper) {
         imageControlsWrapper.style.display = imageEnabled ? "block" : "none";
+      }
+      if (designResetWrapper) {
+        designResetWrapper.style.display = textEnabled || imageEnabled ? "block" : "none";
       }
 
       recalcTextControlRanges(shape, "none");
@@ -1502,10 +1874,12 @@ function renderOptions(options, productId = "", productCategory = "", productTit
         return;
       }
 
-      await drawBaseImage(shape);
+      await drawBaseImage(shape, renderId);
+      if (renderId !== previewRenderId) return;
       if (imageEnabled && hasImageFile) {
         const file = imageInput.files[0];
         await drawUserImageOnBoard(file, shape);
+        if (renderId !== previewRenderId) return;
       }
 
       if (textEnabled) {
@@ -1514,7 +1888,6 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       }
     }
 
-    const textFontFamilyInput = document.getElementById("customTextFontFamily");
     const textFontColorInput = document.getElementById("customTextFontColor");
     const textFontThicknessInput = document.getElementById("customTextFontThickness");
     const textLineLengthInput = document.getElementById("customTextLineLength");
@@ -1522,7 +1895,8 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const textOffsetYInput = document.getElementById("customTextOffsetY");
     const customTextInput = document.getElementById("customTextOptionInput");
     const customImageInput = document.getElementById("customImageOptionInput");
-    const textResetButton = document.getElementById("customTextResetButton");
+    const textOffsetXResetButton = document.getElementById("customTextOffsetXReset");
+    const textOffsetYResetButton = document.getElementById("customTextOffsetYReset");
     const textFontThicknessValue = document.getElementById("customTextFontThicknessValue");
     const textLineLengthValue = document.getElementById("customTextLineLengthValue");
     const textOffsetXValue = document.getElementById("customTextOffsetXValue");
@@ -1531,6 +1905,9 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     const imageOffsetXInput = document.getElementById("customImageOffsetX");
     const imageOffsetYInput = document.getElementById("customImageOffsetY");
     const imageScaleInput = document.getElementById("customImageScale");
+    const imageOffsetXResetButton = document.getElementById("customImageOffsetXReset");
+    const imageOffsetYResetButton = document.getElementById("customImageOffsetYReset");
+    const designPlacementResetButton = document.getElementById("customDesignPlacementReset");
     const imageOffsetXValue = document.getElementById("customImageOffsetXValue");
     const imageOffsetYValue = document.getElementById("customImageOffsetYValue");
     const imageScaleValue = document.getElementById("customImageScaleValue");
@@ -1542,49 +1919,65 @@ function renderOptions(options, productId = "", productCategory = "", productTit
 
     const formatCm = (value) => Number(value || 0).toFixed(2);
 
-    const resetTextTransform = () => {
-      textTransform.fontColor = "#111827";
-      textTransform.fontFamily = "Arial";
-      textTransform.offsetX = 0;
-      textTransform.offsetY = 0;
-      textTransform.fontThicknessCm = 3;
-      textTransform.lineLengthCm = 24;
-    };
-
     const syncImageControls = () => {
-      if (imageOffsetXInput) imageOffsetXInput.value = String(Math.round(-imageTransform.offsetX));
-      if (imageOffsetYInput) imageOffsetYInput.value = String(Math.round(-imageTransform.offsetY));
+      const currentShape = shapeField?.element?.value || "מרובע";
+      resizePreviewCanvasForShape(currentShape);
+      const { outerBounds, pxPerCmX, pxPerCmY } = getSignScaleContext(currentShape);
+      const maxOffsetX = Math.max(20, Math.round(outerBounds.w * 0.5));
+      const maxOffsetY = Math.max(20, Math.round(outerBounds.h * 0.5));
+      imageTransform.offsetX = clamp(imageTransform.offsetX, -maxOffsetX, maxOffsetX);
+      imageTransform.offsetY = clamp(imageTransform.offsetY, -maxOffsetY, maxOffsetY);
+
+      if (imageOffsetXInput) {
+        imageOffsetXInput.min = String(-maxOffsetX);
+        imageOffsetXInput.max = String(maxOffsetX);
+        imageOffsetXInput.value = String(Math.round(-imageTransform.offsetX));
+      }
+      if (imageOffsetYInput) {
+        imageOffsetYInput.min = String(-maxOffsetY);
+        imageOffsetYInput.max = String(maxOffsetY);
+        imageOffsetYInput.value = String(Math.round(-imageTransform.offsetY));
+      }
       if (imageScaleInput) imageScaleInput.value = String(Math.round(imageTransform.scale * 100));
-      if (imageOffsetXValue) imageOffsetXValue.textContent = String(Math.round(imageTransform.offsetX));
-      if (imageOffsetYValue) imageOffsetYValue.textContent = String(Math.round(imageTransform.offsetY));
+      if (imageOffsetXValue) imageOffsetXValue.textContent = formatCm(imageTransform.offsetX / Math.max(pxPerCmX, 0.001));
+      if (imageOffsetYValue) imageOffsetYValue.textContent = formatCm(imageTransform.offsetY / Math.max(pxPerCmY, 0.001));
       if (imageScaleValue) imageScaleValue.textContent = String(Math.round(imageTransform.scale * 100));
+      if (imageOffsetXInput) imageOffsetXInput.dataset.cmValue = formatCm(imageTransform.offsetX / Math.max(pxPerCmX, 0.001));
+      if (imageOffsetYInput) imageOffsetYInput.dataset.cmValue = formatCm(imageTransform.offsetY / Math.max(pxPerCmY, 0.001));
     };
 
     const syncTextControls = () => {
       const currentShape = shapeField?.element?.value || "מרובע";
+      resizePreviewCanvasForShape(currentShape);
       recalcTextControlRanges(currentShape, "none");
+      const textContext = getTextScaleContext(currentShape);
+      const maxOffsetX = Math.max(20, Math.round(textContext.bounds.w * 0.5));
+      const maxOffsetY = Math.max(20, Math.round(textContext.bounds.h * 0.5));
+      textTransform.offsetX = clamp(textTransform.offsetX, -maxOffsetX, maxOffsetX);
+      textTransform.offsetY = clamp(textTransform.offsetY, -maxOffsetY, maxOffsetY);
 
       if (textFontThicknessInput) textFontThicknessInput.value = String(textTransform.fontThicknessCm.toFixed(2));
       if (textLineLengthInput) textLineLengthInput.value = String(textTransform.lineLengthCm.toFixed(2));
-      if (textOffsetXInput) textOffsetXInput.value = String(Math.round(textTransform.offsetX));
-      if (textOffsetYInput) textOffsetYInput.value = String(Math.round(textTransform.offsetY));
+      if (textOffsetXInput) {
+        textOffsetXInput.min = String(-maxOffsetX);
+        textOffsetXInput.max = String(maxOffsetX);
+        textOffsetXInput.value = String(Math.round(textTransform.offsetX));
+      }
+      if (textOffsetYInput) {
+        textOffsetYInput.min = String(-maxOffsetY);
+        textOffsetYInput.max = String(maxOffsetY);
+        textOffsetYInput.value = String(Math.round(textTransform.offsetY));
+      }
       if (textFontColorInput) textFontColorInput.value = textTransform.fontColor;
-      if (textFontFamilyInput) textFontFamilyInput.value = textTransform.fontFamily;
 
       if (textFontThicknessValue) textFontThicknessValue.textContent = formatCm(textTransform.fontThicknessCm);
       if (textLineLengthValue) textLineLengthValue.textContent = formatCm(textTransform.lineLengthCm);
-      if (textOffsetXValue) textOffsetXValue.textContent = formatCm(textTransform.offsetX / 37.8);
-      if (textOffsetYValue) textOffsetYValue.textContent = formatCm(textTransform.offsetY / 37.8);
+      if (textOffsetXValue) textOffsetXValue.textContent = formatCm(textTransform.offsetX / Math.max(textContext.pxPerCmX, 0.001));
+      if (textOffsetYValue) textOffsetYValue.textContent = formatCm(textTransform.offsetY / Math.max(textContext.pxPerCmY, 0.001));
+      if (textOffsetXInput) textOffsetXInput.dataset.cmValue = formatCm(textTransform.offsetX / Math.max(textContext.pxPerCmX, 0.001));
+      if (textOffsetYInput) textOffsetYInput.dataset.cmValue = formatCm(textTransform.offsetY / Math.max(textContext.pxPerCmY, 0.001));
     };
 
-    textFontFamilyInput?.addEventListener("change", async () => {
-      hasCustomEdits = true;
-      textTransform.fontFamily = textFontFamilyInput.value || "Arial";
-      if (document.fonts && document.fonts.ready) {
-        await document.fonts.ready;
-      }
-      updateCustomBoardPreview();
-    });
     textFontColorInput?.addEventListener("input", () => {
       hasCustomEdits = true;
       textTransform.fontColor = textFontColorInput.value || "#111827";
@@ -1593,6 +1986,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     });
     textFontThicknessInput?.addEventListener("input", () => {
       hasCustomEdits = true;
+      hasManualTextSizing = true;
       textTransform.fontThicknessCm = Number(textFontThicknessInput.value || 0);
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "thickness");
       syncTextControls();
@@ -1600,6 +1994,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     });
     textLineLengthInput?.addEventListener("input", () => {
       hasCustomEdits = true;
+      hasManualTextSizing = true;
       textTransform.lineLengthCm = Number(textLineLengthInput.value || 0);
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "line");
       syncTextControls();
@@ -1617,10 +2012,15 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       syncTextControls();
       updateCustomBoardPreview();
     });
-    textResetButton?.addEventListener("click", () => {
+    textOffsetXResetButton?.addEventListener("click", () => {
       hasCustomEdits = true;
-      resetTextTransform();
-      recalcTextControlRanges(shapeField?.element?.value || "מרובע", "none");
+      textTransform.offsetX = 0;
+      syncTextControls();
+      updateCustomBoardPreview();
+    });
+    textOffsetYResetButton?.addEventListener("click", () => {
+      hasCustomEdits = true;
+      textTransform.offsetY = 0;
       syncTextControls();
       updateCustomBoardPreview();
     });
@@ -1643,17 +2043,41 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       syncImageControls();
       updateCustomBoardPreview();
     });
+    imageOffsetXResetButton?.addEventListener("click", () => {
+      hasCustomEdits = true;
+      imageTransform.offsetX = 0;
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
+    imageOffsetYResetButton?.addEventListener("click", () => {
+      hasCustomEdits = true;
+      imageTransform.offsetY = 0;
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
+    designPlacementResetButton?.addEventListener("click", () => {
+      hasCustomEdits = true;
+      textTransform.offsetX = 0;
+      textTransform.offsetY = 0;
+      imageTransform.offsetX = 0;
+      imageTransform.offsetY = 0;
+      syncTextControls();
+      syncImageControls();
+      updateCustomBoardPreview();
+    });
 
     shapeField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "none");
       syncTextControls();
+      syncImageControls();
       updateCustomBoardPreview();
     });
     sizeField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
       recalcTextControlRanges(shapeField?.element?.value || "מרובע", "none");
       syncTextControls();
+      syncImageControls();
       updateCustomBoardPreview();
     });
     textField?.element?.addEventListener("change", () => {
@@ -1663,6 +2087,7 @@ function renderOptions(options, productId = "", productCategory = "", productTit
     });
     imageField?.element?.addEventListener("change", () => {
       hasCustomEdits = true;
+      syncImageControls();
       updateCustomBoardPreview();
     });
     customTextInput?.addEventListener("input", () => {
@@ -1678,6 +2103,54 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       syncImageControls();
       updateCustomBoardPreview();
     });
+
+    const restoreOffsetPx = (rawValue, axis, shape) => {
+      if (rawValue === undefined || rawValue === null || rawValue === "") return null;
+      const numericValue = typeof rawValue === "number" ? rawValue : parseNumericValue(rawValue);
+      if (!Number.isFinite(numericValue)) return null;
+
+      if (typeof rawValue === "string" && rawValue.includes("ס")) {
+        const scaleContext = getSignScaleContext(shape);
+        return numericValue * (axis === "x" ? scaleContext.pxPerCmX : scaleContext.pxPerCmY);
+      }
+
+      return numericValue;
+    };
+
+    const collectCustomDesignState = () => {
+      const shape = shapeField?.element?.value || "מרובע";
+      const textContext = getTextScaleContext(shape);
+      const signContext = getSignScaleContext(shape);
+      const textInput = document.getElementById("customTextOptionInput");
+      const notesInput = document.getElementById("customNotesOptionInput");
+
+      return {
+        shape,
+        size: sizeField?.element?.value || "",
+        textEnabled: textField?.element?.value || "לא",
+        imageEnabled: imageField?.element?.value || "לא",
+        textValue: String(textInput?.value || ""),
+        notes: String(notesInput?.value || ""),
+        textFontColor: textTransform.fontColor,
+        textFontThicknessCm: Number(textTransform.fontThicknessCm) || 0,
+        textLineLengthCm: Number(textTransform.lineLengthCm) || 0,
+        textOffsetX: Number(textTransform.offsetX) || 0,
+        textOffsetY: Number(textTransform.offsetY) || 0,
+        textOffsetXCm: Number(formatCm(textTransform.offsetX / Math.max(textContext.pxPerCmX, 0.001))),
+        textOffsetYCm: Number(formatCm(textTransform.offsetY / Math.max(textContext.pxPerCmY, 0.001))),
+        imageOffsetX: Number(imageTransform.offsetX) || 0,
+        imageOffsetY: Number(imageTransform.offsetY) || 0,
+        imageOffsetXCm: Number(formatCm(imageTransform.offsetX / Math.max(signContext.pxPerCmX, 0.001))),
+        imageOffsetYCm: Number(formatCm(imageTransform.offsetY / Math.max(signContext.pxPerCmY, 0.001))),
+        imageScale: Number(imageTransform.scale) || 1,
+        previewWidthPx: previewCanvas?.width || 0,
+        previewHeightPx: previewCanvas?.height || 0
+      };
+    };
+
+    if (previewCanvas) {
+      previewCanvas.tscGetCustomDesignState = collectCustomDesignState;
+    }
 
     if (restorePayload) {
       const applyFieldValue = (label, value) => {
@@ -1705,12 +2178,39 @@ function renderOptions(options, productId = "", productCategory = "", productTit
       if (customNotesInput && restorePayload.notes) {
         customNotesInput.value = restorePayload.notes;
       }
-      if (restorePayload.textFontFamily) textTransform.fontFamily = restorePayload.textFontFamily;
       if (restorePayload.textFontColor) textTransform.fontColor = restorePayload.textFontColor;
-      if (restorePayload.textFontThicknessCm !== undefined) textTransform.fontThicknessCm = Number(restorePayload.textFontThicknessCm) || 0;
-      if (restorePayload.textLineLengthCm !== undefined) textTransform.lineLengthCm = Number(restorePayload.textLineLengthCm) || 0;
-      if (restorePayload.textOffsetX) textTransform.offsetX = Number(restorePayload.textOffsetX) || 0;
-      if (restorePayload.textOffsetY) textTransform.offsetY = Number(restorePayload.textOffsetY) || 0;
+      let restoredTextSizing = false;
+      if (restorePayload.textFontThicknessCm !== undefined) {
+        const restoredThickness = parseNumericValue(restorePayload.textFontThicknessCm);
+        if (Number.isFinite(restoredThickness)) {
+          textTransform.fontThicknessCm = restoredThickness;
+          restoredTextSizing = true;
+        }
+      }
+      if (restorePayload.textLineLengthCm !== undefined) {
+        const restoredLineLength = parseNumericValue(restorePayload.textLineLengthCm);
+        if (Number.isFinite(restoredLineLength)) {
+          textTransform.lineLengthCm = restoredLineLength;
+          restoredTextSizing = true;
+        }
+      }
+      if (restoredTextSizing) hasManualTextSizing = true;
+      const restoreShape = shapeField?.element?.value || "מרובע";
+      const restoredTextOffsetX = restoreOffsetPx(restorePayload.textOffsetX, "x", restoreShape);
+      const restoredTextOffsetY = restoreOffsetPx(restorePayload.textOffsetY, "y", restoreShape);
+      const restoredImageOffsetX = restoreOffsetPx(restorePayload.imageOffsetX, "x", restoreShape);
+      const restoredImageOffsetY = restoreOffsetPx(restorePayload.imageOffsetY, "y", restoreShape);
+      if (restoredTextOffsetX !== null) textTransform.offsetX = restoredTextOffsetX;
+      if (restoredTextOffsetY !== null) textTransform.offsetY = restoredTextOffsetY;
+      if (restoredImageOffsetX !== null) imageTransform.offsetX = restoredImageOffsetX;
+      if (restoredImageOffsetY !== null) imageTransform.offsetY = restoredImageOffsetY;
+      if (restorePayload.imageScale !== undefined) {
+        const restoredScale = parseNumericValue(restorePayload.imageScale);
+        const scaleValue = typeof restorePayload.imageScale === "string" && restorePayload.imageScale.includes("%")
+          ? restoredScale / 100
+          : restoredScale;
+        imageTransform.scale = Math.max(0.2, Math.min(5, Number(scaleValue) || 1));
+      }
 
       hasCustomEdits = false;
       syncTextControls();
@@ -1786,7 +2286,11 @@ function setupAddToCart(productId, product, optionFields) {
   const btn = document.getElementById("addToCartBtn");
   const feedback = document.getElementById("addToCartFeedback");
   const qtyField = document.getElementById("productQty");
-  const pxToCm = (pxValue) => (Number(pxValue || 0) / 37.8).toFixed(2);
+  const readControlCm = (input) => {
+    const cmValue = Number(input?.dataset?.cmValue);
+    if (Number.isFinite(cmValue)) return cmValue.toFixed(2);
+    return "0.00";
+  };
   if (!btn || !feedback || !qtyField) return;
   qtyField.addEventListener("input", () => {
     const digitsOnly = String(qtyField.value || "").replace(/[^\d]/g, "");
@@ -1855,16 +2359,12 @@ function setupAddToCart(productId, product, optionFields) {
 
     const textEnabledValue = optionFields.find((field) => field.label === "כיתוב")?.element?.value;
     if (textEnabledValue === "כן") {
-      const textFontFamilyInput = document.getElementById("customTextFontFamily");
       const textFontThicknessInput = document.getElementById("customTextFontThickness");
       const textLineLengthInput = document.getElementById("customTextLineLength");
       const textFontColorInput = document.getElementById("customTextFontColor");
       const textOffsetXInput = document.getElementById("customTextOffsetX");
       const textOffsetYInput = document.getElementById("customTextOffsetY");
 
-      if (textFontFamilyInput?.value) {
-        selectedOptions.push({ name: "פונט כיתוב", value: textFontFamilyInput.value });
-      }
       if (textFontThicknessInput?.value) {
         selectedOptions.push({ name: "עובי פונט", value: `${Number(textFontThicknessInput.value).toFixed(2)} ס\"מ` });
       }
@@ -1875,11 +2375,23 @@ function setupAddToCart(productId, product, optionFields) {
         selectedOptions.push({ name: "צבע כיתוב", value: textFontColorInput.value });
       }
       if (textOffsetXInput?.value) {
-        selectedOptions.push({ name: "מיקום אופקי כיתוב", value: `${pxToCm(textOffsetXInput.value)} ס\"מ` });
+        selectedOptions.push({ name: "מיקום אופקי כיתוב", value: `${readControlCm(textOffsetXInput)} ס\"מ` });
       }
       if (textOffsetYInput?.value) {
-        selectedOptions.push({ name: "מיקום אנכי כיתוב", value: `${pxToCm(textOffsetYInput.value)} ס\"מ` });
+        selectedOptions.push({ name: "מיקום אנכי כיתוב", value: `${readControlCm(textOffsetYInput)} ס\"מ` });
       }
+    }
+
+    const imageEnabledValue = optionFields.find((field) => field.label === "תמונה")?.element?.value;
+    if (imageEnabledValue === "כן" && selectedImageFile) {
+      const imageOffsetXInput = document.getElementById("customImageOffsetX");
+      const imageOffsetYInput = document.getElementById("customImageOffsetY");
+      const imageScaleInput = document.getElementById("customImageScale");
+      selectedOptions.push(
+        { name: "מיקום אופקי תמונה", value: `${readControlCm(imageOffsetXInput)} ס\"מ` },
+        { name: "מיקום אנכי תמונה", value: `${readControlCm(imageOffsetYInput)} ס\"מ` },
+        { name: "גודל תמונה", value: `${Number(imageScaleInput?.value || 100).toFixed(0)}%` }
+      );
     }
 
     const quantity = Math.min(50, Math.max(1, Number(qtyField.value || 1)));
@@ -1898,9 +2410,15 @@ function setupAddToCart(productId, product, optionFields) {
       const previewCanvas = document.getElementById("customBoardPreviewCanvas");
       if (previewCanvas instanceof HTMLCanvasElement) {
         try {
+          const customDesignState = typeof previewCanvas.tscGetCustomDesignState === "function"
+            ? previewCanvas.tscGetCustomDesignState()
+            : null;
           const previewDataUrl = previewCanvas.toDataURL("image/jpeg", 0.86);
           nextItem.customDesignPreview = previewDataUrl;
           nextItem.image = previewDataUrl;
+          if (customDesignState) {
+            nextItem.customDesignState = customDesignState;
+          }
           selectedOptions.push({
             name: "תצוגת עיצוב",
             value: "מצורפת להזמנה"
@@ -2049,4 +2567,3 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   setupAddToCart(productId, product, optionFields);
 });
-

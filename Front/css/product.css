@@ -29,6 +29,11 @@
 .product-layout {
   padding: 1.25rem;
   border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.product-layout.card:hover {
+  transform: none;
 }
 
 .product-gallery__main {
@@ -40,6 +45,15 @@
   border: 0.0625rem solid #ececec;
   background: #ffffff;
   padding: 0.65rem;
+}
+
+#customBoardPreviewCanvas.product-gallery__main {
+  display: block;
+  height: auto;
+  aspect-ratio: var(--custom-preview-aspect, 4 / 3);
+  object-fit: initial;
+  max-height: min(70vh, 46rem);
+  padding: 0;
 }
 
 .product-gallery__thumbs {
@@ -202,6 +216,12 @@
   background: rgba(244, 163, 0, 0.25);
 }
 
+.product-options .tsc-custom-select__item:focus-visible {
+  outline: 0.18rem solid #0d6efd;
+  outline-offset: -0.18rem;
+  background: rgba(13, 110, 253, 0.12);
+}
+
 .product-options .tsc-custom-select__item.is-selected {
   background: #f4a300;
   color: #111827;
@@ -242,23 +262,38 @@
   gap: 0.35rem;
 }
 
-.custom-control-field--color-reset {
+.custom-control-field--with-reset {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
   column-gap: 0.5rem;
 }
 
-.custom-control-field--color-reset label {
+.custom-control-field--with-reset label {
   display: grid;
   gap: 0.35rem;
+  margin: 0;
 }
 
-.custom-text-reset-btn {
+.custom-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   min-width: 4.25rem;
   height: fit-content;
+  white-space: nowrap;
 }
 
-.custom-control-field > span {
+.custom-reset-btn--all {
+  min-width: 7rem;
+}
+
+.custom-design-reset {
+  margin-top: 0.6rem;
+}
+
+.custom-control-field > span,
+.custom-control-field label > span {
   font-size: 0.92rem;
   font-weight: 600;
 }
@@ -284,6 +319,22 @@
   min-width: 5.5rem;
 }
 
+@media (max-width: 87.5rem) {
+  .product-page {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 62rem) {
+  .product-page {
+    padding-inline: 1rem;
+  }
+
+  .product-title {
+    font-size: 1.75rem;
+  }
+}
+
 @media (max-width: 48rem) {
   .product-layout {
     padding: 1rem;
@@ -292,6 +343,11 @@
   .product-gallery__main {
     aspect-ratio: 1 / 1;
     padding: 0.5rem;
+  }
+
+  #customBoardPreviewCanvas.product-gallery__main {
+    aspect-ratio: var(--custom-preview-aspect, 4 / 3);
+    max-height: none;
   }
 
   .product-gallery__thumb {
@@ -311,15 +367,16 @@
     display: none !important;
   }
 
-  .custom-control-field--color-reset {
+  .custom-control-field--with-reset {
     grid-template-columns: 1fr;
   }
 
-  .custom-text-reset-btn {
+  .custom-reset-btn {
     width: 100%;
   }
 
-  .custom-control-field > span {
+  .custom-control-field > span,
+  .custom-control-field label > span {
     font-size: 1rem;
   }
 
@@ -331,5 +388,29 @@
 
   .product-gallery__thumb {
     flex: 0 0 4rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .product-page {
+    padding-inline: 0.75rem;
+  }
+
+  .product-layout {
+    padding: 0.85rem;
+    border-radius: 1rem;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+  }
+
+  .product-chip {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .product-actions {
+    gap: 0.55rem;
   }
 }

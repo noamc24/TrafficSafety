@@ -84,6 +84,29 @@ object {
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 0.2rem solid #0d6efd !important;
+  outline-offset: 0.18rem !important;
+  box-shadow: 0 0 0 0.35rem rgba(13, 110, 253, 0.24) !important;
+}
+
+body.accessibility-high-contrast a:focus-visible,
+body.accessibility-high-contrast button:focus-visible,
+body.accessibility-high-contrast input:focus-visible,
+body.accessibility-high-contrast select:focus-visible,
+body.accessibility-high-contrast textarea:focus-visible,
+body.accessibility-high-contrast .btn:focus-visible,
+body.accessibility-high-contrast [tabindex]:not([tabindex="-1"]):focus-visible {
+  outline-color: #ffeb3b !important;
+  box-shadow: 0 0 0 0.35rem rgba(255, 235, 59, 0.42) !important;
+}
+
 .card-body {
   display: flex;
   flex-direction: column;

@@ -490,6 +490,25 @@ button:focus-visible {
 
 /* ===== Extra Small ===== */
 @media (max-width: 36rem) {
+  .store-page .container {
+    width: min(100% - 1.5rem, 95rem);
+  }
+
+  .store-search {
+    min-width: 0;
+  }
+
+  .store-filter-btn,
+  .store-subfilters .store-filter-btn {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .product-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
   .product-card__body {
     padding: 1rem;
   }

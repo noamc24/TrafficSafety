@@ -4,6 +4,7 @@ window.initAccessibilityTools = function () {
   const disableAnimations = document.getElementById("disableAnimations");
   const readableFont = document.getElementById("readableFont");
   const applyButton = document.getElementById("applyAccessibility");
+  const resetButton = document.getElementById("resetAccessibility");
 
   if (!increaseText || !highContrast || !disableAnimations || !readableFont || !applyButton) {
     return;
@@ -14,26 +15,49 @@ window.initAccessibilityTools = function () {
   }
   applyButton.dataset.initialized = "true";
 
-  const savedSettings = JSON.parse(localStorage.getItem("accessibilitySettings")) || {};
+  const controls = [increaseText, highContrast, disableAnimations, readableFont];
+  const readSavedSettings = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem("accessibilitySettings") || "{}");
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      localStorage.removeItem("accessibilitySettings");
+      return {};
+    }
+  };
 
-  increaseText.checked = !!savedSettings.increaseText;
-  highContrast.checked = !!savedSettings.highContrast;
-  disableAnimations.checked = !!savedSettings.disableAnimations;
-  readableFont.checked = !!savedSettings.readableFont;
+  const syncControls = (settings) => {
+    increaseText.checked = !!settings.increaseText;
+    highContrast.checked = !!settings.highContrast;
+    disableAnimations.checked = !!settings.disableAnimations;
+    readableFont.checked = !!settings.readableFont;
+  };
 
-  applyAccessibilitySettings(savedSettings);
+  const collectSettings = () => ({
+    increaseText: increaseText.checked,
+    highContrast: highContrast.checked,
+    disableAnimations: disableAnimations.checked,
+    readableFont: readableFont.checked,
+  });
 
-  applyButton.addEventListener("click", () => {
-    const settings = {
-      increaseText: increaseText.checked,
-      highContrast: highContrast.checked,
-      disableAnimations: disableAnimations.checked,
-      readableFont: readableFont.checked,
-    };
-
+  const saveAndApply = (settings) => {
     localStorage.setItem("accessibilitySettings", JSON.stringify(settings));
     applyAccessibilitySettings(settings);
+  };
 
+  const savedSettings = readSavedSettings();
+
+  syncControls(savedSettings);
+  applyAccessibilitySettings(savedSettings);
+
+  controls.forEach((control) => {
+    control.addEventListener("change", () => {
+      applyAccessibilitySettings(collectSettings());
+    });
+  });
+
+  applyButton.addEventListener("click", () => {
+    saveAndApply(collectSettings());
     const modalElement = document.getElementById("accessibilityModal");
     if (modalElement && window.bootstrap) {
       const modalInstance =
@@ -41,6 +65,17 @@ window.initAccessibilityTools = function () {
         new bootstrap.Modal(modalElement);
       modalInstance.hide();
     }
+  });
+
+  resetButton?.addEventListener("click", () => {
+    const emptySettings = {
+      increaseText: false,
+      highContrast: false,
+      disableAnimations: false,
+      readableFont: false,
+    };
+    syncControls(emptySettings);
+    saveAndApply(emptySettings);
   });
 };
 

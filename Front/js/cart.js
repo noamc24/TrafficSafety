@@ -162,6 +162,9 @@ function encodeSubmittedItemsForHash(items) {
 }
 
 function buildCustomDesignRestorePayload(item) {
+  const customState = item?.customDesignState && typeof item.customDesignState === "object"
+    ? item.customDesignState
+    : {};
   const textFontSizeRaw = getOptionValue(item, "גודל כיתוב");
   const customTextFontSizePx = Number(item?.customDesignTextFontSizePx);
   let restoredTextFontSize = "";
@@ -173,19 +176,21 @@ function buildCustomDesignRestorePayload(item) {
   }
   return {
     productId: item.productId,
-    shape: getOptionValue(item, "צורה"),
-    size: getOptionValue(item, "גודל"),
-    textEnabled: getOptionValue(item, "כיתוב"),
-    textValue: getOptionValue(item, "נוסח מותאם"),
-    textFontFamily: getOptionValue(item, "פונט כיתוב"),
+    shape: customState.shape || getOptionValue(item, "צורה"),
+    size: customState.size || getOptionValue(item, "גודל"),
+    textEnabled: customState.textEnabled || getOptionValue(item, "כיתוב"),
+    textValue: customState.textValue || getOptionValue(item, "נוסח מותאם"),
     textFontSize: restoredTextFontSize,
-    textFontColor: getOptionValue(item, "צבע כיתוב"),
-    textFontThicknessCm: getOptionValue(item, "עובי פונט"),
-    textLineLengthCm: getOptionValue(item, "אורך שורה"),
-    textOffsetX: getOptionValueAny(item, ["מיקום אופקי כיתוב", "רוחב כיתוב", "מיקום כיתוב X"]),
-    textOffsetY: getOptionValueAny(item, ["מיקום אנכי כיתוב", "גובה כיתוב", "מיקום כיתוב Y"]),
-    imageEnabled: getOptionValue(item, "תמונה"),
-    notes: getOptionValue(item, "הערות"),
+    textFontColor: customState.textFontColor || getOptionValue(item, "צבע כיתוב"),
+    textFontThicknessCm: customState.textFontThicknessCm ?? getOptionValue(item, "עובי פונט"),
+    textLineLengthCm: customState.textLineLengthCm ?? getOptionValue(item, "אורך שורה"),
+    textOffsetX: customState.textOffsetX ?? getOptionValueAny(item, ["מיקום אופקי כיתוב", "רוחב כיתוב", "מיקום כיתוב X"]),
+    textOffsetY: customState.textOffsetY ?? getOptionValueAny(item, ["מיקום אנכי כיתוב", "גובה כיתוב", "מיקום כיתוב Y"]),
+    imageEnabled: customState.imageEnabled || getOptionValue(item, "תמונה"),
+    imageOffsetX: customState.imageOffsetX ?? getOptionValue(item, "מיקום אופקי תמונה"),
+    imageOffsetY: customState.imageOffsetY ?? getOptionValue(item, "מיקום אנכי תמונה"),
+    imageScale: customState.imageScale ?? getOptionValue(item, "גודל תמונה"),
+    notes: customState.notes || getOptionValue(item, "הערות"),
     customDesignPreview: item.customDesignPreview || "",
     savedAt: new Date().toISOString()
   };
