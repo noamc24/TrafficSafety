@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 Test.js
 .idea/
+.reports/
