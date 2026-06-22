@@ -18,6 +18,16 @@ async function mountPartials() {
         return r.text();
       });
       navbarMount.innerHTML = navHtml;
+      syncNavbarOffset();
+      setNavbarHidden(false);
+      navbarMount.querySelectorAll("img").forEach((img) => {
+        if (!img.complete) img.addEventListener("load", syncNavbarOffset, { once: true });
+      });
+      if (window.location.hash) {
+        setTimeout(() => {
+          scrollToSection(window.location.hash.replace(/^#/, ""), "auto");
+        }, 0);
+      }
       setActiveNavLink();
       updateActiveOnScroll();
       updateCartIndicators();
@@ -42,6 +52,76 @@ async function mountPartials() {
       footerMount.innerHTML = "";
     }
   }
+}
+
+function syncNavbarOffset() {
+  const navbarMount = document.getElementById("navbarMount");
+  if (!navbarMount) return;
+
+  const navbar = navbarMount.querySelector(".navbar");
+  if (!navbar) return;
+
+  const height = Math.ceil(navbar.getBoundingClientRect().height);
+  if (!height) return;
+
+  const heightPx = `${height}px`;
+  document.documentElement.style.setProperty("--navbar-offset", heightPx);
+  navbarMount.style.minHeight = heightPx;
+}
+
+function getNavbarOffset() {
+  syncNavbarOffset();
+  const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--navbar-offset"));
+  return Number.isFinite(offset) ? offset : 0;
+}
+
+function getSamePageHashTarget(link) {
+  if (!link) return "";
+
+  const href = link.getAttribute("href");
+  if (!href || href === "#") return "";
+
+  const url = new URL(href, window.location.href);
+  if (url.origin !== window.location.origin) return "";
+  if (normalizePath(url.pathname) !== normalizePath(window.location.pathname)) return "";
+
+  return (url.hash || "").replace(/^#/, "");
+}
+
+function scrollToSection(id, behavior = "smooth") {
+  if (!id) return;
+
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const offset = getNavbarOffset() + 16;
+  const top = Math.max(0, window.scrollY + el.getBoundingClientRect().top - offset);
+  window.scrollTo({ top, behavior });
+}
+
+let lastNavbarScrollY = window.scrollY || 0;
+
+function setNavbarHidden(hidden) {
+  const navbarMount = document.getElementById("navbarMount");
+  if (!navbarMount) return;
+
+  const mobileMenuOpen = document.getElementById("mobileMenu")?.classList.contains("show");
+  navbarMount.classList.toggle("navbar-hidden", Boolean(hidden && !mobileMenuOpen));
+}
+
+function updateNavbarVisibilityOnScroll() {
+  const currentScrollY = Math.max(window.scrollY || 0, 0);
+  const delta = currentScrollY - lastNavbarScrollY;
+
+  if (currentScrollY <= 8) {
+    setNavbarHidden(false);
+  } else if (delta > 2) {
+    setNavbarHidden(true);
+  } else if (delta < -1) {
+    setNavbarHidden(false);
+  }
+
+  lastNavbarScrollY = currentScrollY;
 }
 
 function normalizePath(p) {
@@ -95,11 +175,12 @@ function updateActiveOnScroll() {
   const ids = ['home', 'about', 'services', 'projects', 'signs', 'contact'];
   let best = null;
   let bestDist = Infinity;
+  const offset = getNavbarOffset() + 16;
   ids.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     const rect = el.getBoundingClientRect();
-    const dist = Math.abs(rect.top - 120);
+    const dist = Math.abs(rect.top - offset);
     if (dist < bestDist) {
       bestDist = dist;
       best = id;
@@ -120,17 +201,17 @@ let scrollRaf = null;
 function onScrollThrottled() {
   if (scrollRaf) return;
   scrollRaf = requestAnimationFrame(() => {
+    updateNavbarVisibilityOnScroll();
     updateActiveOnScroll();
     scrollRaf = null;
   });
 }
 
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('a[href^="#"]');
+  const a = e.target.closest && e.target.closest('a[href]');
   if (!a) return;
-  const href = a.getAttribute('href');
-  if (!href || href === '#') return;
-  const id = href.slice(1);
+  const id = getSamePageHashTarget(a);
+  if (!id) return;
   const el = document.getElementById(id);
   if (!el) return;
 
@@ -147,20 +228,22 @@ document.addEventListener('click', (e) => {
     }
     // Small delay to allow offcanvas to close before scrolling
     setTimeout(() => {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToSection(id);
       history.replaceState(null, '', `#${id}`);
       setTimeout(() => { updateActiveOnScroll(); }, 250);
     }, 300);
   } else {
     // For regular anchor links, prevent default and scroll
     e.preventDefault();
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToSection(id);
     history.replaceState(null, '', `#${id}`);
     setTimeout(() => { updateActiveOnScroll(); }, 250);
   }
 });
 
 document.addEventListener("click", (e) => {
+  if (e.defaultPrevented) return;
+
   const link = e.target.closest && e.target.closest("#mobileMenu a[href]");
   if (!link) return;
 
@@ -181,9 +264,7 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
     offcanvas?.hide();
     setTimeout(() => {
-      const el = document.getElementById(targetHash);
-      if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToSection(targetHash);
       history.replaceState(null, "", `#${targetHash}`);
       setTimeout(() => { updateActiveOnScroll(); }, 250);
     }, 250);
@@ -444,6 +525,8 @@ setupContactForm();
 setupImageLightbox();
 setupSectionToggles();
 updateActiveOnScroll();
+window.addEventListener("load", syncNavbarOffset);
+window.addEventListener("resize", syncNavbarOffset);
 window.addEventListener('scroll', onScrollThrottled, { passive: true });
 window.addEventListener("storage", (event) => {
   if (event.key === CART_STORAGE_KEY) updateCartIndicators();

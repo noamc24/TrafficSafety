@@ -1,8 +1,27 @@
 /* ===== Navbar ===== */
 .navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  width: 100%;
   padding-top: 1.2vh;
   padding-bottom: 0.2vh;
   background-color: var(--tsc-dark);
+  transform: translateY(0);
+  transition: transform 0.22s ease;
+  will-change: transform;
+}
+
+#navbarMount.navbar-hidden .navbar {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar {
+    transition: none;
+  }
 }
 
 .navbar .nav-link {
@@ -169,6 +188,8 @@
 
   .navbar-toggler {
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .navbar-mobile-spacer {
@@ -176,12 +197,17 @@
     width: 2.75rem;
     height: 2.25rem;
     flex-shrink: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .navbar-brand {
     flex: 1;
     justify-content: center;
     min-width: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
 
   .navbar .navbar-logo {
@@ -201,14 +227,26 @@
   }
 
   .navbar .navbar-logo {
-    height: 5.25rem;
+    height: 3.75rem;
+    flex-shrink: 0;
   }
 
   .navbar-brand .brand-text {
-    font-size: 1.1rem;
+    max-width: 7.5rem;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
 
   .offcanvas .nav-link {
     padding-block: 0.75rem;
+  }
+}
+
+@media (max-width: 23rem) {
+  .navbar-brand .brand-text {
+    display: none;
   }
 }

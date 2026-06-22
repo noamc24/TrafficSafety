@@ -18,6 +18,7 @@
   --tsc-yellow: #f4a300;
   --tsc-dark: #3c3c3c;
   --tsc-whatsapp: #25d366;
+  --navbar-offset: 6.75rem;
 }
 
 *,
@@ -40,7 +41,17 @@ body {
 
 /* Reserve partial mount space to reduce layout shifts before async navbar/footer injection */
 #navbarMount {
-  min-height: 6.75rem;
+  min-height: var(--navbar-offset);
+}
+
+#home,
+#about,
+#services,
+#projects,
+#signs,
+#contact,
+#main-content {
+  scroll-margin-top: calc(var(--navbar-offset) + 1rem);
 }
 
 #footerMount {
@@ -48,8 +59,12 @@ body {
 }
 
 @media (min-width: 62rem) {
+  :root {
+    --navbar-offset: 8.5rem;
+  }
+
   #navbarMount {
-    min-height: 8.5rem;
+    min-height: var(--navbar-offset);
   }
 }
 
